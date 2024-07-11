@@ -1,10 +1,10 @@
 import React from "react";
 import Menubar from "./Menubar";
 
-const Home = () => {
+const Home = ({isLogined, setIsLogined}) => {
     return(
         <>
-            <Menubar />
+            <Menubar isLogined={isLogined} setIsLogined={setIsLogined}/>
         </>
     );
 }

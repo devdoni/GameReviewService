@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import './css/wrap.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SignUp from "./member/SignUp";
@@ -7,13 +7,17 @@ import Modify from "./member/Modify";
 import Home from "./Home";
 
 const Wrap = () => {
+
+    // hook
+    const [isLogined, setIsLogined] = useState(false);
+    
     return(
         <BrowserRouter>
             <div id="wrap">
                     <Routes>
-                        <Route path='/'element={<Home />} />
+                        <Route path='/'element={<Home isLogined={isLogined} setIsLogined={setIsLogined}/>} />
                         <Route path='/signup'element={<SignUp />} />
-                        <Route path='/signin'element={<SignIn />} />
+                        <Route path='/signin'element={<SignIn isLogined={isLogined} setIsLogined={setIsLogined}/>} />
                         <Route path='/modify'element={<Modify />} />
 
                     </Routes>

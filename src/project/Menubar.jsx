@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './css/menubar.css';
 import './css/common.css';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { setLoginedSessionId } from "./utils/session";
 
-const Menubar = () => {
+const Menubar = ({isLogined, setIsLogined}) => {
+
+    const navigate = useNavigate();
+
+    const signOutBtnHandler = () => {
+        console.log('[Menubar] signOutBtnHandler()');
+
+        setLoginedSessionId();
+        setIsLogined(false);
+        navigate('/');
+        alert('로그아웃 완료');
+    }
+
     return(
         <div class="menubar">
             <ul>
@@ -19,15 +32,28 @@ const Menubar = () => {
                 <li>
                     <Link href="#none">추천 게임</Link>
                 </li>
-                <li>
-                    <Link href="#none">내정보</Link>
-                </li>
-                <li>
-                    <Link to='/signin'>로그인</Link>
-                </li>
-                <li>
-                    <Link to='/signup'>회원가입</Link>
-                </li>
+                {
+                    isLogined
+                    ?
+                    <>
+                        <li>
+                            <Link href="#none">내정보</Link>
+                        </li>
+                        <li>
+                            <Link href="none" onClick={signOutBtnHandler}>로그아웃</Link>
+                        </li>
+                    </>
+                    :
+                    <>
+                        <li>
+                            <Link to='/signin'>로그인</Link>
+                        </li>
+                        <li>
+                            <Link to='/signup'>회원가입</Link>
+                        </li>
+                    </>
+                }
+
                 <li>
                     <select class="Lang">
                         <option>Language</option>

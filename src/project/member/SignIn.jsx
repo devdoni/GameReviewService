@@ -7,7 +7,7 @@ import { setLoginedSessionId } from "../utils/session";
 
 
 
-const SignIn = () => {
+const SignIn = ({setIsLogined}) => {
 
     //hook
     const [uId, setUId] = useState('');
@@ -35,6 +35,7 @@ const SignIn = () => {
             alert('로그인에 성공했습니다');
 
             setLoginedSessionId(uId);
+            setIsLogined(true);
             navigete('/');
 
         } else {
