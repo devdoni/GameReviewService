@@ -1,12 +1,13 @@
 /* SIGN UP START*/
 
 #signup {
-    width: 300px;
+    width: 350px;
     margin: 150px auto;
 }
 
-#signup input.basic_input {
-    padding: 15px 80px 15px 5px;
+#signup input.basic_input,
+#input_id {
+    padding: 15px 170px 15px 5px;
     margin: 10px 0;
     border: 1px solid #dadada;
     border-radius: 4px;
@@ -32,6 +33,12 @@
 #signup input.basic_btn:active {
     outline: none;
 }
+#signup p {
+    padding-left: 5px;
+    font-size: .8em;
+    text-align: left;
+}
+
 /* SIGN UP END */
 
 /* SIGN IN START*/
@@ -47,6 +54,8 @@
     border-radius: 4px;
     text-align: left;
 }
+
+
 
 #signin input.basic_btn { 
     border-radius: 20px;

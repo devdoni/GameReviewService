@@ -3,10 +3,34 @@ export const USER_REVIEW_DB_IN_LOCAL_STORAGE = 'UserReviewDB';
 
 // API 
 
-// 아이디 문자열 길이를 체크하는 함수 아직 사용안함
+// Check API
+// 아이디 문자열 길이를 체크하는 함수
 export const idLengthCheck = (value) => {
-    return value.length >= 4 && value.length <= 12;
+    console.log('[Utils] idLengthCheck');
+    return value.length >= 5 && value.length <= 20;
 }
+// 비밀번호의 길이를 체크하는 함수
+export const pwLengthCheck = (value) => {
+    console.log('[Utils] idLengthCheck');
+    return value.length >= 8 && value.length <= 16;
+}
+
+
+// 아이디의 중복체크
+export const IdDuplicateCheck = (id) => {
+    console.log('[Utils] IdDuplicateCheck');
+    
+    let UserObj = getUserDB();
+    
+    for (let key in UserObj) {
+        if (UserObj[key].uId === id) {
+            return true;
+        }
+    }
+    
+    return false; 
+}
+
 
 // USER DB START
 export const getUserDB = () => {
