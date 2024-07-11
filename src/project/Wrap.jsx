@@ -12,6 +12,7 @@ const Wrap = () => {
     const [isLogined, setIsLogined] = useState(false);
     
     return(
+        <div className="background">
         <BrowserRouter>
             <div id="wrap">
                     <Routes>
@@ -23,6 +24,7 @@ const Wrap = () => {
                     </Routes>
             </div>
         </BrowserRouter>
+        </div>
     );
 }
 
