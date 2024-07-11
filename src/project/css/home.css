@@ -1,0 +1,59 @@
+div > ul > li {
+    display: inline-block;
+    padding: 10px;
+}
+
+div > ul > li > img.mimgs {
+    padding-top: 200px;
+} 
+
+div > ul > li >img.arw {
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 50px;
+    height: 50px;
+    padding: 50px 0;
+    margin-bottom: 150px;
+}
+
+div > div.btnbox {
+    display: inline-block;
+    margin: 12px 2px;
+    width: 20px;
+    height: 12px;
+    border-radius: 2px;
+    transition: background-color 0.2s;
+    background-color: hsla(202, 60%, 100%, 0.2);
+    cursor: pointer;
+}
+
+div > div.table1 {
+    margin: 50px 330px;
+    /* background-color: rgba(255, 255, 255, 0.1); */
+}
+
+div > div.table1 > table  {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+div > div.table1 > table > tr.thead1 {
+    text-align: left;
+    color: #ffffff
+}
+
+div > div.table1 > table > tr.thead1 > p {
+    padding-bottom: 10px;
+}
+
+div > div.table1 > table > div.tablebgimg{
+    border: none 1px rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+div > div.table1 > table > div.tablebgimg > tr > td > img.table1imgs {
+    width: 250px;
+    height: 141px;
+    object-fit: contain;
+    padding: 10px;
+    margin-right: 10px;
+}
