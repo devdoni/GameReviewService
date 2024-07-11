@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import '../css/signup.css';
 import { Link, useNavigate } from "react-router-dom";
-import { getDateTime, getUserDB, getUserReviewDB, IdDuplicateCheck, idLengthCheck, pwLengthCheck, setUserDB, setUserReviewDB } from "../utils/utils";
+import { getDateTime, getUserDB, getUserReviewDB, IdDuplicateCheck, setUserDB, setUserReviewDB, userIdCheck, userNameCheck, userNickNameCheck, userPwCheck } from "../utils/utils";
 const SignUp = () => {
 
     //hook 
@@ -12,9 +12,11 @@ const SignUp = () => {
     const [uPhone, setUPhone] = useState('');
     const [uMail, setUMail] = useState('');
 
-    const [isIdCheck, setIsIdCheck] = useState(false);        // 아이디 길이를 체크하는 State
+    const [isIdCheck, setIsIdCheck] = useState(false);        // 아이디 검증을 체크하는 State
     const [isPwCheck, setIsPwCheck] = useState(false);        // 비밀번호 검증을 체크하는 State  
-    const [isIdDuplicateCheck, setIsIdDuplicateCheck] = useState(false);        // 아이디 중복체크 State
+    const [isNameCheck, setIsNameCheck] = useState(false);    // 이름 검증을 체크하는 State  
+    const [isNickNameCheck, setIsNickNameCheck] = useState(false);  // 닉네임 검증을 체크하는 State
+    const [isIdDuplicateCheck, setIsIdDuplicateCheck] = useState(false);    // 아이디 중복체크 State
 
 
     const navgigate = useNavigate();
@@ -28,23 +30,25 @@ const SignUp = () => {
         console.log('[SIGNUP] uIdChangeHandler');
 
         setUId(e.target.value);
-        let check = idLengthCheck(e.target.value);
-        if (check) {
+
+        let regIdCheck = userIdCheck(e.target.value);
+        if (regIdCheck) {
             setIsIdCheck(true);        
         } else {
             setIsIdCheck(false);
         }
+
     }
 
     const uPwChaneHandler = (e) => {
         console.log('[SignUp] uPwChaneHandler');
 
         setUPw(e.target.value);
-        let check = pwLengthCheck(e.target.value);
-        if (check) {
-            setIsPwCheck(false);
+        let regPwCheck = userPwCheck(e.target.value);
+        if (regPwCheck) {
+            setIsPwCheck(true);        
         } else {
-            setIsPwCheck(true);
+            setIsPwCheck(false);
         }
     }
 
@@ -53,6 +57,12 @@ const SignUp = () => {
         console.log('[SignUp] uNameChangeHandler');
 
         setUName(e.target.value);
+        let regNameCheck = userNameCheck(e.target.value);
+        if (regNameCheck) {
+            setIsNameCheck(true);
+        } else {
+            setIsNameCheck(false);
+        }
 
     }
 
@@ -60,6 +70,12 @@ const SignUp = () => {
         console.log('[SignUp] uNickChangeHandler');
 
         setUNick(e.target.value);
+        let regNickNameCheck = userNickNameCheck(e.target.value);
+        if (regNickNameCheck) {
+            setIsNickNameCheck(true);
+        } else {
+            setIsNickNameCheck(false);
+        }
     }
 
     const uPhoneChangeHandler = (e) => {
@@ -85,6 +101,11 @@ const SignUp = () => {
 
         if (uPw === '' || uName === ''|| uNick === '') {
             alert('필수 정보를 입력해주세요.');
+            return;
+        }
+
+        if (!isIdCheck || !isPwCheck || !isNameCheck || !isNickNameCheck) {
+            alert('입력 정보를 확인해주세요.');
             return;
         }
         // USER DB 
@@ -153,7 +174,7 @@ const SignUp = () => {
             }
 
             if(!isIdCheck) {
-                alert('아이디는 5~20자의 영문 소문자만 사용 가능합니다. ')
+                alert('아이디는 5~20자의 영어 소문자와 숫자 조합만 사용 가능합니다. ')
                 return;
             }
 
@@ -187,9 +208,9 @@ const SignUp = () => {
             {
                 isIdCheck
                 ?
-                <p>5~20자의 영문 소문자만 사용 가능합니다.</p>
+                <p>5~20자의 영어 소문자와 숫자 조합만 사용 가능합니다.</p>
                 :
-                <p style={{color: '#ff0000'}}>5~20자의 영문 소문자만 사용 가능합니다.</p>
+                <p style={{color: '#ff0000'}}>5~20자의 영어 소문자와 숫자 조합만 사용가능합니다.</p>
             }
             {
                 isIdDuplicateCheck
@@ -204,13 +225,25 @@ const SignUp = () => {
                 ?
                 <p>8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.</p>
                 :
-                <p style={{color: '#ff0000'}}>8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.</p>
+                <p style={{color: '#ff0000'}}>8~16자의 영어 대/소문자+숫자+특수문자를 조합을 사용해 주세요.</p>
             }
             <input className="basic_input" name="UserName" type="text" onChange={uNameChangeHandler} placeholder="[필수] 이름"/>
-            <br />
+            {
+                isNameCheck
+                ?
+                <p>&nbsp</p>
+                :    
+                <p style={{color: '#ff0000'}}>이름을 입력해주세요.</p>
+            }
             <input className="basic_input" name="UserNickname" type="text" onChange={uNickChangeHandler} placeholder="[필수] 닉네임" />
-            <br />
-            <input className="basic_input" name="UserPhone" type="text" onChange={uPhoneChangeHandler} placeholder="[선택] 휴대전화 번호" />
+            {
+                isNickNameCheck
+                ?
+                <p> </p>
+                :    
+                <p style={{color: '#ff0000'}}>닉네임을 입력해주세요. (한글, 영어, 숫자 조합 3~16자)</p>
+            }
+            <input className="basic_input" name="UserPhone" type="text" onChange={uPhoneChangeHandler} placeholder="[선택] 휴대전화 번호 010-0000-0000" />
             <br />
             <input className="basic_input" type="email" name="UserEmail" onChange={uMailChangeHandler} placeholder="[선택] 이메일 주소" />
             <br />

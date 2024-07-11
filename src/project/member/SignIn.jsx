@@ -43,7 +43,6 @@ const SignIn = ({setIsLogined}) => {
 
             setLoginedSessionId('');
 
-            setUId('');
             setUPw('');
         }
 
@@ -51,9 +50,9 @@ const SignIn = ({setIsLogined}) => {
 
     return(
              <div id="signin">
-                <input class="basic_input" name="UserId" type="text" value={uId} onChange={uIdChangeHandler} placeholder="아이디" />
-                <input class="basic_input" name="UserPw" type="password" value={uPw} onChange={uPwChaneHandler} placeholder="비밀번호"/>
-                <input class="basic_btn" type="button" onClick={SignInBtnHandler} value="로그인" />
+                <input className="basic_input" name="UserId" type="text" value={uId} onChange={uIdChangeHandler} placeholder="아이디" />
+                <input className="basic_input" name="UserPw" type="password" value={uPw} onChange={uPwChaneHandler} placeholder="비밀번호"/>
+                <input className="basic_btn" type="button" onClick={SignInBtnHandler} value="로그인" />
                 <Link to={'/'}><input class="basic_btn" type="button" value="돌아가기" /></Link>
             </div>
     );

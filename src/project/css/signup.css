@@ -7,6 +7,7 @@
 
 #signup input.basic_input,
 #input_id {
+    width: 220px;
     padding: 15px 170px 15px 5px;
     margin: 10px 0;
     border: 1px solid #dadada;
