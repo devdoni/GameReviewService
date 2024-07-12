@@ -3,10 +3,56 @@ export const USER_REVIEW_DB_IN_LOCAL_STORAGE = 'UserReviewDB';
 
 // API 
 
-// 아이디 문자열 길이를 체크하는 함수 아직 사용안함
-export const idLengthCheck = (value) => {
-    return value.length >= 4 && value.length <= 12;
+// Check API
+// 아이디를 체크하는 함수
+export const userIdCheck = (value) => {
+    console.log('[Utils] useridStrCheck');
+
+	let regId = /^[a-z]+[a-z0-9]{4,19}$/g;
+ 
+	return regId.test(value);
 }
+// 비밀번호를 체크하는 함수
+export const userPwCheck = (value) => {
+    console.log('[Utils] userpwCheck');
+    let regPw = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{7,16}$/;
+     
+    return regPw.test(value); 
+
+}
+// 이름을 체크하는 함수
+export const userNameCheck = (value) => {
+    console.log('[Utils] userpwCheck');
+    let regName = /[가-힣]{3,5}$/;
+        
+        return regName.test(value);
+    
+}
+// 닉네임을 체크하는 함수
+export const userNickNameCheck = (value) => {
+    let regNickName = /^[a-zA-Zㄱ-힣0-9][a-zA-Zㄱ-힣0-9]{2,16}$/;
+ 
+	return regNickName.test(value);
+
+}
+
+
+
+// 아이디의 중복체크
+export const IdDuplicateCheck = (id) => {
+    console.log('[Utils] IdDuplicateCheck');
+    
+    let UserObj = getUserDB();
+    
+    for (let key in UserObj) {
+        if (UserObj[key].uId === id) {
+            return true;
+        }
+    }
+    
+    return false; 
+}
+
 
 // USER DB START
 export const getUserDB = () => {

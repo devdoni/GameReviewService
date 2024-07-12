@@ -18,9 +18,9 @@ const Menubar = ({isLogined, setIsLogined}) => {
     }
 
     return(
-        <div class="menubar">
+        <div className="menubar">
             <ul>
-                <li class="logo">
+                <li className="logo">
                     <Link to='/'><img src="./imgs/logo.png" /> </Link>
                 </li>
                 <li>
@@ -55,7 +55,7 @@ const Menubar = ({isLogined, setIsLogined}) => {
                 }
 
                 <li>
-                    <select class="Lang">
+                    <select className="Lang">
                         <option>Language</option>
                         <option>한국어</option>
                         <option>ENGLISH</option>

@@ -15,3 +15,7 @@ a {
     color: #dcdedf;
     cursor: pointer;
 }
+
+input {
+    cursor: pointer;
+}
