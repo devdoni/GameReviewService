@@ -10,12 +10,6 @@ ul {
     overflow: hidden;
 }
 
-a { 
-    text-decoration: none;
-    color: #dcdedf;
-    cursor: pointer;
-}
-
 input {
     cursor: pointer;
 }

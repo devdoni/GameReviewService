@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import '../css/signup.css';
 import { Link, useNavigate } from "react-router-dom";
 import { getDateTime, getUserDB, getUserReviewDB, IdDuplicateCheck, setUserDB, setUserReviewDB, userIdCheck, userNameCheck, userNickNameCheck, userPwCheck } from "../utils/utils";
+import Menubar from "../Menubar";
 const SignUp = () => {
 
     //hook 
@@ -202,53 +203,55 @@ const SignUp = () => {
     
 
     return (
-        <div id="signup">
-            <input id="input_id" name="UserId" type="text" onChange={uIdChangeHandler} placeholder="[필수] 아이디" />
-            <input className="basic_btn" type="button" onClick={idDuplicateCheckBtn} value="중복체크" />
-            {
-                isIdCheck
-                ?
-                <p>5~20자의 영어 소문자와 숫자 조합만 사용 가능합니다.</p>
-                :
-                <p style={{color: '#ff0000'}}>5~20자의 영어 소문자와 숫자 조합만 사용가능합니다.</p>
-            }
-            {
-                isIdDuplicateCheck
-                ?
-                null
-                :
-                <p style={{color: '#ff0000'}}>아이디 중복체크를 해주세요.</p>
-            }
-            <input class="basic_input" name="UserPw" type="password" onChange={uPwChaneHandler} placeholder="[필수] 비밀번호"/>
-            {
-                isPwCheck
-                ?
-                <p>8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.</p>
-                :
-                <p style={{color: '#ff0000'}}>8~16자의 영어 대/소문자+숫자+특수문자를 조합을 사용해 주세요.</p>
-            }
-            <input className="basic_input" name="UserName" type="text" onChange={uNameChangeHandler} placeholder="[필수] 이름"/>
-            {
-                isNameCheck
-                ?
-                <p>&nbsp</p>
-                :    
-                <p style={{color: '#ff0000'}}>이름을 입력해주세요.</p>
-            }
-            <input className="basic_input" name="UserNickname" type="text" onChange={uNickChangeHandler} placeholder="[필수] 닉네임" />
-            {
-                isNickNameCheck
-                ?
-                <p> </p>
-                :    
-                <p style={{color: '#ff0000'}}>닉네임을 입력해주세요. (한글, 영어, 숫자 조합 3~16자)</p>
-            }
-            <input className="basic_input" name="UserPhone" type="text" onChange={uPhoneChangeHandler} placeholder="[선택] 휴대전화 번호 010-0000-0000" />
-            <br />
-            <input className="basic_input" type="email" name="UserEmail" onChange={uMailChangeHandler} placeholder="[선택] 이메일 주소" />
-            <br />
-            <input className="basic_btn" type="button" onClick={SignUpBtnHandler} value="회원가입" />
-            <Link to={'/'}><input class="basic_btn" type="button" value="돌아가기" /></Link>
+        <div id="signup_wrap">
+            <div className="signup">
+                <input id="input_id" name="UserId" type="text" onChange={uIdChangeHandler} placeholder="[필수] 아이디" />
+                <input className="basic_btn" type="button" onClick={idDuplicateCheckBtn} value="중복체크" />
+                {
+                    isIdCheck
+                    ?
+                    <p>5~20자의 영어 소문자와 숫자 조합만 사용 가능합니다.</p>
+                    :
+                    <p style={{color: '#ff0000'}}>5~20자의 영어 소문자와 숫자 조합만 사용가능합니다.</p>
+                }
+                {
+                    isIdDuplicateCheck
+                    ?
+                    null
+                    :
+                    <p style={{color: '#ff0000'}}>아이디 중복체크를 해주세요.</p>
+                }
+                <input class="basic_input" name="UserPw" type="password" onChange={uPwChaneHandler} placeholder="[필수] 비밀번호"/>
+                {
+                    isPwCheck
+                    ?
+                    <p>8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.</p>
+                    :
+                    <p style={{color: '#ff0000'}}>8~16자의 영어 대/소문자+숫자+특수문자를 조합을 사용해 주세요.</p>
+                }
+                <input className="basic_input" name="UserName" type="text" onChange={uNameChangeHandler} placeholder="[필수] 이름"/>
+                {
+                    isNameCheck
+                    ?
+                    <p>&nbsp</p>
+                    :    
+                    <p style={{color: '#ff0000'}}>이름을 입력해주세요.</p>
+                }
+                <input className="basic_input" name="UserNickname" type="text" onChange={uNickChangeHandler} placeholder="[필수] 닉네임" />
+                {
+                    isNickNameCheck
+                    ?
+                    <p> </p>
+                    :    
+                    <p style={{color: '#ff0000'}}>닉네임을 입력해주세요. (한글, 영어, 숫자 조합 3~16자)</p>
+                }
+                <input className="basic_input" name="UserPhone" type="text" onChange={uPhoneChangeHandler} placeholder="[선택] 휴대전화 번호 010-0000-0000" />
+                <br />
+                <input className="basic_input" type="email" name="UserEmail" onChange={uMailChangeHandler} placeholder="[선택] 이메일 주소" />
+                <br />
+                <input className="basic_btn" type="button" onClick={SignUpBtnHandler} value="회원가입" />
+                <Link to={'/'}><input class="basic_btn" type="button" value="돌아가기" /></Link>
+            </div>
         </div>
     );
 }

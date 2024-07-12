@@ -1,11 +1,16 @@
 /* SIGN UP START*/
 
-#signup {
+#signup_wrap {
+
+} 
+
+#signup_wrap div.signup {
     width: 350px;
-    margin: 150px auto;
+    margin: 0px auto;
+    padding-top: 150px;
 }
 
-#signup input.basic_input,
+#signup_wrap div.signup input.basic_input,
 #input_id {
     width: 220px;
     padding: 15px 170px 15px 5px;
@@ -15,7 +20,7 @@
     text-align: left;
 }
 
-#signup input.basic_btn { 
+#signup_wrap > div.signup input.basic_btn { 
     border-radius: 20px;
     border: 1px solid #FF4B2B;
     background-color: #FF4B2B;
@@ -28,13 +33,13 @@
     transition: transform 80ms ease-in;
 }
 
-#signup input.basic_btn:active {
+#signup_wrap > div.signup input.basic_btn:active {
     transform: scale(0.95);
 }
-#signup input.basic_btn:active {
+#signup_wrap > div.signup input.basic_btn:active {
     outline: none;
 }
-#signup p {
+#signup_wrap > div.signup p {
     padding-left: 5px;
     font-size: .8em;
     text-align: left;
@@ -45,7 +50,8 @@
 /* SIGN IN START*/
 #signin {
     width: 300px;
-    margin: 150px auto;
+    margin: 0px auto;
+    padding-top: 150px;
 }
 
 #signin input.basic_input {

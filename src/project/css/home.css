@@ -1,9 +1,10 @@
-div > ul > li {
+div > ul > li,
+div > div.category > ul > li {
     display: inline-block;
     padding: 10px;
 }
 
-div > ul > li > img.mimgs {
+div > ul.mainimg > li > img.mimgs {
     padding-top: 200px;
 } 
 
@@ -15,7 +16,8 @@ div > ul > li >img.arw {
     margin-bottom: 150px;
 }
 
-div > div.btnbox {
+div > div.btnbox,
+div > div.category> div.btnbox {
     display: inline-block;
     margin: 12px 2px;
     width: 20px;
@@ -57,3 +59,52 @@ div > div.table1 > table > div.tablebgimg > tr > td > img.table1imgs {
     padding: 10px;
     margin-right: 10px;
 }
+
+
+
+
+div > div.categorybox > h2 {
+    color: #ffffff;
+}
+
+
+div > div.category > ul.categoryimg > li.cimgs {
+    padding: 0 auto;
+}
+
+div > div.categorybox > a.rpgimg > div.imgcarousel,
+div > div.categorybox > a.smulimg > div.imgcarousel,
+div > div.categorybox > a.sptimg > div.imgcarousel {
+  position: relative;
+  display: inline-block;  
+}
+
+div > div.categorybox > a.rpgimg > div.imgcarousel >img.imgcsl,
+div > div.categorybox > a.smulimg > div.imgcarousel >img.imgcsl,
+div > div.categorybox > a.sptimg > div.imgcarousel >img.imgcsl {
+    width: 274px;
+    padding: 20px;
+}
+
+div > div.categorybox > a.rpgimg > div.imgcarousel > div.gradient {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-image: linear-gradient( rgba(0,0,0,0),rgb(139,0,0) 100%);
+}
+
+div > div.categorybox > a.rpgimg > div.imgcarousel > span,
+div > div.categorybox > a.smulimg > div.imgcarousel > span,
+div > div.categorybox > a.sptimg > div.imgcarousel > span {
+    position: absolute;
+    bottom: 30%;
+    left: 42%;
+    font-size: 1.5em;
+    color: #ffffff;
+}
+
+
+
+
