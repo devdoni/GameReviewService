@@ -5,6 +5,7 @@ import SignUp from "./member/SignUp";
 import SignIn from "./member/SignIn";
 import Modify from "./member/Modify";
 import Home from "./Home";
+import Menubar from "./Menubar";
 
 const Wrap = () => {
 
@@ -15,6 +16,7 @@ const Wrap = () => {
         <div className="background">
         <BrowserRouter>
             <div id="wrap">
+                <Menubar isLogined={isLogined} setIsLogined={setIsLogined}/>
                     <Routes>
                         <Route path='/'element={<Home isLogined={isLogined} setIsLogined={setIsLogined}/>} />
                         <Route path='/signup'element={<SignUp />} />

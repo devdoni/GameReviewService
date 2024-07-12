@@ -37,7 +37,7 @@ const Menubar = ({isLogined, setIsLogined}) => {
                     ?
                     <>
                         <li>
-                            <Link href="#none">내정보</Link>
+                            <Link to='/modify'>내정보</Link>
                         </li>
                         <li>
                             <Link href="none" onClick={signOutBtnHandler}>로그아웃</Link>

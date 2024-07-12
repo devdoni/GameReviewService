@@ -1,13 +1,10 @@
 import React from "react";
 import Menubar from "./Menubar";
-import GameDB from "./db/GameDB";
 import './css/home.css';
 
-const Home = ({isLogined, setIsLogined}) => {
+const Home = () => {
     return(
         <>
-            <Menubar isLogined={isLogined} setIsLogined={setIsLogined}/>
-            <GameDB />
             <div id="hompage">
                 <ul className="mainimg">
                     <li><img src={process.env.PUBLIC_URL + './imgs/leftarrow.png'} className="arw" /></li>
