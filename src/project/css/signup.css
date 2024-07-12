@@ -11,7 +11,11 @@
 }
 
 #signup_wrap div.signup input.basic_input,
+<<<<<<< HEAD
 #input_id {
+=======
+#input_id, #input_nick {
+>>>>>>> 99bc146f35dba97bcc579d0833e98d44711295b0
     width: 220px;
     padding: 15px 170px 15px 5px;
     margin: 10px 0;

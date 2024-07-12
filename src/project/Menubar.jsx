@@ -2,18 +2,20 @@ import React, { useEffect, useState } from "react";
 import './css/menubar.css';
 import './css/common.css';
 import { Link, useNavigate } from "react-router-dom";
-import { setLoginedSessionId } from "./utils/session";
+import { getLoginedSessionId, setLoginedSessionId } from "./utils/session";
+import { getProdFlag } from "./utils/utils";
 
 const Menubar = ({isLogined, setIsLogined}) => {
 
     const navigate = useNavigate();
 
     const signOutBtnHandler = () => {
-        console.log('[Menubar] signOutBtnHandler()');
+        if(!getProdFlag()) console.log('[Menubar] signOutBtnHandler()');
 
         setLoginedSessionId();
         setIsLogined(false);
         navigate('/');
+
         alert('로그아웃 완료');
     }
 
@@ -24,13 +26,13 @@ const Menubar = ({isLogined, setIsLogined}) => {
                     <Link to='/'><img src="./imgs/logo.png" /> </Link>
                 </li>
                 <li>
-                    <Link href="#none">인기 게임</Link>
+                    <Link to='/popular'>인기 게임</Link>
                 </li>
                 <li>
-                    <Link href="#none">무료 게임</Link>
+                    <Link to='/free'>무료 게임</Link>
                 </li>
                 <li>
-                    <Link href="#none">추천 게임</Link>
+                    <Link to='/recommend'>추천 게임</Link>
                 </li>
                 {
                     isLogined
@@ -40,7 +42,7 @@ const Menubar = ({isLogined, setIsLogined}) => {
                             <Link to='/modify'>내정보</Link>
                         </li>
                         <li>
-                            <Link href="none" onClick={signOutBtnHandler}>로그아웃</Link>
+                            <Link to='/' onClick={signOutBtnHandler}>로그아웃</Link>
                         </li>
                     </>
                     :

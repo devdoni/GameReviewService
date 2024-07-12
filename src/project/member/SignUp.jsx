@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import '../css/signup.css';
 import { Link, useNavigate } from "react-router-dom";
+<<<<<<< HEAD
 import { getDateTime, getUserDB, getUserReviewDB, IdDuplicateCheck, setUserDB, setUserReviewDB, userIdCheck, userNameCheck, userNickNameCheck, userPwCheck } from "../utils/utils";
+=======
+import { getDateTime, getProdFlag, getUserDB, getUserReviewDB, IdDuplicateCheck, nickNameDuplicateCheck, setUserDB, setUserReviewDB, userIdCheck, userNameCheck, userNickNameCheck, userPwCheck } from "../utils/utils";
+>>>>>>> 99bc146f35dba97bcc579d0833e98d44711295b0
 import Menubar from "../Menubar";
 const SignUp = () => {
 
@@ -18,17 +22,19 @@ const SignUp = () => {
     const [isNameCheck, setIsNameCheck] = useState(false);    // 이름 검증을 체크하는 State  
     const [isNickNameCheck, setIsNickNameCheck] = useState(false);  // 닉네임 검증을 체크하는 State
     const [isIdDuplicateCheck, setIsIdDuplicateCheck] = useState(false);    // 아이디 중복체크 State
+    const [isNickDuplicateCheck, setIsNickDuplicateCheck] = useState(false);    // 닉네임 중복체크 State
+
 
 
     const navgigate = useNavigate();
 
     useEffect(() => {
-        console.log('[SIGNUP] useEffect()');
-    },[])
+        if(!getProdFlag()) console.log('[SIGNUP] useEffect()');
+    }, [])
 
     //Handler
     const uIdChangeHandler = (e) => {
-        console.log('[SIGNUP] uIdChangeHandler');
+        if(!getProdFlag()) console.log('[SIGNUP] uIdChangeHandler()');
 
         setUId(e.target.value);
 
@@ -42,7 +48,7 @@ const SignUp = () => {
     }
 
     const uPwChaneHandler = (e) => {
-        console.log('[SignUp] uPwChaneHandler');
+        if(!getProdFlag()) console.log('[SignUp] uPwChaneHandler()');
 
         setUPw(e.target.value);
         let regPwCheck = userPwCheck(e.target.value);
@@ -55,7 +61,7 @@ const SignUp = () => {
 
 
     const uNameChangeHandler = (e) => {
-        console.log('[SignUp] uNameChangeHandler');
+        if(!getProdFlag()) console.log('[SignUp] uNameChangeHandler()');
 
         setUName(e.target.value);
         let regNameCheck = userNameCheck(e.target.value);
@@ -68,7 +74,7 @@ const SignUp = () => {
     }
 
     const uNickChangeHandler = (e) => {
-        console.log('[SignUp] uNickChangeHandler');
+        if(!getProdFlag()) console.log('[SignUp] uNickChangeHandler()');
 
         setUNick(e.target.value);
         let regNickNameCheck = userNickNameCheck(e.target.value);
@@ -77,23 +83,32 @@ const SignUp = () => {
         } else {
             setIsNickNameCheck(false);
         }
+        
+        let nickCheck = nickNameDuplicateCheck(e.target.value);
+
+        if (nickCheck) {
+            setIsNickDuplicateCheck(true);
+        } else {
+            setIsNickDuplicateCheck(false);
+        }
+
     }
 
     const uPhoneChangeHandler = (e) => {
-        console.log('[SignUp] uPhoneChangeHandler');
+        if(!getProdFlag()) console.log('[SignUp] uPhoneChangeHandler()');
 
         setUPhone(e.target.value);
     }
 
     const uMailChangeHandler = (e) => {
-        console.log('[SignUp] uMailChangeHandler');
+        if(!getProdFlag()) console.log('[SignUp] uMailChangeHandler()');
 
         setUMail(e.target.value);
 
     }
 
     const SignUpBtnHandler = () => {
-        console.log('[Signup] SignUpBtnHandler');
+        if(!getProdFlag()) console.log('[Signup] SignUpBtnHandler()');
         
         if (!isIdDuplicateCheck) {
             alert('아이디 중복체크를 해주세요.');
@@ -105,7 +120,7 @@ const SignUp = () => {
             return;
         }
 
-        if (!isIdCheck || !isPwCheck || !isNameCheck || !isNickNameCheck) {
+        if (!isIdCheck || !isPwCheck || !isNameCheck || !isNickNameCheck || isNickDuplicateCheck) {
             alert('입력 정보를 확인해주세요.');
             return;
         }
@@ -166,7 +181,7 @@ const SignUp = () => {
         }
 
         const idDuplicateCheckBtn = () => {
-            console.log('[Signup] idDuplicateCheckBtn()')
+            if(!getProdFlag()) console.log('[Signup] idDuplicateCheckBtn()');
             let idCheck = IdDuplicateCheck(uId);
 
             if(isIdDuplicateCheck) {
@@ -180,7 +195,6 @@ const SignUp = () => {
             }
 
             if(idCheck) {
-                console.log('idCheck ===>', idCheck)
                 setIsIdDuplicateCheck(false);
                 alert('중복된 아이디입니다.');
 
@@ -225,19 +239,33 @@ const SignUp = () => {
                 {
                     isPwCheck
                     ?
+<<<<<<< HEAD
                     <p>8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.</p>
                     :
                     <p style={{color: '#ff0000'}}>8~16자의 영어 대/소문자+숫자+특수문자를 조합을 사용해 주세요.</p>
+=======
+                    <p>하나 이상의 특수문자와 영 대소문자와 숫자 조합을 사용해주세요. (8~16자)</p>
+                    :
+                    <p style={{color: '#ff0000'}}>하나 이상의 특수문자와 영 대소문자와 숫자 조합을 사용해주세요. (8~16자)</p>
+>>>>>>> 99bc146f35dba97bcc579d0833e98d44711295b0
                 }
                 <input className="basic_input" name="UserName" type="text" onChange={uNameChangeHandler} placeholder="[필수] 이름"/>
                 {
                     isNameCheck
                     ?
+<<<<<<< HEAD
                     <p>&nbsp</p>
                     :    
                     <p style={{color: '#ff0000'}}>이름을 입력해주세요.</p>
                 }
                 <input className="basic_input" name="UserNickname" type="text" onChange={uNickChangeHandler} placeholder="[필수] 닉네임" />
+=======
+                    null
+                    :    
+                    <p style={{color: '#ff0000'}}>이름을 입력해주세요.</p>
+                }
+                <input id="input_nick" name="UserNickname" type="text" onChange={uNickChangeHandler} placeholder="[필수] 닉네임" />
+>>>>>>> 99bc146f35dba97bcc579d0833e98d44711295b0
                 {
                     isNickNameCheck
                     ?
@@ -245,6 +273,17 @@ const SignUp = () => {
                     :    
                     <p style={{color: '#ff0000'}}>닉네임을 입력해주세요. (한글, 영어, 숫자 조합 3~16자)</p>
                 }
+<<<<<<< HEAD
+=======
+                {
+                    isNickDuplicateCheck
+                    ?
+                    <p style={{color: '#ff0000'}}>이미 사용중인 닉네임입니다.</p>   
+                    :                      
+                    null
+
+                }
+>>>>>>> 99bc146f35dba97bcc579d0833e98d44711295b0
                 <input className="basic_input" name="UserPhone" type="text" onChange={uPhoneChangeHandler} placeholder="[선택] 휴대전화 번호 010-0000-0000" />
                 <br />
                 <input className="basic_input" type="email" name="UserEmail" onChange={uMailChangeHandler} placeholder="[선택] 이메일 주소" />
