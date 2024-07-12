@@ -3,7 +3,7 @@ import React from "react";
 const Recomended = () => {
     return(
         <>
-            Recomended
+            Recommended
         </>
     );
 }

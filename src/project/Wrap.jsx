@@ -31,7 +31,7 @@ const Wrap = () => {
                         <Route path='/popular' element={<Popular />}/>
                         <Route path='/recommend' element={<Recomended />}/>
                         <Route path='/free' element={<Free />}/>
-                        <Route path='/detail' element={<Detail />}/>
+                        <Route path='/detail/:no' element={<Detail />}/>
                         <Route path='/*' element={<NG />} />
                     </Routes>
                 <Footer /> 

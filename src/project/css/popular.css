@@ -1,0 +1,25 @@
+#popular_wrap {
+    width: 1300px;
+    margin: 40px auto;
+    text-align: left;
+}
+
+#popular_wrap div.popular-header {
+    width: 100%;
+    text-align: left;
+    color: #fff;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#popular_wrap div.items {
+    width: 1300px;
+    background-color: #fff;
+}
+
+#popular_wrap div.items div.item {
+    display: grid;
+    grid-template-columns: 100px 800px 200px 200px;
+}
+
+

@@ -1,4 +1,4 @@
-    {
+    export const gamedata ={
     "BATTLEGROUNDS" :{
         "id": "0001",
         "출시년월": "2017년 12월 21일",
