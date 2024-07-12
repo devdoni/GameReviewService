@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
 import '../css/signup.css';
 import { Link, useNavigate } from "react-router-dom";
-<<<<<<< HEAD
-import { getDateTime, getUserDB, getUserReviewDB, IdDuplicateCheck, setUserDB, setUserReviewDB, userIdCheck, userNameCheck, userNickNameCheck, userPwCheck } from "../utils/utils";
-=======
 import { getDateTime, getProdFlag, getUserDB, getUserReviewDB, IdDuplicateCheck, nickNameDuplicateCheck, setUserDB, setUserReviewDB, userIdCheck, userNameCheck, userNickNameCheck, userPwCheck } from "../utils/utils";
->>>>>>> 99bc146f35dba97bcc579d0833e98d44711295b0
 import Menubar from "../Menubar";
 const SignUp = () => {
 
@@ -239,33 +235,19 @@ const SignUp = () => {
                 {
                     isPwCheck
                     ?
-<<<<<<< HEAD
-                    <p>8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.</p>
-                    :
-                    <p style={{color: '#ff0000'}}>8~16자의 영어 대/소문자+숫자+특수문자를 조합을 사용해 주세요.</p>
-=======
                     <p>하나 이상의 특수문자와 영 대소문자와 숫자 조합을 사용해주세요. (8~16자)</p>
                     :
                     <p style={{color: '#ff0000'}}>하나 이상의 특수문자와 영 대소문자와 숫자 조합을 사용해주세요. (8~16자)</p>
->>>>>>> 99bc146f35dba97bcc579d0833e98d44711295b0
                 }
                 <input className="basic_input" name="UserName" type="text" onChange={uNameChangeHandler} placeholder="[필수] 이름"/>
                 {
                     isNameCheck
                     ?
-<<<<<<< HEAD
-                    <p>&nbsp</p>
-                    :    
-                    <p style={{color: '#ff0000'}}>이름을 입력해주세요.</p>
-                }
-                <input className="basic_input" name="UserNickname" type="text" onChange={uNickChangeHandler} placeholder="[필수] 닉네임" />
-=======
                     null
                     :    
                     <p style={{color: '#ff0000'}}>이름을 입력해주세요.</p>
                 }
                 <input id="input_nick" name="UserNickname" type="text" onChange={uNickChangeHandler} placeholder="[필수] 닉네임" />
->>>>>>> 99bc146f35dba97bcc579d0833e98d44711295b0
                 {
                     isNickNameCheck
                     ?
@@ -273,8 +255,6 @@ const SignUp = () => {
                     :    
                     <p style={{color: '#ff0000'}}>닉네임을 입력해주세요. (한글, 영어, 숫자 조합 3~16자)</p>
                 }
-<<<<<<< HEAD
-=======
                 {
                     isNickDuplicateCheck
                     ?
@@ -283,7 +263,6 @@ const SignUp = () => {
                     null
 
                 }
->>>>>>> 99bc146f35dba97bcc579d0833e98d44711295b0
                 <input className="basic_input" name="UserPhone" type="text" onChange={uPhoneChangeHandler} placeholder="[선택] 휴대전화 번호 010-0000-0000" />
                 <br />
                 <input className="basic_input" type="email" name="UserEmail" onChange={uMailChangeHandler} placeholder="[선택] 이메일 주소" />
