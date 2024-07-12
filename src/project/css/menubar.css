@@ -1,9 +1,9 @@
 #wrap > div.menubar {
-    width: 100%;
+    width: 1900px;
 }
 
 #wrap > div.menubar > ul {
-    width: 100%;
+    width: 1900px;
     background-color: #000;
     /* position: fixed; */
 
@@ -20,6 +20,12 @@
     font-size: 1.2em;
     padding: 20px; 
     vertical-align:middle;
+}
+
+a { 
+    text-decoration: none;
+    color: #dcdedf;
+    cursor: pointer;
 }
 
 #wrap > div.menubar > ul > li a:hover {
@@ -40,3 +46,4 @@
     font-size: 14px;
     line-height: 16px;
 }
+

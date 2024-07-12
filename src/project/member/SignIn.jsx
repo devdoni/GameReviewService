@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import '../css/common.css';
 import '../css/signup.css';
 import { Link, useNavigate } from "react-router-dom";
-import { getMyInfo } from "../utils/utils";
+import { getMyInfo, getProdFlag } from "../utils/utils";
 import { setLoginedSessionId } from "../utils/session";
 
 
@@ -16,19 +16,19 @@ const SignIn = ({setIsLogined}) => {
 
     //handler
     const uIdChangeHandler = (e) => {
-        console.log('[SignIn] uIdChangeHandler()');
+        if(!getProdFlag()) console.log('[SignIn] uIdChangeHandler()');
 
         setUId(e.target.value);
     }
 
     const uPwChaneHandler = (e) => {
-        console.log('[SignIn] uPwChaneHandler()');
+        if(!getProdFlag()) console.log('[SignIn] uPwChaneHandler()');
 
         setUPw(e.target.value);
     }
 
     const SignInBtnHandler = () => {
-        console.log('[SignIn] SignInBtnHandler()');
+        if(!getProdFlag()) console.log('[SignIn] SignInBtnHandler()');
 
         let myUserInfo = getMyInfo(uId);
         if (myUserInfo !== undefined && myUserInfo.uPw === uPw) {

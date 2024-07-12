@@ -27,7 +27,7 @@ const Wrap = () => {
                         <Route path='/'element={<Home isLogined={isLogined} setIsLogined={setIsLogined}/>} />
                         <Route path='/signup'element={<SignUp />} />
                         <Route path='/signin'element={<SignIn isLogined={isLogined} setIsLogined={setIsLogined}/>} />
-                        <Route path='/modify'element={<Modify />} />
+                        <Route path='/modify'element={<Modify isLogined={isLogined} setIsLogined={setIsLogined}/>} />
                         <Route path='/popular' element={<Popular />}/>
                         <Route path='/recommend' element={<Recomended />}/>
                         <Route path='/free' element={<Free />}/>
