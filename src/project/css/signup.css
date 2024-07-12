@@ -11,7 +11,7 @@
 }
 
 #signup_wrap div.signup input.basic_input,
-#input_id {
+#input_id, #input_nick {
     width: 220px;
     padding: 15px 170px 15px 5px;
     margin: 10px 0;

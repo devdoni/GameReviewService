@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import { userIdCheck, userNameCheck, userNickNameCheck, userPwCheck } from "../utils/utils";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { getDateTime, getMyInfo, getProdFlag, getUserDB, getUserReviewDB, modNickDuplicateCheck, nickNameDuplicateCheck, setMyInfo, setUserDB, setUserReviewDB, userIdCheck, userNameCheck, userNickNameCheck, userPwCheck } from "../utils/utils";
+import { Link, useNavigate } from "react-router-dom";
+import { getLoginedSessionId, setLoginedSessionId } from "../utils/session";
 
-const Modify = () => {
+const Modify = ({setIsLogined}) => {
 
     //hook
     const [uId, setUId] = useState('');
@@ -11,80 +12,141 @@ const Modify = () => {
     const [uNick, setUNick] = useState('');
     const [uPhone, setUPhone] = useState('');
     const [uMail, setUMail] = useState('');
+    const navigate = useNavigate();
 
-    const [isIdCheck, setIsIdCheck] = useState(false);        // 아이디 검증을 체크하는 State
-    const [isPwCheck, setIsPwCheck] = useState(false);        // 비밀번호 검증을 체크하는 State  
-    const [isNameCheck, setIsNameCheck] = useState(false);    // 이름 검증을 체크하는 State  
-    const [isNickNameCheck, setIsNickNameCheck] = useState(false);  // 닉네임 검증을 체크하는 State
+    const [isPwCheck, setIsPwCheck] = useState(true);        // 비밀번호 검증을 체크하는 State  
+    const [isNickNameCheck, setIsNickNameCheck] = useState(true);  // 닉네임 검증을 체크하는 State
+    const [isNickDuplicateCheck, setIsNickDuplicateCheck] = useState(true);
+
+    useEffect(() => {
+        // MT DB GET
+        if(!getProdFlag()) console.log('[Modify] useEffect()');
+
+        let myInfo = getMyInfo(getLoginedSessionId());
+        if (myInfo === undefined) {
+            alert('로그인이 필요한 서비스입니다.')
+            navigate('/signin');
+            return;
+        }
+
+        setUId(myInfo.uId);
+        setUPw(myInfo.uPw);
+        setUName(myInfo.uName);
+        setUNick(myInfo.uNick);
+        setUPhone(myInfo.uPhone);
+        setUMail(myInfo.uMail);
+    }, [])
 
     const uIdChangeHandler = (e) => {
-        console.log('[Modify] uIdChangeHandler');
+        if(!getProdFlag()) console.log('[Modify] uIdChangeHandler()');
 
         setUId(e.target.value);
-
-        let regIdCheck = userIdCheck(e.target.value);
-        if (regIdCheck) {
-            setIsIdCheck(true);        
-        } else {
-            setIsIdCheck(false);
-        }
 
     }
 
     const uPwChaneHandler = (e) => {
-        console.log('[Modify] uPwChaneHandler');
+        if(!getProdFlag()) console.log('[Modify] uPwChaneHandler()');
 
         setUPw(e.target.value);
+
         let regPwCheck = userPwCheck(e.target.value);
         if (regPwCheck) {
             setIsPwCheck(true);        
         } else {
             setIsPwCheck(false);
         }
+
     }
-
-
     const uNameChangeHandler = (e) => {
-        console.log('[Modify] uNameChangeHandler');
+        if(!getProdFlag()) console.log('[Modify] uNameChangeHandler()');
 
         setUName(e.target.value);
-        let regNameCheck = userNameCheck(e.target.value);
-        if (regNameCheck) {
-            setIsNameCheck(true);
-        } else {
-            setIsNameCheck(false);
-        }
-
     }
 
     const uNickChangeHandler = (e) => {
-        console.log('[Modify] uNickChangeHandler');
+        if(!getProdFlag()) console.log('[Modify] uNickChangeHandler()');
 
         setUNick(e.target.value);
+
         let regNickNameCheck = userNickNameCheck(e.target.value);
         if (regNickNameCheck) {
             setIsNickNameCheck(true);
         } else {
             setIsNickNameCheck(false);
         }
+
     }
 
     const uPhoneChangeHandler = (e) => {
-        console.log('[Modify] uPhoneChangeHandler');
+        if(!getProdFlag()) console.log('[Modify] uPhoneChangeHandler()');
 
         setUPhone(e.target.value);
     }
 
     const uMailChangeHandler = (e) => {
-        console.log('[Modify] uMailChangeHandler');
+        if(!getProdFlag()) console.log('[Modify] uMailChangeHandler()');
 
         setUMail(e.target.value);
 
     }
 
     const modifyBtnHandler = ()  => {
-        console.log('[Modify] modifyBtnHandler()');
+        if(!getProdFlag()) console.log('[Modify] modifyBtnHandler()');
+
+        if (!isPwCheck || !isNickNameCheck) {
+            alert('입력 정보를 확인해주세요');
+            return;
+        }
+
+        let myInfo = getMyInfo(getLoginedSessionId());
+        myInfo.uPw = uPw;
+        myInfo.uNick = uNick;
+        myInfo.uPhone = uPhone;
+        myInfo.uMail = uMail;
+        myInfo.uModDate = getDateTime();
+        
+        setMyInfo(getLoginedSessionId(), myInfo);
+
+
+        alert('정보 수정이 완료되었습니다.');
+        navigate('/');
+
     }
+
+    const deleteBtnHandler = () => {
+        if(!getProdFlag()) console.log('[Modify] deleteBtnHandler()');
+
+        if (window.confirm('정말로 회원탈퇴를 하시겠습니까?')) {
+            
+            //DELETE USER INFO
+            let allUserInfo = getUserDB();
+
+            delete allUserInfo[getLoginedSessionId()].uPw;
+            delete allUserInfo[getLoginedSessionId()].uPhone;
+            delete allUserInfo[getLoginedSessionId()].uMail;
+            delete allUserInfo[getLoginedSessionId()].uName;
+            delete allUserInfo[getLoginedSessionId()].uModDate;
+
+            setUserDB(allUserInfo);
+
+            let allUserRiview = getUserReviewDB();
+
+            delete allUserRiview[getLoginedSessionId()]
+
+            setUserReviewDB(allUserRiview);
+
+            alert('회원탈퇴가 완료되었습니다.');
+
+            setLoginedSessionId();
+            setIsLogined(false);
+            navigate('/');
+
+            } else { 
+                alert("회원 탈퇴 요청이 취소되었습니다.");
+            }
+
+        } 
+
 
     return(
         <div id="signup_wrap">
@@ -98,7 +160,7 @@ const Modify = () => {
                     :
                     <p style={{color: '#ff0000'}}>하나 이상의 특수문자와 영 대소문자와 숫자 조합을 사용해주세요. (8~16자)</p>
                 }
-                <input className="basic_input" name="UserName" type="text" value={uName} onChange={uNameChangeHandler} />
+                <input className="basic_input" name="UserName" type="text" readOnly value={uName} onChange={uNameChangeHandler} />
                 <br />
                 <input className="basic_input" name="UserNickname" type="text" value={uNick} onChange={uNickChangeHandler}/>
                 {
@@ -108,12 +170,19 @@ const Modify = () => {
                     :    
                     <p style={{color: '#ff0000'}}>변경할 닉네임을 입력해주세요. (한글, 영어, 숫자 조합 3~16자)</p>
                 }
-                <input className="basic_input" name="UserPhone" type="text" value={uPhone} onChange={uPhoneChangeHandler} placeholder="변경할 " />
+                {
+                isNickDuplicateCheck
+                ?
+                null 
+                :    
+                <p style={{color: '#ff0000'}}>이미 사용중인 닉네임입니다.</p>                    
+                }
+                <input className="basic_input" name="UserPhone" type="text" value={uPhone} onChange={uPhoneChangeHandler} placeholder="변경할 휴대폰번호" />
                 <br />
-                <input className="basic_input" type="email" name="UserEmail" value={uMail} onChange={uMailChangeHandler} placeholder="[선택] 이메일 주소" />
+                <input className="basic_input" type="email" name="UserEmail" value={uMail} onChange={uMailChangeHandler} placeholder="변경할 이메일 주소" />
                 <br />
-                <input className="basic_btn" type="button" onClick={modifyBtnHandler} value="수정" />
-                <Link to={'/'}><input class="basic_btn" type="button" value="돌아가기" /></Link>
+                <input className="basic_btn" type="button" onClick={modifyBtnHandler} value="정보수정" />
+                <input class="basic_btn" type="button" onClick={deleteBtnHandler} value="회원탈퇴" />
             </div>
         </div>
     );
