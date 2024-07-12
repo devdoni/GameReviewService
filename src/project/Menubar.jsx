@@ -24,13 +24,13 @@ const Menubar = ({isLogined, setIsLogined}) => {
                     <Link to='/'><img src="./imgs/logo.png" /> </Link>
                 </li>
                 <li>
-                    <Link href="#none">인기 게임</Link>
+                    <Link to='/popular'>인기 게임</Link>
                 </li>
                 <li>
-                    <Link href="#none">무료 게임</Link>
+                    <Link to='/free'>무료 게임</Link>
                 </li>
                 <li>
-                    <Link href="#none">추천 게임</Link>
+                    <Link to='/recommend'>추천 게임</Link>
                 </li>
                 {
                     isLogined

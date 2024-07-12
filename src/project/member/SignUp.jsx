@@ -225,9 +225,9 @@ const SignUp = () => {
                 {
                     isPwCheck
                     ?
-                    <p>8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.</p>
+                    <p>하나 이상의 특수문자와 영 대소문자와 숫자 조합을 사용해주세요. (8~16자)</p>
                     :
-                    <p style={{color: '#ff0000'}}>8~16자의 영어 대/소문자+숫자+특수문자를 조합을 사용해 주세요.</p>
+                    <p style={{color: '#ff0000'}}>하나 이상의 특수문자와 영 대소문자와 숫자 조합을 사용해주세요. (8~16자)</p>
                 }
                 <input className="basic_input" name="UserName" type="text" onChange={uNameChangeHandler} placeholder="[필수] 이름"/>
                 {
