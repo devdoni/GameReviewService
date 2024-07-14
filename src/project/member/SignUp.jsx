@@ -216,28 +216,28 @@ const SignUp = () => {
         <div id="signup_wrap">
             <div className="signup">
                 <input id="input_id" name="UserId" type="text" onChange={uIdChangeHandler} placeholder="[필수] 아이디" />
-                <input className="basic_btn" type="button" onClick={idDuplicateCheckBtn} value="중복체크" />
                 {
                     isIdCheck
                     ?
-                    <p>5~20자의 영어 소문자와 숫자 조합만 사용 가능합니다.</p>
+                    null
                     :
-                    <p style={{color: '#ff0000'}}>5~20자의 영어 소문자와 숫자 조합만 사용가능합니다.</p>
+                    <p style={{color: '#ff0000'}}>아이디: 5~20자의 영어 소문자와 숫자 조합만 사용가능합니다.</p>
                 }
+                <input className="basic_btn" type="button" onClick={idDuplicateCheckBtn} value="중복체크" />
                 {
                     isIdDuplicateCheck
                     ?
                     null
                     :
-                    <p style={{color: '#ff0000'}}>아이디 중복체크를 해주세요.</p>
+                    <p style={{color: '#ff0000'}}>아이디 중복체크를 진행해 주세요.</p>
                 }
                 <input class="basic_input" name="UserPw" type="password" onChange={uPwChaneHandler} placeholder="[필수] 비밀번호"/>
                 {
                     isPwCheck
                     ?
-                    <p>하나 이상의 특수문자와 영 대소문자와 숫자 조합을 사용해주세요. (8~16자)</p>
+                    null
                     :
-                    <p style={{color: '#ff0000'}}>하나 이상의 특수문자와 영 대소문자와 숫자 조합을 사용해주세요. (8~16자)</p>
+                    <p style={{color: '#ff0000'}}>비밀번호: 8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.</p>
                 }
                 <input className="basic_input" name="UserName" type="text" onChange={uNameChangeHandler} placeholder="[필수] 이름"/>
                 {
@@ -268,7 +268,6 @@ const SignUp = () => {
                 <input className="basic_input" type="email" name="UserEmail" onChange={uMailChangeHandler} placeholder="[선택] 이메일 주소" />
                 <br />
                 <input className="basic_btn" type="button" onClick={SignUpBtnHandler} value="회원가입" />
-                <Link to={'/'}><input class="basic_btn" type="button" value="돌아가기" /></Link>
             </div>
         </div>
     );

@@ -1,84 +1,126 @@
 /* SIGN UP START*/
-
-
-#signup_wrap div.signup {
-    width: 350px;
-    margin: 0px auto;
-    padding-top: 150px;
+#signup_wrap {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px 30px;
+    margin: 30px auto;
+    width: 500px;
+    text-align: center;
+    box-sizing: border-box;
 }
-
-#signup_wrap div.signup input.basic_input,
-
-#input_id, #input_nick {
-    width: 220px;
-    padding: 15px 170px 15px 5px;
-    margin: 10px 0;
-    border: 1px solid #dadada;
-    border-radius: 4px;
-    text-align: left;
+.signup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
-
-#signup_wrap > div.signup input.basic_btn { 
-    border-radius: 20px;
-    border: 1px solid #FF4B2B;
-    background-color: #FF4B2B;
-    color: #FFFFFF;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 12px 35px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: transform 80ms ease-in;
+.signup input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+    cursor: text;
 }
-
-#signup_wrap > div.signup input.basic_btn:active {
-    transform: scale(0.95);
-}
-#signup_wrap > div.signup input.basic_btn:active {
+.signup input:focus {
+    border-color: #999;
     outline: none;
 }
-#signup_wrap > div.signup p {
+.signup .basic_btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    padding: 12px;
+    border-radius: 6px;
+}
+.signup .basic_btn:hover {
+    background-color: #555;
+    transform: translateY(-2px);
+}
+.signup p {
+    margin: 5px 0;
     padding-left: 5px;
-    font-size: .8em;
+    font-size: 13px;
     text-align: left;
 }
+.signup p[style*="color: #ff0000"] {
+    color: #ff0000;
+}
+.basic_input {
+    margin-bottom: 5px;
+}
+.basic_btn {
+    margin-top: 10px;
+    padding: 10px;
+}
+a {
+    text-decoration: none;
+}
+a .basic_btn {
+    background-color: #777;
+}
+a .basic_btn:hover {
+    background-color: #999;
+}
+.check {
+    min-width: 40px;
+    max-width: 40px;
 
+}
 /* SIGN UP END */
 
 /* SIGN IN START*/
-#signin {
-    width: 300px;
-    margin: 0px auto;
-    padding-top: 150px;
+#signin_wrap{
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px 30px;
+    margin: 30px auto;
+    width: 500px;
+    text-align: center;
+    box-sizing: border-box;
 }
-
-#signin input.basic_input {
-    padding: 15px 80px 15px 5px;
-    margin: 10px 0;
-    border: 1px solid #dadada;
-    border-radius: 4px;
-    text-align: left;
+.signin {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
-
-
-
-#signin input.basic_btn { 
-    border-radius: 20px;
-    border: 1px solid #FF4B2B;
-    background-color: #FF4B2B;
-    color: #FFFFFF;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 12px 35px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: transform 80ms ease-in;
+.signin input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px; 
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+    cursor: text;
 }
-
-#signin input.basic_btn:active {
-    transform: scale(0.95);
-}
-#signin input.basic_btn:active {
+.signin input:focus {
+    border-color: #999;
     outline: none;
+}
+.signin .basic_btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    padding: 12px;
+    border-radius: 6px;
+}
+.signin .basic_btn:hover {
+    background-color: #555;
+    transform: translateY(-2px);
+}
+.siginin .basic_input {
+    margin-bottom: 5px;
+}
+.siginin .basic_btn {
+    margin-top: 10px;
+    padding: 10px;
 }
 /* SIGN IN END*/

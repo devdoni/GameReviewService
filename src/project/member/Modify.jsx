@@ -131,7 +131,7 @@ const Modify = ({setIsLogined}) => {
 
             let allUserRiview = getUserReviewDB();
 
-            delete allUserRiview[getLoginedSessionId()]
+            delete allUserRiview[getLoginedSessionId()];
 
             setUserReviewDB(allUserRiview);
 
@@ -156,9 +156,9 @@ const Modify = ({setIsLogined}) => {
                 {
                     isPwCheck
                     ?
-                    <p>하나 이상의 특수문자와 영 대소문자와 숫자 조합을 사용해주세요. (8~16자)</p>
+                    <p>비밀번호: 8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.</p>
                     :
-                    <p style={{color: '#ff0000'}}>하나 이상의 특수문자와 영 대소문자와 숫자 조합을 사용해주세요. (8~16자)</p>
+                    <p style={{color: '#ff0000'}}>비밀번호: 8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.</p>
                 }
                 <input className="basic_input" name="UserName" type="text" readOnly value={uName} onChange={uNameChangeHandler} />
                 <br />

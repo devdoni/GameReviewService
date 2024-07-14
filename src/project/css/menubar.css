@@ -1,9 +1,9 @@
 #wrap > div.menubar {
-    width: 1900px;
+    width: 1500px;
 }
 
 #wrap > div.menubar > ul {
-    width: 1900px;
+    width: 100%;
     background-color: #000;
     /* position: fixed; */
 
