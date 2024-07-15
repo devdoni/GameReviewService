@@ -11,7 +11,9 @@
        "detail_img_01":"pubg1.jpg",
        "detail_img_02":"pubg2.jpg",
        "detail_img_03":"pubg3.jpg",
-       "detail_img_04":"pubg4.jpg"
+       "detail_img_04":"pubg4.jpg",
+       "date": "2024-07-15",
+       "score": 4.5
    },
    {
        "no": 2,
@@ -25,7 +27,9 @@
        "detail_img_01":"1.jpg",
        "detail_img_02":"2.jpg",
        "detail_img_03":"3.jpg",
-       "detail_img_04":"4.jpg"
+       "detail_img_04":"4.jpg",
+       "date": "2023-09-15",
+       "score": 4.1
     },
    {  
        "no": 3,
@@ -39,7 +43,9 @@
        "detail_img_01":"1.jpg",
        "detail_img_02":"2.jpg",
        "detail_img_03":"3.jpg",
-       "detail_img_04":"4.jpg"
+       "detail_img_04":"4.jpg",
+       "date": "2023-04-22",
+       "score": 4.3
    },
    {  
        "no": 4,
@@ -53,7 +59,9 @@
        "detail_img_01":"1.jpg",
        "detail_img_02":"2.jpg",
        "detail_img_03":"3.jpg",
-       "detail_img_04":"4.jpg"
+       "detail_img_04":"4.jpg",
+       "date": "2023-04-15",
+       "score": 4.2
    },
    {  
        "no": 5,
@@ -67,7 +75,9 @@
        "detail_img_01":"1.jpg",
        "detail_img_02":"2.jpg",
        "detail_img_03":"3.jpg",
-       "detail_img_04":"4.jpg"
+       "detail_img_04":"4.jpg",
+       "date": "2023-03-15",
+       "score": 4.4
    },
    {  
        "no": 6,
@@ -81,7 +91,9 @@
        "detail_img_01":"1.jpg",
        "detail_img_02":"2.jpg",
        "detail_img_03":"3.jpg",
-       "detail_img_04":"4.jpg"
+       "detail_img_04":"4.jpg",
+       "date": "2022-12-15",
+       "score": 4.1
    },
    {  
        "no": 7,
@@ -95,7 +107,9 @@
        "detail_img_01":"1.jpg",
        "detail_img_02":"2.jpg",
        "detail_img_03":"3.jpg",
-       "detail_img_04":"4.jpg"
+       "detail_img_04":"4.jpg",
+       "date": "2022-11-15",
+       "score": 4.8
    },
    {  
        "no": 8,
@@ -109,7 +123,9 @@
        "detail_img_01":"1.jpg",
        "detail_img_02":"2.jpg",
        "detail_img_03":"3.jpg",
-       "detail_img_04":"4.jpg"
+       "detail_img_04":"4.jpg",
+       "date": "2022-10-15",
+       "score": 4.3
    },
    {  
        "no": 9,
@@ -123,7 +139,9 @@
        "detail_img_01":"1.jpg",
        "detail_img_02":"2.jpg",
        "detail_img_03":"3.jpg",  
-       "detail_img_04":"4.jpg"
+       "detail_img_04":"4.jpg",
+       "date": "2022-09-15",
+       "score": 4.6
     }, 
    {  
        "no": 10,
@@ -137,7 +155,9 @@
        "detail_img_01":"1.jpg",
        "detail_img_02":"2.jpg",
        "detail_img_03":"3.jpg",
-       "detail_img_04":"4.jpg"
+       "detail_img_04":"4.jpg",
+       "date": "2022-08-15",
+       "score": 4.5
     },
    {  
        "no": 11,
@@ -151,7 +171,9 @@
        "detail_img_01":"1.jpg",
        "detail_img_02":"2.jpg",
        "detail_img_03":"3.jpg",
-       "detail_img_04":"4.jpg"
+       "detail_img_04":"4.jpg",
+       "date": "2022-07-15",
+       "score": 4.4
     },
    {  
        "no": 12,
@@ -165,8 +187,9 @@
        "detail_img_01":"1.jpg",
        "detail_img_02":"2.jpg",
        "detail_img_03":"3.jpg",
-       "detail_img_04":"4.jpg"
-        
+       "detail_img_04":"4.jpg",
+       "date": "2022-06-15",
+       "score": 4.3
     },
    {  
        "no": 13,
@@ -180,7 +203,9 @@
        "detail_img_01":"1.jpg",
        "detail_img_02":"2.jpg",
        "detail_img_03":"3.jpg",
-       "detail_img_04":"4.jpg"
+       "detail_img_04":"4.jpg",
+       "date": "2022-05-15",
+       "score": 4.2
    },
    {  
        "no": 14,
@@ -194,7 +219,9 @@
        "detail_img_01":"1.jpg",
        "detail_img_02":"2.jpg",  
        "detail_img_03":"3.jpg",
-       "detail_img_04":"4.jpg"
+       "detail_img_04":"4.jpg",
+       "date": "2022-04-15",
+       "score": 4.1
    },
    {   
       "no": 15,
@@ -208,7 +235,9 @@
        "detail_img_01":"1.jpg",
        "detail_img_02":"2.jpg",
        "detail_img_03":"3.jpg",
-       "detail_img_04":"4.jpg"
+       "detail_img_04":"4.jpg",
+       "date": "2022-03-15",
+       "score": 4.0
     },
    {   
       "no": 16,
@@ -222,7 +251,9 @@
        "detail_img_01":"1.jpg",
        "detail_img_02":"2.jpg",
        "detail_img_03":"3.jpg",
-       "detail_img_04":"4.jpg"
+       "detail_img_04":"4.jpg",
+       "date": "2022-02-17",
+       "score": 3.9
     },
    {  
        "no": 17,
@@ -236,7 +267,9 @@
        "detail_img_01":"1.jpg",
        "detail_img_02":"2.jpg",
        "detail_img_03":"3.jpg",
-       "detail_img_04":"4.jpg"
+       "detail_img_04":"4.jpg",
+       "date": "2022-01-15",
+       "score": 3.8
     },
    {  
        "no": 18,
@@ -250,7 +283,9 @@
        "detail_img_01":"1.jpg",
        "detail_img_02":"2.jpg",
        "detail_img_03":"3.jpg",
-       "detail_img_04":"4.jpg"
+       "detail_img_04":"4.jpg",
+       "date": "2021-12-15",
+       "score": 3.7
    },
    {  
        "no": 19,
@@ -264,7 +299,9 @@
        "detail_img_01":"1.jpg",
        "detail_img_02":"2.jpg",
        "detail_img_03":"3.jpg",
-       "detail_img_04":"4.jpg"
+       "detail_img_04":"4.jpg",
+       "date": "2021-11-15",
+       "score": 3.7
    },
    {  
        "no": 20,
@@ -278,7 +315,9 @@
        "detail_img_01":"1.jpg",
        "detail_img_02":"2.jpg",
        "detail_img_03":"3.jpg",
-       "detail_img_04":"4.jpg"
+       "detail_img_04":"4.jpg",
+       "date": "2021-10-15",
+       "score": 3.6
     },
    {  
        "no": 21,
@@ -292,7 +331,9 @@
        "detail_img_01":"1.jpg",
        "detail_img_02":"2.jpg",
        "detail_img_03":"3.jpg",
-       "detail_img_04":"4.jpg"
+       "detail_img_04":"4.jpg",
+       "date": "2021-09-15",
+       "score": 3.5
     },
    {  
        "no": 22,
@@ -306,7 +347,9 @@
        "detail_img_01":"1.jpg",
        "detail_img_02":"2.jpg",
        "detail_img_03":"3.jpg",
-       "detail_img_04":"4.jpg"
+       "detail_img_04":"4.jpg",
+       "date": "2021-08-15",
+       "score": 3.4
    
     },
    {  
@@ -321,7 +364,9 @@
        "detail_img_01":"1.jpg",
        "detail_img_02":"2.jpg",
        "detail_img_03":"3.jpg",
-       "detail_img_04":"4.jpg"
+       "detail_img_04":"4.jpg",
+       "date": "2021-07-15",
+       "score": 4.9
    },
    {  
        "no": 24,
@@ -329,7 +374,15 @@
        "thumnail-link": "https://cdn.akamai.steamstatic.com/steam/apps/1144200/capsule_231x87.jpg?t=1720564191",
        "Name": "Ready or Not",
        "Discount": "-33%",
-       "Price": "53,000"
+       "Price": "53,000",
+       "description":"로스수에뇨스 – LSPD는 로스수에뇨스 지역 전역에서 폭력 범죄가 급증하고 있음을 발표했습니다. 이에 인질, 폭탄 위협, 바리케이드를 세우고 있는 용의자 등 매우 위험한 상황에 대응하기 위해 SWAT(특수 무기 및 전술) 팀이 파견되었습니다. 시민 여러분은 이동 시 극도의 주의를 기울이거나, 집에 안전히 머무르시기 바랍니다.",
+       "detail_img_dir": "24.Ready or Not",
+       "detail_img_01":"1.jpg",
+       "detail_img_02":"2.jpg",
+       "detail_img_03":"3.jpg",
+       "detail_img_04":"4.jpg",
+       "date": "2021-06-15",
+       "score": 3.8
    },
    {  
        "no": 25,
@@ -337,14 +390,30 @@
        "thumnail-link": "https://cdn.akamai.steamstatic.com/steam/apps/2139460/capsule_231x87.jpg?t=1720555237",
        "Name": "Once Human",
        "Discount": "-50%",
-       "Price": "10,000"
-   },
+       "Price": "10,000",
+       "description":"대재난으로 인해 인류부터 동물과 식물까지... 스타더스트라는 외계 생명체에 감염되고 모든 것이 변했습니다. 메타 휴먼이 된 여러분은 이런 환경에서 살아남아 스타더스트의 힘을 사용할 수 있습니다. 혼자서 또는 타인과 함께 싸우며 건설하고 탐험하세요. 세상이 혼돈에 빠진 지금, 여러분이 마지막 희망입니다.",
+       "detail_img_dir": "25.Once Human",
+       "detail_img_01":"1.jpg",
+       "detail_img_02":"2.jpg",
+       "detail_img_03":"3.jpg",
+       "detail_img_04":"4.jpg",
+       "date": "2021-05-15",
+       "score": 4.5
+    },
    {   "no": 26,
        "href": "https://store.steampowered.com/app/2138330/Cyberpunk_2077_Phantom_Liberty?snr=1_7001_topselling__7003",
        "thumnail-link": "https://cdn.akamai.steamstatic.com/steam/apps/2138330/capsule_231x87.jpg?t=1706699224",
        "Name": "Cyberpunk 2077: Phantom Liberty",
        "Discount": "-15%",
-       "Price": "34,900"
+       "Price": "34,900",
+       "description":"사이버웨어로 강화된 용병V가 되어 위험한 첩보 임무와 NUSA대통령 구출 작전에 뛰어드세요.도그타운에서는 항상 경게하세요. 이구역에는 비밀과 기회가 가득하지만, 목적을 위해 수단과 방법을 가리지 않은 사람만이 그 기회를 잡을 수 있습니다.첩보 작전은 아주 위험하며, 실패는 용납되지 않습니다. 신중하게 아군을 선택하고 숨겨진 비밀을 파헤치세요.",
+       "detail_img_dir": "26.Cyberpunk 2077: Phantom Liberty",
+       "detail_img_01":"1.jpg",
+       "detail_img_02":"2.jpg",
+       "detail_img_03":"3.jpg",
+       "detail_img_04":"4.jpg",
+       "date": "2021-04-15",
+       "score": 4.2
    },
    {  
        "no": 27,
@@ -352,7 +421,15 @@
        "thumnail-link": "https://cdn.akamai.steamstatic.com/steam/apps/899770/capsule_231x87.jpg?t=1719427326",
        "Name": "Last Epoch",
        "Discount": "-20%",
-       "Price": "37,500"
+       "Price": "37,500",
+       "description":"라스트 에포크는 시간 여행, 손에 땀을 쥐게 하는 던전 크롤링, 헤어 나올 수 없는 캐릭터 커스텀 요소를 갖췄을 뿐만 아니라, 무한 n차 플레이가 가능한 액션 RPG 게임으로, 숙련 및 신규 플레이어 모두가 즐길 수 있습니다. 에테라의 과거를 여행하고, 어둠의 제국과 분노에 사로잡힌 신, 전인미답의 야생을 마주하세요. 공허로부터 시간을 구해내세요.",
+       "detail_img_dir": "27.Last Epoch",
+       "detail_img_01":"1.jpg",
+       "detail_img_02":"2.jpg",
+       "detail_img_03":"3.jpg",
+       "detail_img_04":"4.jpg",
+       "date": "2021-03-15",
+       "score": 4.1
    },
    {  
        "no": 28,
@@ -360,7 +437,15 @@
        "thumnail-link": "https://cdn.akamai.steamstatic.com/steam/apps/814380/capsule_231x87.jpg?t=1678991267",
        "Name": "Sekiro?? Shadows Die Twice - GOTY Edition",
        "Discount": "-50%",
-       "Price": "75,000"
+       "Price": "75,000",
+        "description":"Sekiro: Shadows Die Twice에서 당신은 명예와 온전한 신체를 모두 잃은, 죽음 직전에서 구조된 전사 “외팔의 늑대”가 됩니다. 고대 혈통의 계승자인 어린 주군을 보호하기로 맹세한 당신은, 위협적인 아시나 가문을 포함한 다양하고 잔혹한 적들의 표적입니다. 어린 주군이 포로로 잡힌다면, 그 무엇도 당신이 명예를 회복하기 위한 위험한 여정을 떠나는 것을 막을 수 없습니다. 죽음 그 자체도 말이죠.",
+        "detail_img_dir": "28.Sekiro Shadows Die Twice - GOTY Edition",
+        "detail_img_01":"1.jpg",
+        "detail_img_02":"2.jpg",
+        "detail_img_03":"3.jpg",
+        "detail_img_04":"4.jpg",
+        "date": "2021-02-15",
+        "score": 4.8
    },
    {  
        "no": 29,
@@ -368,15 +453,32 @@
        "thumnail-link": "https://cdn.akamai.steamstatic.com/steam/apps/1551360/capsule_231x87.jpg?t=1718730250",
        "Name": "Forza Horizon 5",
        "Discount": "-50%",
-       "Price": "59,900"
+       "Price": "59,900",
+       "description":"여러분을 위한 환상의 Horizon 모험이 기다리고 있습니다. 강력하면서도 끊임없이 진화하는 멕시코 오픈 월드를 즐거운 드라이빙과 전 세계에서 내로라하는 수백 대의 차량으로 탐험해보세요.",
+       "detail_img_dir": "29.Forza Horizon 5",
+       "detail_img_01":"1.jpg",
+       "detail_img_02":"2.jpg",
+       "detail_img_03":"3.jpg",
+       "detail_img_04":"4.jpg",
+       "date": "2021-01-15",
+       "score": 4.7
    },
    {  
        "no": 30,
        "href": "https://store.steampowered.com/app/2195250/EA_SPORTS_FC_24?snr=1_7001_topselling__7003",
        "thumnail-link": "https://cdn.akamai.steamstatic.com/steam/apps/2195250/capsule_231x87.jpg?t=1719935449",
-       "Name": "EA SPORTS FC??24",
+       "Name": "EA SPORTS FC24",
        "Discount": "-80%",
-       "Price": "22,000"
+       "Price": "22,000",
+       "description":"생생한 현실감: EA SPORTS FC 24는 세계의 게임에서 19,000명 이상의 정식라이산스 선수, 700개 이상의 팀, 30개 이상의 리그 및300개 이상의 글로벌 파트너와 함께 역대 최고로 현실감 넘치는 축구 경험을 선사합니다.",
+       "detail_img_dir": "30.EA SPORTS FC24",
+       "detail_img_01":"1.jpg",
+       "detail_img_02":"2.jpg",
+       "detail_img_03":"3.jpg",
+       "detail_img_04":"4.jpg",
+       "date": "2020-12-15",
+       "score": 4.6
+
    },
    {  
        "no": 31,
@@ -384,7 +486,15 @@
        "thumnail-link": "https://cdn.akamai.steamstatic.com/steam/apps/292030/capsule_231x87.jpg?t=1716793585",
        "Name": "The Witcher 3: Wild Hunt",
        "Discount": "-90%",
-       "Price": "34,800"
+       "Price": "34,800",
+       "description":"리비아의 게롤트가 되어 의뢰를 받고 괴물을 사냥하세요. 전쟁의 상처가 가득하고 괴물이 들끓는 대륙을 마음껏 탐험해 보세요. 지금 가장 중요한 일은 대륙의 판도를 뒤바꿀 수도 있는 살아 있는 무기이자 예언의 아이, 시리를 추적하는 것입니다.최신 버전으로 업데이트된 더 위쳐 3: 와일드 헌트는 한국어 음성(풀 더빙)으로 즐기실 수 있으며, 내장된 사진 모드와 더 위쳐 넷플릭스 시리즈에서 영감을 받은 아이템(검, 갑옷, 대체 의상 등)을 비롯해 더 위쳐 3용으로 출시된 추가 콘텐츠가 모두 포함되어 있습니다.",
+       "detail_img_dir": "31.The Witcher 3 Wild Hunt",
+       "detail_img_01":"1.jpg",
+       "detail_img_02":"2.jpg",
+       "detail_img_03":"3.jpg",
+       "detail_img_04":"4.jpg",
+       "date": "2020-11-15",
+       "score": 4.5
    },
    {  
        "no": 32,
@@ -392,7 +502,16 @@
        "thumnail-link": "https://cdn.akamai.steamstatic.com/steam/apps/730/capsule_231x87.jpg?t=1719426374",
        "Name": "Counter-Strike 2",
        "Discount": "-30%",
-       "Price": "14,999"
+       "Price": "14,999",
+       "description":"Counter-Strike는 20년이 넘는 시간 동안 전 세계 수백만 명의 플레이어가 모여 수준 높은 경쟁을 펼칠 수 있는 플랫폼을 제공해 왔습니다. 그리고 이제 곧 Counter-Strike 2와 함께 새로운 CS 시대의 막이 열립니다.",
+       "detail_img_dir": "32.Counter-Strike 2",
+       "detail_img_01":"1.jpg",
+       "detail_img_02":"2.jpg",
+       "detail_img_03":"3.jpg",
+       "detail_img_04":"4.jpg",
+       "date": "2020-10-15",
+       "score": 4.4
+
    },
    {  
        "no": 33,
@@ -400,7 +519,15 @@
        "thumnail-link": "https://cdn.akamai.steamstatic.com/steam/apps/294100/capsule_231x87.jpg?t=1712954312",
        "Name": "RimWorld",
        "Discount": "-20%",
-       "Price": "37,500"
+       "Price": "37,500",
+       "description":"림월드는 이야기 생성기입니다. 수감된 해적, 절망적인 정착민, 그리고 기아와 생존에 대한 비극적이고 뒤틀린, 그리고 위대한 여러분의 이야기 공동 작가로서 설계됐습니다. 림월드는 삶이 제시하는 “무작위” 사건들을 통제하여 이야기를 만들어냅니다. 모든 뇌우, 해적 습격, 방문 판매원은 AI 이야기꾼이 여러분의 이야기에 넣은 카드입니다. 선택할 수 있는 이야기꾼이 몇 명 있습니다. 랜디 랜덤은 미친 짓을 하고, 카산드라 클래식은 고조되는 긴장을, 피비 칠랙스는 느긋한 이야기를 좋아합니다.",
+       "detail_img_dir": "33.RimWorld",
+       "detail_img_01":"1.jpg",
+       "detail_img_02":"2.jpg",
+       "detail_img_03":"3.jpg",
+       "detail_img_04":"4.jpg",
+       "date": "2020-09-15",
+       "score": 4.3
    },
    {  
        "no": 34,
@@ -408,7 +535,15 @@
        "thumnail-link": "https://cdn.akamai.steamstatic.com/steam/apps/227300/capsule_231x87.jpg?t=1718786615",
        "Name": "Euro Truck Simulator 2",
        "Discount": "-90%",
-       "Price": "24,800"
+       "Price": "24,800",
+       "description":"Travel across Europe as king of the road, a trucker who delivers important cargo across impressive distances! With dozens of cities to explore, your endurance, skill and speed will all be pushed to their limits.",
+       "detail_img_dir": "34.Euro Truck Simulator 2",
+       "detail_img_01":"1.jpg",
+       "detail_img_02":"2.jpg",
+       "detail_img_03":"3.jpg",
+       "detail_img_04":"4.jpg",
+       "date": "2020-08-15",
+       "score": 4.2
    },
    {  
        "no": 35,
@@ -416,7 +551,15 @@
        "thumnail-link": "https://cdn.akamai.steamstatic.com/steam/apps/1966720/capsule_231x87.jpg?t=1700231592",
        "Name": "Lethal Company",
        "Discount": "-25%",
-       "Price": "11,000"
+       "Price": "11,000",
+       "description":"You are a contracted worker for the Company. Your job is to collect scrap from abandoned, industrialized moons to meet the Company's profit quota. You can use the cash you earn to travel to new moons with higher risks and rewards--or you can buy fancy suits and decorations for your ship. Experience nature, scanning any creature you find to add them to your bestiary. Explore the wondrous outdoors and rummage through their derelict, steel and concrete underbellies. Just never miss the quota.",
+       "detail_img_dir": "35.Lethal Company",
+       "detail_img_01":"1.jpg",
+       "detail_img_02":"2.jpg",
+       "detail_img_03":"3.jpg",
+       "detail_img_04":"4.jpg",
+       "date": "2020-07-15",
+       "score": 4.1
    },
    {  
        "no": 36,
@@ -424,15 +567,31 @@
        "thumnail-link": "https://cdn.akamai.steamstatic.com/steam/apps/1562700/capsule_231x87.jpg?t=1699513185",
        "Name": "SANABI",
        "Discount": "-35%",
-       "Price": "15,500"
-   },
+       "Price": "15,500",
+       "description":"기계팔로 무장한 퇴역 군인은 초거대 재벌의 부패한 사유 도시를 오릅니다. 도시에 숨겨진 비밀을 밝혀내기 위해, 그리고 '산나비'를 찾아내 복수하기 위해. 사이버펑크 디스토피아를 배경으로 펼쳐지는 역동적이고 스타일리쉬한 2D 사슬 액션 어드벤처 플랫포머 게임, 산나비입니다.",
+       "detail_img_dir": "36.SANABI",
+       "detail_img_01":"1.jpg",
+       "detail_img_02":"2.jpg",
+       "detail_img_03":"3.jpg",
+       "detail_img_04":"4.jpg",
+       "date": "2020-06-15",    
+       "score": 4.0
+    },
    {  
        "no": 37,
        "href": "https://store.steampowered.com/app/250900/The_Binding_of_Isaac_Rebirth?snr=1_7001_topselling__7003",
        "thumnail-link": "https://cdn.akamai.steamstatic.com/steam/apps/250900/capsule_231x87.jpg?t=1617174663",
        "Name": "The Binding of Isaac: Rebirth",
        "Discount": "-33%",
-       "Price": "15,500"
+       "Price": "15,500",
+       "description":"When Isaac’s mother starts hearing the voice of God demanding a sacrifice be made to prove her faith, Isaac escapes into the basement facing droves of deranged enemies, lost brothers and sisters, his fears, and eventually his mother.",
+       "detail_img_dir": "37.The Binding of Isaac Rebirth",
+       "detail_img_01":"1.jpg",
+       "detail_img_02":"2.jpg",
+       "detail_img_03":"3.jpg",
+       "detail_img_04":"4.jpg",
+       "date": "2020-05-15",
+       "score": 3.9
    },
    {  
        "no": 38,
@@ -440,7 +599,15 @@
        "thumnail-link": "https://cdn.akamai.steamstatic.com/steam/apps/236390/capsule_231x87.jpg?t=1719926139",
        "Name": "War Thunder",
        "Discount": "-30%",
-       "Price": "14,999"
+       "Price": "14,999",
+       "description":"War Thunder는 제 2차 세계대전부터 현대전까지의 항공기, 전차, 함선, 헬리콥터를 플레이 할 수 있는 온라인 게임 역사상 가장 거대한 스케일과 Windows, Linux, Mac, PlayStation®4, PlayStation®5, Xbox One 그리고 Xbox Series X|S 에 이르는 광범위한 크로스 플랫폼 기능을 자랑하는 밀리터리 MMO 게임입니다. 지금 게임에 참여하셔서 War Thunder가 제공하는 지상, 공중, 해상의 거대한 전장 서사시에 직접 참여하십시오.",
+       "detail_img_dir": "38.War Thunder",
+       "detail_img_01":"1.jpg",
+       "detail_img_02":"2.jpg",
+       "detail_img_03":"3.jpg",
+       "detail_img_04":"4.jpg",
+       "date": "2020-04-15",
+       "score": 3.8
    },
    {  
        "no": 39,
@@ -448,7 +615,15 @@
        "thumnail-link": "https://cdn.akamai.steamstatic.com/steam/apps/1244460/capsule_231x87.jpg?t=1715854191",
        "Name": "Jurassic World Evolution 2",
        "Discount": "-90%",
-       "Price": "61,000"
+       "Price": "61,000",
+       "description":"쥬라기 월드 에볼루션 2는 Frontier에서 2018년 출시한 획기적인 관리 시뮬레이션 쥬라기 월드 에볼루션의 후속작으로 많은 기대를 받고 있습니다. 몰입감 넘치는 새 내러티브 캠페인, 실제 쥬라기 월드 영화 시리즈 출연진의 음성, 재미있는 신규 기능, 4가지의 매력적인 게임 모드, 그리고 더 확장된 경이로운 공룡 목록을 만나보세요.",
+       "detail_img_dir": "39.Jurassic World Evolution 2",
+       "detail_img_01":"1.jpg",
+       "detail_img_02":"2.jpg",
+       "detail_img_03":"3.jpg",
+       "detail_img_04":"4.jpg",
+       "date": "2020-03-15",
+       "score": 3.7
    },
    {  
        "no": 40,
@@ -456,6 +631,14 @@
        "thumnail-link": "https://cdn.akamai.steamstatic.com/steam/apps/582010/capsule_231x87.jpg?t=1711328912",
        "Name": "Monster Hunter: World",
        "Discount": "-67%",
-       "Price": "34,800"
+       "Price": "34,800",
+       "description":"새로운 생명의 땅. 사냥하라, 본능에 따라! 대히트 작품 'Monster Hunter: World'에서는 지형과 환경생물, 몬스터의 생태계까지도 이용할 수 있으며, 갖가지 방법을 이용해 거대한 몬스터에게 도전합니다. 새롭게 제작된 'Monster Hunter'의 세계에서 여러분이 원하는 궁극의 헌터 라이프를 체험해 보십시오.",
+       "detail_img_dir": "40.Monster Hunter World",
+       "detail_img_01":"1.jpg",
+       "detail_img_02":"2.jpg",
+       "detail_img_03":"3.jpg",
+       "detail_img_04":"4.jpg",
+       "date": "2020-02-15",
+       "score": 3.6
    }
 ]
