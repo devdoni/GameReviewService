@@ -1,0 +1,99 @@
+[
+    {
+        "no": 1000,
+        "href": "detail/1000",
+        "src": "bigthums/palworld.jpg",
+        "name": "Palworld",
+        "genre": "오픈월드",
+        "info": "드넓은 세계에 서식하는 신비한 생물 '팰'을 수집하여 전투, 건축, 농업 등 다양한 컨텐츠를 즐길 수 있는 오픈월드 서바이벌 크래프트 게임입니다."        
+    },
+    {
+        "no": 1001,
+        "href": "detail/1001",
+        "src": "bigthums/stardewvalley.jpg",
+        "name": "스타듀밸리",
+        "genre": "인디게임",
+        "info": "무성하게 자란 밭을 활기찬 농장으로 바꿔보세요! 동물을 키우고, 작물을 재배하고, 유용한 기계를 만들고, 그 외 여러 가지를 해보세요! 꿈의 농장을 만들 수 있는 충분한 공간이 생길 겁니다."
+    },
+    {
+        "no": 1002,
+        "href": "detail/1002",
+        "src": "bigthums/EldenRing.jpg",
+        "name": "엘든링",
+        "genre": "오픈월드",
+        "info": "본 게임은 본격적인 다크 판타지 세계를 무대로 한 액션 RPG입니다. 드넓은 필드와 던전 탐험을 통해 미지의 것들을 발견해 보세요."
+    },
+    {
+        "no": 1003,
+        "href": "detail/1003",
+        "src": "bigthums/DaveTheDiver.jpg",
+        "name": "데이브 더 다이버",
+        "genre": "어드벤쳐",
+        "info": "신비한 블루홀을 배경으로 한 해양 어드벤처 게임 [DAVE THE DIVER]에 오신 것을 환영합니다.낮에는 아름다운 바닷속에서 물고기를 사냥하고, 밤에는 초밥집을 운영해 돈을 벌어 보세요."
+    },
+    {
+        "no": 1004,
+        "href": "detail/1004",
+        "src": "bigthums/ProjectZomboid.jpg",
+        "name": "프로젝트:좀보이드",
+        "genre": "생존",
+        "info": "Project Zomboid는 좀비로부터 생존하는게 목표입니다. 혼자 또는 멀티로 생존을 위해 약탈하고, 건설하고, 제작하고, 싸우고, 농사와 낚시를 즐겨보세요."
+    },
+    {
+        "no": 1005,
+        "href": "detail/1005",
+        "src": "bigthums/FC24.jpg",
+        "name": "EA SPORTS FC™ 24",
+        "genre": "스포츠",
+        "info": "EA SPORTS FC™ 24가 The World’s Game에 여러분을 초대합니다. HyperMotionV, Opta에 의해 최적화된 플레이스타일, 향상된 Frostbite™ 엔진을 통해 사상 최고로 현실감 넘치는 축구 경험을 제공합니다."
+    },
+    {
+        "no": 1006,
+        "href": "detail/1006",
+        "src": "bigthums/TheSims4.jpg",
+        "name": "Sims 4",
+        "genre": "시뮬레이션",
+        "info": "아무런 제약 없는 가상 세계에서 심들을 창조하고 지배하는 전능한 힘을 즐기세요. 강력한 권력을 휘두르며 자유롭고 재미있게 인생을 플레이하세요!"
+    },
+    {
+        "no": 1007,
+        "href": "detail/1007",
+        "src": "bigthums/Counter-Strike.jpg",
+        "name": "Conter-Strike 2",
+        "genre": "FPS",
+        "info": "Counter-Strike는 20년이 넘는 시간 동안 전 세계 수백만 명의 플레이어가 모여 수준 높은 경쟁을 펼칠 수 있는 플랫폼을 제공해 왔습니다. 그리고 이제 곧 Counter-Strike 2와 함께 새로운 CS 시대의 막이 열립니다."
+    },
+    {
+        "no": 1008,
+        "href": "detail/1008",
+        "src": "bigthums/Dota2.jpg",
+        "name": "Dota2",
+        "genre": "AOS",
+        "info": "매일, 전 세계 수백 만의 플레이어가 백여 명의 도타 영웅 중 하나가 되어 전장에 뛰어듭니다. 10시간을 했든, 1,000시간을 했든 언제나 새롭게 느껴지는 무언가가 있습니다."
+    },
+    {
+        "no": 1009,
+        "href": "detail/1009",
+        "src": "bigthums/callofduty.jpg",
+        "name": "Call of Duty®: Modern Warfare® III",
+        "genre": "FPS",
+        "info": "기록을 경신한 콜 오브 듀티®: 모던 워페어 II 2022의 속편에서 프라이스 대위와 태스크 포스 141은 궁극의 위협에 맞서 싸웁니다."
+    },
+    {
+        "no": 1010,
+        "href": "detail/1010",
+        "src": "bigthums/GTA5.jpg",
+        "name": "GTA5",
+        "genre": "액션",
+        "info": "PC용 Grand Theft Auto V는 각종 수상에 빛나는 로스 산토스와 블레인 카운티의 거대한 세상을 최대 4K 이상의 해상도로 둘러볼 수 있는 기회를 플레이어에게 제공하며, 초당 60프레임으로 게임을 실행할 수도 있습니다."
+    },
+    {
+        "no": 1011,
+        "href": "detail/1011",
+        "src": "bigthums/WARFRAME.jpg",
+        "name": "WARFRAME",
+        "genre": "FPS",
+        "info": "이 스토리 중심의 부분 유료 온라인 액션 게임에서 그 누구도 멈출 수 없는 강력한 전사로 깨어나 동료들과 함께 싸움에 임하세요."
+    }
+
+]
