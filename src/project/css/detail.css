@@ -1,0 +1,87 @@
+#detail_wrap {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-top: 0;
+}
+
+.rating {
+    font-size: 24px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.rating > input {
+    display: none;
+}
+
+.rating > label {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    margin-left: 2px;
+    text-align: center;
+    line-height: 30px;
+    color: #ffd700;
+    font-size: 25px;
+}
+
+.rating > label:before {
+    content: '★';
+}
+
+.rating > input:checked ~ label,
+.rating > input:checked ~ label ~ label {
+    color: #ff7f00;
+}
+
+.rating > label:hover,
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ label,
+.rating > input:checked ~ label:hover ~ label {
+    color: #ff7f00;
+}
+
+.review-box {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    resize: vertical;
+}
+
+.submit-btn {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 20px;
+}

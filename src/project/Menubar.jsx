@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import './css/menubar.css';
 import './css/common.css';
 import { Link, useNavigate } from "react-router-dom";
-import { getLoginedSessionId, setLoginedSessionId } from "./utils/session";
+import { setLoginedSessionId } from "./utils/session";
 import { getProdFlag } from "./utils/utils";
+
 
 const Menubar = ({isLogined, setIsLogined}) => {
 
     const navigate = useNavigate();
-
     const signOutBtnHandler = () => {
         if(!getProdFlag()) console.log('[Menubar] signOutBtnHandler()');
 
@@ -65,7 +65,7 @@ const Menubar = ({isLogined, setIsLogined}) => {
                     </select>
                 </li>
             </ul>
-        </div>     
+        </div>    
     );
 }
 

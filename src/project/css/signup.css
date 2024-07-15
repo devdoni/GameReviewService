@@ -1,5 +1,6 @@
 /* SIGN UP START*/
-#signup_wrap {
+#signup_wrap,
+#modify_wrap {
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -9,12 +10,14 @@
     text-align: center;
     box-sizing: border-box;
 }
-.signup {
+.signup,
+.modify {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
-.signup input {
+.signup input,
+.modify input {
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 6px;
@@ -24,11 +27,13 @@
     transition: border-color 0.3s ease;
     cursor: text;
 }
-.signup input:focus {
+.signup input:focus,
+.modify input:focus {
     border-color: #999;
     outline: none;
 }
-.signup .basic_btn {
+.signup .basic_btn,
+.modify .basic_btn {
     background-color: #333;
     color: white;
     border: none;
@@ -37,11 +42,13 @@
     padding: 12px;
     border-radius: 6px;
 }
-.signup .basic_btn:hover {
+.signup .basic_btn:hover,
+.modify .basic_btn:hover {
     background-color: #555;
     transform: translateY(-2px);
 }
-.signup p {
+.signup p,
+.modify p {
     margin: 5px 0;
     padding-left: 5px;
     font-size: 13px;

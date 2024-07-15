@@ -148,6 +148,27 @@ export const setUserReviewDB = (reviewObj) => {
 
     localStorage.setItem(USER_REVIEW_DB_IN_LOCAL_STORAGE, JSON.stringify(reviewObj));
 }
+
+export const getMyReviewDB = (uId) => {
+    if(!getProdFlag()) console.log('[Utils] getMyReviewDB()');
+
+    if (getUserReviewDB() === null) {
+        return undefined;
+    }
+
+    let userReviewDB = getUserReviewDB();
+    let myReviewInfo = userReviewDB[uId];
+    return myReviewInfo ;
+
+}
+
+export const setMyReviewDB = (uId, myReviewInfo) => {
+    if(!getProdFlag()) console.log('[Utils] setMyReviewDB()');
+
+    let UserRiviewInfos = getUserReviewDB();
+    UserRiviewInfos[uId] = myReviewInfo
+    setUserReviewDB(UserRiviewInfos);
+}
 // USER REVIEW DB END
 
 

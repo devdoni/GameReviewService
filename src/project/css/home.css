@@ -5,7 +5,7 @@ div > div.category > ul > li {
 }
 
 div > ul.mainimg > li > img.mimgs {
-    padding-top: 200px;
+    padding-top: 50px;
 } 
 
 div > ul > li >img.arw {
@@ -29,8 +29,36 @@ div > div.category> div.btnbox {
 }
 
 div > div.table1 {
-    margin: 50px 330px;
+    margin: 50px 100px;
     /* background-color: rgba(255, 255, 255, 0.1); */
+}
+
+div > button.morebtn_left,
+div > button.morebtn_right {
+    border: 1px solid #dcdedf;
+    color: #dcdedf;
+    background-color: #202531;
+}
+
+div > button.morebtn_left {
+    position: relative;
+    left: -19px;
+    top: -40px;
+}
+
+
+div > button.morebtn_right {
+    position: relative;
+    left: 547px;
+    top: -40px;
+}
+
+div > button.morebtn_left:hover,
+div > button.morebtn_right:hover {
+    border: 1px solid #fff;
+    color: #fff;
+    background-color: #202531;
+    cursor: pointer;
 }
 
 div > div.table1 > table  {
@@ -65,6 +93,7 @@ div > div.table1 > table > div.tablebgimg > tr > td > img.table1imgs {
 
 div > div.categorybox > h2 {
     color: #ffffff;
+    margin-bottom: 30px;
 }
 
 
@@ -108,3 +137,46 @@ div > div.categorybox > a.sptimg > div.imgcarousel > span {
 
 
 
+#mainthum_slide {
+    width: 80%; /* 원하는 너비 설정 */
+    margin: 0 auto; /* 가운데 정렬 */
+    border: 1px solid #ddd; /* 예시로 테두리 추가 */
+    padding: 10px; /* 예시로 패딩 추가 */
+}
+
+.main_slider .slick-slide {
+    display: inline-block; /* 슬라이드 아이템을 인라인 블록으로 설정 */
+    text-align: center; /* 아이템을 가로 중앙에 정렬 */
+}
+
+.main_thum {
+    width: 100%; /* 슬라이드 아이템이 슬라이더 너비를 채우도록 설정 */
+    display: flex; /* flexbox를 사용하여 아이템을 중앙에 정렬 */
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+}
+
+.mimgs {
+    width: 100%;
+    height: auto;
+}
+
+/* slick 기본 스타일링 커스터마이징 */
+.slick-prev:before,
+.slick-next:before {
+    color: black; /* 화살표 색상 변경 */
+}
+
+.slick-slide img {
+    display: block;
+    margin: 0 auto;
+}
+
+.slick-dots li button:before {
+    font-size: 12px; /* 점 크기 변경 */
+    color: gray; /* 점 색상 변경 */
+}
+
+.slick-dots li.slick-active button:before {
+    color: black; /* 활성화된 점 색상 변경 */
+}

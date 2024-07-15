@@ -231,7 +231,7 @@ const SignUp = () => {
                     :
                     <p style={{color: '#ff0000'}}>아이디 중복체크를 진행해 주세요.</p>
                 }
-                <input class="basic_input" name="UserPw" type="password" onChange={uPwChaneHandler} placeholder="[필수] 비밀번호"/>
+                <input className="basic_input" name="UserPw" type="password" onChange={uPwChaneHandler} placeholder="[필수] 비밀번호"/>
                 {
                     isPwCheck
                     ?

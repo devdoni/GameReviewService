@@ -16,7 +16,6 @@ const Modify = ({setIsLogined}) => {
 
     const [isPwCheck, setIsPwCheck] = useState(true);        // 비밀번호 검증을 체크하는 State  
     const [isNickNameCheck, setIsNickNameCheck] = useState(true);  // 닉네임 검증을 체크하는 State
-    const [isNickDuplicateCheck, setIsNickDuplicateCheck] = useState(true);
 
     useEffect(() => {
         // MT DB GET
@@ -149,10 +148,10 @@ const Modify = ({setIsLogined}) => {
 
 
     return(
-        <div id="signup_wrap">
-            <div className="signup">
+        <div id="modify_wrap">
+            <div className="modify">
                 <input id="input_id" name="UserId" type="text" value={uId} readOnly onChange={uIdChangeHandler}/>
-                <input class="basic_input" name="UserPw" type="password" value={uPw} onChange={uPwChaneHandler} placeholder="변경할 비밀번호를 입력해주세요"/>
+                <input className="basic_input" name="UserPw" type="password" value={uPw} onChange={uPwChaneHandler} placeholder="변경할 비밀번호를 입력해주세요"/>
                 {
                     isPwCheck
                     ?
@@ -170,19 +169,12 @@ const Modify = ({setIsLogined}) => {
                     :    
                     <p style={{color: '#ff0000'}}>변경할 닉네임을 입력해주세요. (한글, 영어, 숫자 조합 3~16자)</p>
                 }
-                {
-                isNickDuplicateCheck
-                ?
-                null 
-                :    
-                <p style={{color: '#ff0000'}}>이미 사용중인 닉네임입니다.</p>                    
-                }
                 <input className="basic_input" name="UserPhone" type="text" value={uPhone} onChange={uPhoneChangeHandler} placeholder="변경할 휴대폰번호" />
                 <br />
                 <input className="basic_input" type="email" name="UserEmail" value={uMail} onChange={uMailChangeHandler} placeholder="변경할 이메일 주소" />
                 <br />
                 <input className="basic_btn" type="button" onClick={modifyBtnHandler} value="정보수정" />
-                <input class="basic_btn" type="button" onClick={deleteBtnHandler} value="회원탈퇴" />
+                <input className="basic_btn" type="button" onClick={deleteBtnHandler} value="회원탈퇴" />
             </div>
         </div>
     );
