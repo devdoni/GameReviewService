@@ -5,17 +5,19 @@ import CategorySlideView from "./CategorySlideView";
 import { Link, useLocation } from "react-router-dom";
 import Slider from "react-slick";
 import MainGames from './db/MainGames.json';
+import popularDB from './db/popularDB.json';
 
 
 const Home = () => {
 
     //Hook 
     const [games, setGames] = useState([]);
+    const [popGames, setPopGames] = useState([]);
     useEffect(() => {
         const getData = () => {
-            console.log('MainGames==>', MainGames)
             setGames(MainGames);
-            console.log('games==>', games)
+            setPopGames(popularDB);
+            console.log('data ==>',MainGames,popularDB);
         };
         getData();
     }, []);
@@ -55,7 +57,7 @@ const Home = () => {
 
         </div>
 
-                    <div className="game_table">
+        <div className="game_table">
                         <table>
                             <tr className="thead">
                                 <td colSpan="2"><h2>할인/가격</h2>
@@ -65,7 +67,7 @@ const Home = () => {
                             <tr>
                                 <td>
                                     <div className="img_container">
-                                        <img src={process.env.PUBLIC_URL + './imgs/mainimgs/battlegrounds.jpg'} className="table1imgs"/>
+                                        <img src={popGames.smail_thum} className="table1imgs"/>
                                         <div className="overlay">
                                             <p>게임 짧은소개</p>
                                         </div>
@@ -243,8 +245,7 @@ const Home = () => {
                             </tr>
                             </tbody>
                         </table>
-                        
-                    </div>
+                        </div>
                     <button className="morebtn_left">더보기</button>
                     <button className="morebtn_right">더보기</button>
 
