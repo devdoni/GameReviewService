@@ -3,7 +3,7 @@ import '../css/common.css';
 import '../css/signup.css';
 import { Link, useNavigate } from "react-router-dom";
 import { getMyInfo, getProdFlag } from "../utils/utils";
-import { setLoginedSessionId } from "../utils/session";
+import { setLoginedNickName, setLoginedSessionId } from "../utils/session";
 
 
 

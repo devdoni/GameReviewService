@@ -78,7 +78,7 @@ div.game_table > table > tr.thead > p {
     padding-bottom: 10px;
 }
 
-div.game_table > table > div.tablebgimg{
+div.game_table > table > tbody.tablebgimg{
     border: none 1px rgba(255, 255, 255, 0.1);
     background-color: rgba(255, 255, 255, 0.1);
 }
@@ -89,7 +89,7 @@ div.game_table > table > div.tablebgimg{
 }
 
 
-div.game_table > table > div.tablebgimg > tr > td > .img_container img {
+div.game_table > table > tbody.tablebgimg > tr > td > .img_container img {
     width: 250px;
     height: 141px;
     object-fit: contain;

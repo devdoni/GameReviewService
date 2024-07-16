@@ -61,7 +61,7 @@ const Home = () => {
                                 <td colSpan="2"><h2>할인/가격</h2>
                                 <p>집중 조명 태그</p></td>
                             </tr>
-                            <div className="tablebgimg">
+                            <tbody className="tablebgimg">
                             <tr>
                                 <td>
                                     <div className="img_container">
@@ -98,7 +98,7 @@ const Home = () => {
                                     </div>
                                 </td>
                             </tr>
-                            </div>
+                            </tbody>
                         </table>
                         
 
@@ -107,7 +107,7 @@ const Home = () => {
                                 <td colSpan="2"><h2>무료제품</h2>
                                 <p>집중 조명 태그</p></td>
                             </tr>
-                            <div className="tablebgimg">
+                            <tbody className="tablebgimg">
                             <tr>
                                 <td>
                                 <div className="img_container">
@@ -144,7 +144,7 @@ const Home = () => {
                                     </div>
                                 </td>
                             </tr>
-                            </div>
+                            </tbody>
                         </table>
                         
                     </div>
@@ -157,7 +157,7 @@ const Home = () => {
                                 <td colSpan="2"><h2>가상 현실게임</h2>
                                 <p>집중 조명 태그</p></td>
                             </tr>
-                            <div className="tablebgimg">
+                            <tbody className="tablebgimg">
                             <tr>
                                 <td>
                                 <div className="img_container">
@@ -195,7 +195,7 @@ const Home = () => {
 
                                 </td>
                             </tr>
-                            </div>
+                            </tbody>
                         </table>
                         
 
@@ -204,7 +204,7 @@ const Home = () => {
                                 <td colSpan="2"><h2>가상 현실게임</h2>
                                 <p>집중 조명 태그</p></td>
                             </tr>
-                            <div className="tablebgimg">
+                            <tbody className="tablebgimg">
                             <tr>
                             <td>
                                 <div className="img_container">
@@ -241,7 +241,7 @@ const Home = () => {
                                 </div>
                             </td>
                             </tr>
-                            </div>
+                            </tbody>
                         </table>
                         
                     </div>

@@ -2,7 +2,7 @@ import { getProdFlag } from "./utils";
 
 //로그인 세션
 let loginedSession = ''
-
+let loginedNick = ''
 
 // 로그인 세션을 가져오는 함수
 export const getLoginedSessionId = () => {
