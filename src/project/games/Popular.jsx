@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import "../css/popular.css";
 
-import popularDB from './popularDB.json';
+import popularDB from '../db/popularDB.json'
 import { Link } from "react-router-dom";
 
 const Popular = () => {

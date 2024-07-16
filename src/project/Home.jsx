@@ -5,17 +5,19 @@ import CategorySlideView from "./CategorySlideView";
 import { Link, useLocation } from "react-router-dom";
 import Slider from "react-slick";
 import MainGames from './db/MainGames.json';
+import popularDB from './db/popularDB.json';
 
 
 const Home = () => {
 
     //Hook 
     const [games, setGames] = useState([]);
+    const [popGames, setPopGames] = useState([]);
     useEffect(() => {
         const getData = () => {
-            console.log('MainGames==>', MainGames)
             setGames(MainGames);
-            console.log('games==>', games)
+            setPopGames(popularDB);
+            console.log('data ==>',MainGames,popularDB);
         };
         getData();
     }, []);
@@ -55,17 +57,17 @@ const Home = () => {
 
         </div>
 
-                    <div className="game_table">
+        <div className="game_table">
                         <table>
                             <tr className="thead">
                                 <td colSpan="2"><h2>할인/가격</h2>
                                 <p>집중 조명 태그</p></td>
                             </tr>
-                            <div className="tablebgimg">
+                            <tbody className="tablebgimg">
                             <tr>
                                 <td>
                                     <div className="img_container">
-                                        <img src={process.env.PUBLIC_URL + './imgs/mainimgs/battlegrounds.jpg'} className="table1imgs"/>
+                                        <img src={popGames.smail_thum} className="table1imgs"/>
                                         <div className="overlay">
                                             <p>게임 짧은소개</p>
                                         </div>
@@ -98,7 +100,7 @@ const Home = () => {
                                     </div>
                                 </td>
                             </tr>
-                            </div>
+                            </tbody>
                         </table>
                         
 
@@ -107,7 +109,7 @@ const Home = () => {
                                 <td colSpan="2"><h2>무료제품</h2>
                                 <p>집중 조명 태그</p></td>
                             </tr>
-                            <div className="tablebgimg">
+                            <tbody className="tablebgimg">
                             <tr>
                                 <td>
                                 <div className="img_container">
@@ -144,7 +146,7 @@ const Home = () => {
                                     </div>
                                 </td>
                             </tr>
-                            </div>
+                            </tbody>
                         </table>
                         
                     </div>
@@ -157,7 +159,7 @@ const Home = () => {
                                 <td colSpan="2"><h2>가상 현실게임</h2>
                                 <p>집중 조명 태그</p></td>
                             </tr>
-                            <div className="tablebgimg">
+                            <tbody className="tablebgimg">
                             <tr>
                                 <td>
                                 <div className="img_container">
@@ -195,7 +197,7 @@ const Home = () => {
 
                                 </td>
                             </tr>
-                            </div>
+                            </tbody>
                         </table>
                         
 
@@ -204,7 +206,7 @@ const Home = () => {
                                 <td colSpan="2"><h2>가상 현실게임</h2>
                                 <p>집중 조명 태그</p></td>
                             </tr>
-                            <div className="tablebgimg">
+                            <tbody className="tablebgimg">
                             <tr>
                             <td>
                                 <div className="img_container">
@@ -241,10 +243,9 @@ const Home = () => {
                                 </div>
                             </td>
                             </tr>
-                            </div>
+                            </tbody>
                         </table>
-                        
-                    </div>
+                        </div>
                     <button className="morebtn_left">더보기</button>
                     <button className="morebtn_right">더보기</button>
 
