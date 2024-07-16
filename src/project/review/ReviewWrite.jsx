@@ -1,97 +1,64 @@
 import React, { useState } from "react";
-import { getDateTime, getMyReviewDB, setMyReviewDB } from "../utils/utils";
-import { getLoginedSessionId } from "../utils/session";
-import { useNavigate } from "react-router-dom";
-import '../css/detail.css';
-
+import '../css/review.css';
+import { FaStar } from 'react-icons/fa';
 const ReviewWrite = () => {
+    
+    // 별의 Index
+    const ARRAY = [0, 1, 2, 3, 4];
 
     // Hook
-    const [reviewComment, setReviewComment] = useState('');
-    const [Score, setScore] = useState('');
-    const [currentNick, setCurrentNick] = useState('');
+    const [score, setScore] = useState([false, false, false, false, false]);
+    const [hoverIndex, setHoverIndex] = useState(-1);
 
-    const nav = useNavigate();
+    const starScore = index => {
 
-    // Handler
+        // 현재 클릭된 별이 이미 활성화된 상태인지 확인
+        const isCurrentlyActive = score[index];
 
-    const reviewCommentWriteChangeHandler = (e) => {
-        console.log('[Detail] reviewWriteboxChangeHandler()');
-        setReviewComment(e.target.value); 
+        // 모든 별을 비활성화
+        let star = [false, false, false, false, false];
 
-    }
-
-    const subBtnClickHandler = () => {
-        console.log('[Detail] subBtnClickHandler()');
-
-        if (getLoginedSessionId() === '') {
-            alert('로그인이 필요한 서비스입니다.');
-            nav('/signin');
-            return;
+        // 현재 클릭된 별이 비활성화된 상태라면 해당 별까지 활성화
+        if (!isCurrentlyActive) {
+            for (let i = 0; i <= index; i++) {
+                star[i] = true;
+            }
         }
+        setScore(star);
+    };
 
-        if (reviewComment === '' || Score === '') {
-            alert('별점 또는 리뷰 내용을 입력해주세요.');
-            return;
-        }
-        let reviewDB = getMyReviewDB(getLoginedSessionId());
-        reviewDB[getDateTime()] = {
-            "nick": currentNick,
-            "star": Score,
-            "review": reviewComment,
-            "regDate": getDateTime(),
-            "modDate": getDateTime()
-        }    
-        setMyReviewDB(getLoginedSessionId(),reviewDB);
-
-        alert("작성이 완료되었습니다.");
-        
-        setReviewComment('');
-    }
-
-    const reviewStarClickHandler_five = (e) => {
-
-        setScore(e.target.value);
-    }
-    const reviewStarClickHandler_four = (e) => {
-
-        setScore(e.target.value);
-    }
-    const reviewStarClickHandler_three = (e) => {
-
-        setScore(e.target.value);
-    }
-    const reviewStarClickHandler_two = (e) => {
-
-        setScore(e.target.value);
-    }
-    const reviewStarClickHandler_one = (e) => {
-
-        setScore(e.target.value);
-    }
     return (
         <div id="detail_wrap">
-        <div className="container">
-            <h2>리뷰를 작성해주세요</h2>
-            <form id="ratingForm">
-        <div className="rating">
-            <input type="radio" id="star5" name="rating" value="★★★★★" onClick={reviewStarClickHandler_five}/>
-            <label for="star5"></label>
-            <input type="radio" id="star4" name="rating" value="★★★★" onClick={reviewStarClickHandler_four}/>
-            <label for="star4"></label>
-            <input type="radio" id="star3" name="rating" value="★★★" onClick={reviewStarClickHandler_three}/>
-            <label for="star3"></label>
-            <input type="radio" id="star2" name="rating" value="★★" onClick={reviewStarClickHandler_two}/>
-            <label for="star2"></label>
-            <input type="radio" id="star1" name="rating" value="★" onClick={reviewStarClickHandler_one}/>
-            <label for="star1"></label>
+            <div className="container">
+                <h2>해당 게임에 대한 리뷰 작성</h2>
+                <form id="ratingForm">
+                    <div className="form-content">
+                        <textarea id="review" className="review-box" placeholder="리뷰를 작성해주세요."></textarea>
+                    </div>
+                    <div className="options">
+                        <div className="recommendation">
+                            <label>별점을 선택해주세요</label>
+                            {ARRAY.map((el, index) => (
+                                <FaStar
+                                    key={index}
+                                    size="25"
+                                    color={
+                                        hoverIndex >= index || score[index]
+                                            ? "#ffc107"
+                                            : "#e4e5e9"
+                                    }
+                                    onClick={() => starScore(index)}
+                                    onMouseEnter={() => setHoverIndex(index)}
+                                    onMouseLeave={() => setHoverIndex(-1)}
+                                    style={{ cursor: 'pointer' }}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                    <input type="button" className="submit-btn" value="리뷰 작성" />
+                </form>
+            </div>
         </div>
-            <input type="text" id="review" class="review-box" value={reviewComment} onChange={reviewCommentWriteChangeHandler} placeholder="리뷰를 작성해주세요." />
-                <input type="button" className="submit-btn" value="제출하기" onClick={subBtnClickHandler}/>
-            </form>
-        </div>
-    </div>
-    )
-}
-
+    );
+};
 export default ReviewWrite;

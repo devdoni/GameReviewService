@@ -83,25 +83,24 @@ h1{
 
 /* 리뷰 박스 CSS START */
 #detail_wrap {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #202531;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 300px;
-    margin: 0;
+    padding: 20px 0;
 }
 
 .container {
+    width: 1500px;
     background-color: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #000;
 }
 
 h2 {
     margin-top: 0;
-    color: #000;
+    text-align: center;
 }
 
 .rating {
@@ -151,6 +150,8 @@ h2 {
     border-radius: 4px;
     margin-bottom: 10px;
     resize: vertical;
+    background-color: #fff;
+    color: #000;
 }
 
 .submit-btn {
@@ -161,20 +162,7 @@ h2 {
     cursor: pointer;
     font-size: 18px;
     border-radius: 5px;
-    display: block;
     width: 100%;
     box-sizing: border-box;
-}
-
-.result {
-    margin-top: 20px;
-    font-size: 20px;
-}
-
-.review_wrap {
-    width: 500px;
-    height: 300px;
-    margin: 0 auto;
-    color: #000;
 }
 /* 리뷰 박스 CSS END */

@@ -1,0 +1,159 @@
+#detail_wrap {
+    background-color: #202531;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    color: #c6d4df;
+}
+
+.container {
+    background-color: #2a475e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 700px;
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    margin-top: 0;
+    color: #c6d4df;
+}
+
+p {
+    color: #8f98a0;
+    font-size: 14px;
+}
+
+p a {
+    color: #67c1f5;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+.form-content {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    border-radius: 4px;
+}
+
+.review-box {
+    flex: 1;
+    height: 150px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #1b2838;
+    border-radius: 4px;
+    background-color: #171a21;
+    color: #c6d4df;
+    resize: none;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.settings div {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+
+.settings label {
+    margin-right: 10px;
+}
+
+.recommendation {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.recommend-btn {
+    background-color: #5c7e10;
+    color: #c6d4df;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.recommend-btn:hover {
+    background-color: #4a692c;
+}
+
+.submit-btn {
+    background-color: #416287;
+    color: #c6d4df;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.submit-btn:hover {
+    background-color: #365679;
+}
+
+/* 리뷰 리스트*/
+
+#review_list {
+    background-color: #202531;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #fff;
+}
+
+.review_item {
+    background-color: #2a2f3a;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.review_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nickname {
+    font-size: 16px;
+    font-weight: bold;
+}
+#rating {
+color: #ffc107;
+}
+.rating {
+    display: flex;
+}
+
+.review_text {
+    margin-top: 10px;
+    font-size: 16px;
+}

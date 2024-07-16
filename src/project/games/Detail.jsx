@@ -2,8 +2,10 @@ import React, {} from "react";
 import { useParams } from "react-router-dom";
 import '../css/common.css';
 import '../css/detail.css';
-import popularDB from '../db/popularDB.json'; //popularDB.json 파일을 불러옴
+import popularDB from '../db/popularDB.json'; //popularDB.json 파일을 불러옴;
 import ReviewWrite from "../review/ReviewWrite";
+import Test from "../review/Test";
+
 const Detail = () => {
 
     const { no } = useParams();                                     // Popular가 나한테 전달한 no값
@@ -46,6 +48,7 @@ const Detail = () => {
             </div>
         </div>       
         <ReviewWrite />
+        <Test />
     </>
     );
 }
