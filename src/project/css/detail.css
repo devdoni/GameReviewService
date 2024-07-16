@@ -1,3 +1,87 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+#gamesinfo_wrap {
+    padding: 20px;
+}
+
+.detail_header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.per_game_info {
+    display: flex;
+    margin-top: 20px;
+}
+
+.game_pics {
+    flex: 2;
+    margin-right: 20px;
+}
+
+.game_pics div {
+    margin-bottom: 10px;
+}
+
+.game_pics img {
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    float:right;
+}
+
+.game_info, .game_info_detail {
+    flex: 1;
+}
+
+.game_info div, .game_info_detail div {
+    margin: 5px 0;
+}
+
+.game_info_detail {
+    margin-top: 10px;
+}
+
+.game_info_detail div {
+    background-color: #0078d7;
+    padding: 5px 10px;
+    margin-right: 5px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+/* #gamesinfo_wrap{
+    display: flex;
+
+
+}
+
+
+h1{
+    font-size: 2em;
+    color: #fff;
+    text-align: left;
+    margin-top: 40px;
+    font-weight: bold;
+}
+
+#gamesinfo_wrap div.game_pics{
+    float: left;
+    width: 200px;
+    height: 200px;
+    display: flex;
+}
+ */
+
+
+
 #detail_wrap {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;

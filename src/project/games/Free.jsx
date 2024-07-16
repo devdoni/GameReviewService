@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import "../css/free.css";
 
@@ -20,6 +21,14 @@ const Free = () => {
         "2023-04-22",
         "2023-04-15",
         "2023-03-15",
+    ];
+
+    const gameinfos = [ 
+        ["게임명 : PUBG: BATTLEGROUNDS", "게임개발자 : Google","게임플랫폼 : Android, IOS",], 
+        ["게임명 : The First Descendant", "게임개발자 : Mojang", "게임플랫폼 : Windows, Mac, Linux"],
+        ["게임명 : ELDEN RING", "게임개발자 : Activision", "게임플랫폼 : Xbox, PlayStation"],
+        ["게임명 : Eternal Return", "게임개발자 : Riot Games", "게임플랫폼 : PC"],
+        ["게임명 : Baldur's Gate 3", "게임개발자 : Valve", "게임플랫폼 : PC"]
     ];
 
     const showImage = (index) => {
@@ -76,7 +85,8 @@ const Free = () => {
 
             <div className="content">
                 출시시간 : {date[currentIndex]}
-                
+                <br/>                
+               {gameinfos[currentIndex]} 
             </div>
         </div>
     );
