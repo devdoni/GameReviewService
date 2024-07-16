@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Menubar from "./Menubar";
 import './css/home.css';
 import CategorySlideView from "./CategorySlideView";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import MainGames from './db/MainGames.json';
 import popularDB from './db/popularDB.json';
+import CustomArrow from "./etc/CustomArrow";
 
 
 const Home = () => {
@@ -30,7 +30,9 @@ const Home = () => {
         autoplaySpeed: 4000,
         speed: 700,
         slidesToShow: 3,
-        slidesToScroll: 3
+        slidesToScroll: 3,
+        nextArrow: <CustomArrow icon=">" className={"slick-next"}/>,
+        prevArrow: <CustomArrow icon="<" className={"slick-prev"}/>
         
       };
 

@@ -173,8 +173,9 @@ div > div.categorybox > a.sptimg > div.imgcarousel > span {
 }
 /* 페이지 하단 게임 카테고리 CSS END*/
 /* 메인 썸네일 슬라이드 CSS START*/
+
 #mainthum_slide {
-    width: 72%;
+    width: 1250px;
     margin: 20px auto;
     padding: 0px;
     overflow: hidden;
@@ -239,5 +240,10 @@ div > div.categorybox > a.sptimg > div.imgcarousel > span {
 
 .overlay h3 {
     margin-bottom: 10px; /* h3 태그 아래에 간격 추가 */
+}
+.slick-next {
+    position: relative; 
+    bottom:10px;
+    
 }
 /* 메인 썸네일 슬라이드 CSS END*/
