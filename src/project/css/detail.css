@@ -169,3 +169,10 @@ h2 {
     margin-top: 20px;
     font-size: 20px;
 }
+
+.review_wrap {
+    width: 500px;
+    height: 300px;
+    margin: 0 auto;
+    color: #fff;
+}

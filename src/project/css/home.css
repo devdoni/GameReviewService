@@ -61,35 +61,37 @@ div.game_table {
 div.game_table > table  {
     display: inline-block;
     margin: 0 20px;
+    border-collapse: collapse;
 }
 
 td { 
     position: relative;
     padding: 0;
     overflow: hidden;
+
 }
 
 div.game_table > table > tr.thead {
     text-align: left;
-    color: #ffffff
+    color: #ffffff;
+    
 }
 
 div.game_table > table > tr.thead > p {
     padding-bottom: 10px;
 }
 
-div.game_table > table > div.tablebgimg{
+div.game_table > table > tbody.tablebgimg{
     border: none 1px rgba(255, 255, 255, 0.1);
     background-color: rgba(255, 255, 255, 0.1);
 }
 .table1imgs {
-    width: 100%;
     display: block; /* block 요소로 설정하여 이미지가 셀을 채우도록 함 */
     transition: filter 0.3s ease;
 }
 
 
-div.game_table > table > div.tablebgimg > tr > td > .img_container img {
+div.game_table > table > tbody.tablebgimg > tr > td > .img_container img {
     width: 250px;
     height: 141px;
     object-fit: contain;
@@ -98,7 +100,6 @@ div.game_table > table > div.tablebgimg > tr > td > .img_container img {
 
 }
 .table1imgs {
-    width: 100%;
     transition: filter 0.3s ease;
 }
 .img_container .overlay {

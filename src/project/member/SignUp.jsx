@@ -159,11 +159,10 @@ const SignUp = () => {
           if (userReviewSvcDB === null) {
             let newUserReviews = {
                 [uId]: {
-
+                    
                 }
             }
             setUserReviewDB(newUserReviews);
-
           } else {
             let userReviews = getUserReviewDB();
             userReviews[uId] = {}
