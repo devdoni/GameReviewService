@@ -81,14 +81,14 @@ h1{
  */
 
 
-
+/* 리뷰 박스 CSS START */
 #detail_wrap {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 300px;
     margin: 0;
 }
 
@@ -101,6 +101,7 @@ h1{
 
 h2 {
     margin-top: 0;
+    color: #000;
 }
 
 .rating {
@@ -174,5 +175,6 @@ h2 {
     width: 500px;
     height: 300px;
     margin: 0 auto;
-    color: #fff;
+    color: #000;
 }
+/* 리뷰 박스 CSS END */

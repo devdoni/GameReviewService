@@ -174,7 +174,7 @@ div > div.categorybox > a.sptimg > div.imgcarousel > span {
 /* 페이지 하단 게임 카테고리 CSS END*/
 /* 메인 썸네일 슬라이드 CSS START*/
 #mainthum_slide {
-    width: 80%;
+    width: 65%;
     margin: 20px auto;
     padding: 10px;
     overflow: hidden;
