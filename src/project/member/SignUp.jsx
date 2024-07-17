@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import '../css/signup.css';
-import { Link, useNavigate } from "react-router-dom";
-import { getDateTime, getProdFlag, getUserDB, getUserReviewDB, IdDuplicateCheck, nickNameDuplicateCheck, setUserDB, setUserReviewDB, userIdCheck, userNameCheck, userNickNameCheck, userPwCheck } from "../utils/utils";
-import Menubar from "../Menubar";
+import { useNavigate } from "react-router-dom";
+import { getDateTime, getProdFlag, getUserDB, getUserReviewDB, IdDuplicateCheck, nickNameDuplicateCheck, setUserDB, setUserReviewDB, userIdCheck, userNickNameCheck, userPwCheck } from "../utils/utils";
 const SignUp = () => {
 
     //hook 

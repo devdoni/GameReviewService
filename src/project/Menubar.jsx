@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import './css/menubar.css';
 import './css/common.css';
 import { Link, useNavigate } from "react-router-dom";
@@ -23,7 +23,7 @@ const Menubar = ({isLogined, setIsLogined}) => {
         <div className="menubar">
             <ul>
                 <li className="logo">
-                    <Link to='/'><img src={`${process.env.PUBLIC_URL}/imgs/logo.png`}/> </Link>
+                    <Link to='/'><img src={`${process.env.PUBLIC_URL}/imgs/logo.png`} alt="logo"/> </Link>
                 </li>
                 <li>
                     <Link to='/popular'>인기 게임</Link>
