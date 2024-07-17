@@ -37,11 +37,6 @@ const Detail = () => {
                     <div>이름:{gameDetail.Name}</div>
                     <div>출시시간:{gameDetail.date}</div>
                     <div>게임소개:{gameDetail.description}</div>
-                </div>
-
-                <div className="game_info_detail">               {/* 예시 게임정보 더 필요하면 popularDB.json 파일에 추가해주세요. */}
-                    <div>플레이어수:{gameDetail.player_num}</div> 
-                    <div>게임시간:{gameDetail.play_time}</div>
                     <div>게임종류:{gameDetail.genre}</div>
                 </div>
             
