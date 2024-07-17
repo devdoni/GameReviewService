@@ -15,7 +15,7 @@ const Footer = () => {
         <div id="footer">
             <div className="footer_content">
                 <div className="footer_logo">
-                    <Link to={'/'}><img src="./imgs/logo.png" onClick={footerLogoClickHadnler}/></Link>
+                    <img src={`${process.env.PUBLIC_URL}/imgs/logo.png`} onClick={footerLogoClickHadnler}/>
                 </div>
             <div className="footer_text">
                 <div className="copyright">

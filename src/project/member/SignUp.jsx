@@ -8,14 +8,12 @@ const SignUp = () => {
     //hook 
     const [uId, setUId] = useState('');
     const [uPw, setUPw] = useState('');
-    const [uName, setUName] = useState('');
     const [uNick, setUNick] = useState('');
     const [uPhone, setUPhone] = useState('');
     const [uMail, setUMail] = useState('');
 
     const [isIdCheck, setIsIdCheck] = useState(false);        // 아이디 검증을 체크하는 State
-    const [isPwCheck, setIsPwCheck] = useState(false);        // 비밀번호 검증을 체크하는 State  
-    const [isNameCheck, setIsNameCheck] = useState(false);    // 이름 검증을 체크하는 State  
+    const [isPwCheck, setIsPwCheck] = useState(false);        // 비밀번호 검증을 체크하는 State
     const [isNickNameCheck, setIsNickNameCheck] = useState(false);  // 닉네임 검증을 체크하는 State
     const [isIdDuplicateCheck, setIsIdDuplicateCheck] = useState(false);    // 아이디 중복체크 State
     const [isNickDuplicateCheck, setIsNickDuplicateCheck] = useState(false);    // 닉네임 중복체크 State
@@ -53,20 +51,6 @@ const SignUp = () => {
         } else {
             setIsPwCheck(false);
         }
-    }
-
-
-    const uNameChangeHandler = (e) => {
-        if(!getProdFlag()) console.log('[SignUp] uNameChangeHandler()');
-
-        setUName(e.target.value);
-        let regNameCheck = userNameCheck(e.target.value);
-        if (regNameCheck) {
-            setIsNameCheck(true);
-        } else {
-            setIsNameCheck(false);
-        }
-
     }
 
     const uNickChangeHandler = (e) => {
@@ -111,12 +95,12 @@ const SignUp = () => {
             return;
         }
 
-        if (uPw === '' || uName === ''|| uNick === '') {
+        if (uPw === '' || uNick === '') {
             alert('필수 정보를 입력해주세요.');
             return;
         }
 
-        if (!isIdCheck || !isPwCheck || !isNameCheck || !isNickNameCheck || isNickDuplicateCheck) {
+        if (!isIdCheck || !isPwCheck || !isNickNameCheck || isNickDuplicateCheck) {
             alert('입력 정보를 확인해주세요.');
             return;
         }
@@ -128,7 +112,6 @@ const SignUp = () => {
                 [uId] : {
                     'uId': uId,
                     'uPw': uPw,
-                    'uName': uName,
                     'uNick': uNick,
                     'uPhone': uPhone,
                     'uMail': uMail,
@@ -144,7 +127,6 @@ const SignUp = () => {
             userObj[uId] = {
                 'uId': uId,
                 'uPw': uPw,
-                'uName': uName,
                 'uNick': uNick,
                 'uPhone': uPhone,
                 'uMail': uMail,
@@ -237,14 +219,6 @@ const SignUp = () => {
                     null
                     :
                     <p style={{color: '#ff0000'}}>비밀번호: 8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.</p>
-                }
-                <input className="basic_input" name="UserName" type="text" onChange={uNameChangeHandler} placeholder="[필수] 이름"/>
-                {
-                    isNameCheck
-                    ?
-                    null
-                    :    
-                    <p style={{color: '#ff0000'}}>이름을 입력해주세요.</p>
                 }
                 <input id="input_nick" name="UserNickname" type="text" onChange={uNickChangeHandler} placeholder="[필수] 닉네임" />
                 {
