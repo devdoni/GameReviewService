@@ -1,5 +1,5 @@
 import React from "react";
-import './css/footer.css';
+import './css/index.css';
 import { getProdFlag } from "./utils/utils";
 const Footer = () => {
 

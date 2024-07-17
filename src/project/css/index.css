@@ -1,3 +1,118 @@
+/* Wrap CSS START */
+#wrap {
+    margin: 0px auto;
+    text-align: center;
+    width: 100%;
+    background-color: #202531;
+}
+
+div.background {
+    width: 100%;
+    height: 100%;
+    margin: 0px auto;
+    background-color: #202531;
+    background-size: cover;
+}
+/* Wrap CSS END */
+
+/* Menubar CSS START */
+#wrap > div.menubar {
+    width: 100%;
+}
+
+#wrap > div.menubar > ul {
+    width: 100%;
+    background-color: #000;
+}
+
+#wrap > div.menubar > ul > li.logo img {
+    width: 150px;
+    height: 75px;
+}
+
+#wrap > div.menubar > ul > li
+ {
+    display: inline-block;
+    font-size: 1.2em;
+    padding: 20px; 
+    vertical-align:middle;
+}
+
+.menubar a { 
+    text-decoration: none;
+    color: #dcdedf;
+    cursor: pointer;
+}
+
+#wrap > div.menubar > ul > li a:hover {
+    color: #ffffff;
+}
+
+#wrap > div.menubar > ul > li select {
+    position: absolute;
+    top: 45px;
+    width: 150px;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 6px;
+    padding: 7px 7px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+}
+/* Menubar CSS END */
+
+
+/* Footer CSS START */
+#footer {
+    background-color: #000;
+    padding: 20px 0;
+    color: #fff;
+    font-size: 14px;
+}
+
+.footer_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.footer_logo img {
+    height: 60px;
+    margin-right: 20px;
+}
+
+.footer_text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.copyright {
+    margin-bottom: 10px;
+}
+
+.footer_info {
+    display: flex;
+    gap: 10px;
+}
+
+.footer_info a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer_info a:hover {
+    text-decoration: underline;
+}
+/* Footer CSS END */
+
 /* SIGN UP START*/
 #signup_wrap,
 #modify_wrap {
@@ -67,7 +182,8 @@
     margin-top: 10px;
     padding: 10px;
 }
-a {
+#signup_wrap a,
+#signin_wrap a {
     text-decoration: none;
 }
 a .basic_btn {
@@ -75,11 +191,6 @@ a .basic_btn {
 }
 a .basic_btn:hover {
     background-color: #999;
-}
-.check {
-    min-width: 40px;
-    max-width: 40px;
-
 }
 /* SIGN UP END */
 

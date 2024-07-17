@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import "../css/free.css";
+import "../css/games.css";
 
 const Free = () => {
 
@@ -59,7 +59,7 @@ const Free = () => {
 
     return(
 
-        <div className="carousel">
+        <div id="carousel">
 
             <div className="title">
                 무료플레이게임 추천

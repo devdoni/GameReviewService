@@ -1,5 +1,5 @@
 import React from "react";
-import './css/menubar.css';
+import './css/index.css';
 import './css/common.css';
 import { Link, useNavigate } from "react-router-dom";
 import { setLoginedSessionId } from "./utils/session";

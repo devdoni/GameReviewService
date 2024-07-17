@@ -1,5 +1,5 @@
 import React from "react";
-import '../css/recom.css';
+import '../css/games.css';
 const Category = () => {
     return(
         <div id="#recom_wrap">

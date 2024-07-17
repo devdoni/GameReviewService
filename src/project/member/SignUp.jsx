@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import '../css/signup.css';
+import '../css/index.css';
 import { useNavigate } from "react-router-dom";
 import { getDateTime, getProdFlag, getUserDB, getUserReviewDB, IdDuplicateCheck, nickNameDuplicateCheck, setUserDB, setUserReviewDB, userIdCheck, userNickNameCheck, userPwCheck } from "../utils/utils";
 const SignUp = () => {

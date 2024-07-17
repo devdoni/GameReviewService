@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import "../css/popular.css";
+import "../css/games.css";
 
 import popularDB from '../db/popularDB.json'
 import { Link } from "react-router-dom";

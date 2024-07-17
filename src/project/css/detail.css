@@ -57,30 +57,6 @@ body {
     display: inline-block;
 }
 
-/* #gamesinfo_wrap{
-    display: flex;
-
-
-}
-
-
-h1{
-    font-size: 2em;
-    color: #fff;
-    text-align: left;
-    margin-top: 40px;
-    font-weight: bold;
-}
-
-#gamesinfo_wrap div.game_pics{
-    float: left;
-    width: 200px;
-    height: 200px;
-    display: flex;
-}
- */
-
-
 /* 리뷰 박스 CSS START */
 #detail_wrap {
     background-color: #202531;

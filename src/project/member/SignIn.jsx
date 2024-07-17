@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import '../css/common.css';
-import '../css/signup.css';
+import '../css/index.css';
 import { useNavigate } from "react-router-dom";
 import { getMyInfo, getProdFlag } from "../utils/utils";
 import { setLoginedSessionId } from "../utils/session";
