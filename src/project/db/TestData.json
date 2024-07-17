@@ -1,0 +1,26 @@
+[
+    {
+        "name": "PUBG:BATTLEGROUNDS",
+        "genre": "오픈월드/FPS",
+        "src": "/imgs/smailthums/battlegrounds.jpg",
+        "info": "넓은 오픈월드에서 친구들과 함께 팀을 만들어 전장에서 최후의 생존자가 되어보세요!"
+    },
+    {
+        "name": "Phasmophobia",
+        "genre": "공포/호러",
+        "src": "/imgs/smailthums/pahasmophobia.jpg",
+        "info": "4인용 협동 공포 게임입니다. 처분 가능한 모든 유령 사냥 장비를 사용하여 가능한 한 많은 증거를 수집해야 합니다."
+    },
+    {
+        "name": "Sekiro™: Shadows Die Twice",
+        "genre": "액션",
+        "src": "/imgs/smailthums/sekiro.jpg",
+        "info": "복수를 향한 자신만의 길을 개척해보십시오. 복수하십시오. 명예를 회복하십시오. 무사답게 싸우십시오."
+    },
+    {
+        "name": "Half-Life: Alyx",
+        "genre": "공포/FPS",
+        "src": "/imgs/smailthums/alyx.jpg",
+        "info": "Half-Life: Alyx는 Valve가 선보이는 Half-Life 시리즈의 새로운 VR 게임입니다."
+    }
+]

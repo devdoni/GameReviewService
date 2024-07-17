@@ -32,7 +32,7 @@ const Menubar = ({isLogined, setIsLogined}) => {
                     <Link to='/free'>무료 게임</Link>
                 </li>
                 <li>
-                    <Link to='/recommend'>추천 게임</Link>
+                    <Link to='/category'>카테고리</Link>
                 </li>
                 {
                     isLogined
