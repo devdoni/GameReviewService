@@ -1,62 +1,89 @@
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #1a1a1a;
-    color: white;
-    margin: 0;
-    padding: 0;
+#gamesinfo_wrap {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #1b2838;
+    color: #c7d5e0;
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-#gamesinfo_wrap {
-    padding: 20px;
+.detail_header {
+    margin-bottom: 20px;
 }
 
 .detail_header h1 {
-    margin: 0;
-    font-size: 24px;
+    font-size: 32px;
+    color: #fff;
+    border-bottom: 2px solid #2a475e;
+    padding-bottom: 10px;
 }
 
-.per_game_info {
+.detail_item {
     display: flex;
-    margin-top: 20px;
+    justify-content: space-between;
+    gap: 20px;
 }
 
-.game_pics {
-    flex: 2;
-    margin-right: 20px;
+.slider_wrapper {
+    width: 65%;
 }
 
-.game_pics div {
+.detail_game_img {
+    width: 100%;
+}
+
+.slick-list {
+    overflow: hidden;
+}
+
+.slick-track {
+    display: flex;
+    align-items: center;
+}
+
+.detail_game_img .slick-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* 슬라이드의 너비를 100%로 설정 */
+    height: auto; /* 슬라이드의 높이를 자동으로 설정 */
+}
+
+.slider_image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider_image img {
+    width: 100%; /* 이미지의 너비를 100%로 설정하여 슬라이더에 맞춥니다. */
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid #2a475e;
+}
+
+.game_info {
+    width: 30%;
+    background-color: #2a475e;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.game_info div {
     margin-bottom: 10px;
 }
 
-.game_pics img {
-    width: 100%;
-    border-radius: 10px;
-    padding: 10px;
-    float:right;
+.game_info div:last-child {
+    margin-bottom: 0;
 }
 
-.game_info, .game_info_detail {
-    flex: 1;
+.game_info strong {
+    color: #66c0f4;
 }
-
-.game_info div, .game_info_detail div {
-    margin: 5px 0;
-}
-
-.game_info_detail {
-    margin-top: 10px;
-}
-
-.game_info_detail div {
-    background-color: #0078d7;
-    padding: 5px 10px;
-    margin-right: 5px;
-    border-radius: 5px;
-    display: inline-block;
-}
-
 /* 리뷰 박스 CSS START */
 #detail_wrap {
     background-color: #202531;
@@ -142,3 +169,4 @@ h2 {
     box-sizing: border-box;
 }
 /* 리뷰 박스 CSS END */
+

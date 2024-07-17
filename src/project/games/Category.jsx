@@ -2,10 +2,8 @@ import React from "react";
 import '../css/games.css';
 const Category = () => {
     return(
+        <>
         <div id="#recom_wrap">
-            <div className="recom_title">
-                카테고리를 선택해주세요
-            </div>
             <div className="recom_category">
                 <ul className="category_ul">
                     <li className="category_li">
@@ -47,6 +45,7 @@ const Category = () => {
                 </ul>
             </div>
         </div>
+        </>
     );
 }
 

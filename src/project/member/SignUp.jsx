@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import '../css/index.css';
+import { motion } from 'framer-motion'
 import { useNavigate } from "react-router-dom";
 import { getDateTime, getProdFlag, getUserDB, getUserReviewDB, IdDuplicateCheck, nickNameDuplicateCheck, setUserDB, setUserReviewDB, userIdCheck, userNickNameCheck, userPwCheck } from "../utils/utils";
 const SignUp = () => {
@@ -193,6 +194,11 @@ const SignUp = () => {
     
 
     return (
+        <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
         <div id="signup_wrap">
             <div className="signup">
                 <input id="input_id" name="UserId" type="text" onChange={uIdChangeHandler} placeholder="[필수] 아이디" />
@@ -242,6 +248,7 @@ const SignUp = () => {
                 <input className="basic_btn" type="button" onClick={SignUpBtnHandler} value="회원가입" />
             </div>
         </div>
+        </motion.div>
     );
 }
 

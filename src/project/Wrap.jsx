@@ -12,6 +12,7 @@ import Footer from "./Footer";
 import NG from "./NG";
 import Popular from "./games/Popular";
 import Category from "./games/Category";
+import { AnimatePresence } from "framer-motion";
 
 const Wrap = () => {
 
@@ -22,6 +23,7 @@ const Wrap = () => {
           <BrowserRouter>
             <div id="wrap">
               <Menubar isLogined={isLogined} setIsLogined={setIsLogined} />
+              <AnimatePresence>
                   <Routes>
                     <Route path='/' element={<Home isLogined={isLogined} setIsLogined={setIsLogined}/>} />
                     <Route path='/signup' element={<SignUp />} />
@@ -33,6 +35,7 @@ const Wrap = () => {
                     <Route path='/detail/:no' element={<Detail />} />
                     <Route path='/*' element={<NG />} />
                   </Routes>
+                </AnimatePresence>
               <Footer />
             </div>
           </BrowserRouter>
