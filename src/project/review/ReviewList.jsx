@@ -48,23 +48,26 @@ const ReviewList = ({ gameName, writeFlag }) => {
         setReviews(allReviews);
     };
     return (
-        <div id="review_list">
-            {reviews.length === 0 ? (
+            <div id="review_list">
+                {reviews.length === 0 ? (
                 <div className="no-reviews">리뷰가 없습니다.</div>
             ) : (
                 reviews.map((review, idx) => (
-                    <div key={idx} className="review_item">
-                        <div className="review_header">
-                            <div className="nickname">{review.nick}</div>
-                            <div className="rating">별점: {review.star}</div>
-                        </div>
-                        <div className="review_text">
-                            <p>{review.review}</p>
-                            <p className="reg-date">작성일시: {review.regDate}</p>
-                        </div>
+                <div key={idx} className="review_item">
+                    <div className="review_header">
+                        <div className="nickname">{review.nick}</div>
+                        <div className="rating">별점: {review.star}</div>
                     </div>
-                ))
-            )}
+                    <div className="review_text">
+                        <p>{review.review}</p>
+                        <p className="reg-date">작성일시: {review.regDate}</p>
+                    </div>
+                    <div className="review_actions">
+                        <button className="edit-button">수정</button>
+                        <button className="delete-button">삭제</button>
+                    </div>
+                </div>
+                )))}
         </div>
     );
 };
