@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import '../css/review.css'
-import { getUserReviewDB } from '../utils/utils';
-
-
+import { getProdFlag, getUserReviewDB, getMyReviewDB, setMyReviewDB } from '../utils/utils';
+import { getLoginedSessionId } from '../utils/session';
 
 
 const ReviewList = ({ gameName, writeFlag }) => {
@@ -47,6 +46,30 @@ const ReviewList = ({ gameName, writeFlag }) => {
 
         setReviews(allReviews);
     };
+
+    const editBtnClickHandler = () => {
+        console.log('[ReviewList] editBtnClickHandler()');
+
+    }
+
+    const deleteBtnClickHandler = () => {
+        console.log('[ReviewList] deleteBtnClickHandler()');
+        const reviewDelete = window.confirm("삭제하시겠습니까?");
+        if (reviewDelete) {
+        if (!getProdFlag()) console.log("참입니다");
+        let deleteMyReviewDB = getMyReviewDB(getLoginedSessionId());
+
+        delete deleteMyReviewDB[`${gameName}`];
+
+        setMyReviewDB(getLoginedSessionId(), deleteMyReviewDB);
+        
+        
+        
+    } else {
+        if (!getProdFlag()) console.log("거짓입니다");
+        }
+    }
+
     return (
             <div id="review_list">
                 {reviews.length === 0 ? (
@@ -63,8 +86,8 @@ const ReviewList = ({ gameName, writeFlag }) => {
                         <p className="reg-date">작성일시: {review.regDate}</p>
                     </div>
                     <div className="review_actions">
-                        <button className="edit-button">수정</button>
-                        <button className="delete-button">삭제</button>
+                        <button className="edit-button" onClick={editBtnClickHandler}>수정</button>
+                        <button className="delete-button" onClick={deleteBtnClickHandler}>삭제</button>
                     </div>
                 </div>
                 )))}
