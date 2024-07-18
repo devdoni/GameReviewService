@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-
 import "../css/games.css";
-
+import { motion } from 'framer-motion'
 import popularDB from '../db/popularDB.json'
 import { Link } from "react-router-dom";
 
@@ -22,17 +21,22 @@ const Popular = () => {
     
 
     return(
-<div id="popular_wrap">
-    <div className="popular-header">
-        최고 인기 게임
-    </div>
-    <div className="sub-header">
-        <div className="sub-header-item sub-rank">순위</div>
-        <div className="sub-header-item sub-item">게임 이름</div>
-        <div className="sub-header-item sub-price">가격</div>
-        <div className="sub-header-item sub-dicount">할인 정보</div>
-    </div>
-    <div className="items">
+        <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+        <div id="popular_wrap">
+            <div className="popular-header">
+                최고 인기 게임
+            </div>
+        <div className="sub-header">
+            <div className="sub-header-item sub-rank">순위</div>
+            <div className="sub-header-item sub-item">게임 이름</div>
+            <div className="sub-header-item sub-price">가격</div>
+            <div className="sub-header-item sub-dicount">할인 정보</div>
+        </div>
+        <div className="items">
         {
             popularArr.map((popular, idx) => {
                 return (
@@ -52,6 +56,7 @@ const Popular = () => {
         }
     </div>
 </div>
+</motion.div>
     );
 }
 

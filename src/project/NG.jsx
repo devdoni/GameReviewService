@@ -1,10 +1,10 @@
 import React from "react";
+import './css/index.css';
 
 const NG = () => {
     return(
-        <>
-            NG
-        </>
+        <div id="ng">
+        </div>
     );
 }
 

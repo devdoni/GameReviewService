@@ -7,10 +7,12 @@ import MainGames from './db/MainGames.json';
 import popularDB from './db/popularDB.json';
 import CustomArrow from "./etc/CustomArrow";
 import GameTable from "./games/GameTable";
-
+import { motion } from 'framer-motion'
 
 const Home = () => {
 
+
+    
     //Hook 
     const [games, setGames] = useState([]);
     const [popGames, setPopGames] = useState([]);
@@ -38,6 +40,11 @@ const Home = () => {
       };
 
     return(
+        <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
         <div id="hompage">
 
         <div id="mainthum_slide">
@@ -68,6 +75,7 @@ const Home = () => {
                     
             </div>
         </div>
+        </motion.div>
     );
 }
 

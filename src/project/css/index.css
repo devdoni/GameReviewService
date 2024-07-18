@@ -246,3 +246,10 @@ a .basic_btn:hover {
     padding: 10px;
 }
 /* SIGN IN END*/
+
+
+#ng {
+    width: 200px;
+    height: 200px;
+    margin: 50px auto;
+}
