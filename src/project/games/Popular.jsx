@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import popularDB from '../db/popularDB.json'
 import { Link } from "react-router-dom";
 
+
 const Popular = () => {
 
     // hook

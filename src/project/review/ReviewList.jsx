@@ -5,7 +5,7 @@ import { getLoginedSessionId } from '../utils/session';
 import StarRating from './StarRating';
 
 
-const ReviewList = ({ gameName, writeFlag }) => {
+const ReviewList = ({ gameName, writeFlag, setWriteFlag }) => {
     const [reviews, setReviews] = useState([]);
     const [modifying, setModifying] = useState(false);
     const [loggedInUserId, setLoggedInUserId] = useState(null);
@@ -89,12 +89,21 @@ const ReviewList = ({ gameName, writeFlag }) => {
 
             delete deleteMyReviewDB[`${gameName}`];
 
+<<<<<<< HEAD
             setMyReviewDB(getLoginedSessionId(), deleteMyReviewDB);
 
             setModifying((prev) => !prev);
 
         } else {
             if (!getProdFlag()) console.log("거짓입니다");
+=======
+        setMyReviewDB(getLoginedSessionId(), deleteMyReviewDB);
+        setWriteFlag(true);
+        
+        
+    } else {
+        if (!getProdFlag()) console.log("거짓입니다");
+>>>>>>> 3f26a842c21e6344d5aeb956b5ce5eab41d04741
         }
     };
 
