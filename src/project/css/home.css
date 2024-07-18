@@ -245,11 +245,22 @@ div > div.categorybox > a.sptimg > div.imgcarousel > span {
 .overlay h3 {
     margin-bottom: 10px; /* h3 태그 아래에 간격 추가 */
 }
+
 .slick-next {
+    padding: 10px;
+    
+    
+}
+
+/* .slick-prev{
+    width: 100px;
+    background-color: #fff;
+} */
+/* .slick-next {
     position: relative; 
     bottom:10px;
     
-}
+} */
 /* 메인 썸네일 슬라이드 CSS END*/
 
 /* CategorySlide CSS START */

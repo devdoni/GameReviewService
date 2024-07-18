@@ -72,7 +72,7 @@ const Detail = () => {
                 </div>
             </div>       
             <ReviewWrite gameName={gameName} setWriteFlag={setWriteFlag} />
-            <ReviewList gameName={gameName} writeFlag={writeFlag} />
+            <ReviewList gameName={gameName} writeFlag={writeFlag} setWriteFlag={setWriteFlag} />
         </motion.div>
         </>
     );

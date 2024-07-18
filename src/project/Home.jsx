@@ -34,8 +34,8 @@ const Home = () => {
         speed: 700,
         slidesToShow: 3,
         slidesToScroll: 3,
-        nextArrow: <CustomArrow icon=">" className={"slick-next"}/>,
-        prevArrow: <CustomArrow icon="<" className={"slick-prev"}/>
+        nextArrow: <CustomArrow icon="./imgs/rightarrow.png" className={"slick-next"}/>,
+        prevArrow: <CustomArrow icon="./imgs/leftarrow.png" className={"slick-prev"}/>
         
       };
 
