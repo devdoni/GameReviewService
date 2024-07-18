@@ -13,6 +13,7 @@ import NG from "./NG";
 import Popular from "./games/Popular";
 import Category from "./games/Category";
 import { AnimatePresence } from "framer-motion";
+import Genre from "./games/Genre";
 
 const Wrap = () => {
 
@@ -31,6 +32,7 @@ const Wrap = () => {
                     <Route path='/modify' element={<Modify isLogined={isLogined} setIsLogined={setIsLogined}/>} />
                     <Route path='/popular' element={<Popular />} />
                     <Route path='/category' element={<Category />} />
+                    <Route path='/genre/:genre' element={<Genre />}/>
                     <Route path='/free' element={<Free />} />
                     <Route path='/detail/:no' element={<Detail />} />
                     <Route path='/*' element={<NG />} />

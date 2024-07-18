@@ -5,7 +5,7 @@ import { getProdFlag, getUserReviewDB, getMyReviewDB, setMyReviewDB } from '../u
 import { getLoginedSessionId } from '../utils/session';
 
 
-const ReviewList = ({ gameName, writeFlag }) => {
+const ReviewList = ({ gameName, writeFlag, setWriteFlag }) => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
@@ -62,7 +62,7 @@ const ReviewList = ({ gameName, writeFlag }) => {
         delete deleteMyReviewDB[`${gameName}`];
 
         setMyReviewDB(getLoginedSessionId(), deleteMyReviewDB);
-        
+        setWriteFlag(true);
         
         
     } else {
