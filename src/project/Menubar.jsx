@@ -23,7 +23,7 @@ const Menubar = ({isLogined, setIsLogined}) => {
         <div className="menubar">
             <ul>
                 <li className="logo">
-                    <Link to='/'><img src="./imgs/logo.png" /> </Link>
+                    <Link to='/'><img src={`${process.env.PUBLIC_URL}/imgs/logo.png`}/> </Link>
                 </li>
                 <li>
                     <Link to='/popular'>인기 게임</Link>
@@ -32,7 +32,7 @@ const Menubar = ({isLogined, setIsLogined}) => {
                     <Link to='/free'>무료 게임</Link>
                 </li>
                 <li>
-                    <Link to='/recommend'>추천 게임</Link>
+                    <Link to='/category'>카테고리</Link>
                 </li>
                 {
                     isLogined

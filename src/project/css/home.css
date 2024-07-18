@@ -53,6 +53,12 @@ div > button.morebtn_right:hover {
 
 /*페이지 중단 작은 썸네일 테이블 CSS START*/
 
+/* .img_container > img { => 페이지 중단 작은 썸네일 뒤 투명 박스 css입니다. 혹시 몰라 남겼으니 지울거면 지워도 됩니다.
+     
+    border: none 1px rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
+} */ 
+
 div.game_table {
     margin: 30px 100px;
     /* background-color: rgba(255, 255, 255, 0.1); */
@@ -68,7 +74,6 @@ td {
     position: relative;
     padding: 0;
     overflow: hidden;
-
 }
 
 div.game_table > table > tr.thead {
@@ -81,10 +86,11 @@ div.game_table > table > tr.thead > p {
     padding-bottom: 10px;
 }
 
-div.game_table > table > tbody.tablebgimg{
-    border: none 1px rgba(255, 255, 255, 0.1);
+/* div.game_table > table > tbody.tablebgimg{  => 페이지 중단 작은 썸네일 뒤 투명 박스 css입니다. 혹시 몰라 남겼으니 지울거면 지워도 됩니다.
+    border: 1px solid rgba(255, 255, 255, 0.1);
     background-color: rgba(255, 255, 255, 0.1);
-}
+} */
+
 .table1imgs {
     display: block; /* block 요소로 설정하여 이미지가 셀을 채우도록 함 */
     transition: filter 0.3s ease;
@@ -96,17 +102,15 @@ div.game_table > table > tbody.tablebgimg > tr > td > .img_container img {
     height: 141px;
     object-fit: contain;
     padding: 10px;
-    margin-right: 10px;
-
 }
 .table1imgs {
     transition: filter 0.3s ease;
 }
 .img_container .overlay {
-    width: 100%;
-    height: 100%;
+    width: 93%;
+    height: 88%;
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 10px; left: 10px; right: 0; bottom: 10px;
     display: flex;
     justify-content: center;
     align-items: center;

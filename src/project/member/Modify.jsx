@@ -8,7 +8,6 @@ const Modify = ({setIsLogined}) => {
     //hook
     const [uId, setUId] = useState('');
     const [uPw, setUPw] = useState('');
-    const [uName, setUName] = useState('');
     const [uNick, setUNick] = useState('');
     const [uPhone, setUPhone] = useState('');
     const [uMail, setUMail] = useState('');
@@ -30,7 +29,6 @@ const Modify = ({setIsLogined}) => {
 
         setUId(myInfo.uId);
         setUPw(myInfo.uPw);
-        setUName(myInfo.uName);
         setUNick(myInfo.uNick);
         setUPhone(myInfo.uPhone);
         setUMail(myInfo.uMail);
@@ -56,12 +54,6 @@ const Modify = ({setIsLogined}) => {
         }
 
     }
-    const uNameChangeHandler = (e) => {
-        if(!getProdFlag()) console.log('[Modify] uNameChangeHandler()');
-
-        setUName(e.target.value);
-    }
-
     const uNickChangeHandler = (e) => {
         if(!getProdFlag()) console.log('[Modify] uNickChangeHandler()');
 
@@ -123,7 +115,6 @@ const Modify = ({setIsLogined}) => {
             delete allUserInfo[getLoginedSessionId()].uPw;
             delete allUserInfo[getLoginedSessionId()].uPhone;
             delete allUserInfo[getLoginedSessionId()].uMail;
-            delete allUserInfo[getLoginedSessionId()].uName;
             delete allUserInfo[getLoginedSessionId()].uModDate;
 
             setUserDB(allUserInfo);
@@ -159,7 +150,6 @@ const Modify = ({setIsLogined}) => {
                     :
                     <p style={{color: '#ff0000'}}>비밀번호: 8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.</p>
                 }
-                <input className="basic_input" name="UserName" type="text" readOnly value={uName} onChange={uNameChangeHandler} />
                 <br />
                 <input className="basic_input" name="UserNickname" type="text" value={uNick} onChange={uNickChangeHandler}/>
                 {

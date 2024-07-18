@@ -3,6 +3,7 @@ import { FaStar } from 'react-icons/fa';
 import '../css/review.css'
 
 const ReviewList = ({ reviews }) => {
+
     return (
         <div id="review_list">
             {reviews.map(review => (

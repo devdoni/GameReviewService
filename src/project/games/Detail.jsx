@@ -1,19 +1,29 @@
-import React, {} from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import '../css/common.css';
 import '../css/detail.css';
 import popularDB from '../db/popularDB.json'; //popularDB.json 파일을 불러옴;
 import ReviewWrite from "../review/ReviewWrite";
-import Test from "../review/Test";
+import ReviewList from "../review/ReviewList";
 
 const Detail = () => {
 
-    const { no } = useParams();                                     // Popular가 나한테 전달한 no값
+    const { no } = useParams(); 
+    const gameDetail = popularDB.find(p => p.no === parseInt(no)); 
+    const [writeFlag, setWriteFlag] = useState(false);
+    const [gameName, setGameName] = useState('');
 
-    const gameDetail = popularDB.find(p => p.no === parseInt(no));  // no값을 이용해서 DB에서 게임의 모든 정보를 가져옴
+    useEffect(() => {
+        console.log('[Detail] useEffect()');
 
-/*     console.log('[Detail] gameDetail.detail_img_01: ', gameDetail.detail_img_01);
- */
+        if (gameDetail) {   
+            setGameName(gameDetail.Name);
+        }
+    }, [no, gameDetail]); 
+
+
+
+
     return(
     <>
         <div id="gamesinfo_wrap">
@@ -42,8 +52,8 @@ const Detail = () => {
             
             </div>
         </div>       
-        <ReviewWrite />
-        <Test />
+        <ReviewWrite gameName={gameName} setWriteFlag={setWriteFlag}/>
+        <ReviewList gameName={gameName} writeFlag={writeFlag}/>
     </>
     );
 }

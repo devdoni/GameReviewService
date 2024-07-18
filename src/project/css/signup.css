@@ -4,11 +4,14 @@
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px 30px;
+    padding: 13px 30px;
     margin: 30px auto;
     width: 500px;
     text-align: center;
     box-sizing: border-box;
+}
+#modify_wrap {
+    margin-bottom: 109px;
 }
 .signup,
 .modify {
@@ -88,6 +91,7 @@ a .basic_btn:hover {
     padding: 20px 30px;
     margin: 30px auto;
     width: 500px;
+    margin-bottom: 452px;
     text-align: center;
     box-sizing: border-box;
 }

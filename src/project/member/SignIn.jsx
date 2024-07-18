@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import '../css/common.css';
 import '../css/signup.css';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getMyInfo, getProdFlag } from "../utils/utils";
-import { setLoginedNickName, setLoginedSessionId } from "../utils/session";
+import { setLoginedSessionId } from "../utils/session";
 
 
 
