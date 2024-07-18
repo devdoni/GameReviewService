@@ -7,6 +7,7 @@ const CategoryTest = () => {
     const text = "무슨 게임을 찾고 계신가요?";
     const textArr = Array.from(text);
     const genreArr = ["액션", "어드벤처", "퍼즐", "RPG", "시뮬레이션", "스포츠", "레이싱", "FPS", "전략", "오픈월드", "생존", "공포"];
+    const linkArr = ["action", "advencure", "puzzle", "rpg", "simulration", "spotrs", "racing", "fps", "strategy", "openworld", "survival", "horror"];
 
 
     const container = {
@@ -102,7 +103,7 @@ const CategoryTest = () => {
                 animate="visible"
             >
                 {genreArr.map((genre, index) => 
-                    <Link to={`/genre/:${genre}`}><motion.li 
+                    <Link to={`/genre/:${linkArr[index] }`}><motion.li 
                         key={index}
                         style={{
                             width: '200px',
