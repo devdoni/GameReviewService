@@ -5,11 +5,9 @@ import '../css/detail.css';
 import popularDB from '../db/popularDB.json';
 import ReviewWrite from "../review/ReviewWrite";
 import ReviewList from "../review/ReviewList";
-<<<<<<< HEAD
-=======
 import Slider from "react-slick";
 import { motion } from 'framer-motion'
->>>>>>> 3f26a842c21e6344d5aeb956b5ce5eab41d04741
+import CustomArrow from "../etc/CustomArrow";
 
 const Detail = () => {
 
@@ -17,26 +15,6 @@ const Detail = () => {
     const gameDetail = popularDB.find(p => p.no === parseInt(no)); 
     const [writeFlag, setWriteFlag] = useState(false);
     const [gameName, setGameName] = useState('');
-<<<<<<< HEAD
-
-    useEffect(() => {
-        console.log('[Detail] useEffect()');
-
-        if (gameDetail) {   
-            setGameName(gameDetail.Name);
-        }
-    }, [no, gameDetail]); 
-
-
-
-
-    return(
-    <>
-        <div id="gamesinfo_wrap">
-            <div className="detail_header">
-                <h1>{gameDetail.Name}</h1>
-            </div>
-=======
     
 
     useEffect(() => {
@@ -47,7 +25,6 @@ const Detail = () => {
             setGameName(gameDetail.Name);
         }
     }, [no, gameDetail]); 
->>>>>>> 3f26a842c21e6344d5aeb956b5ce5eab41d04741
 
     const imgUrl = [ 
         gameDetail.detail_img_01,
@@ -58,11 +35,15 @@ const Detail = () => {
 
     const settings = {
         dots: true,
-        infinite: false,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: true, 
+        dotsClass: "custom-dots",
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 4000,
+        speed: 700,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        nextArrow: <CustomArrow icon="./imgs/rightarrow.png" className={"slick-next"}/>,
+        prevArrow: <CustomArrow icon="./imgs/leftarrow.png" className={"slick-prev"}/>
     };
 
     return (
@@ -77,20 +58,6 @@ const Detail = () => {
                     <h1>{gameDetail.Name}</h1>
                 </div>
 
-<<<<<<< HEAD
-                <div className="game_info">
-                    <div>이름:{gameDetail.Name}</div>
-                    <div>출시시간:{gameDetail.date}</div>
-                    <div>게임소개:{gameDetail.description}</div>
-                    <div>게임종류:{gameDetail.genre}</div>
-                </div>
-            
-            </div>
-        </div>       
-        <ReviewWrite gameName={gameName} setWriteFlag={setWriteFlag}/>
-        <ReviewList gameName={gameName} writeFlag={writeFlag}/>
-    </>
-=======
                 <div className="detail_item">
                     <div className="slider_wrapper">
                         <Slider {...settings}>
@@ -114,7 +81,6 @@ const Detail = () => {
             <ReviewList gameName={gameName} writeFlag={writeFlag} setWriteFlag={setWriteFlag} />
         </motion.div>
         </>
->>>>>>> 3f26a842c21e6344d5aeb956b5ce5eab41d04741
     );
 };
 

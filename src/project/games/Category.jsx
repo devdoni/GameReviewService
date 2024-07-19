@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
-import '../css/recom.css';
+// import '../css/recom.css';
 import popularDB from '../db/popularDB.json'
+import '../css/games.css';
+import CategoryMotion from "../etc/CategoryMotion";
 
 
 const Category = () => {
@@ -72,19 +74,7 @@ const Category = () => {
                 </ul>
             </div>
         </div>
-import React from "react";
-import '../css/games.css';
-import CategoryMotion from "../etc/CategoryMotion";
-const Category = () => {
-    return(
-        <>
-        <div id="category_wrap">
-            <div className="item_content">
-                <CategoryMotion />
-            </div>
-        </div>
-        </>
-    );
+    )
 }
 
 

@@ -20,6 +20,7 @@ const ReviewList = ({ gameName, writeFlag}) => {
             setLoggedInUserId(sessionId);
         }
     }, [writeFlag, gameName, modifying]);
+    
 
     const setData = () => {
         const userReviewDB = getUserReviewDB();
@@ -106,7 +107,7 @@ const ReviewList = ({ gameName, writeFlag}) => {
         }
     };
 
-const ReviewList = ({ reviews }) => {
+
 
     return (
         <div id="review_list">

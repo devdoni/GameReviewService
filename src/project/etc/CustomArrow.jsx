@@ -4,16 +4,16 @@ import React from "react";
 const CustomArrow = ({ className, style, onClick, icon }) => {
     return(
         <div
-            className={className}
+            className={`${className} custom-arrow`}
             style={{ 
                 ...style, 
-                objectFit: "contain",
-                width: "50px",
-                height: "100%",  // Adjust the height as needed
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                cursor: "pointer",
+                // objectFit: "contain",
+                // width: "50px",
+                // height: "100%",  Adjust the height as needed
+                // display: "flex",
+                // justifyContent: "center",
+                // alignItems: "center",
+                 cursor: "pointer",
                 
             }} 
             onClick={onClick}
