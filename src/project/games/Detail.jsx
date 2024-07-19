@@ -65,10 +65,11 @@ const Detail = () => {
                     </div>
 
                     <div className="game_info">
+                        <div><img src={gameDetail['thumnail-link']} /></div>
                         <div><strong>이름:</strong> {gameDetail.Name}</div>
                         <div><strong>출시시간:</strong> {gameDetail.date}</div>
                         <div><strong>게임소개:</strong> {gameDetail.description}</div>
-                        <div><strong>게임장르:</strong> {gameDetail.main_genre}</div>
+                        <div><strong>게임장르:</strong> {gameDetail.genre}</div>
                     </div>
                 </div>
             </div>       
