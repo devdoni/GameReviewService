@@ -19,6 +19,9 @@ const Popular = () => {
 
     }, []);
 
+    const linkClickHandler = () => {
+        window.scroll({top: 0, left: 0, behavior: 'smooth'});
+    }
     
 
     return(
@@ -44,7 +47,7 @@ const Popular = () => {
                     <div className="item" key={idx}>
                         <div className="rank">{idx + 1}</div>
                         <div className="thumbnail">
-                            <Link to={`/detail/${popular['no']}`}>
+                            <Link to={`/detail/${popular['no']}`} onClick={linkClickHandler}>
                                 <img src={popular['thumnail-link']} alt={popular['title']} />
                             </Link>
                         </div>

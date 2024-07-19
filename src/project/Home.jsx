@@ -26,7 +26,6 @@ const Home = () => {
         getData();
     }, []);
 
-    // 슬라이드를 설정하는 부분
     const settings = {
         dots: true,
         infinite: true,
@@ -35,8 +34,8 @@ const Home = () => {
         speed: 700,
         slidesToShow: 3,
         slidesToScroll: 3,
-        nextArrow: <CustomArrow icon=">" className={"slick-next"}/>,
-        prevArrow: <CustomArrow icon="<" className={"slick-prev"}/>
+        nextArrow: <CustomArrow icon="./imgs/rightarrow.png" className={"slick-next"}/>,
+        prevArrow: <CustomArrow icon="./imgs/leftarrow.png" className={"slick-prev"}/>
         
       };
 
@@ -66,15 +65,14 @@ const Home = () => {
             </Slider>
 
         </div>
-        <div className="game_table">
-            <GameTable />
-                    {/* category btn */}
-                    <div className="categorybox">
-                        <h2>카테고리별로 살펴보기</h2>
-                        <CategorySlideView />
-                    </div>
-                    
+            <div className="game_table">
+                <GameTable />
             </div>
+            <div className="categorybox">
+                <h2>카테고리별로 살펴보기</h2>
+                <CategorySlideView />
+            </div>
+            
         </div>
         </motion.div>
     );

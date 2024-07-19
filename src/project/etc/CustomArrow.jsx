@@ -7,19 +7,12 @@ const CustomArrow = ({ className, style, onClick, icon }) => {
             className={className}
             style={{ 
                 ...style, 
-                display: 'inline-block', 
-                background: 'black', 
-                borderRadius: '50%', 
-                width: '30px', 
-                height: '30px', 
-                padding: '10px',
-                display: 'flex', 
-                alignItems: 'center', 
-                justifyContent: 'center' 
+                
+                
             }} 
             onClick={onClick}
         >
-            {icon}
+             <img src={icon} alt="arrow" />
         </div>
     )
 }

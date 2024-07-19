@@ -66,7 +66,7 @@ const ReviewWrite = ({gameName , setWriteFlag}) => {
         setMyReviewDB(getLoginedSessionId(), reviewDB);
 
         alert("작성이 완료되었습니다.");
-        setWriteFlag(true);
+        setWriteFlag((prev) => !prev);
         setReviewComment('');
         setScore(0); //초기값으로 되돌림
     }
