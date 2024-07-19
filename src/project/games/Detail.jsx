@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import '../css/common.css';
 import '../css/detail.css';
 import popularDB_kor from '../db/popularDB_kor.json'
@@ -7,9 +7,13 @@ import popularDB_eng from '../db/popularDB_eng.json'
 import popularDB_chi from '../db/popularDB_chi.json'
 import ReviewWrite from "../review/ReviewWrite";
 import ReviewList from "../review/ReviewList";
-
 import Slider from "react-slick";
 import { motion } from 'framer-motion'
+import { getDateTime, getProdFlag, getUserWishListDB, geyMyWishList, setMyWishList, setUserWishListDB } from "../utils/utils";
+import { getLoginedSessionId } from "../utils/session";
+import Wish from "./Wish";
+import CustomArrow from "../etc/CustomArrow";
+
 
 const Detail = ({langFileName}) => {
 
@@ -31,6 +35,10 @@ const Detail = ({langFileName}) => {
 
     }, [langFileName]); 
 
+    useEffect(() => {
+        setWriteFlag(prev => !prev);
+    }, []);
+
     const imgUrl = [ 
         popularTargetObj.detail_img_01,
         popularTargetObj.detail_img_02,
@@ -40,12 +48,17 @@ const Detail = ({langFileName}) => {
 
     const settings = {
         dots: true,
-        infinite: false,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: true, 
+        dotsClass: "custom-dots",
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 4000,
+        speed: 700,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        nextArrow: <CustomArrow icon="./imgs/rightarrow.png" className={"slick-next"}/>,
+        prevArrow: <CustomArrow icon="./imgs/leftarrow.png" className={"slick-prev"}/>
     };
+
 
     return (
         <>
@@ -71,6 +84,7 @@ const Detail = ({langFileName}) => {
                     </div>
 
                     <div className="game_info">
+<<<<<<< HEAD
                         <div><img src={popularTargetObj['thumnail-link']} /></div>
                         <div><strong>{popularTargetObj.game_name}:</strong> {popularTargetObj.Name}</div>
                         <div><strong>{popularTargetObj.game_release_date}:</strong> {popularTargetObj.date}</div>
@@ -81,10 +95,26 @@ const Detail = ({langFileName}) => {
             </div>       
             <ReviewWrite gameName={popularTargetObj.gameName} />
             <ReviewList gameName={popularTargetObj.gameName} />
+=======
+                        <div><img src={gameDetail['thumnail-link']} /></div>
+                        <div><strong>이름:</strong> {gameDetail.Name}</div>
+                        <div><strong>출시시간:</strong> {gameDetail.date}</div>
+                        <div><strong>게임소개:</strong> {gameDetail.description}</div>
+                        <div><strong>게임장르:</strong> {gameDetail.genre}</div>
+                        <div className="buttons_wrapper">
+                            <Link to={gameDetail.href}><button className="action_button">구매 사이트 이동</button></Link>
+                            <Wish no={no} gameName={gameName} setWriteFlag={setWriteFlag}/>
+                        </div>
+
+                    </div>
+                </div>
+            </div>       
+            <ReviewWrite gameName={gameName} setWriteFlag={setWriteFlag} writeFlag={writeFlag} />
+            <ReviewList gameName={gameName} writeFlag={writeFlag} setWriteFlag={setWriteFlag} />
+>>>>>>> 3be038aaba525f5e0b0a76292715fe0f7f1b9b6e
         </motion.div>
         </>
     );
 };
-
 
 export default Detail;

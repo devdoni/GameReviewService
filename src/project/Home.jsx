@@ -28,6 +28,7 @@ const Home = () => {
 
     const settings = {
         dots: true,
+        dotsClass: 'slick-dots custom-dots',
         infinite: true,
         autoplay:true,
         autoplaySpeed: 4000,
@@ -63,8 +64,8 @@ const Home = () => {
                 </div>
             ))}
             </Slider>
-
         </div>
+        
             <div className="game_table">
                 <GameTable />
             </div>

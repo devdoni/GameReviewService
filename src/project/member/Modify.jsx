@@ -105,38 +105,7 @@ const Modify = ({setIsLogined}) => {
 
     }
 
-    const deleteBtnHandler = () => {
-        if(!getProdFlag()) console.log('[Modify] deleteBtnHandler()');
 
-        if (window.confirm('정말로 회원탈퇴를 하시겠습니까?')) {
-            
-            //DELETE USER INFO
-            let allUserInfo = getUserDB();
-
-            delete allUserInfo[getLoginedSessionId()].uPw;
-            delete allUserInfo[getLoginedSessionId()].uPhone;
-            delete allUserInfo[getLoginedSessionId()].uMail;
-            delete allUserInfo[getLoginedSessionId()].uModDate;
-
-            setUserDB(allUserInfo);
-
-            let allUserRiview = getUserReviewDB();
-
-            delete allUserRiview[getLoginedSessionId()];
-
-            setUserReviewDB(allUserRiview);
-
-            alert('회원탈퇴가 완료되었습니다.');
-
-            setLoginedSessionId();
-            setIsLogined(false);
-            navigate('/');
-
-            } else { 
-                alert("회원 탈퇴 요청이 취소되었습니다.");
-            }
-
-        } 
 
 
     return(
@@ -165,7 +134,6 @@ const Modify = ({setIsLogined}) => {
                 <input className="basic_input" type="email" name="UserEmail" value={uMail} onChange={uMailChangeHandler} placeholder="변경할 이메일 주소" />
                 <br />
                 <input className="basic_btn" type="button" onClick={modifyBtnHandler} value="정보수정" />
-                <input className="basic_btn" type="button" onClick={deleteBtnHandler} value="회원탈퇴" />
             </div>
         </div>
     );

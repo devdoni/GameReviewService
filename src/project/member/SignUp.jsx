@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import '../css/index.css';
 import { motion } from 'framer-motion'
 import { useNavigate } from "react-router-dom";
-import { getDateTime, getProdFlag, getUserDB, getUserReviewDB, IdDuplicateCheck, nickNameDuplicateCheck, setUserDB, setUserReviewDB, userIdCheck, userNickNameCheck, userPwCheck } from "../utils/utils";
+import { getDateTime, getProdFlag, getUserDB, getUserReviewDB, getUserWishListDB, getWishListDB, IdDuplicateCheck, nickNameDuplicateCheck, setUserDB, setUserReviewDB, setUserWishListDB, setWishListDB, userIdCheck, userNickNameCheck, userPwCheck } from "../utils/utils";
 const SignUp = () => {
 
     //hook 
@@ -151,6 +151,20 @@ const SignUp = () => {
 
             setUserReviewDB(userReviews);
           }
+        // WISHLIST DB
+          let userWishListDB = getUserWishListDB();
+          if (userWishListDB === null) {
+            let newUserWishLists = {
+                [uId]: {}
+            };
+            setUserWishListDB(newUserWishLists);
+          } else {
+            
+            userWishListDB[uId] = {}
+
+            setUserWishListDB(userWishListDB);
+        }
+
           alert('회원가입에 성공했습니다.');
 
           navgigate('/signin');
