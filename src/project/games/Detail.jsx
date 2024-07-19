@@ -19,6 +19,7 @@ const Detail = ({langFileName}) => {
 
     const { no } = useParams(); 
     const [popularTargetObj, setPopularTargetObj] = useState({});
+    const [writeFlag, setWriteFlag] = useState(false);
 
     useEffect(() => {
         console.log('[Detail] useEffect()');
@@ -84,34 +85,21 @@ const Detail = ({langFileName}) => {
                     </div>
 
                     <div className="game_info">
-<<<<<<< HEAD
                         <div><img src={popularTargetObj['thumnail-link']} /></div>
                         <div><strong>{popularTargetObj.game_name}:</strong> {popularTargetObj.Name}</div>
                         <div><strong>{popularTargetObj.game_release_date}:</strong> {popularTargetObj.date}</div>
                         <div><strong>{popularTargetObj.game_introduction}:</strong> {popularTargetObj.description}</div>
                         <div><strong>{popularTargetObj.game_genre}:</strong> {popularTargetObj.genre}</div>
-                    </div>
-                </div>
-            </div>       
-            <ReviewWrite gameName={popularTargetObj.gameName} />
-            <ReviewList gameName={popularTargetObj.gameName} />
-=======
-                        <div><img src={gameDetail['thumnail-link']} /></div>
-                        <div><strong>이름:</strong> {gameDetail.Name}</div>
-                        <div><strong>출시시간:</strong> {gameDetail.date}</div>
-                        <div><strong>게임소개:</strong> {gameDetail.description}</div>
-                        <div><strong>게임장르:</strong> {gameDetail.genre}</div>
                         <div className="buttons_wrapper">
-                            <Link to={gameDetail.href}><button className="action_button">구매 사이트 이동</button></Link>
-                            <Wish no={no} gameName={gameName} setWriteFlag={setWriteFlag}/>
+                            <Link to={popularTargetObj.href}><button className="action_button">구매 사이트 이동</button></Link>
+                            <Wish no={no} gameName={popularTargetObj.gameName} setWriteFlag={setWriteFlag}/>
                         </div>
-
                     </div>
                 </div>
             </div>       
-            <ReviewWrite gameName={gameName} setWriteFlag={setWriteFlag} writeFlag={writeFlag} />
-            <ReviewList gameName={gameName} writeFlag={writeFlag} setWriteFlag={setWriteFlag} />
->>>>>>> 3be038aaba525f5e0b0a76292715fe0f7f1b9b6e
+            <ReviewWrite gameName={popularTargetObj.gameName} setWriteFlag={setWriteFlag} writeFlag={writeFlag} />
+            <ReviewList gameName={popularTargetObj.gameName} setWriteFlag={setWriteFlag} writeFlag={writeFlag} />
+
         </motion.div>
         </>
     );
