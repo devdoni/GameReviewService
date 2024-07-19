@@ -5,8 +5,11 @@ import '../css/detail.css';
 import popularDB from '../db/popularDB.json';
 import ReviewWrite from "../review/ReviewWrite";
 import ReviewList from "../review/ReviewList";
+<<<<<<< HEAD
+=======
 import Slider from "react-slick";
 import { motion } from 'framer-motion'
+>>>>>>> 3f26a842c21e6344d5aeb956b5ce5eab41d04741
 
 const Detail = () => {
 
@@ -14,6 +17,26 @@ const Detail = () => {
     const gameDetail = popularDB.find(p => p.no === parseInt(no)); 
     const [writeFlag, setWriteFlag] = useState(false);
     const [gameName, setGameName] = useState('');
+<<<<<<< HEAD
+
+    useEffect(() => {
+        console.log('[Detail] useEffect()');
+
+        if (gameDetail) {   
+            setGameName(gameDetail.Name);
+        }
+    }, [no, gameDetail]); 
+
+
+
+
+    return(
+    <>
+        <div id="gamesinfo_wrap">
+            <div className="detail_header">
+                <h1>{gameDetail.Name}</h1>
+            </div>
+=======
     
 
     useEffect(() => {
@@ -24,6 +47,7 @@ const Detail = () => {
             setGameName(gameDetail.Name);
         }
     }, [no, gameDetail]); 
+>>>>>>> 3f26a842c21e6344d5aeb956b5ce5eab41d04741
 
     const imgUrl = [ 
         gameDetail.detail_img_01,
@@ -53,6 +77,20 @@ const Detail = () => {
                     <h1>{gameDetail.Name}</h1>
                 </div>
 
+<<<<<<< HEAD
+                <div className="game_info">
+                    <div>이름:{gameDetail.Name}</div>
+                    <div>출시시간:{gameDetail.date}</div>
+                    <div>게임소개:{gameDetail.description}</div>
+                    <div>게임종류:{gameDetail.genre}</div>
+                </div>
+            
+            </div>
+        </div>       
+        <ReviewWrite gameName={gameName} setWriteFlag={setWriteFlag}/>
+        <ReviewList gameName={gameName} writeFlag={writeFlag}/>
+    </>
+=======
                 <div className="detail_item">
                     <div className="slider_wrapper">
                         <Slider {...settings}>
@@ -76,6 +114,7 @@ const Detail = () => {
             <ReviewList gameName={gameName} writeFlag={writeFlag} setWriteFlag={setWriteFlag} />
         </motion.div>
         </>
+>>>>>>> 3f26a842c21e6344d5aeb956b5ce5eab41d04741
     );
 };
 

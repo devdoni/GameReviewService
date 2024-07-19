@@ -15,6 +15,7 @@ import Category from "./games/Category";
 import { AnimatePresence } from "framer-motion";
 import Genre from "./games/Genre";
 
+
 const Wrap = () => {
 
     // hook

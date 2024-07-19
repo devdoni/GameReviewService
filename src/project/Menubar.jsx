@@ -23,6 +23,7 @@ const Menubar = ({isLogined, setIsLogined}) => {
         <div className="menubar">
             <ul>
                 <li className="logo">
+                    <Link to='/'><img src={`${process.env.PUBLIC_URL}/imgs/logo.png`}/> </Link>
                     <Link to='/'><img src={`${process.env.PUBLIC_URL}/imgs/logo.png`} alt="logo"/> </Link>
                 </li>
                 <li>

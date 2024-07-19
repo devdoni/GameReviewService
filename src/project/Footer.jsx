@@ -14,6 +14,7 @@ const Footer = () => {
         <div id="footer">
             <div className="footer_content">
                 <div className="footer_logo">
+                    <img src={`${process.env.PUBLIC_URL}/imgs/logo.png`} onClick={footerLogoClickHadnler}/>
                     <img src={`${process.env.PUBLIC_URL}/imgs/logo.png`} alt="logo" onClick={footerLogoClickHadnler}/>
                 </div>
             <div className="footer_text">

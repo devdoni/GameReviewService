@@ -1,0 +1,123 @@
+div.train {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 1250px;
+}
+
+div.train > button.prev-button > img.arw,
+div.train > button.next-button > img.arw {
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 70px;
+    height: 70px;
+    margin-top: 70px;
+}
+
+div.train > button.prev-button > img.arw:hover {
+    /* background: linear-gradient(to right, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0.3) 95%); */
+    cursor: pointer;
+}
+
+div.train > button.next-button > img.arw:hover {
+    /* background: linear-gradient(to left, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0.3) 95%); */
+    cursor: pointer;
+}
+
+div.train > div.show {
+    display: flex;
+    width: 1100px;
+    height: 450px;
+    overflow: hidden;
+}
+
+div.train > button.prev-button,
+div.train > button.next-button{
+    border: 0;
+    background-color: transparent;
+    height: 50px;
+    margin-top: 80px;
+}
+
+div.train > div.show > div.compartment {
+    width: 1000px;
+    height: 350px;
+    flex-shrink: 0; /* 이 구역안에 생기는 영역들이 공간을 분배하여 가지지 않도록 적용 */
+    /* font-size: 40px;
+    text-align: center; */
+    margin: 0 50px; /* 보여줄 영역을 표시하기 위해 적용 */
+    
+    
+}
+
+/* 각 슬라이드가 변경되는 것을 시각적으로 확인하기 쉽도록 각 슬라이드별 색상 적용 */
+div.train > div.show > div.compartment:nth-child(1) {
+    background-image:
+    url("../../../public/imgs/category/yu-gi-oh_master_duel_strategy_photo.png"),
+    url("../../../public/imgs/category/bladur`s_gate3_rpg_photo.png"),
+    url("../../../public/imgs/category/football_manager2024_allsports_photo.png");
+    background-size: 490px 300px, 490px 300px, 490px 300px;
+    background-position: 10px 0, 355px 0, 700px 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    
+}
+
+div.train > div.show > div.compartment:nth-child(2) {
+    background-image:
+    url("../../../public/imgs/category/project_zomboid_survival_photo.png"),
+    url("../../../public/imgs/category/elden_ring_horror_photo.png"),
+    url("../../../public/imgs/category/palworld_animation_photo.png");
+    background-size: 490px 300px, 490px 300px, 490px 300px;
+    background-position: 10px 0, 355px 0, 700px 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+div.train > div.show > div.compartment:nth-child(3) {
+    background-image: url("../../../public/imgs/category/battlegrounds_fps_photo.png"),
+    url("../../../public/imgs/category/forza_horizon4_racing_photo.png"),
+    url("../../../public/imgs/category/stardew_valley_simulation_photo.png");
+    background-size: 490px 300px, 490px 300px, 490px 300px;
+    background-position: 10px 0, 355px 0, 700px 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+/* div.train > div.show > div.compartment:nth-child(4) {
+    background-image: url("../../../public/imgs/category/yu-gi-oh_master_duel_strategy.jpg"),
+    url("../../../public/imgs/category/bladur`s_gate3_rpg.jpg"),
+    url("../../../public/imgs/category/football_manager2024_allsports.jpg");
+    background-size: 490px 300px, 490px 300px, 490px 300px;
+    background-position: 10px 0, 355px 0, 700px 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+} */
+
+
+
+div.train > ol.slide-index {
+    
+    position: absolute;
+    display: flex;
+    gap: 8px;
+    margin-top: 365px;
+    cursor: pointer;
+}
+
+div.train > ol.slide-index > li.index-item{
+    display: inline-block;
+    margin: 12px 2px;
+    width: 20px;
+    height: 12px;
+    border-radius: 2px;
+    transition: background-color 0.2s;
+    background-color: hsla(202, 60%, 100%, 0.2);
+    cursor: pointer;
+}
+div.train > ol.slide-index > li.index-item:hover {
+    background-color: #dadada;
+}
+div.train > ol.slide-index > li.index-item.active {
+    background-color: #fff;
+}
+

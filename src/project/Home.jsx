@@ -7,6 +7,7 @@ import MainGames from './db/MainGames.json';
 import popularDB from './db/popularDB.json';
 import CustomArrow from "./etc/CustomArrow";
 import GameTable from "./games/GameTable";
+
 import { motion } from 'framer-motion'
 
 const Home = () => {
@@ -25,7 +26,6 @@ const Home = () => {
         getData();
     }, []);
 
-    // 슬라이드를 설정하는 부분
     const settings = {
         dots: true,
         infinite: true,
@@ -65,15 +65,14 @@ const Home = () => {
             </Slider>
 
         </div>
-        <div className="game_table">
-            <GameTable />
-                    {/* category btn */}
-                    <div className="categorybox">
-                        <h2>카테고리별로 살펴보기</h2>
-                        <CategorySlideView />
-                    </div>
-                    
+            <div className="game_table">
+                <GameTable />
             </div>
+            <div className="categorybox">
+                <h2>카테고리별로 살펴보기</h2>
+                <CategorySlideView />
+            </div>
+            
         </div>
         </motion.div>
     );
