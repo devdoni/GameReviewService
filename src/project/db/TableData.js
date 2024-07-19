@@ -1,13 +1,13 @@
 const TableData = {
    korPopular :[
-        {name: 'PUBG:BATTLEGROUNDS', genre: '오픈월드/FPS', src: '/imgs/smailthums/battlegrounds.jpg', info: '넓은 오픈월드에서 친구들과 함께 팀을 만들어 전장에서 최후의 생존자가 되어보세요!', href: 'detail/1' },
+        {name: 'PUBG: BATTLEGROUNDS', genre: '오픈월드/FPS', src: '/imgs/smailthums/battlegrounds.jpg', info: '넓은 오픈월드에서 친구들과 함께 팀을 만들어 전장에서 최후의 생존자가 되어보세요!', href: 'detail/1' },
         {name: 'Phasmophobia', genre: '공포/호러', src: '/imgs/smailthums/pahasmophobia.jpg', info: '4인용 협동 공포 게임입니다. 처분 가능한 모든 유령 사냥 장비를 사용하여 가능한 한 많은 증거를 수집해야 합니다.', href: 'detail/1'},
         {name: 'Sekiro™: Shadows Die Twice', genre: '액션', src: '/imgs/smailthums/sekiro.jpg', info: '복수를 향한 자신만의 길을 개척해보십시오. 복수하십시오. 명예를 회복하십시오. 무사답게 싸우십시오.', href: 'detail/28'},
-        {name: 'Half-Life: Alyx', genre: '공포/FPS', src: '/imgs/smailthums/alyx.jpg', info: 'Half-Life: Alyx는 Valve가 선보이는 Half-Life 시리즈의 새로운 VR 게임입니다.', href: 'detail/1'},
+        {name: 'Half-Life Alyx', genre: '공포/FPS', src: '/imgs/smailthums/alyx.jpg', info: 'Half-Life: Alyx는 Valve가 선보이는 Half-Life 시리즈의 새로운 VR 게임입니다.', href: 'detail/1'},
         {link: 'popular'}
    ],
    korFree :[
-        {name: 'Apex Legends',genre: '배틀로얄/슈팅',src: '/imgs/smailthums/apex_legends.jpg',info: 'Titanfall 시리즈의 세계를 배경으로 한 빠른 속도의 배틀로얄 게임입니다. 각기 다른 능력을 가진 Legend들을 선택하여 팀을 이루어 싸우세요.'},
+        {name: 'Apex 레전드™',genre: '배틀로얄/슈팅',src: '/imgs/smailthums/apex_legends.jpg',info: 'Titanfall 시리즈의 세계를 배경으로 한 빠른 속도의 배틀로얄 게임입니다. 각기 다른 능력을 가진 Legend들을 선택하여 팀을 이루어 싸우세요.'},
         {name: 'Warframe',genre: '액션/RPG',src: '/imgs/smailthums/warframe.jpg',info: '우주를 배경으로 한 빠른 속도의 3인칭 슈팅 게임으로, 다양한 캐릭터와 무기를 사용하여 미션을 수행하고 적을 물리치세요.'},
         {name: 'Destiny 2',genre: 'MMO/슈팅',src: '/imgs/smailthums/destiny2.jpg',info: '다양한 클래스와 무기를 선택하여 인류의 마지막 도시를 방어하는 게임입니다. 혼자서 또는 친구들과 함께 우주를 탐험하고 적을 물리치세요.'},
         {name: 'Brawlhalla',genre: '플랫폼/격투',src: '/imgs/smailthums/brawlhalla.jpg',info: '최대 8명의 플레이어가 동시에 싸울 수 있는 플랫폼 격투 게임입니다. 다양한 모드와 캐릭터를 선택하여 친구들과 경쟁하세요.'},
@@ -24,16 +24,16 @@ const TableData = {
         {name: 'Euro Truck Simulator 2', genre: '운송/시뮬레이션', src: '/imgs/smailthums/EuroTruck.jpg', info: '유럽 전역을 여행하며 다양한 화물을 운송할 수 있는 트럭 시뮬레이션 게임입니다. 현실적인 운전 경험과 다양한 경로를 탐험해보세요.'},    
         {name: 'Railway Empire 2', genre: '경영/시뮬레이션', src: '/imgs/smailthums/RailwayEmpire2.jpg',info: '19세기 미국의 철도 회사를 경영하며 철도망을 확장하고 회사를 성장시키는 시뮬레이션 게임입니다.'},
         {name: 'Farming Simulator 22', genre: '농업/시뮬레이션', src: '/imgs/smailthums/FarmingSimulator22.jpg', info: '농작물 재배, 가축 사육 등 실제 농장 경영을 체험할 수 있는 시뮬레이션 게임입니다.'},
-        {name: 'Cities: Skylines', genre: '도시 건설/시뮬레이션', src: '/imgs/smailthums/CitiesSkylines.jpg', info: '현대 도시를 설계하고 관리하며 다양한 도전 과제를 해결하는 도시 건설 시뮬레이션 게임입니다.'},
+        {name: 'Cities Skylines', genre: '도시 건설/시뮬레이션', src: '/imgs/smailthums/CitiesSkylines.jpg', info: '현대 도시를 설계하고 관리하며 다양한 도전 과제를 해결하는 도시 건설 시뮬레이션 게임입니다.'},
         {link: 'popular'}
 ],
 
 
     engPopular :[
-        {name: 'PUBG:BATTLEGROUNDS', genre: 'Open World/FPS', src: '/imgs/smailthums/battlegrounds.jpg', info: 'Create a team with friends in a vast open world and strive to be the last survivor on the battlefield!'},
+        {name: 'PUBG: BATTLEGROUNDS', genre: 'Open World/FPS', src: '/imgs/smailthums/battlegrounds.jpg', info: 'Create a team with friends in a vast open world and strive to be the last survivor on the battlefield!'},
         {name: 'Phasmophobia', genre: 'Horror', src: '/imgs/smailthums/pahasmophobia.jpg', info: 'A 4-player co-op horror game. Use all the ghost hunting equipment at your disposal to collect as much evidence as you can.'},
         {name: 'Sekiro™: Shadows Die Twice', genre: 'Action', src: '/imgs/smailthums/sekiro.jpg', info: 'Forge your own path to vengeance. Restore your honor. Fight with the way of the warrior.'},
-        {name: 'Half-Life: Alyx', genre: 'Horror/FPS', src: '/imgs/smailthums/alyx.jpg', info: 'Half-Life: Alyx is Valve’s VR return to the Half-Life series.'}
+        {name: 'Half-Life Alyx', genre: 'Horror/FPS', src: '/imgs/smailthums/alyx.jpg', info: 'Half-Life: Alyx is Valve’s VR return to the Half-Life series.'}
         
     ],
 
@@ -55,7 +55,7 @@ const TableData = {
         {name: 'Euro Truck Simulator 2', genre: 'Transport/Simulation', src: '/imgs/smailthums/EuroTruck.jpg', info: 'Travel across Europe as a truck driver, delivering various cargoes. Experience realistic driving and explore diverse routes.'},
         {name: 'Railway Empire 2', genre: 'Management/Simulation', src: '/imgs/smailthums/RailwayEmpire2.jpg', info: 'Manage a railway company in 19th century America, expanding your rail network and growing your company.'},
         {name: 'Farming Simulator 22', genre: 'Agriculture/Simulation', src: '/imgs/smailthums/FarmingSimulator22.jpg', info: 'Experience real farming with crop cultivation, livestock breeding, and managing a farm.'},
-        {name: 'Cities: Skylines', genre: 'City Building/Simulation', src: '/imgs/smailthums/CitiesSkylines.jpg', info: 'Design and manage a modern city, solving various challenges in this city-building simulation game.'}
+        {name: 'Cities Skylines', genre: 'City Building/Simulation', src: '/imgs/smailthums/CitiesSkylines.jpg', info: 'Design and manage a modern city, solving various challenges in this city-building simulation game.'}
     ],
 
     chinaPopular :[

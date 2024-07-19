@@ -70,6 +70,7 @@ const Detail = () => {
                     </div>
 
                     <div className="game_info">
+                        <div><img src={gameDetail['thumnail-link']} /></div>
                         <div><strong>이름:</strong> {gameDetail.Name}</div>
                         <div><strong>출시시간:</strong> {gameDetail.date}</div>
                         <div><strong>게임소개:</strong> {gameDetail.description}</div>
@@ -78,6 +79,7 @@ const Detail = () => {
                             <Link to={gameDetail.href}><button className="action_button">구매 사이트 이동</button></Link>
                             <Wish no={no} gameName={gameName} setWriteFlag={setWriteFlag}/>
                         </div>
+
                     </div>
                 </div>
             </div>       
