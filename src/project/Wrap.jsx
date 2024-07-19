@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './css/wrap.css';
+import './css/index.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SignUp from "./member/SignUp";
 import SignIn from "./member/SignIn";
@@ -12,6 +12,9 @@ import Footer from "./Footer";
 import NG from "./NG";
 import Popular from "./games/Popular";
 import Category from "./games/Category";
+import { AnimatePresence } from "framer-motion";
+import Genre from "./games/Genre";
+
 
 const Wrap = () => {
 
@@ -22,6 +25,7 @@ const Wrap = () => {
           <BrowserRouter>
             <div id="wrap">
               <Menubar isLogined={isLogined} setIsLogined={setIsLogined} />
+              <AnimatePresence>
                   <Routes>
                     <Route path='/' element={<Home isLogined={isLogined} setIsLogined={setIsLogined}/>} />
                     <Route path='/signup' element={<SignUp />} />
@@ -29,10 +33,12 @@ const Wrap = () => {
                     <Route path='/modify' element={<Modify isLogined={isLogined} setIsLogined={setIsLogined}/>} />
                     <Route path='/popular' element={<Popular />} />
                     <Route path='/category' element={<Category />} />
+                    <Route path='/genre/:genre' element={<Genre />}/>
                     <Route path='/free' element={<Free />} />
                     <Route path='/detail/:no' element={<Detail />} />
                     <Route path='/*' element={<NG />} />
                   </Routes>
+                </AnimatePresence>
               <Footer />
             </div>
           </BrowserRouter>

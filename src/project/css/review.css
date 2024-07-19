@@ -121,39 +121,70 @@ p a:hover {
 /* 리뷰 리스트*/
 
 #review_list {
-    background-color: #202531;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 800px;
+    width: 700px;
     margin: 0 auto;
-    color: #fff;
-}
-
-.review_item {
-    background-color: #2a2f3a;
-    padding: 20px;
+    background-color: #34495E;
     border-radius: 8px;
-    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #ECF0F1; 
+    font-family: Arial, sans-serif;
 }
 
-.review_header {
+#review_list .no-reviews {
+    text-align: center;
+    font-size: 18px;
+}
+
+#review_list .review_item {
+    background-color: #2C3E50;
+    border: 1px solid #34495E;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+#review_list .review_header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
-.nickname {
-    font-size: 16px;
+#review_list .nickname {
     font-weight: bold;
 }
-#rating {
-color: #ffc107;
-}
-.rating {
-    display: flex;
+
+#review_list .rating {
+    color: #F1C40F; 
 }
 
-.review_text {
-    margin-top: 10px;
-    font-size: 16px;
+#review_list .review_text {
+    margin-bottom: 10px;
+}
+
+#review_list .reg-date {
+    font-size: 12px;
+    color: #BDC3C7; 
+}
+
+#review_list .review_actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#review_list .edit-button,
+#review_list .delete-button {
+    background-color: #2980B9;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    margin-left: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#review_list .edit-button:hover,
+#review_list .delete-button:hover {
+    background-color: #3498DB; 
 }

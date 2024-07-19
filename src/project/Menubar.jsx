@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import './css/menubar.css';
+import React from "react";
+import './css/index.css';
 import './css/common.css';
 import { Link, useNavigate } from "react-router-dom";
 import { setLoginedSessionId } from "./utils/session";
@@ -24,6 +24,7 @@ const Menubar = ({isLogined, setIsLogined}) => {
             <ul>
                 <li className="logo">
                     <Link to='/'><img src={`${process.env.PUBLIC_URL}/imgs/logo.png`}/> </Link>
+                    <Link to='/'><img src={`${process.env.PUBLIC_URL}/imgs/logo.png`} alt="logo"/> </Link>
                 </li>
                 <li>
                     <Link to='/popular'>인기 게임</Link>

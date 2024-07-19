@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getDateTime, getMyInfo, getProdFlag, getUserDB, getUserReviewDB, modNickDuplicateCheck, nickNameDuplicateCheck, setMyInfo, setUserDB, setUserReviewDB, userIdCheck, userNameCheck, userNickNameCheck, userPwCheck } from "../utils/utils";
 import { Link, useNavigate } from "react-router-dom";
 import { getLoginedSessionId, setLoginedSessionId } from "../utils/session";
+import '../css/index.css';
 
 const Modify = ({setIsLogined}) => {
 

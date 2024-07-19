@@ -2,9 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import '../css/common.css';
 import '../css/detail.css';
-import popularDB from '../db/popularDB.json'; //popularDB.json 파일을 불러옴;
+import popularDB from '../db/popularDB.json';
 import ReviewWrite from "../review/ReviewWrite";
 import ReviewList from "../review/ReviewList";
+<<<<<<< HEAD
+=======
+import Slider from "react-slick";
+import { motion } from 'framer-motion'
+>>>>>>> 3f26a842c21e6344d5aeb956b5ce5eab41d04741
 
 const Detail = () => {
 
@@ -12,6 +17,7 @@ const Detail = () => {
     const gameDetail = popularDB.find(p => p.no === parseInt(no)); 
     const [writeFlag, setWriteFlag] = useState(false);
     const [gameName, setGameName] = useState('');
+<<<<<<< HEAD
 
     useEffect(() => {
         console.log('[Detail] useEffect()');
@@ -30,19 +36,47 @@ const Detail = () => {
             <div className="detail_header">
                 <h1>{gameDetail.Name}</h1>
             </div>
+=======
+    
 
-            <div className="per_game_info">
+    useEffect(() => {
+        console.log('[Detail] useEffect()');
 
-                <div className="game_pics">
+        if (gameDetail) {   
+            setGameName(gameDetail.Name);
+        }
+    }, [no, gameDetail]); 
+>>>>>>> 3f26a842c21e6344d5aeb956b5ce5eab41d04741
 
-                    <div><img src={'/imgs/data/' + gameDetail.detail_img_dir + '/' +gameDetail.detail_img_01} /></div>
-                    <div><img src={'/imgs/data/' + gameDetail.detail_img_dir + '/' +gameDetail.detail_img_02} /></div>
-                    <div><img src={'/imgs/data/' + gameDetail.detail_img_dir + '/' +gameDetail.detail_img_03} /></div>
-                    <div><img src={'/imgs/data/' + gameDetail.detail_img_dir + '/' +gameDetail.detail_img_04} /></div>
+    const imgUrl = [ 
+        gameDetail.detail_img_01,
+        gameDetail.detail_img_02,
+        gameDetail.detail_img_03,
+        gameDetail.detail_img_04
+    ];
 
-        
+    const settings = {
+        dots: true,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true, 
+    };
+
+    return (
+        <>
+        <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+            <div id="gamesinfo_wrap">
+                <div className="detail_header">
+                    <h1>{gameDetail.Name}</h1>
                 </div>
 
+<<<<<<< HEAD
                 <div className="game_info">
                     <div>이름:{gameDetail.Name}</div>
                     <div>출시시간:{gameDetail.date}</div>
@@ -55,7 +89,33 @@ const Detail = () => {
         <ReviewWrite gameName={gameName} setWriteFlag={setWriteFlag}/>
         <ReviewList gameName={gameName} writeFlag={writeFlag}/>
     </>
+=======
+                <div className="detail_item">
+                    <div className="slider_wrapper">
+                        <Slider {...settings}>
+                            {imgUrl.map((img, index) => (
+                                <div key={index} className="slider_image">
+                                    <img className="s_img" src={`/imgs/data/${gameDetail.detail_img_dir}/${img}`} alt={`game image ${index + 1}`} />
+                                </div>
+                            ))}
+                        </Slider>
+                    </div>
+
+                    <div className="game_info">
+                        <div><strong>이름:</strong> {gameDetail.Name}</div>
+                        <div><strong>출시시간:</strong> {gameDetail.date}</div>
+                        <div><strong>게임소개:</strong> {gameDetail.description}</div>
+                        <div><strong>게임장르:</strong> {gameDetail.main_genre}</div>
+                    </div>
+                </div>
+            </div>       
+            <ReviewWrite gameName={gameName} setWriteFlag={setWriteFlag} />
+            <ReviewList gameName={gameName} writeFlag={writeFlag} setWriteFlag={setWriteFlag} />
+        </motion.div>
+        </>
+>>>>>>> 3f26a842c21e6344d5aeb956b5ce5eab41d04741
     );
-}
+};
+
 
 export default Detail;

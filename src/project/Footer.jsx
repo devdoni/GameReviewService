@@ -1,6 +1,5 @@
 import React from "react";
-import './css/footer.css';
-import { Link } from "react-router-dom";
+import './css/index.css';
 import { getProdFlag } from "./utils/utils";
 const Footer = () => {
 
@@ -16,6 +15,7 @@ const Footer = () => {
             <div className="footer_content">
                 <div className="footer_logo">
                     <img src={`${process.env.PUBLIC_URL}/imgs/logo.png`} onClick={footerLogoClickHadnler}/>
+                    <img src={`${process.env.PUBLIC_URL}/imgs/logo.png`} alt="logo" onClick={footerLogoClickHadnler}/>
                 </div>
             <div className="footer_text">
                 <div className="copyright">

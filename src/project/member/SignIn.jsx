@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import '../css/common.css';
+<<<<<<< HEAD
 import '../css/signup.css';
+=======
+import '../css/index.css';
+import { motion } from 'framer-motion'
+>>>>>>> 3f26a842c21e6344d5aeb956b5ce5eab41d04741
 import { useNavigate } from "react-router-dom";
 import { getMyInfo, getProdFlag } from "../utils/utils";
 import { setLoginedSessionId } from "../utils/session";
@@ -49,6 +54,10 @@ const SignIn = ({setIsLogined}) => {
     }
 
     return(
+        <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}>
              <div id="signin_wrap">
                 <div className="signin">
                     <input className="basic_input" name="UserId" type="text" value={uId} onChange={uIdChangeHandler} placeholder="아이디" />
@@ -56,6 +65,7 @@ const SignIn = ({setIsLogined}) => {
                     <input className="basic_btn" type="button" onClick={SignInBtnHandler} value="로그인" />
                 </div>
             </div>
+        </motion.div>
     );
 }
 
