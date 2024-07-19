@@ -9,8 +9,6 @@ import ReviewWrite from "../review/ReviewWrite";
 import ReviewList from "../review/ReviewList";
 import Slider from "react-slick";
 import { motion } from 'framer-motion'
-import { getDateTime, getProdFlag, getUserWishListDB, geyMyWishList, setMyWishList, setUserWishListDB } from "../utils/utils";
-import { getLoginedSessionId } from "../utils/session";
 import Wish from "./Wish";
 import CustomArrow from "../etc/CustomArrow";
 
@@ -92,13 +90,13 @@ const Detail = ({langFileName}) => {
                         <div><strong>{popularTargetObj.game_genre}:</strong> {popularTargetObj.genre}</div>
                         <div className="buttons_wrapper">
                             <Link to={popularTargetObj.href}><button className="action_button">구매 사이트 이동</button></Link>
-                            <Wish no={no} gameName={popularTargetObj.gameName} setWriteFlag={setWriteFlag}/>
+                            <Wish no={no} gameName={popularTargetObj.Name} gameHref={popularTargetObj.href} gameSrc={popularTargetObj['thumnail-link']} setWriteFlag={setWriteFlag}/>
                         </div>
                     </div>
                 </div>
             </div>       
-            <ReviewWrite gameName={popularTargetObj.gameName} setWriteFlag={setWriteFlag} writeFlag={writeFlag} />
-            <ReviewList gameName={popularTargetObj.gameName} setWriteFlag={setWriteFlag} writeFlag={writeFlag} />
+            <ReviewWrite gameName={popularTargetObj.Name} setWriteFlag={setWriteFlag} writeFlag={writeFlag} />
+            <ReviewList gameName={popularTargetObj.Name} setWriteFlag={setWriteFlag} writeFlag={writeFlag} />
 
         </motion.div>
         </>

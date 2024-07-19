@@ -201,13 +201,10 @@ export const setMyWishList = (uId, myWishGame) => {
 
     const userWishInfos = getUserWishListDB() || {}; 
 
-    // 유저의 위시리스트가 없으면 빈 객체로 초기화
     userWishInfos[uId] = userWishInfos[uId] || {};
 
-    // 유저의 위시리스트를 myWishGame으로 설정
     userWishInfos[uId] = myWishGame;
     
-    // 변경된 위시리스트를 데이터베이스에 저장
     setUserWishListDB(userWishInfos);
 }
 // USER WISH LIST DB END
@@ -226,9 +223,7 @@ export const getDateTime = () => {
     if (hours < 10 ) hours = '0' + hours;
     let minutes = now.getMinutes();
     if (minutes < 10 ) minutes = '0' + minutes;
-    let seconds = now.getSeconds();
-    if (minutes < 10 ) seconds = '0' + seconds;
 
-    return `${fullYear}/${month}/${date} ${hours}:${minutes}:${seconds}`;
+    return `${fullYear}/${month}/${date} ${hours}:${minutes}`;
 }
 

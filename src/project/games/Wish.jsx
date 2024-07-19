@@ -5,13 +5,13 @@ import { getDateTime, getMyWishList, getProdFlag, getUserWishListDB, setMyWishLi
 import { getLoginedSessionId } from "../utils/session";
 import { CiHeart } from "react-icons/ci";
 
-const Wish = ({ no, gameName, setWriteFlag, writeFlag }) => {    
+const Wish = ({ no, gameName, setWriteFlag, writeFlag, gameHref, gameSrc }) => {    
     const [isWish, setIsWish] = useState(false);
     const [sessionID, setSessionID] = useState('');
 
     useEffect(() => {
         if (!getProdFlag()) console.log('[Wish] useEffect()');
-
+        console.log('gamename ==>', gameName);
         const sessionId = getLoginedSessionId();
 
         setSessionID(sessionId);
@@ -53,7 +53,11 @@ const Wish = ({ no, gameName, setWriteFlag, writeFlag }) => {
             if (window.confirm(`${gameName} 게임을 찜 하시겠습니까?`)) {
                 myWishList[gameKey] = {
                     game: gameName,
-                    addDate: getDateTime()
+                    no: no,
+                    src: gameSrc, 
+                    href: gameHref,
+                    addDate: getDateTime(),
+
                 };
                 setUserWishListDB(userWishInfos);
                 alert(`${gameName} 게임이 찜 리스트에 추가되었습니다.`);

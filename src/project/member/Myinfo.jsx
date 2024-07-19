@@ -56,7 +56,7 @@ const Myinfo = ({setIsLogined}) => {
                     <span>내 정보 수정</span>
                 </div>
             </Link>
-            <Link>
+            <Link to={'/wishlist'}>
                 <div className="myinfo-button">
                     <FaGamepad size={50} />
                     <span>찜한 게임 보기</span>

@@ -15,6 +15,7 @@ import Category from "./games/Category";
 import { AnimatePresence } from "framer-motion";
 import Genre from "./games/Genre";
 import Myinfo from "./member/Myinfo";
+import WishList from "./games/WishList";
 
 
 const Wrap = () => {
@@ -36,6 +37,7 @@ const Wrap = () => {
                     <Route path='/myinfo' element={<Myinfo isLogined={isLogined} setIsLogined={setIsLogined}/>} />
                     <Route path='/modify' element={<Modify isLogined={isLogined} setIsLogined={setIsLogined}/>} />
                     <Route path='/popular' element={<Popular />} />
+                    <Route path='/wishlist' element={<WishList />} />
                     <Route path='/category' element={<Category />} />
                     <Route path='/genre/:genre' element={<Genre />}/>
                     <Route path='/free' element={<Free />} />
