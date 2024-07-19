@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../css/games.css";
 import { motion } from 'framer-motion'
 import popularDB from '../db/popularDB.json'
+
 import { Link } from "react-router-dom";
 
 
@@ -13,8 +14,7 @@ const Popular = () => {
 
     useEffect(() => {
         console.log('useEffect()');
-
-        console.log('popularDB: ', popularDB);
+        // console.log('popularDB: ', popularDB);
         setPopularArr(popularDB);
 
     }, []);

@@ -4,7 +4,7 @@ export const USER_REVIEW_DB_IN_LOCAL_STORAGE = 'UserReviewDB';
 // API 
 
 // 개발자모드 ON / OFF
-let prodFlag = false;
+let prodFlag = false;   // false: 개발모드, true: 상용모드
 
 export const getProdFlag = () => {
     return prodFlag;

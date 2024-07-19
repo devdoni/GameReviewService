@@ -2,34 +2,40 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import '../css/common.css';
 import '../css/detail.css';
-import popularDB from '../db/popularDB.json';
+import popularDB_kor from '../db/popularDB_kor.json'
+import popularDB_eng from '../db/popularDB_eng.json'
+import popularDB_chi from '../db/popularDB_chi.json'
 import ReviewWrite from "../review/ReviewWrite";
 import ReviewList from "../review/ReviewList";
 
 import Slider from "react-slick";
 import { motion } from 'framer-motion'
 
-const Detail = () => {
+const Detail = ({langFileName}) => {
 
     const { no } = useParams(); 
-    const gameDetail = popularDB.find(p => p.no === parseInt(no)); 
-    const [writeFlag, setWriteFlag] = useState(false);
-    const [gameName, setGameName] = useState('');
-
+    const [popularTargetObj, setPopularTargetObj] = useState({});
 
     useEffect(() => {
         console.log('[Detail] useEffect()');
 
-        if (gameDetail) {   
-            setGameName(gameDetail.Name);
+        if (langFileName === 'kor') {
+            setPopularTargetObj(popularDB_kor.find(p => p.no === parseInt(no)));
+        } else if (langFileName === 'eng') {
+            setPopularTargetObj(popularDB_eng.find(p => p.no === parseInt(no)));
+        } else if (langFileName === 'chi') {
+            setPopularTargetObj(popularDB_chi.find(p => p.no === parseInt(no)));
+        } else {    
+            setPopularTargetObj(popularDB_kor.find(p => p.no === parseInt(no)));
         }
-    }, [no, gameDetail]); 
+
+    }, [langFileName]); 
 
     const imgUrl = [ 
-        gameDetail.detail_img_01,
-        gameDetail.detail_img_02,
-        gameDetail.detail_img_03,
-        gameDetail.detail_img_04
+        popularTargetObj.detail_img_01,
+        popularTargetObj.detail_img_02,
+        popularTargetObj.detail_img_03,
+        popularTargetObj.detail_img_04
     ];
 
     const settings = {
@@ -50,7 +56,7 @@ const Detail = () => {
       >
             <div id="gamesinfo_wrap">
                 <div className="detail_header">
-                    <h1>{gameDetail.Name}</h1>
+                    <h1>{popularTargetObj.Name}</h1>
                 </div>
 
                 <div className="detail_item">
@@ -58,23 +64,23 @@ const Detail = () => {
                         <Slider {...settings}>
                             {imgUrl.map((img, index) => (
                                 <div key={index} className="slider_image">
-                                    <img className="s_img" src={`/imgs/data/${gameDetail.detail_img_dir}/${img}`} alt={`game image ${index + 1}`} />
+                                    <img className="s_img" src={`/imgs/data/${popularTargetObj.detail_img_dir}/${img}`} alt={`game image ${index + 1}`} />
                                 </div>
                             ))}
                         </Slider>
                     </div>
 
                     <div className="game_info">
-                        <div><img src={gameDetail['thumnail-link']} /></div>
-                        <div><strong>이름:</strong> {gameDetail.Name}</div>
-                        <div><strong>출시시간:</strong> {gameDetail.date}</div>
-                        <div><strong>게임소개:</strong> {gameDetail.description}</div>
-                        <div><strong>게임장르:</strong> {gameDetail.genre}</div>
+                        <div><img src={popularTargetObj['thumnail-link']} /></div>
+                        <div><strong>{popularTargetObj.game_name}:</strong> {popularTargetObj.Name}</div>
+                        <div><strong>{popularTargetObj.game_release_date}:</strong> {popularTargetObj.date}</div>
+                        <div><strong>{popularTargetObj.game_introduction}:</strong> {popularTargetObj.description}</div>
+                        <div><strong>{popularTargetObj.game_genre}:</strong> {popularTargetObj.genre}</div>
                     </div>
                 </div>
             </div>       
-            <ReviewWrite gameName={gameName} setWriteFlag={setWriteFlag} />
-            <ReviewList gameName={gameName} writeFlag={writeFlag} setWriteFlag={setWriteFlag} />
+            <ReviewWrite gameName={popularTargetObj.gameName} />
+            <ReviewList gameName={popularTargetObj.gameName} />
         </motion.div>
         </>
     );

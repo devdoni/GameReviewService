@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './css/index.css';
 import './css/common.css';
 import { Link, useNavigate } from "react-router-dom";
@@ -6,9 +6,12 @@ import { setLoginedSessionId } from "./utils/session";
 import { getProdFlag } from "./utils/utils";
 
 
-const Menubar = ({isLogined, setIsLogined}) => {
+const Menubar = ({isLogined, setIsLogined, setLangFileName}) => {
 
+    // hook
     const navigate = useNavigate();
+
+    // handeling language change
     const signOutBtnHandler = () => {
         if(!getProdFlag()) console.log('[Menubar] signOutBtnHandler()');
 
@@ -17,6 +20,16 @@ const Menubar = ({isLogined, setIsLogined}) => {
         navigate('/');
 
         alert('로그아웃 완료');
+    }
+
+    const languageChangeHandler = (e) => {
+        if(!getProdFlag()) console.log('[Menubar] languageChangeHandler()');
+
+        let lang = e.target.value;
+        
+        if (lang === '') lang = 'kor';
+        setLangFileName(lang);                  // kor || eng || chi
+
     }
 
     return(
@@ -57,11 +70,11 @@ const Menubar = ({isLogined, setIsLogined}) => {
                 }
 
                 <li>
-                    <select className="Lang">
-                        <option>Language</option>
-                        <option>한국어</option>
-                        <option>ENGLISH</option>
-                        <option>中國語</option>
+                    <select className="Lang" onChange={languageChangeHandler}>
+                        <option value=''>Language</option>
+                        <option value="kor">한국어</option>
+                        <option value="eng">ENGLISH</option>
+                        <option value="chi">中國語</option>
                     </select>
                 </li>
             </ul>

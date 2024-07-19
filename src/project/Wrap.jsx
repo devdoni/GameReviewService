@@ -20,11 +20,13 @@ const Wrap = () => {
 
     // hook
     const [isLogined, setIsLogined] = useState(false);
+    const [langFileName, setLangFileName] = useState('kor');
+
     return (
         <div className="background">
           <BrowserRouter>
             <div id="wrap">
-              <Menubar isLogined={isLogined} setIsLogined={setIsLogined} />
+              <Menubar isLogined={isLogined} setIsLogined={setIsLogined} setLangFileName={setLangFileName}/>
               <AnimatePresence>
                   <Routes>
                     <Route path='/' element={<Home isLogined={isLogined} setIsLogined={setIsLogined}/>} />
@@ -35,7 +37,7 @@ const Wrap = () => {
                     <Route path='/category' element={<Category />} />
                     <Route path='/genre/:genre' element={<Genre />}/>
                     <Route path='/free' element={<Free />} />
-                    <Route path='/detail/:no' element={<Detail />} />
+                    <Route path='/detail/:no' element={<Detail langFileName={langFileName} />} />
                     <Route path='/*' element={<NG />} />
                   </Routes>
                 </AnimatePresence>
