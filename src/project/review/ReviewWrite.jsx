@@ -51,6 +51,7 @@ const ReviewWrite = ({gameName , setWriteFlag}) => {
         }
 
         let reviewDB = getMyReviewDB(getLoginedSessionId());
+        console.log(reviewDB);
 
         if (reviewDB.hasOwnProperty(gameName)) {
             alert('해당 게임에 이미 리뷰를 작성하셨습니다\n수정 하거나 삭제 후 진행해주세요.');

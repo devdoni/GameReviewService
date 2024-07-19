@@ -52,6 +52,14 @@ const ReviewList = ({ gameName, writeFlag}) => {
         setReviews(allReviews);
     };
 
+    useEffect(() => {
+        console.log(reviews);
+    }, [reviews])
+
+    useEffect(() => {
+        console.log(editingReview);
+    }, [editingReview])
+
     const editBtnClickHandler = (review) => {
         console.log('[ReviewList] editBtnClickHandler()');
         setEditingReview({ ...review }); 

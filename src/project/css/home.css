@@ -190,6 +190,18 @@ div > div.categorybox > a.sptimg > div.imgcarousel > span {
     text-align: center;
 }
 
+.slick-next {
+    position: relative;
+    left: 1150px;
+    bottom: 270px;
+}
+
+.slick-prev {
+    position: relative;
+    top: 250px;
+    z-index: 1;
+}
+
 .main_content {
     display: flex;
     justify-content: center;

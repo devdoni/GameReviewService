@@ -18,6 +18,7 @@ const Detail = () => {
 
     useEffect(() => {
         console.log('[Detail] useEffect()');
+        console.log(gameDetail);
 
         if (gameDetail) {   
             setGameName(gameDetail.Name);
