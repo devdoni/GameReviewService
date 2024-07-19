@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import '../css/common.css';
 import '../css/detail.css';
 import popularDB from '../db/popularDB.json';
@@ -7,24 +7,28 @@ import ReviewWrite from "../review/ReviewWrite";
 import ReviewList from "../review/ReviewList";
 import Slider from "react-slick";
 import { motion } from 'framer-motion'
+import { getDateTime, getProdFlag, getUserWishListDB, geyMyWishList, setMyWishList, setUserWishListDB } from "../utils/utils";
+import { getLoginedSessionId } from "../utils/session";
+import Wish from "./Wish";
 import CustomArrow from "../etc/CustomArrow";
 
-const Detail = () => {
 
+const Detail = () => {
     const { no } = useParams(); 
     const gameDetail = popularDB.find(p => p.no === parseInt(no)); 
     const [writeFlag, setWriteFlag] = useState(false);
     const [gameName, setGameName] = useState('');
-    
 
     useEffect(() => {
         console.log('[Detail] useEffect()');
-        console.log(gameDetail);
-
         if (gameDetail) {   
             setGameName(gameDetail.Name);
         }
     }, [no, gameDetail]); 
+
+    useEffect(() => {
+        setWriteFlag(prev => !prev);
+    }, []);
 
     const imgUrl = [ 
         gameDetail.detail_img_01,
@@ -45,6 +49,7 @@ const Detail = () => {
         nextArrow: <CustomArrow icon="./imgs/rightarrow.png" className={"slick-next"}/>,
         prevArrow: <CustomArrow icon="./imgs/leftarrow.png" className={"slick-prev"}/>
     };
+
 
     return (
         <>
@@ -70,19 +75,24 @@ const Detail = () => {
                     </div>
 
                     <div className="game_info">
+                        <div><img src={gameDetail['thumnail-link']} /></div>
                         <div><strong>이름:</strong> {gameDetail.Name}</div>
                         <div><strong>출시시간:</strong> {gameDetail.date}</div>
                         <div><strong>게임소개:</strong> {gameDetail.description}</div>
-                        <div><strong>게임장르:</strong> {gameDetail.main_genre}</div>
+                        <div><strong>게임장르:</strong> {gameDetail.genre}</div>
+                        <div className="buttons_wrapper">
+                            <Link to={gameDetail.href}><button className="action_button">구매 사이트 이동</button></Link>
+                            <Wish no={no} gameName={gameName} setWriteFlag={setWriteFlag}/>
+                        </div>
+
                     </div>
                 </div>
             </div>       
-            <ReviewWrite gameName={gameName} setWriteFlag={setWriteFlag} />
+            <ReviewWrite gameName={gameName} setWriteFlag={setWriteFlag} writeFlag={writeFlag} />
             <ReviewList gameName={gameName} writeFlag={writeFlag} setWriteFlag={setWriteFlag} />
         </motion.div>
         </>
     );
 };
-
 
 export default Detail;

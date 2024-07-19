@@ -107,8 +107,6 @@ const ReviewList = ({ gameName, writeFlag}) => {
         }
     };
 
-
-
     return (
         <div id="review_list">
             {reviews.length === 0 ? (

@@ -9,7 +9,7 @@ const CategoryTest = () => {
     const genreArr = ["액션", "어드벤처", "퍼즐", "RPG", "시뮬레이션", "스포츠", "레이싱", "FPS", "전략", "오픈월드", "생존", "공포"];
     const linkArr = ["action", "advencure", "puzzle", "rpg", "simulration", "spotrs", "racing", "fps", "strategy", "openworld", "survival", "horror"];
 
-
+    // MOTION VARIANTS START
     const container = {
         hidden: { opacity: 0 },
         visible: (i = 1) => ({
@@ -33,27 +33,77 @@ const CategoryTest = () => {
         hidden: { opacity: 1 },
         visible: {
             opacity: 1,
-            transition: { staggerChildren: 0.2 }
-        }
+            transition: { staggerChildren: 0.2 },
+        },
     };
 
     const listItem = {
         hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0 }
+        visible: { opacity: 1, y: 0 },
     };
 
+    // MOTION VARIANTS END
 
+    // Motion CSS START
+    const categoryWrap = {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minHeight: '700px',
+    };
+
+    const categoryContent = {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+    };
+
+    const titleBox = {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+        width: '250px',
+        height: '50px',
+        borderRadius: '10px',
+    };
+
+    const categoryBox = {
+        width: '900px',
+        margin: '0 auto',
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: '50px',
+        justifyContent: 'center',
+        marginTop: '20px',
+    };
+
+    const categoryLi = {
+        width: '200px',
+        height: '50px',
+        backgroundColor: '#fff',
+        borderRadius: '10px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: '10px',
+        willChange: 'transform',
+        transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+    };
+    // Motion CSS END
 
     return (
-        <div id="categoryTest" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '700px' }}>
-            <motion.div className="category_content"
+        <div id="category_wrap" style={categoryWrap}>
+            <motion.div
                 initial={{
                     y: 0,
                     opacity: 0.1,
                     width: '10px',
                     height: '10px',
                     borderRadius: '100%',
-                    fontSize: '1px'
+                    fontSize: '1px',
                 }}
                 animate={{
                     opacity: 1,
@@ -62,67 +112,44 @@ const CategoryTest = () => {
                     borderRadius: '20px',
                     fontSize: '1em',
                     y: -40,
-                    visibility: 'visible'
+                    visibility: 'visible',
                 }}
                 transition={{
-                    duration: 0.7,
+                    duration: 0.5,
                 }}
-                style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+                style={categoryContent}
             >
                 <motion.div
-                    style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: '#fff', 
-                        width: '250px',
-                        height: '50px',
-                        borderRadius: '10px'
-                        ,}}
+                    style={titleBox}
                     variants={container}
                     initial="hidden"
                     animate="visible"
                 >
                     {textArr.map((letter, index) => (
-                        <div className="text_box" key={index}>
-                            <motion.span variants={texts} className="motion_span">
+                        <div className="text_box" key={index} style={{display: 'inline-block', whiteSpace:'pre'}}>
+                            <motion.div variants={texts} className="motion_span">
                                 {letter}
-                            </motion.span>
+                            </motion.div>
                         </div>
                     ))}
                 </motion.div>
             </motion.div>
             <motion.div
-                style={{
-                    width: '900px',
-                    margin: '0 auto',
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    gap: '50px',
-                    justifyContent: 'center',
-                    marginTop: '20px'
-                }}
+                style={categoryBox}
                 variants={listContainer}
                 initial="hidden"
-                animate="visible"
-            >
-                {genreArr.map((genre, index) => 
-                    <Link to={`/genre/:${linkArr[index] }`}><motion.li 
-                        key={index}
-                        style={{
-                            width: '200px',
-                            height: '50px',
-                            backgroundColor: '#fff',
-                            borderRadius: '10px',
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            margin: '10px',
-                            willChange: 'transform'
-                        }}
-                        variants={listItem}
-                        whileHover={{scale:1.1}}
-                    >
-                        {genre}
-                    </motion.li>
+                animate="visible">
+                {genreArr.map((genre, index) => (
+                    <Link to={`/genre/${linkArr[index]}`} key={index}>
+                        <motion.li
+                            style={categoryLi}
+                            variants={listItem}
+                            whileHover={{ scale: 1.1 }}
+                        >
+                            {genre}
+                        </motion.li>
                     </Link>
-                )}
+                ))}
             </motion.div>
         </div>
     );

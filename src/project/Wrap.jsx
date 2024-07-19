@@ -14,6 +14,7 @@ import Popular from "./games/Popular";
 import Category from "./games/Category";
 import { AnimatePresence } from "framer-motion";
 import Genre from "./games/Genre";
+import Myinfo from "./member/Myinfo";
 
 
 const Wrap = () => {
@@ -30,6 +31,7 @@ const Wrap = () => {
                     <Route path='/' element={<Home isLogined={isLogined} setIsLogined={setIsLogined}/>} />
                     <Route path='/signup' element={<SignUp />} />
                     <Route path='/signin' element={<SignIn isLogined={isLogined} setIsLogined={setIsLogined}/>} />
+                    <Route path='/myinfo' element={<Myinfo isLogined={isLogined} setIsLogined={setIsLogined}/>} />
                     <Route path='/modify' element={<Modify isLogined={isLogined} setIsLogined={setIsLogined}/>} />
                     <Route path='/popular' element={<Popular />} />
                     <Route path='/category' element={<Category />} />

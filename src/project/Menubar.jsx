@@ -1,18 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './css/index.css';
 import './css/common.css';
 import { Link, useNavigate } from "react-router-dom";
-import { setLoginedSessionId } from "./utils/session";
+import { getLoginedSessionId, setLoginedSessionId } from "./utils/session";
 import { getProdFlag } from "./utils/utils";
 
 
 const Menubar = ({isLogined, setIsLogined}) => {
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!getProdFlag()) console.log('[Menubar] useEffect()');
+        
+        const sessionId = getLoginedSessionId();
+        if (sessionId) {
+            setIsLogined(true);
+        }
+    }, [setIsLogined]);
+
     const signOutBtnHandler = () => {
         if(!getProdFlag()) console.log('[Menubar] signOutBtnHandler()');
 
-        setLoginedSessionId();
+        setLoginedSessionId('');
         setIsLogined(false);
         navigate('/');
 
@@ -23,7 +33,6 @@ const Menubar = ({isLogined, setIsLogined}) => {
         <div className="menubar">
             <ul>
                 <li className="logo">
-                    {/* <Link to='/'><img src={`${process.env.PUBLIC_URL}/imgs/logo.png`}/> </Link> */}
                     <Link to='/'><img src={`${process.env.PUBLIC_URL}/imgs/logo.png`} alt="logo"/> </Link>
                 </li>
                 <li>
@@ -40,7 +49,7 @@ const Menubar = ({isLogined, setIsLogined}) => {
                     ?
                     <>
                         <li>
-                            <Link to='/modify'>내정보</Link>
+                            <Link to='/myinfo'>내정보</Link>
                         </li>
                         <li>
                             <Link to='/' onClick={signOutBtnHandler}>로그아웃</Link>

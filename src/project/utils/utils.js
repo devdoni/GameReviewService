@@ -1,6 +1,6 @@
 export const USER_DB_IN_LOCAL_STORAGE = 'UserDB';
 export const USER_REVIEW_DB_IN_LOCAL_STORAGE = 'UserReviewDB';
-
+export const USER_WISHLIST_DB_IN_LOCAL_STORAGE = 'UserWishListDB';
 // API 
 
 // 개발자모드 ON / OFF
@@ -172,6 +172,45 @@ export const setMyReviewDB = (uId, myReviewInfo) => {
 }
 // USER REVIEW DB END
 
+// USER WISH LIST DB START
+export const getUserWishListDB = () => {
+    if(!getProdFlag()) console.log('[Utils] getWishListDB()');
+    
+    return JSON.parse(localStorage.getItem(USER_WISHLIST_DB_IN_LOCAL_STORAGE));
+}
+
+export const setUserWishListDB = (wishListObj) => {
+    if(!getProdFlag()) console.log('[Utils] setWishListDB()');
+
+    localStorage.setItem(USER_WISHLIST_DB_IN_LOCAL_STORAGE, JSON.stringify(wishListObj));
+
+}
+
+export const getMyWishList = (uId) => {
+    let userWishDB = getUserWishListDB();
+    if (!userWishDB) {
+        return undefined;
+    }
+
+    let myWishList = userWishDB[uId];
+    return myWishList;
+}
+
+export const setMyWishList = (uId, myWishGame) => {
+    if (!getProdFlag()) console.log('[Utils] setMyWishList()');
+
+    const userWishInfos = getUserWishListDB() || {}; 
+
+    // 유저의 위시리스트가 없으면 빈 객체로 초기화
+    userWishInfos[uId] = userWishInfos[uId] || {};
+
+    // 유저의 위시리스트를 myWishGame으로 설정
+    userWishInfos[uId] = myWishGame;
+    
+    // 변경된 위시리스트를 데이터베이스에 저장
+    setUserWishListDB(userWishInfos);
+}
+// USER WISH LIST DB END
 
 // GET DATE TIME
 export const getDateTime = () => {
