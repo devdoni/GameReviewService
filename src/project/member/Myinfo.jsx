@@ -15,7 +15,6 @@ const Myinfo = ({setIsLogined, isLogined}) => {
         if(getLoginedSessionId() === '') {
             alert('로그인이 필요한 서비스입니다.');
             navigate('/signin');
-            return;
         }
     }, [])
     // 로그인이 되어있지 않았을 경우 렌더링 하지 않음
@@ -64,7 +63,7 @@ const Myinfo = ({setIsLogined, isLogined}) => {
                     <span>내가 찜한 게임 보기</span>
                 </div>
             </Link>
-            <Link to={'/reviews'}>
+            <Link to={'/myreviewlist'}>
                 <div className="myinfo-button">
                     <FaListAlt size={50} />
                     <span>내가 작성한 리뷰 보기</span>

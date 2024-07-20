@@ -2,7 +2,7 @@ import { getProdFlag } from "./utils";
 
 const SESSION_STORAGE_KEY = 'LOGGED_IN_SESSION_ID';
 
-// 로그인 세션을 가져오는 함수
+// 세션 스토리지에서 로그인 세션을 가져오는 함수
 export const getLoginedSessionId = () => {
     if (!getProdFlag()) console.log('[Session] getLoginedSessionId()');
 
@@ -11,7 +11,7 @@ export const getLoginedSessionId = () => {
     return sessionId;
 }
 
-// 로그인 세션을 설정하는 함수
+// 세션 스토리지에 세션을 저장하는 함수
 export const setLoginedSessionId = (id = '') => {
     if (!getProdFlag()) console.log('[Session] setLoginedSessionId()');
 

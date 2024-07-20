@@ -131,6 +131,12 @@ const Modify = ({setIsLogined, isLogined }) => {
             }
         }
 
+        if (!isNickDuplicateCheck) {
+            alert('닉네임을 확인해주세요.');
+            return;
+        } 
+
+
         let myInfo = getMyInfo(getLoginedSessionId());
         myInfo.uPw = uPw;
         myInfo.uNick = uNick;

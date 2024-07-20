@@ -32,14 +32,17 @@ const SignUp = ({isLogined}) => {
 
     useEffect(() => {
         if(!getProdFlag()) console.log('[SIGNUP] useEffect()');
-    }, []) 
+        if(isLogined) {
+            alert('로그아웃 후 이용해 주세요');
+            navgigate('/');
+        }
+
+    }, [isLogined]) 
 
     // hook End
 
     // 로그인이 되어있을 경우 렌더링 하지 않음
     if(isLogined) {
-        alert('로그아웃 후 이용해 주세요');
-        navgigate('/');
         return null;
     }
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import '../css/common.css';
 import '../css/index.css';
 import { motion } from 'framer-motion'
@@ -16,10 +16,19 @@ const SignIn = ({setIsLogined, isLogined}) => {
     const [uPw, setUPw] = useState('');
     const navigete = useNavigate();
 
+    useEffect(() => {
+        console.log('[SignIn] useEffect()')
+
+        if(isLogined) {
+            alert('올바르지 않은 요청입니다');
+            navigate('/');
+        }
+    },[isLogined])
+
+    // 로그인이 되어있다면 렌더링 하지 않음
     if(isLogined) {
-        alert('올바르지 않은 요청입니다');
-        navigate('/');
         return null;
+        
     }
     //handler
     const uIdChangeHandler = (e) => {

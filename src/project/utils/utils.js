@@ -63,15 +63,19 @@ export const usermailCheck = (value) => {
 // 회원가입시 아이디의 중복체크
 export const IdDuplicateCheck = (id) => {
     if(!getProdFlag()) console.log('[Utils] IdDuplicateCheck()');
-    
+    let allUserObj = getUserDB();
+
+    for (let key in allUserObj) {
+        if (allUserObj[key].uId === id) {
+            return true;
+        }
+    }
     let deleteObj = getDeleteDB();
-    
     for (let key in deleteObj) {
         if (deleteObj[key].deleteUid === id) {
             return true;
         }
     }
-    
     return false; 
 }
 
@@ -105,12 +109,15 @@ export const modNickDuplicateCheck = (newNick, uId) => {
     return false;
 }
 // USER DB START
+
+// 모든 유저의 DB를 가져오는 함수
 export const getUserDB = () => {
     if(!getProdFlag()) console.log('[Utils] getUserDB()');
 
      return JSON.parse(localStorage.getItem(USER_DB_IN_LOCAL_STORAGE)); 
 }
 
+// 받은 OBJ를 DB를 저장하는 함수
 export const setUserDB = (userObj) => {
     if(!getProdFlag()) console.log('[Utils] setUserDB()');
 
@@ -119,6 +126,8 @@ export const setUserDB = (userObj) => {
 // USER DB END
 
 // MY USER DB START
+
+// 나의 정보를 가져오는 함수
 export const getMyInfo = (uId) => {
     if(!getProdFlag()) console.log('[Utils] getMyInfo()');
 
@@ -132,6 +141,7 @@ export const getMyInfo = (uId) => {
 
 }
 
+// 나의 정보를 저장하는 함수
 export const setMyInfo = (uId, myInfo) => {
     if(!getProdFlag()) console.log('[Utils] setMyUserInfo()');
 
@@ -145,18 +155,20 @@ export const setMyInfo = (uId, myInfo) => {
 
 // USER REVIEW DB START
 
+// 모든 유저의 리뷰 DB를 가져오는 함수
 export const getUserReviewDB = () => {
     if(!getProdFlag()) console.log('[Utils] getUserReviewDB()');
 
     return JSON.parse(localStorage.getItem(USER_REVIEW_DB_IN_LOCAL_STORAGE));
 }
-
+// 받은 리뷰Obj를 DB에 저장하는 함수
 export const setUserReviewDB = (reviewObj) => {
     if(!getProdFlag()) console.log('[Utils] setUserReviewDB()');
 
     localStorage.setItem(USER_REVIEW_DB_IN_LOCAL_STORAGE, JSON.stringify(reviewObj));
 }
 
+// 나의 리뷰 DB를 가져오는 함수
 export const getMyReviewDB = (uId) => {
     if(!getProdFlag()) console.log('[Utils] getMyReviewDB()');
 
@@ -170,6 +182,7 @@ export const getMyReviewDB = (uId) => {
 
 }
 
+// 나의 리뷰를 저장하는 함수
 export const setMyReviewDB = (uId, myReviewInfo) => {
     if(!getProdFlag()) console.log('[Utils] setMyReviewDB()');
 
@@ -179,13 +192,14 @@ export const setMyReviewDB = (uId, myReviewInfo) => {
 }
 // USER REVIEW DB END
 
-// USER WISH LIST DB START
+// 모든 유저의 WishList DB를 가져오는 함수
 export const getUserWishListDB = () => {
     if(!getProdFlag()) console.log('[Utils] getWishListDB()');
     
     return JSON.parse(localStorage.getItem(USER_WISHLIST_DB_IN_LOCAL_STORAGE));
 }
 
+// 받은 WishListObj를 DB에 저장하는 함수
 export const setUserWishListDB = (wishListObj) => {
     if(!getProdFlag()) console.log('[Utils] setWishListDB()');
 
@@ -193,6 +207,7 @@ export const setUserWishListDB = (wishListObj) => {
 
 }
 
+// 나의 WishList DB를 가져오는 함수
 export const getMyWishList = (uId) => {
     let userWishDB = getUserWishListDB();
     if (!userWishDB) {
@@ -203,6 +218,7 @@ export const getMyWishList = (uId) => {
     return myWishList;
 }
 
+// 나의 WishList Obj를 DB에 저장하는 함수
 export const setMyWishList = (uId, myWishGame) => {
     if (!getProdFlag()) console.log('[Utils] setMyWishList()');
 
@@ -217,6 +233,8 @@ export const setMyWishList = (uId, myWishGame) => {
 // USER WISH LIST DB END
 
 // DELETE USER DB FUN START
+
+// 유저의 정보를 삭제하는 함수
 export const deleteUserDB = (uId) => {
     if (!getProdFlag()) console.log('[Utils] deleteUserDB()');
 
@@ -253,11 +271,13 @@ export const deleteUserDB = (uId) => {
 
 }
 
+// Delete DB를 가져오는 함수
 export const getDeleteDB = () => {
     if (!getProdFlag()) console.log('[Utils] getDeleteDB()');
     
     return JSON.parse(localStorage.getItem(USER_DELETE_DB_IN_LOCAL_STORAGE));
 }
+// 받은 deleteObj를 DB에 저장하는 함수 
 export const setDeleteDB = (deleteObj) => {
     if (!getProdFlag()) console.log('[Utils] setDeleteDB()');
     
@@ -266,6 +286,8 @@ export const setDeleteDB = (deleteObj) => {
 // DELETE USER DB FUN END
 
 // GET DATE TIME
+
+// 년, 달, 월, 일, 분 까지 가져오는 함수
 export const getDateTime = () => {
     if(!getProdFlag()) console.log('[Utils] getDateTime()');
 
@@ -282,6 +304,8 @@ export const getDateTime = () => {
 
     return `${fullYear}/${month}/${date} ${hours}:${minutes}`;
 }
+
+// 유저가 회원탈퇴 했을때 조금 더 정확한 시간을 체크하기 위한 함수
 export const getDateTimeForDelete = () => {
     if(!getProdFlag()) console.log('[Utils] getDateTime()');
 
