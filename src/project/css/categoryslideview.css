@@ -14,12 +14,10 @@ div.train > button.next-button > img.arw {
 }
 
 div.train > button.prev-button > img.arw:hover {
-    /* background: linear-gradient(to right, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0.3) 95%); */
     cursor: pointer;
 }
 
 div.train > button.next-button > img.arw:hover {
-    /* background: linear-gradient(to left, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0.3) 95%); */
     cursor: pointer;
 }
 

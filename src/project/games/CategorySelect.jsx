@@ -3,7 +3,7 @@ import React from "react";
 import '../css/games.css';
 import { Link } from "react-router-dom";
 
-const CategoryTest = () => {
+const CategorySelect = () => {
     const text = "무슨 게임을 찾고 계신가요?";
     const textArr = Array.from(text);
     const genreArr = ["액션", "어드벤처", "퍼즐", "RPG", "시뮬레이션", "스포츠", "레이싱", "FPS", "전략", "오픈월드", "생존", "공포"];
@@ -14,32 +14,43 @@ const CategoryTest = () => {
         hidden: { opacity: 0 },
         visible: (i = 1) => ({
             opacity: 1,
-            transition: { staggerChildren: 0.05, delayChildren: 0.04 * i },
+            transition: { staggerChildren: 0.05, delayChildren: 0.05 * i },
         }),
     };
 
     const texts = {
         hidden: {
             opacity: 0,
-            y: 10,
+            y: 20,
         },
         visible: {
             opacity: 1,
             y: 0,
+            transition: {
+                duration: 0.6,
+                ease: "easeOut"
+            },
         },
     };
 
     const listContainer = {
-        hidden: { opacity: 1 },
+        hidden: { opacity: 0 },
         visible: {
             opacity: 1,
-            transition: { staggerChildren: 0.2 },
+            transition: { staggerChildren: 0.1 },
         },
     };
 
     const listItem = {
         hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.6,
+                ease: "easeOut"
+            },
+        },
     };
 
     // MOTION VARIANTS END
@@ -128,10 +139,6 @@ const CategoryTest = () => {
         transition: 'opacity 0.3s ease',
     };
 
-    const categoryLiHoverVisible = {
-        opacity: '1',
-    };
-
     const categoryText = {
         zIndex: '1',
     };
@@ -142,24 +149,14 @@ const CategoryTest = () => {
         <div id="category_wrap" style={categoryWrap}>
             <motion.div
                 initial={{
-                    y: 0,
                     opacity: 0.1,
-                    width: '10px',
-                    height: '10px',
-                    borderRadius: '100%',
-                    fontSize: '1px',
                 }}
                 animate={{
                     opacity: 1,
-                    width: 'auto',
-                    height: 'auto',
-                    borderRadius: '20px',
-                    fontSize: '1.2em',
-                    y: 0,
-                    visibility: 'visible',
                 }}
                 transition={{
                     duration: 0.5,
+                    ease: "easeOut"
                 }}
                 style={categoryContent}
             >
@@ -197,7 +194,7 @@ const CategoryTest = () => {
                 ))}
             </motion.div>
         </div>
-    )
+    );
 };
 
-export default CategoryTest;
+export default CategorySelect;

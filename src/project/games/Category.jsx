@@ -1,12 +1,12 @@
 import React from "react"
 import '../css/games.css';
-import CategoryMotion from "../etc/CategoryMotion";
+import CategorySelect from "./CategorySelect";
 const Category = () => {
     return(
         <>
         <div id="category_wrap">
             <div className="item_content">
-                <CategoryMotion />
+                <CategorySelect />
             </div>
         </div>
         </>

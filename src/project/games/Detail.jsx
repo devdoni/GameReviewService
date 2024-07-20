@@ -9,8 +9,8 @@ import ReviewWrite from "../review/ReviewWrite";
 import ReviewList from "../review/ReviewList";
 import Slider from "react-slick";
 import { motion } from 'framer-motion'
-import Wish from "./Wish";
 import CustomArrow from "../etc/CustomArrow";
+import WishSelect from "./WishSelect";
 
 
 const Detail = ({langFileName}) => {
@@ -90,7 +90,7 @@ const Detail = ({langFileName}) => {
                         <div><strong>{popularTargetObj.game_genre}:</strong> {popularTargetObj.genre}</div>
                         <div className="buttons_wrapper">
                             <Link to={popularTargetObj.href}><button className="action_button">구매 사이트 이동</button></Link>
-                            <Wish no={no} gameName={popularTargetObj.Name} gameHref={popularTargetObj.href} gameSrc={popularTargetObj['thumnail-link']} setWriteFlag={setWriteFlag}/>
+                            <WishSelect no={no} gameName={popularTargetObj.Name} gameHref={popularTargetObj.href} gameSrc={popularTargetObj['thumnail-link']} setWriteFlag={setWriteFlag}/>
                         </div>
                     </div>
                 </div>
