@@ -3,7 +3,7 @@ import '../css/common.css';
 import '../css/index.css';
 import { motion } from 'framer-motion'
 import { useNavigate } from "react-router-dom";
-import { getMyInfo, getProdFlag } from "../utils/utils";
+import { getMyInfo, getProdFlag, getUserDB, getUserReviewDB, getUserWishListDB, setUserDB, setUserReviewDB, setUserWishListDB } from "../utils/utils";
 import { setLoginedSessionId } from "../utils/session";
 
 
@@ -30,6 +30,67 @@ const SignIn = ({setIsLogined}) => {
 
     const SignInBtnHandler = () => {
         if(!getProdFlag()) console.log('[SignIn] SignInBtnHandler()');
+        // 임시 관리자 로그인용
+        if(uId === 'admin' || uPw === '1234') {
+            alert('관리자 로그인에 성공했습니다');
+            setLoginedSessionId('admin');
+            setIsLogined(true);
+            navigete('/');
+            let UserDB = getUserDB();
+            if (UserDB === null) {
+                    // DB에 회원정보 하나도 없는 경우
+                let newUserObj = {
+                    [uId] : {
+                        'uId': uId,
+                        'uPw': uPw,
+                        'uNick' : 'admin'
+                    }
+                }
+                setUserDB(newUserObj);
+    
+              } else {
+                // DB에 회원정보가 하나라도 있는 경우
+                let userObj = UserDB;
+                userObj[uId] = {
+                    'uId': uId,
+                    'uPw': uPw,
+                    'uNick' : 'admin'
+                }
+                setUserDB(userObj);
+    
+              }
+            // REVIEW DB
+              let userReviewSvcDB = getUserReviewDB();
+              if (userReviewSvcDB === null) {
+                let newUserReviews = {
+                    [uId]: {
+                        
+                    }
+                }
+                setUserReviewDB(newUserReviews);
+              } else {
+                let userReviews = getUserReviewDB();
+                userReviews[uId] = {}
+    
+                setUserReviewDB(userReviews);
+              }
+            // WISHLIST DB
+              let userWishListDB = getUserWishListDB();
+              if (userWishListDB === null) {
+                let newUserWishLists = {
+                    [uId]: {}
+                };
+                setUserWishListDB(newUserWishLists);
+              } else {
+                
+                userWishListDB[uId] = {}
+    
+                setUserWishListDB(userWishListDB);
+            }            
+             return;
+            }
+        // 임시 관리자 로그인용 끝
+        
 
         let myUserInfo = getMyInfo(uId);
         if (myUserInfo !== undefined && myUserInfo.uPw === uPw) {
