@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { getDateTime, getMyInfo, getProdFlag, getUserDB, getUserReviewDB, modNickDuplicateCheck, nickNameDuplicateCheck, setMyInfo, setUserDB, setUserReviewDB, userIdCheck, userNameCheck, userNickNameCheck, userPwCheck } from "../utils/utils";
+import { getDateTime, getMyInfo, getProdFlag, getUserDB, getUserReviewDB, modNickDuplicateCheck, nickNameDuplicateCheck, setMyInfo, setUserDB, setUserReviewDB, userIdCheck, usermailCheck, userNameCheck, userNickNameCheck, userPhoneCheck, userPwCheck } from "../utils/utils";
 import { Link, useNavigate } from "react-router-dom";
 import { getLoginedSessionId, setLoginedSessionId } from "../utils/session";
 import '../css/index.css';
 
-const Modify = ({setIsLogined}) => {
+const Modify = ({setIsLogined, isLogined }) => {
 
     //hook
     const [uId, setUId] = useState('');
@@ -14,9 +14,16 @@ const Modify = ({setIsLogined}) => {
     const [uMail, setUMail] = useState('');
     const navigate = useNavigate();
 
-    const [isPwCheck, setIsPwCheck] = useState(true);        // 비밀번호 검증을 체크하는 State  
-    const [isNickNameCheck, setIsNickNameCheck] = useState(true);  // 닉네임 검증을 체크하는 State
+    const [isPwTouched, setIsPwTouched] = useState(false);                      // 비밀번호 입력을 체크하는 State
+    const [isNickTouched, setIsNickTouched] = useState(false);                  // 닉네임 입력을 체크하는 State
+    const [isPhoneTouched, setIsPhoneTouched] = useState(false);                // 휴대폰 입력을 체크하는 State
+    const [isMailTouched, setIsMailTouched] = useState(false);                  // 이메일 입력을 체크하는 State
 
+    const [isPwCheck, setIsPwCheck] = useState(true);                           // 비밀번호 검증을 체크하는 State  
+    const [isNickNameCheck, setIsNickNameCheck] = useState(true);               // 닉네임 검증을 체크하는 State
+    const [isPhoneCheck, setIsPhoneCheck] = useState(true);                    // 휴대폰 번호 검증을 체크하는 State
+    const [isMailCheck, setIsMailCheck] = useState(true);                      // 이메일 검증을 체크하는 State
+    const [isNickDuplicateCheck, setIsNickDuplicateCheck] = useState(true);    // 닉네임 중복체크 State    
     useEffect(() => {
         // MT DB GET
         if(!getProdFlag()) console.log('[Modify] useEffect()');
@@ -34,20 +41,20 @@ const Modify = ({setIsLogined}) => {
         setUPhone(myInfo.uPhone);
         setUMail(myInfo.uMail);
     }, [])
-
-    const uIdChangeHandler = (e) => {
-        if(!getProdFlag()) console.log('[Modify] uIdChangeHandler()');
-
-        setUId(e.target.value);
-
+    // 로그인이 되어있지 않았을 경우 렌더링 하지 않음
+    if (!isLogined) {
+        return null;
     }
 
-    const uPwChaneHandler = (e) => {
+    const uPwChangeHandler = (e) => {
         if(!getProdFlag()) console.log('[Modify] uPwChaneHandler()');
 
-        setUPw(e.target.value);
+        const newPw = e.target.value;
 
-        let regPwCheck = userPwCheck(e.target.value);
+        setUPw(newPw);
+        setIsPwTouched(newPw !== '');
+
+        let regPwCheck = userPwCheck(newPw);
         if (regPwCheck) {
             setIsPwCheck(true);        
         } else {
@@ -55,30 +62,57 @@ const Modify = ({setIsLogined}) => {
         }
 
     }
+
     const uNickChangeHandler = (e) => {
-        if(!getProdFlag()) console.log('[Modify] uNickChangeHandler()');
+        if (!getProdFlag()) console.log('[Modify] uNickChangeHandler()');
 
-        setUNick(e.target.value);
+        const newNick = e.target.value;
 
-        let regNickNameCheck = userNickNameCheck(e.target.value);
-        if (regNickNameCheck) {
-            setIsNickNameCheck(true);
+        setUNick(newNick);
+        setIsNickTouched(newNick !== '');
+
+        let regNickNameCheck = userNickNameCheck(newNick);
+        setIsNickNameCheck(regNickNameCheck);
+
+        if (newNick !== getMyInfo(getLoginedSessionId()).uNick) {           // 현재 입력된 닉네임이 DB에 내 닉네임과 일치하지 않으면 닉네임 중복체크 시작
+            let ModNickCheck = modNickDuplicateCheck(newNick, uId);
+            setIsNickDuplicateCheck(!ModNickCheck);
         } else {
-            setIsNickNameCheck(false);
+            setIsNickDuplicateCheck(true); 
         }
-
-    }
-
+    };
     const uPhoneChangeHandler = (e) => {
-        if(!getProdFlag()) console.log('[Modify] uPhoneChangeHandler()');
+        if(!getProdFlag()) console.log('[SignUp] uPhoneChangeHandler()');
 
-        setUPhone(e.target.value);
+        const newPhone = e.target.value ;
+
+        setUPhone(newPhone);
+        setIsPhoneTouched(newPhone !== '');
+
+        let regPhoneCheck = userPhoneCheck(newPhone);
+
+        if (regPhoneCheck) {
+            setIsPhoneCheck(true);
+        } else {
+            setIsPhoneCheck(false);
+        }
     }
 
     const uMailChangeHandler = (e) => {
-        if(!getProdFlag()) console.log('[Modify] uMailChangeHandler()');
+        if(!getProdFlag()) console.log('[SignUp] uMailChangeHandler()');
 
-        setUMail(e.target.value);
+        const newMail = e.target.value;
+
+        setUMail(newMail);
+        setIsMailTouched(newMail !== '');
+
+        let regEmailCheck = usermailCheck(newMail);
+
+        if (regEmailCheck) {
+            setIsMailCheck(true);
+        } else {
+            setIsMailCheck(false);
+        }
 
     }
 
@@ -88,6 +122,13 @@ const Modify = ({setIsLogined}) => {
         if (!isPwCheck || !isNickNameCheck) {
             alert('입력 정보를 확인해주세요');
             return;
+        }
+
+        if (uPhone !== '' || uMail !== '') {
+            if(!isMailCheck || !isPhoneCheck) {
+                alert('휴대폰 번호 또는 이메일을 확인해주세요');
+                return;
+            }
         }
 
         let myInfo = getMyInfo(getLoginedSessionId());
@@ -108,31 +149,35 @@ const Modify = ({setIsLogined}) => {
 
 
 
-    return(
+    return (
         <div id="modify_wrap">
             <div className="modify">
-                <input id="input_id" name="UserId" type="text" value={uId} readOnly onChange={uIdChangeHandler}/>
-                <input className="basic_input" name="UserPw" type="password" value={uPw} onChange={uPwChaneHandler} placeholder="변경할 비밀번호를 입력해주세요"/>
+                <label htmlFor="input_id">아이디&nbsp;(변경불가)</label>
+                <input id="input_id" name="UserId" type="text" value={uId} readOnly />
+    
+                <label htmlFor="input_pw">비밀번호</label>
+                <input className="basic_input" id="input_pw" name="UserPw" type="password" value={uPw} onChange={uPwChangeHandler} placeholder="변경할 비밀번호를 입력해주세요" />
                 {
-                    isPwCheck
-                    ?
-                    <p>비밀번호: 8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.</p>
-                    :
-                    <p style={{color: '#ff0000'}}>비밀번호: 8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.</p>
+                    isPwTouched && !isPwCheck && <p>비밀번호: 8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.</p>
                 }
-                <br />
-                <input className="basic_input" name="UserNickname" type="text" value={uNick} onChange={uNickChangeHandler}/>
+                <label htmlFor="input_nick">닉네임</label>
+                <input className="basic_input" id="input_nick" name="UserNickname" type="text" value={uNick} onChange={uNickChangeHandler} />
                 {
-                    isNickNameCheck
-                    ?
-                    null
-                    :    
-                    <p style={{color: '#ff0000'}}>변경할 닉네임을 입력해주세요. (한글, 영어, 숫자 조합 3~16자)</p>
+                    isNickTouched && !isNickNameCheck && <p>닉네임을 입력해주세요. (한글, 영어, 숫자 조합 3~16자)</p>
                 }
-                <input className="basic_input" name="UserPhone" type="text" value={uPhone} onChange={uPhoneChangeHandler} placeholder="변경할 휴대폰번호" />
-                <br />
-                <input className="basic_input" type="email" name="UserEmail" value={uMail} onChange={uMailChangeHandler} placeholder="변경할 이메일 주소" />
-                <br />
+                {
+                    !isNickDuplicateCheck && <p>이미 사용중인 닉네임입니다.</p>
+                }
+                <label htmlFor="input_phone">휴대폰 번호</label>
+                <input className="basic_input" id="input_phone" name="UserPhone" type="text" value={uPhone} onChange={uPhoneChangeHandler} placeholder="[선택] 변경할 휴대폰번호" />
+                {
+                    isPhoneTouched && !isPhoneCheck && <p>전화번호 형식을 확인해주세요 <br/>ex) 010-0000-0000</p>
+                }
+                <label htmlFor="input_email">이메일</label>
+                <input className="basic_input" id="input_email" type="email" name="UserEmail" value={uMail} onChange={uMailChangeHandler} placeholder="[선택] 변경할 이메일 주소" />
+                {
+                    isMailTouched && !isMailCheck && <p>이메일 형식을 확인해주세요.</p>
+                }
                 <input className="basic_btn" type="button" onClick={modifyBtnHandler} value="정보수정" />
             </div>
         </div>

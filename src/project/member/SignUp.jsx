@@ -2,25 +2,27 @@ import React, { useEffect, useState } from "react";
 import '../css/index.css';
 import { motion } from 'framer-motion'
 import { useNavigate } from "react-router-dom";
-import { getDateTime, getProdFlag, getUserDB, getUserReviewDB, getUserWishListDB, getWishListDB, IdDuplicateCheck, nickNameDuplicateCheck, setUserDB, setUserReviewDB, setUserWishListDB, setWishListDB, userIdCheck, userNickNameCheck, userPwCheck } from "../utils/utils";
-const SignUp = () => {
+import { getDateTime, getProdFlag, getUserDB, getUserReviewDB, getUserWishListDB, IdDuplicateCheck, nickNameDuplicateCheck, setUserDB, setUserReviewDB, setUserWishListDB, userIdCheck, usermailCheck, userNickNameCheck, userPhoneCheck, userPwCheck } from "../utils/utils";
+const SignUp = ({isLogined}) => {
 
-    //hook 
+    //hook Start
     const [uId, setUId] = useState('');
     const [uPw, setUPw] = useState('');
     const [uNick, setUNick] = useState('');
     const [uPhone, setUPhone] = useState('');
     const [uMail, setUMail] = useState('');
 
-    const [isIdTouched, setIsIdTouched] = useState(false);
-    const [isPwTouched, setIsPwTouched] = useState(false);
-    const [isNickTouched, setIsNickTouched] = useState(false);
-    const [isPhoneTouched, setIsPhoneTouched] = useState(false);
-    const [isMailTouched, setIsMailTouched] = useState(false);
+    const [isIdTouched, setIsIdTouched] = useState(false);                      // 아이디 입력을 체크하는 State
+    const [isPwTouched, setIsPwTouched] = useState(false);                      // 비밀번호 입력을 체크하는 State
+    const [isNickTouched, setIsNickTouched] = useState(false);                  // 닉네임 입력을 체크하는 State
+    const [isPhoneTouched, setIsPhoneTouched] = useState(false);                // 휴대폰 입력을 체크하는 State
+    const [isMailTouched, setIsMailTouched] = useState(false);                  // 이메일 입력을 체크하는 State
 
     const [isIdCheck, setIsIdCheck] = useState(false);                          // 아이디 검증을 체크하는 State
     const [isPwCheck, setIsPwCheck] = useState(false);                          // 비밀번호 검증을 체크하는 State
     const [isNickNameCheck, setIsNickNameCheck] = useState(false);              // 닉네임 검증을 체크하는 State
+    const [isPhoneCheck, setIsPhoneCheck] = useState(false);                    // 휴대폰 번호 검증을 체크하는 State
+    const [isMailCheck, setIsMailCheck] = useState(false);                      // 이메일 검증을 체크하는 State
     const [isIdDuplicateCheck, setIsIdDuplicateCheck] = useState(false);        // 아이디 중복체크 State
     const [isNickDuplicateCheck, setIsNickDuplicateCheck] = useState(false);    // 닉네임 중복체크 State    
 
@@ -30,9 +32,18 @@ const SignUp = () => {
 
     useEffect(() => {
         if(!getProdFlag()) console.log('[SIGNUP] useEffect()');
-    }, [])
+    }, []) 
 
-    //Handler
+    // hook End
+
+    // 로그인이 되어있을 경우 렌더링 하지 않음
+    if(isLogined) {
+        alert('로그아웃 후 이용해 주세요');
+        navgigate('/');
+        return null;
+    }
+
+    // Handler start
     const uIdChangeHandler = (e) => {
         if(!getProdFlag()) console.log('[SIGNUP] uIdChangeHandler()');
 
@@ -87,6 +98,15 @@ const SignUp = () => {
 
         setUPhone(e.target.value);
         setIsPhoneTouched(true);
+        let regPhoneCheck = userPhoneCheck(e.target.value);
+        if (e.target.value === '') {
+            setIsPhoneTouched(false);
+        }
+        if (regPhoneCheck) {
+            setIsPhoneCheck(true);
+        } else {
+            setIsPhoneCheck(false);
+        }
     }
 
     const uMailChangeHandler = (e) => {
@@ -94,6 +114,16 @@ const SignUp = () => {
 
         setUMail(e.target.value);
         setIsMailTouched(true);
+        if (e.target.value === '') {
+            setIsMailTouched(false);
+        }
+        let regEmailCheck = usermailCheck(e.target.value);
+
+        if (regEmailCheck) {
+            setIsMailCheck(true);
+        } else {
+            setIsMailCheck(false);
+        }
 
     }
 
@@ -114,6 +144,14 @@ const SignUp = () => {
             alert('입력 정보를 확인해주세요.');
             return;
         }
+
+        if (uPhone !== '' || uMail !== '') {
+            if(!isMailCheck || !isPhoneCheck) {
+                alert('휴대폰 번호 또는 이메일을 확인해주세요');
+                return;
+            }
+        }
+
         // USER DB 
         let UserDB = getUserDB();
         if (UserDB === null) {
@@ -213,7 +251,7 @@ const SignUp = () => {
             }
 
         }
-
+        //Handelr End
 
     
 
@@ -251,8 +289,14 @@ const SignUp = () => {
                         <div className="section">
                             <div className="section_header">선택 입력 정보</div>
                             <div className="input_group">
-                                <input className="basic_input" name="UserPhone" type="text" onChange={uPhoneChangeHandler} placeholder="[선택] 휴대전화 번호 010-0000-0000" />
-                                <input className="basic_input" type="email" name="UserEmail" onChange={uMailChangeHandler} placeholder="[선택] 이메일 주소" />
+                            <input className="basic_input" id="phone_input" name="UserPhone" type="text" onChange={uPhoneChangeHandler} placeholder="[선택] 휴대전화 번호 010-0000-0000" />
+                            <input className="basic_input" id="email_input" type="email" name="UserEmail" onChange={uMailChangeHandler} placeholder="[선택] 이메일 주소" />
+                                {
+                                    isPhoneTouched && !isPhoneCheck && <p>전화번호 형식을 확인해주세요 <br/>ex) 010-0000-0000</p>
+                                }
+                                {
+                                    isMailTouched && !isMailCheck && <p>이메일 형식을 확인해주세요.</p>
+                                }
                             </div>
                         </div>
                         <input className="basic_btn" type="button" onClick={SignUpBtnHandler} value="회원가입" />

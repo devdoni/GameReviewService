@@ -6,17 +6,20 @@ import '../css/common.css';
 import '../css/wishlist.css';
 
 
-const WishList = () => {
+const WishList = ({isLogined}) => {
+
+
+
+    const navigate = useNavigate();
     const [ currentNick, setCurrentNick ] = useState('');
     const [ myWishList, setMyWishList ] = useState({});
-    const navigate = useNavigate()
 
     useEffect(() => {
         if (!getProdFlag) console.log('[WishList] useEffect()');
-        if (getLoginedSessionId() === '') {
-            alert('올바르지 않은 요청입니다');
-            navigate('/');
-            return;
+        if (!isLogined) {
+            alert('로그인이 필요한 서비스입니다');
+            navigate('/signin');
+            return ;
         }
         let myInfo = getMyInfo(getLoginedSessionId());
         setCurrentNick(myInfo.uNick);
@@ -26,7 +29,10 @@ const WishList = () => {
 
         console.log('mywishList==>',myWish );
     }, []);
-
+    // 로그인이 되어있지 않았을 경우 렌더링 하지 않음
+    if (!isLogined) {
+        return null;
+    }
     return (
         <>
         <div id="wishlist_wrap">

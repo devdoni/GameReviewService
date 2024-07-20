@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import './css/index.css';
 import { getProdFlag } from "./utils/utils";
+import { Link } from "react-router-dom";
 const Footer = () => {
 
     //Handler
@@ -21,11 +22,11 @@ const Footer = () => {
                     © 2024 Games Corporation. All rights reserved.
                 </div>
             <div className="footer_info">
-                <a href="#none">개인정보처리방침</a>
+                <Link to={'/privacypolicy'} onClick={footerLogoClickHadnler}>개인정보처리방침</Link>
                 &nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="#none">이용약관</a>
+                <Link to={'/termsofservice'} onClick={footerLogoClickHadnler}>이용약관</Link>
                 &nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="#none">저작권 정책</a>
+                <Link to={'/copyrightpolicy'} onClick={footerLogoClickHadnler}>저작권 정책</Link>
             </div>
         </div>
     </div>

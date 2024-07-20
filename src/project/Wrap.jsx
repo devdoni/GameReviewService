@@ -16,6 +16,10 @@ import { AnimatePresence } from "framer-motion";
 import Genre from "./games/Genre";
 import Myinfo from "./member/Myinfo";
 import WishList from "./games/WishList";
+import MyReviewList from "./review/MyReviewList";
+import TermsOfService from "./etc/TermsOfService";
+import PrivacyPolicy from "./etc/PrivacyPolicy";
+import CopyrightPolicy from "./etc/CopyrightPolicy";
 
 
 const Wrap = () => {
@@ -32,16 +36,20 @@ const Wrap = () => {
               <AnimatePresence>
                   <Routes>
                     <Route path='/' element={<Home isLogined={isLogined} setIsLogined={setIsLogined}/>} />
-                    <Route path='/signup' element={<SignUp />} />
+                    <Route path='/signup' element={<SignUp isLogined={isLogined}/>} />
                     <Route path='/signin' element={<SignIn isLogined={isLogined} setIsLogined={setIsLogined}/>} />
                     <Route path='/myinfo' element={<Myinfo isLogined={isLogined} setIsLogined={setIsLogined}/>} />
                     <Route path='/modify' element={<Modify isLogined={isLogined} setIsLogined={setIsLogined}/>} />
                     <Route path='/popular' element={<Popular />} />
-                    <Route path='/wishlist' element={<WishList />} />
+                    <Route path='/wishlist' element={<WishList isLogined={isLogined} />} />
+                    <Route path='/myreviewlist' element={<MyReviewList />} />
                     <Route path='/category' element={<Category />} />
                     <Route path='/genre/:genre' element={<Genre />}/>
                     <Route path='/free' element={<Free />} />
                     <Route path='/detail/:no' element={<Detail langFileName={langFileName} />} />
+                    <Route path="/termsofservice" element={<TermsOfService />} />
+                    <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+                    <Route path="/copyrightpolicy" element={<CopyrightPolicy />} />
                     <Route path='/*' element={<NG />} />
                   </Routes>
                 </AnimatePresence>

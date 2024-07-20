@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 const categories = [
     { title: '인기게임', games: TableData.korPopular, link: 'popular' },
     { title: '무료게임', games: TableData.korFree, link: 'free' },
-    { title: '공포게임', games: TableData.korHorror, link: 'popular' },
-    { title: '시뮬레이션', games: TableData.korSimulation, link: 'popular' }
+    { title: '공포게임', games: TableData.korHorror, link: 'genre/horror' },
+    { title: '시뮬레이션', games: TableData.korSimulation, link: 'genre/simulation' }
 ];
 
 const linkClickHandler = () => {

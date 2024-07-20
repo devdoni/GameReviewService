@@ -130,7 +130,7 @@ div.background {
     margin: 30px auto;
 }
 
-.signup input {
+#signup_wrap .signup input {
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -141,13 +141,13 @@ div.background {
     margin-bottom: 15px;
 }
 
-.signup input:focus {
+#signup_wrap .signup input:focus {
     border-color: #dadada;
     box-shadow: 0 0 8px #dadada;
     outline: none;
 }
 
-.signup .basic_btn {
+#signup_wrap .signup .basic_btn {
     background-color: #333;
     color: white;
     border: none;
@@ -162,38 +162,38 @@ div.background {
     margin-top: 15px;
 }
 
-.signup .basic_btn:hover {
+#signup_wrap .signup .basic_btn:hover {
     background-color: #555;
     transform: translateY(-2px);
 }
 
-.signup .basic_btn:active {
+#signup_wrap .signup .basic_btn:active {
     transform: translateY(0);
     background-color: #222;
 }
 
-.signup p {
+#signup_wrap .signup p {
     color: #ff0000;
     font-size: 14px;
     margin: 5px 0 15px 0;
     text-align: left;
 }
 
-.signup .info_msg {
+#signup_wrap .signup .info_msg {
     color: #333;
     font-size: 14px;
     margin: 5px 0 15px 0;
     text-align: left;
 }
 
-.section {
+#signup_wrap .section {
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     padding: 30px;
     margin-bottom: 25px;
 }
 
-.section_header {
+#signup_wrap .section_header {
     font-size: 20px;
     font-weight: bold;
     color: #333;
@@ -202,13 +202,14 @@ div.background {
     width: 100%;
 }
 
-.input_group {
+#signup_wrap .input_group {
     display: flex;
     flex-direction: column;
     gap: 0;
+    position: relative; /* For positioning the shadow */
 }
 
-.input_group input {
+#signup_wrap .input_group input {
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 0;
@@ -220,61 +221,56 @@ div.background {
     margin: 0;
 }
 
-.input_group input:first-of-type {
+#signup_wrap .input_group input:first-of-type {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     border-bottom: 0;
 }
 
-.input_group input:last-of-type {
+#signup_wrap .input_group input:last-of-type {
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
 }
 
-.input_group input:focus {
+#signup_wrap .input_group input:focus {
     border-color: #dadada;
     box-shadow: 0 0 8px #dadada;
     outline: none;
 }
+
+#signup_wrap .input_group input:first-of-type:focus {
+    z-index: 1; 
+}
 /* SIGN UP END*/
 #modify_wrap {
-    background-color: #fff;
+    background-color: #ffffff;
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 13px 30px;
-    margin: 30px auto;
-    width: 500px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    padding: 25px 35px;
+    width: 440px;
+    max-width: 90%;
     text-align: center;
     box-sizing: border-box;
     display: flex;
-    flex-direction: column; 
-    justify-content: center;
-    min-height: 85vh; 
-}
-
-#modify_wrap {
-    margin-bottom: 109px;
-}
-
-.modify {
-    display: flex;
     flex-direction: column;
-    gap: 10px;
-    flex: 1; 
+    gap: 25px;
+    margin: 30px auto;
 }
+
 .modify input {
-    padding: 12px;
+    padding: 15px;
     border: 1px solid #ccc;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 16px;
     width: 100%;
     box-sizing: border-box;
-    transition: border-color 0.3s ease;
-    cursor: text;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 15px;
 }
 
 .modify input:focus {
-    border-color: #999;
+    border-color: #dadada;
+    box-shadow: 0 0 8px #dadada;
     outline: none;
 }
 
@@ -284,8 +280,13 @@ div.background {
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    padding: 12px;
-    border-radius: 6px;
+    padding: 15px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 15px;
 }
 
 .modify .basic_btn:hover {
@@ -293,58 +294,66 @@ div.background {
     transform: translateY(-2px);
 }
 
+.modify .basic_btn:active {
+    transform: translateY(0);
+    background-color: #222;
+}
+
 .modify p {
-    margin: 5px 0;
-    padding-left: 5px;
-    font-size: 13px;
+    color: #ff0000;
+    font-size: 14px;
+    margin: 5px 0 15px 0;
     text-align: left;
 }
 
-.basic_input {
+.modify .info_msg {
+    color: #333;
+    font-size: 14px;
+    margin: 5px 0 15px 0;
+    text-align: left;
+}
+
+.modify .input_group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+}
+
+.modify label {
+    font-size: 14px;
+    color: #333;
+    text-align: left;
+    display: block;
     margin-bottom: 5px;
 }
-
-.basic_btn {
-    margin-top: 10px;
-    padding: 10px;
-}
-
-#signup_wrap a,
-#signin_wrap a {
-    text-decoration: none;
-}
-
-a .basic_btn {
-    background-color: #777;
-}
-
-a .basic_btn:hover {
-    background-color: #999;
-}
-
 /* SIGN IN START */
 #signin_wrap {
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    padding: 20px 30px;
-    width: 350px; 
+    padding: 25px 35px; /* 크기를 signup 폼과 맞춤 */
+    width: 440px; /* 크기를 signup 폼과 맞춤 */
+    max-width: 90%;
     text-align: center;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    gap: 15px; 
+    gap: 25px; /* 간격을 signup 폼과 맞춤 */
+    margin: 30px auto; /* margin 추가 */
 }
+
 #signin_wrap .input_group {
     display: flex;
     flex-direction: column;
-    gap: 0; 
+    gap: 0;
+    position: relative; /* 그림자를 위한 위치 설정 */
 }
 
 #signin_wrap .input_group input {
-    padding: 12px;
+    padding: 15px; /* 크기를 signup 폼과 맞춤 */
     border: 1px solid #ccc;
-    border-radius: 0; 
+    border-radius: 0;
     font-size: 16px;
     width: 100%;
     box-sizing: border-box;
@@ -354,23 +363,24 @@ a .basic_btn:hover {
 }
 
 #signin_wrap .input_group input:first-of-type {
-    border-top-left-radius: 6px; 
-    border-top-right-radius: 6px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom: 0;
 }
 
 #signin_wrap .input_group input:last-of-type {
-    border-bottom-left-radius: 6px; 
-    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 
 #signin_wrap .input_group input:focus {
-    border-color: #999;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-color: #dadada;
+    box-shadow: 0 0 8px #dadada;
     outline: none;
 }
 
-#signin_wrap.input_group input:first-of-type:focus {
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), 0 2px 5px rgba(0, 0, 0, 0.2); 
+#signin_wrap .input_group input:first-of-type:focus {
+    z-index: 1; 
 }
 
 #signin_wrap .signin .basic_btn {
@@ -379,8 +389,8 @@ a .basic_btn:hover {
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    padding: 12px;
-    border-radius: 6px;
+    padding: 15px; 
+    border-radius: 8px; 
     width: 100%;
     max-width: 100%;
     font-size: 16px;
@@ -399,9 +409,179 @@ a .basic_btn:hover {
 }
 /* SIGN IN END*/
 
-
-#ng {
-    width: 200px;
-    height: 200px;
-    margin: 50px auto;
+/* NG START */
+.ng-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 76.4vh;
+    background-color: #202531;
+    color: #ffffff;
+    text-align: center;
 }
+
+.ng-container h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.home-button {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+    will-change: transform;
+}
+
+.home-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.home-button span {
+    margin-left: 10px;
+}
+/* NG END */ 
+
+/* Pivacy CSS START */
+.policy-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #202531;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+}
+
+.policy-body {
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+.policy-container h2 {
+    margin-top: 0;
+    font-size: 32px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.policy-container h3 {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.policy-container p,
+.policy-container ul {
+    margin: 10px 0;
+    color: #d3d3d3; 
+}
+
+.policy-container ul {
+    padding-left: 20px;
+}
+
+.policy-container ul li {
+    list-style-type: disc;
+    color: #d3d3d3;
+}
+/* Pivacy CSS END */
+
+/* TermsOfService CSS START */
+.terms-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #202531;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+}
+
+.terms-body {
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+.terms-container h2 {
+    margin-top: 0;
+    font-size: 32px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.terms-container h3 {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.terms-container p,
+.terms-container ul {
+    margin: 10px 0;
+    color: #d3d3d3; 
+}
+
+.terms-container ul {
+    padding-left: 20px;
+}
+
+.terms-container ul li {
+    list-style-type: disc;
+    color: #d3d3d3;
+}
+/* TermsOfService CSS END */
+
+/* CopyRight CSS START*/
+.copyright-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #202531;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+}
+
+.copyright-body {
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+.copyright-container h2 {
+    margin-top: 0;
+    font-size: 32px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.copyright-container h3 {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.copyright-container p,
+.copyright-container ul {
+    margin: 10px 0;
+    color: #d3d3d3; 
+}
+
+.copyright-container ul {
+    padding-left: 20px;
+}
+
+.copyright-container ul li {
+    list-style-type: disc;
+    color: #d3d3d3;
+}
+/* CopyRight CSS END*/

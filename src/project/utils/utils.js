@@ -1,6 +1,7 @@
 export const USER_DB_IN_LOCAL_STORAGE = 'UserDB';
 export const USER_REVIEW_DB_IN_LOCAL_STORAGE = 'UserReviewDB';
 export const USER_WISHLIST_DB_IN_LOCAL_STORAGE = 'UserWishListDB';
+export const USER_DELETE_DB_IN_LOCAL_STORAGE = 'DeleteUserDB'
 // API 
 
 // 개발자모드 ON / OFF
@@ -16,7 +17,7 @@ export const setProdFlag = (flag) => {
 // 
 
 // Check API
-// 아이디를 체크하는 함수
+// 아이디를 검증하는 함수
 export const userIdCheck = (value) => {
     if(!getProdFlag()) console.log('[Utils] useridStrCheck()');
 
@@ -24,7 +25,7 @@ export const userIdCheck = (value) => {
  
 	return regId.test(value);
 }
-// 비밀번호를 체크하는 함수
+// 비밀번호를 검증하는 함수
 export const userPwCheck = (value) => {
     if(!getProdFlag()) console.log('[Utils] userpwCheck()');
     let regPw = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{7,16}$/;
@@ -32,15 +33,8 @@ export const userPwCheck = (value) => {
     return regPw.test(value); 
 
 }
-// 이름을 체크하는 함수
-export const userNameCheck = (value) => {
-    if(!getProdFlag()) console.log('[Utils] userNameCheck()');
-    let regName = /[가-힣]{3,5}$/;
-        
-        return regName.test(value);
-    
-}
-// 닉네임을 체크하는 함수
+
+// 닉네임을 검증하는 함수
 export const userNickNameCheck = (value) => {
     if(!getProdFlag()) console.log('[Utils] userNickNameCheck()')
     let regNickName = /^[a-zA-Zㄱ-힣0-9][a-zA-Zㄱ-힣0-9]{2,16}$/;
@@ -49,16 +43,31 @@ export const userNickNameCheck = (value) => {
 
 }
 
+// 휴대폰 번호를 검증하는 함수
 
+export const userPhoneCheck = (value) => {
+    if(!getProdFlag()) console.log('[Utils] userPhoneCheck()')
+        let regPhone = /^(?:(010)|(01[1|6|7|8|9]))-\d{3,4}-(\d{4})$/;
 
-// 아이디의 중복체크
+    return regPhone.test(value);
+}
+
+// 이메일을 검증하는 함수
+export const usermailCheck = (value) => {
+    if(!getProdFlag()) console.log('[Utils] userPhoneCheck()')
+        let regMail = /[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]$/i;
+
+    return regMail.test(value);
+}
+
+// 회원가입시 아이디의 중복체크
 export const IdDuplicateCheck = (id) => {
     if(!getProdFlag()) console.log('[Utils] IdDuplicateCheck()');
     
-    let UserObj = getUserDB();
+    let deleteObj = getDeleteDB();
     
-    for (let key in UserObj) {
-        if (UserObj[key].uId === id) {
+    for (let key in deleteObj) {
+        if (deleteObj[key].deleteUid === id) {
             return true;
         }
     }
@@ -82,21 +91,19 @@ export const nickNameDuplicateCheck = (nick) => {
 }
 // 정보 수정시 내 닉네임을 제외하고 중복을 체크하는 함수
 
-export const modNickDuplicateCheck = (nick, currentNick) => {
+export const modNickDuplicateCheck = (newNick, uId) => {
     if(!getProdFlag()) console.log('[Utils] modNickDuplicateCheck()');
 
     let UserObj = getUserDB();
 
     for (let key in UserObj) {
-        if (UserObj[key].uNick === nick && UserObj[key].uNick !== currentNick) {
+        if (UserObj[key].uNick === newNick && key !== uId) {
             return true;
-
-            }
-
-          return false;
         }
-}
+    }
 
+    return false;
+}
 // USER DB START
 export const getUserDB = () => {
     if(!getProdFlag()) console.log('[Utils] getUserDB()');
@@ -209,6 +216,55 @@ export const setMyWishList = (uId, myWishGame) => {
 }
 // USER WISH LIST DB END
 
+// DELETE USER DB FUN START
+export const deleteUserDB = (uId) => {
+    if (!getProdFlag()) console.log('[Utils] deleteUserDB()');
+
+    let allUserDB = getUserDB();
+    let allUserReviewDB = getUserReviewDB();
+    let allUserWishDB = getUserWishListDB();
+
+    let deleteDB = getDeleteDB();
+    if (deleteDB === null) {
+        // deleteDB가 없을 경우
+        deleteDB = {
+            [uId]: {
+                deleteUid: allUserDB[uId].uId,
+                deleteTime: getDateTimeForDelete()
+            }
+        }
+        setDeleteDB(deleteDB);
+    } else {
+        // deleteDB가 있을 경우
+        deleteDB[uId] = {
+            deleteUid: allUserDB[uId].uId,
+            deleteTime: getDateTimeForDelete()
+        }
+        setDeleteDB(deleteDB);
+    }
+    
+    delete allUserDB[uId];
+    delete allUserReviewDB[uId];
+    delete allUserWishDB[uId];
+
+    setUserDB(allUserDB);
+    setUserReviewDB(allUserReviewDB);
+    setUserWishListDB(allUserWishDB); 
+
+}
+
+export const getDeleteDB = () => {
+    if (!getProdFlag()) console.log('[Utils] getDeleteDB()');
+    
+    return JSON.parse(localStorage.getItem(USER_DELETE_DB_IN_LOCAL_STORAGE));
+}
+export const setDeleteDB = (deleteObj) => {
+    if (!getProdFlag()) console.log('[Utils] setDeleteDB()');
+    
+    localStorage.setItem(USER_DELETE_DB_IN_LOCAL_STORAGE,JSON.stringify(deleteObj));
+}
+// DELETE USER DB FUN END
+
 // GET DATE TIME
 export const getDateTime = () => {
     if(!getProdFlag()) console.log('[Utils] getDateTime()');
@@ -225,5 +281,25 @@ export const getDateTime = () => {
     if (minutes < 10 ) minutes = '0' + minutes;
 
     return `${fullYear}/${month}/${date} ${hours}:${minutes}`;
+}
+export const getDateTimeForDelete = () => {
+    if(!getProdFlag()) console.log('[Utils] getDateTime()');
+
+    let now = new Date();
+    let fullYear = now.getFullYear();
+    let month = now.getMonth() + 1;
+    if (month < 10 ) month = '0' + month;
+    let date = now.getDate()
+    if (date < 10 ) date = '0' + date;
+    let hours = now.getHours();
+    if (hours < 10 ) hours = '0' + hours;
+    let minutes = now.getMinutes();
+    if (minutes < 10 ) minutes = '0' + minutes;
+    let seconds = now.getSeconds();
+    if (seconds < 10 ) seconds = '0' + seconds;
+    let Milliseconds = now.getMilliseconds()
+    if (Milliseconds < 100 ) seconds = '0' + Milliseconds;
+
+    return `${fullYear}/${month}/${date} ${hours}:${minutes}:${seconds}:${Milliseconds}`;
 }
 

@@ -1,23 +1,23 @@
 .myinfo-container {
-    width: 1000px;
+    width: 1200px;
     height: 85vh;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around; /* 버튼들 사이에 균등한 간격을 줍니다 */
     align-items: center;
     padding: 20px;
     box-sizing: border-box;
     background-color: #202531;
     border-radius: 8px;
-
 }
+
 .myinfo-container a {
     text-decoration: none;
 }
 
 .myinfo-button {
-    width: 300px;
-    height: 400px;
+    width: 250px; /* 너비를 줄여서 버튼이 더 잘 맞게 합니다 */
+    height: 350px; /* 높이를 줄여서 버튼이 더 잘 맞게 합니다 */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,5 +41,4 @@
     margin-top: 10px;
     font-size: 16px;
     color: #333;
-
 }

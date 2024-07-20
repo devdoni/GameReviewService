@@ -8,13 +8,19 @@ import { setLoginedSessionId } from "../utils/session";
 
 
 
-const SignIn = ({setIsLogined}) => {
+const SignIn = ({setIsLogined, isLogined}) => {
 
     //hook
+    const navigate = useNavigate();
     const [uId, setUId] = useState('');
     const [uPw, setUPw] = useState('');
     const navigete = useNavigate();
 
+    if(isLogined) {
+        alert('올바르지 않은 요청입니다');
+        navigate('/');
+        return null;
+    }
     //handler
     const uIdChangeHandler = (e) => {
         if(!getProdFlag()) console.log('[SignIn] uIdChangeHandler()');
@@ -31,7 +37,7 @@ const SignIn = ({setIsLogined}) => {
     const SignInBtnHandler = () => {
         if(!getProdFlag()) console.log('[SignIn] SignInBtnHandler()');
         // 임시 관리자 로그인용
-        if(uId === 'admin' || uPw === '1234') {
+        if(uId === 'admin') {
             alert('관리자 로그인에 성공했습니다');
             setLoginedSessionId('admin');
             setIsLogined(true);
