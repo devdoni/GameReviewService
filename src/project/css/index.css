@@ -4,6 +4,7 @@
     text-align: center;
     width: 100%;
     background-color: #202531;
+    min-height: 100vh;
 }
 
 div.background {
@@ -114,7 +115,128 @@ div.background {
 /* Footer CSS END */
 
 /* SIGN UP START*/
-#signup_wrap,
+#signup_wrap {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    padding: 25px 35px;
+    width: 440px;
+    max-width: 90%;
+    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin: 30px auto;
+}
+
+.signup input {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.signup input:focus {
+    border-color: #dadada;
+    box-shadow: 0 0 8px #dadada;
+    outline: none;
+}
+
+.signup .basic_btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    padding: 15px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.signup .basic_btn:hover {
+    background-color: #555;
+    transform: translateY(-2px);
+}
+
+.signup .basic_btn:active {
+    transform: translateY(0);
+    background-color: #222;
+}
+
+.signup p {
+    color: #ff0000;
+    font-size: 14px;
+    margin: 5px 0 15px 0;
+    text-align: left;
+}
+
+.signup .info_msg {
+    color: #333;
+    font-size: 14px;
+    margin: 5px 0 15px 0;
+    text-align: left;
+}
+
+.section {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 25px;
+}
+
+.section_header {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: left;
+    width: 100%;
+}
+
+.input_group {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.input_group input {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: text;
+    margin: 0;
+}
+
+.input_group input:first-of-type {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom: 0;
+}
+
+.input_group input:last-of-type {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.input_group input:focus {
+    border-color: #dadada;
+    box-shadow: 0 0 8px #dadada;
+    outline: none;
+}
+/* SIGN UP END*/
 #modify_wrap {
     background-color: #fff;
     border-radius: 12px;
@@ -124,17 +246,22 @@ div.background {
     width: 500px;
     text-align: center;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    min-height: 85vh; 
 }
+
 #modify_wrap {
     margin-bottom: 109px;
 }
-.signup,
+
 .modify {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    flex: 1; 
 }
-.signup input,
 .modify input {
     padding: 12px;
     border: 1px solid #ccc;
@@ -145,12 +272,12 @@ div.background {
     transition: border-color 0.3s ease;
     cursor: text;
 }
-.signup input:focus,
+
 .modify input:focus {
     border-color: #999;
     outline: none;
 }
-.signup .basic_btn,
+
 .modify .basic_btn {
     background-color: #333;
     color: white;
@@ -160,72 +287,93 @@ div.background {
     padding: 12px;
     border-radius: 6px;
 }
-.signup .basic_btn:hover,
+
 .modify .basic_btn:hover {
     background-color: #555;
     transform: translateY(-2px);
 }
-.signup p,
+
 .modify p {
     margin: 5px 0;
     padding-left: 5px;
     font-size: 13px;
     text-align: left;
 }
-.signup p[style*="color: #ff0000"] {
-    color: #ff0000;
-}
+
 .basic_input {
     margin-bottom: 5px;
 }
+
 .basic_btn {
     margin-top: 10px;
     padding: 10px;
 }
+
 #signup_wrap a,
 #signin_wrap a {
     text-decoration: none;
 }
+
 a .basic_btn {
     background-color: #777;
 }
+
 a .basic_btn:hover {
     background-color: #999;
 }
-/* SIGN UP END */
 
-/* SIGN IN START*/
-#signin_wrap{
+/* SIGN IN START */
+#signin_wrap {
     background-color: #fff;
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     padding: 20px 30px;
-    margin: 30px auto;
-    width: 500px;
-    margin-bottom: 452px;
+    width: 350px; 
     text-align: center;
     box-sizing: border-box;
-}
-.signin {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px; 
 }
-.signin input {
+#signin_wrap .input_group {
+    display: flex;
+    flex-direction: column;
+    gap: 0; 
+}
+
+#signin_wrap .input_group input {
     padding: 12px;
     border: 1px solid #ccc;
-    border-radius: 6px; 
+    border-radius: 0; 
     font-size: 16px;
     width: 100%;
     box-sizing: border-box;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
     cursor: text;
+    margin: 0;
 }
-.signin input:focus {
+
+#signin_wrap .input_group input:first-of-type {
+    border-top-left-radius: 6px; 
+    border-top-right-radius: 6px;
+}
+
+#signin_wrap .input_group input:last-of-type {
+    border-bottom-left-radius: 6px; 
+    border-bottom-right-radius: 6px;
+}
+
+#signin_wrap .input_group input:focus {
     border-color: #999;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     outline: none;
 }
-.signin .basic_btn {
+
+#signin_wrap.input_group input:first-of-type:focus {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+#signin_wrap .signin .basic_btn {
     background-color: #333;
     color: white;
     border: none;
@@ -233,17 +381,21 @@ a .basic_btn:hover {
     transition: background-color 0.3s ease, transform 0.3s ease;
     padding: 12px;
     border-radius: 6px;
+    width: 100%;
+    max-width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 15px; 
 }
-.signin .basic_btn:hover {
+
+#signin_wrap .signin .basic_btn:hover {
     background-color: #555;
     transform: translateY(-2px);
 }
-.siginin .basic_input {
-    margin-bottom: 5px;
-}
-.siginin .basic_btn {
-    margin-top: 10px;
-    padding: 10px;
+
+#signin_wrap .signin .basic_btn:active {
+    transform: translateY(0);
+    background-color: #222;
 }
 /* SIGN IN END*/
 

@@ -22,7 +22,7 @@ const SignIn = ({setIsLogined}) => {
         setUId(e.target.value);
     }
 
-    const uPwChaneHandler = (e) => {
+    const uPwChangeHandler = (e) => {
         if(!getProdFlag()) console.log('[SignIn] uPwChaneHandler()');
 
         setUPw(e.target.value);
@@ -49,20 +49,31 @@ const SignIn = ({setIsLogined}) => {
 
     }
 
-    return(
-        <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}>
-             <div id="signin_wrap">
+
+    return (
+        <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            style={{ 
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center', 
+                minHeight: '80vh', 
+                backgroundColor: '#202531' 
+            }}
+        >
+            <div id="signin_wrap">
                 <div className="signin">
-                    <input className="basic_input" name="UserId" type="text" value={uId} onChange={uIdChangeHandler} placeholder="아이디" />
-                    <input className="basic_input" name="UserPw" type="password" value={uPw} onChange={uPwChaneHandler} placeholder="비밀번호"/>
-                    <input className="basic_btn" type="button" onClick={SignInBtnHandler} value="로그인" />
+                    <div className="input_group">
+                        <input className="basic_input" name="UserId" type="text" value={uId} onChange={uIdChangeHandler} placeholder="아이디"/>
+                        <input className="basic_input" name="UserPw" type="password" value={uPw} onChange={uPwChangeHandler} placeholder="비밀번호"/>
+                    </div>
+                        <input className="basic_btn" type="button" onClick={SignInBtnHandler} value="로그인"/> 
                 </div>
             </div>
         </motion.div>
     );
-}
+};
 
 export default SignIn;

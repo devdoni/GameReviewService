@@ -12,11 +12,17 @@ const SignUp = () => {
     const [uPhone, setUPhone] = useState('');
     const [uMail, setUMail] = useState('');
 
-    const [isIdCheck, setIsIdCheck] = useState(false);        // 아이디 검증을 체크하는 State
-    const [isPwCheck, setIsPwCheck] = useState(false);        // 비밀번호 검증을 체크하는 State
-    const [isNickNameCheck, setIsNickNameCheck] = useState(false);  // 닉네임 검증을 체크하는 State
-    const [isIdDuplicateCheck, setIsIdDuplicateCheck] = useState(false);    // 아이디 중복체크 State
-    const [isNickDuplicateCheck, setIsNickDuplicateCheck] = useState(false);    // 닉네임 중복체크 State
+    const [isIdTouched, setIsIdTouched] = useState(false);
+    const [isPwTouched, setIsPwTouched] = useState(false);
+    const [isNickTouched, setIsNickTouched] = useState(false);
+    const [isPhoneTouched, setIsPhoneTouched] = useState(false);
+    const [isMailTouched, setIsMailTouched] = useState(false);
+
+    const [isIdCheck, setIsIdCheck] = useState(false);                          // 아이디 검증을 체크하는 State
+    const [isPwCheck, setIsPwCheck] = useState(false);                          // 비밀번호 검증을 체크하는 State
+    const [isNickNameCheck, setIsNickNameCheck] = useState(false);              // 닉네임 검증을 체크하는 State
+    const [isIdDuplicateCheck, setIsIdDuplicateCheck] = useState(false);        // 아이디 중복체크 State
+    const [isNickDuplicateCheck, setIsNickDuplicateCheck] = useState(false);    // 닉네임 중복체크 State    
 
 
 
@@ -31,7 +37,7 @@ const SignUp = () => {
         if(!getProdFlag()) console.log('[SIGNUP] uIdChangeHandler()');
 
         setUId(e.target.value);
-
+        setIsIdTouched(true);
         let regIdCheck = userIdCheck(e.target.value);
         if (regIdCheck) {
             setIsIdCheck(true);        
@@ -41,10 +47,11 @@ const SignUp = () => {
 
     }
 
-    const uPwChaneHandler = (e) => {
+    const uPwChangeHandler = (e) => {
         if(!getProdFlag()) console.log('[SignUp] uPwChaneHandler()');
 
         setUPw(e.target.value);
+        setIsPwTouched(true);
         let regPwCheck = userPwCheck(e.target.value);
         if (regPwCheck) {
             setIsPwCheck(true);        
@@ -57,6 +64,7 @@ const SignUp = () => {
         if(!getProdFlag()) console.log('[SignUp] uNickChangeHandler()');
 
         setUNick(e.target.value);
+        setIsNickTouched(true);
         let regNickNameCheck = userNickNameCheck(e.target.value);
         if (regNickNameCheck) {
             setIsNickNameCheck(true);
@@ -78,12 +86,14 @@ const SignUp = () => {
         if(!getProdFlag()) console.log('[SignUp] uPhoneChangeHandler()');
 
         setUPhone(e.target.value);
+        setIsPhoneTouched(true);
     }
 
     const uMailChangeHandler = (e) => {
         if(!getProdFlag()) console.log('[SignUp] uMailChangeHandler()');
 
         setUMail(e.target.value);
+        setIsMailTouched(true);
 
     }
 
@@ -207,64 +217,50 @@ const SignUp = () => {
 
     
 
-    return (
-        <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        <div id="signup_wrap">
-            <div className="signup">
-                <input id="input_id" name="UserId" type="text" onChange={uIdChangeHandler} placeholder="[필수] 아이디" />
-                {
-                    isIdCheck
-                    ?
-                    null
-                    :
-                    <p style={{color: '#ff0000'}}>아이디: 5~20자의 영어 소문자와 숫자 조합만 사용가능합니다.</p>
-                }
-                <input className="basic_btn" type="button" onClick={idDuplicateCheckBtn} value="중복체크" />
-                {
-                    isIdDuplicateCheck
-                    ?
-                    null
-                    :
-                    <p style={{color: '#ff0000'}}>아이디 중복체크를 진행해 주세요.</p>
-                }
-                <input className="basic_input" name="UserPw" type="password" onChange={uPwChaneHandler} placeholder="[필수] 비밀번호"/>
-                {
-                    isPwCheck
-                    ?
-                    null
-                    :
-                    <p style={{color: '#ff0000'}}>비밀번호: 8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.</p>
-                }
-                <input id="input_nick" name="UserNickname" type="text" onChange={uNickChangeHandler} placeholder="[필수] 닉네임" />
-                {
-                    isNickNameCheck
-                    ?
-                    <p> </p>
-                    :    
-                    <p style={{color: '#ff0000'}}>닉네임을 입력해주세요. (한글, 영어, 숫자 조합 3~16자)</p>
-                }
-                {
-                    isNickDuplicateCheck
-                    ?
-                    <p style={{color: '#ff0000'}}>이미 사용중인 닉네임입니다.</p>   
-                    :                      
-                    null
+        return (
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+            >
+                <div id="signup_wrap">
+                    <div className="signup">
+                        <div className="section">
+                            <div className="section_header">필수 입력 정보</div>
+                                <input id="input_id" name="UserId" type="text" onChange={uIdChangeHandler} placeholder="[필수] 아이디" />
+                                {
+                                   isIdTouched && !isIdCheck && <p>아이디: 5~20자의 영어 소문자와 숫자 조합만 사용가능합니다.</p>
+                                }
+                                {
+                                   isIdTouched && !isIdDuplicateCheck && <p>아이디 중복체크를 진행해 주세요.</p>
+                                }
+                                <input className="basic_btn" type="button" onClick={idDuplicateCheckBtn} value="중복체크" />
 
-                }
-                <input className="basic_input" name="UserPhone" type="text" onChange={uPhoneChangeHandler} placeholder="[선택] 휴대전화 번호 010-0000-0000" />
-                <br />
-                <input className="basic_input" type="email" name="UserEmail" onChange={uMailChangeHandler} placeholder="[선택] 이메일 주소" />
-                <br />
-                <input className="basic_btn" type="button" onClick={SignUpBtnHandler} value="회원가입" />
-            </div>
-        </div>
-        </motion.div>
-    );
-}
+                                <input className="basic_input" name="UserPw" type="password" onChange={uPwChangeHandler} placeholder="[필수] 비밀번호" />
+                                {
+                                   isPwTouched && !isPwCheck && <p>비밀번호: 8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.</p>
+                                }
+                                <input id="input_nick" name="UserNickname" type="text" onChange={uNickChangeHandler} placeholder="[필수] 닉네임" />
+                                {
+                                    isNickTouched && !isNickNameCheck && <p>닉네임을 입력해주세요. (한글, 영어, 숫자 조합 3~16자)</p>
+                                }
+                                {
+                                    isNickDuplicateCheck ? <p>이미 사용중인 닉네임입니다.</p> : null
+                                }
+                        </div>
+                        <div className="section">
+                            <div className="section_header">선택 입력 정보</div>
+                            <div className="input_group">
+                                <input className="basic_input" name="UserPhone" type="text" onChange={uPhoneChangeHandler} placeholder="[선택] 휴대전화 번호 010-0000-0000" />
+                                <input className="basic_input" type="email" name="UserEmail" onChange={uMailChangeHandler} placeholder="[선택] 이메일 주소" />
+                            </div>
+                        </div>
+                        <input className="basic_btn" type="button" onClick={SignUpBtnHandler} value="회원가입" />
+                    </div>
+                </div>
+            </motion.div>
+        );
+    };
 
 
 export default SignUp;

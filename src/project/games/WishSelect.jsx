@@ -5,7 +5,7 @@ import { getDateTime, getMyWishList, getProdFlag, getUserWishListDB, setMyWishLi
 import { getLoginedSessionId } from "../utils/session";
 import { CiHeart } from "react-icons/ci";
 
-const Wish = ({ no, gameName, setWriteFlag, writeFlag, gameHref, gameSrc }) => {    
+const WishSelect = ({ no, gameName, setWriteFlag, writeFlag, gameHref, gameSrc }) => {    
     const [isWish, setIsWish] = useState(false);
     const [sessionID, setSessionID] = useState('');
 
@@ -77,4 +77,4 @@ const Wish = ({ no, gameName, setWriteFlag, writeFlag, gameHref, gameSrc }) => {
     );
 }
 
-export default Wish;
+export default WishSelect;
