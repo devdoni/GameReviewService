@@ -1,7 +1,7 @@
 [
     {
         "no": 1000,
-        "href": "detail/1",
+        "href": "detail/9",
         "src": "bigthums/palworld.jpg",
         "name": "Palworld",
         "genre": "오픈월드",
@@ -9,7 +9,7 @@
     },
     {
         "no": 1001,
-        "href": "detail/1001",
+        "href": "detail/15",
         "src": "bigthums/stardewvalley.jpg",
         "name": "스타듀밸리",
         "genre": "인디게임",
@@ -17,7 +17,7 @@
     },
     {
         "no": 1002,
-        "href": "detail/1002",
+        "href": "detail/3",
         "src": "bigthums/EldenRing.jpg",
         "name": "엘든링",
         "genre": "오픈월드",
@@ -25,7 +25,7 @@
     },
     {
         "no": 1003,
-        "href": "detail/1003",
+        "href": "detail/20",
         "src": "bigthums/DaveTheDiver.jpg",
         "name": "데이브 더 다이버",
         "genre": "어드벤쳐",
@@ -33,7 +33,7 @@
     },
     {
         "no": 1004,
-        "href": "detail/1004",
+        "href": "detail/21",
         "src": "bigthums/ProjectZomboid.jpg",
         "name": "프로젝트:좀보이드",
         "genre": "생존",
@@ -41,7 +41,7 @@
     },
     {
         "no": 1005,
-        "href": "detail/1005",
+        "href": "detail/30",
         "src": "bigthums/FC24.jpg",
         "name": "EA SPORTS FC™ 24",
         "genre": "스포츠",
@@ -49,7 +49,7 @@
     },
     {
         "no": 1006,
-        "href": "detail/1006",
+        "href": "detail/108",
         "src": "bigthums/TheSims4.jpg",
         "name": "Sims 4",
         "genre": "시뮬레이션",
@@ -57,7 +57,7 @@
     },
     {
         "no": 1007,
-        "href": "detail/1007",
+        "href": "detail/32",
         "src": "bigthums/Counter-Strike.jpg",
         "name": "Conter-Strike 2",
         "genre": "FPS",
@@ -65,7 +65,7 @@
     },
     {
         "no": 1008,
-        "href": "detail/1008",
+        "href": "detail/7",
         "src": "bigthums/Dota2.jpg",
         "name": "Dota2",
         "genre": "AOS",
@@ -73,7 +73,7 @@
     },
     {
         "no": 1009,
-        "href": "detail/1009",
+        "href": "detail/109",
         "src": "bigthums/callofduty.jpg",
         "name": "Call of Duty®: Modern Warfare® III",
         "genre": "FPS",
@@ -81,7 +81,7 @@
     },
     {
         "no": 1010,
-        "href": "detail/1010",
+        "href": "detail/13",
         "src": "bigthums/GTA5.jpg",
         "name": "GTA5",
         "genre": "액션",
@@ -89,7 +89,7 @@
     },
     {
         "no": 1011,
-        "href": "detail/1011",
+        "href": "detail/45",
         "src": "bigthums/WARFRAME.jpg",
         "name": "WARFRAME",
         "genre": "FPS",

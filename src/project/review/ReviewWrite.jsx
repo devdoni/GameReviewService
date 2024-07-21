@@ -77,7 +77,7 @@ const ReviewWrite = ({ gameName, setWriteFlag, no, gameSrc, gameHref }) => {
                     </div>
                     <div className="options">
                         <div className="recommendation">
-                            <label>별점을 선택해주세요</label>
+                            <label style={{paddingBottom:"12px"}}>별점을 선택해주세요</label>
                             <StarRating rating={score} setRating={setScore} />
                         </div>
                     </div>

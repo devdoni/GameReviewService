@@ -206,7 +206,7 @@ div.background {
     display: flex;
     flex-direction: column;
     gap: 0;
-    position: relative; /* For positioning the shadow */
+    position: relative; 
 }
 
 #signup_wrap .input_group input {
@@ -332,26 +332,26 @@ div.background {
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    padding: 25px 35px; /* 크기를 signup 폼과 맞춤 */
-    width: 440px; /* 크기를 signup 폼과 맞춤 */
+    padding: 25px 35px; 
+    width: 440px;
     max-width: 90%;
     text-align: center;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    gap: 25px; /* 간격을 signup 폼과 맞춤 */
-    margin: 30px auto; /* margin 추가 */
+    gap: 25px;
+    margin: 30px auto; 
 }
 
 #signin_wrap .input_group {
     display: flex;
     flex-direction: column;
     gap: 0;
-    position: relative; /* 그림자를 위한 위치 설정 */
+    position: relative; 
 }
 
 #signin_wrap .input_group input {
-    padding: 15px; /* 크기를 signup 폼과 맞춤 */
+    padding: 15px; 
     border: 1px solid #ccc;
     border-radius: 0;
     font-size: 16px;

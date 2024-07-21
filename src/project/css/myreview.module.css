@@ -8,7 +8,7 @@
     border-radius: 8px;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* 화면 전체 높이 */
+    min-height: 100vh;
     box-sizing: border-box;
 }
 
@@ -44,7 +44,7 @@
 }
 
 .review_list {
-    flex-grow: 1; /* 남은 공간을 차지하게 함 */
+    flex-grow: 1; 
 }
 
 .review_content {
@@ -173,7 +173,7 @@
     font-size: 18px;
     color: #ccc;
     margin-top: 20px;
-    flex-grow: 1; /* 남은 공간을 차지하게 함 */
+    flex-grow: 1; 
 }
 
 .no_reviews {

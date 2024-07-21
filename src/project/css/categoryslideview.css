@@ -39,10 +39,8 @@ div.train > button.next-button{
 div.train > div.show > div.compartment {
     width: 1000px;
     height: 350px;
-    flex-shrink: 0; /* 이 구역안에 생기는 영역들이 공간을 분배하여 가지지 않도록 적용 */
-    /* font-size: 40px;
-    text-align: center; */
-    margin: 0 50px; /* 보여줄 영역을 표시하기 위해 적용 */
+    flex-shrink: 0; 
+    margin: 0 50px; 
     
     
 }
@@ -80,18 +78,6 @@ div.train > div.show > div.compartment:nth-child(3) {
     background-repeat: no-repeat;
     background-size: contain;
 }
-
-/* div.train > div.show > div.compartment:nth-child(4) {
-    background-image: url("../../../public/imgs/category/yu-gi-oh_master_duel_strategy.jpg"),
-    url("../../../public/imgs/category/bladur`s_gate3_rpg.jpg"),
-    url("../../../public/imgs/category/football_manager2024_allsports.jpg");
-    background-size: 490px 300px, 490px 300px, 490px 300px;
-    background-position: 10px 0, 355px 0, 700px 0;
-    background-repeat: no-repeat;
-    background-size: contain;
-} */
-
-
 
 div.train > ol.slide-index {
     

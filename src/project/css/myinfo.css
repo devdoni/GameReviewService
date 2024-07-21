@@ -3,7 +3,7 @@
     height: 85vh;
     margin: 0 auto;
     display: flex;
-    justify-content: space-around; /* 버튼들 사이에 균등한 간격을 줍니다 */
+    justify-content: space-around; 
     align-items: center;
     padding: 20px;
     box-sizing: border-box;
@@ -16,8 +16,8 @@
 }
 
 .myinfo-button {
-    width: 250px; /* 너비를 줄여서 버튼이 더 잘 맞게 합니다 */
-    height: 350px; /* 높이를 줄여서 버튼이 더 잘 맞게 합니다 */
+    width: 250px;
+    height: 350px; 
     display: flex;
     flex-direction: column;
     align-items: center;

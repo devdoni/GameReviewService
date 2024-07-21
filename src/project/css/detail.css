@@ -61,7 +61,7 @@
     background-color: #2a475e;
     padding: 20px;
     border-radius: 8px;
-    height: 100%; 
+    height: 570px; 
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -119,6 +119,116 @@
     white-space: pre-wrap;
     word-wrap: break-word;
 }
+
+
+.game_detail_info {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #1b2838;
+    color: #c7d5e0;
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.game_detail_info .section {
+    background-color: #2a475e;
+    padding: 20px;
+    border-radius: 8px;
+    height: auto; 
+}
+
+.game_detail_info .section p {
+    font-size: 24px; 
+    color: #66c0f4;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #66c0f4; 
+    padding-bottom: 10px; 
+}
+
+.game_detail_info .section .details {
+    font-size: 18px; 
+    line-height: 1.6;
+    color: #c7d5e0;
+    margin-top: 10px; 
+}
+
+.game_detail_info .highlight-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.game_detail_info .highlight {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    font-size: 18px;
+    color: #66c0f4;
+    background-color: #2a475e; 
+    border-radius: 8px;
+    padding: 20px;
+    gap: 20px; 
+}
+
+.game_detail_info .highlight div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    text-align: center;
+    background-color: #3b5998; 
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    flex: 1;
+    min-width: 150px; 
+}
+
+.game_detail_info .highlight div:hover {
+    transform: translateY(-5px);
+    background-color: #4c70ba; 
+}
+.game_detail_info .highlight div span {
+    font-size: 24px;
+    color: #c7d5e0;
+}
+
+.game_detail_info .highlight div .star-rating {
+    color: #ffd700;
+    font-size: 24px;
+}
+
+.game_detail_info .game_recom {
+    background-color: #2a475e;
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1;
+}
+
+.game_detail_info strong {
+    color: #66c0f4;
+}
+
+.game_detail_info button {
+    padding: 10px 20px;
+    background-color: #66c0f4;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.game_detail_info button:hover {
+    background-color: #4a9ac5;
+}
 /* 위시 아이콘 시작 */
 .wish-button {
     display: flex;
@@ -151,4 +261,41 @@
 
 .wish-button:hover .heart-icon {
     color: #ff0000;
+}
+
+
+
+/* 슬릭 닷 */
+.detail .custom-dots {
+    display: flex !important;
+    justify-content: center !important;
+    list-style: none !important;
+    padding: 0 !important;
+}
+
+.detail .custom-dots li {
+    margin: 0 !important;
+    padding-top: 30px;
+}
+
+.detail .custom-dots li button {
+    background: none !important;
+    border: none !important; 
+    padding: 0 !important; 
+}
+
+.detail .custom-dots li img {
+    width: 175px !important;
+    height: 100px !important;
+    cursor: pointer !important;
+    border-radius: 10px;
+    transition: transform 0.3s ease !important; 
+}
+
+.detail .custom-dots li.slick-active img {
+    transform: scale(1.15) !important; 
+}
+
+.detail .slick-prev, .slick-next {
+    display: none !important;
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import '../css/common.css';
 import '../css/detail.css';
@@ -9,7 +9,6 @@ import ReviewWrite from "../review/ReviewWrite";
 import ReviewList from "../review/ReviewList";
 import Slider from "react-slick";
 import { motion } from 'framer-motion'
-import CustomArrow from "../etc/CustomArrow";
 import WishSelect from "../member/WishSelect";
 
 
@@ -38,24 +37,29 @@ const Detail = ({langFileName}) => {
         setWriteFlag(prev => !prev);
     }, []);
 
+
     const imgUrl = [ 
         popularTargetObj.detail_img_01,
         popularTargetObj.detail_img_02,
         popularTargetObj.detail_img_03,
         popularTargetObj.detail_img_04
     ];
-
+    
     const settings = {
         dots: true,
         dotsClass: "custom-dots",
-        infinite: false,
+        infinite: true,
         autoplay: true,
         autoplaySpeed: 4000,
         speed: 700,
         slidesToShow: 1,
         slidesToScroll: 1,
+        customPaging: i => (
+            <button>
+                <img src={`/imgs/data/${popularTargetObj.detail_img_dir}/${imgUrl[i]}`} alt={`thumbnail ${i + 1}`} />
+            </button>
+        ),
     };
-
 
     return (
         <motion.div
@@ -91,8 +95,42 @@ const Detail = ({langFileName}) => {
                             <WishSelect no={no} gameName={popularTargetObj.Name} gameHref={popularTargetObj.href} gameSrc={popularTargetObj['thumnail-link']} setWriteFlag={setWriteFlag}/>
                         </div>
                     </div>
+   
                 </div>
             </div>       
+            <div className="game_detail_info">
+                <div className="section">
+                    <p>{popularTargetObj.Name}의 상세한 정보</p>
+                    {popularTargetObj.detail_info}
+                </div>
+                <div className="highlight-container">
+                    <div className="highlight">
+                        <div>
+                            <span>평균 별점</span>
+                            <span className="star-rating">⭐ {popularTargetObj.score}</span>
+                        </div>
+                        <div>
+                            <span>할인</span>
+                            <span>{popularTargetObj.Discount}</span>
+                        </div>
+                        <div>
+                            <span>가격</span>
+                            <span>{popularTargetObj.Price}</span>
+                        </div>
+                    </div>
+                    <div className="game_recom">
+                        <p>게임 권장사양</p>
+                        <div>
+                            운영체제: {popularTargetObj.operation_system}<br/>
+                            프로세서: {popularTargetObj.processor}<br/>
+                            메모리: {popularTargetObj.memory}<br/>
+                            그래픽: {popularTargetObj.graphics}<br/>
+                            저장공간: {popularTargetObj.storage}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <ReviewWrite gameName={popularTargetObj.Name} no={no} gameSrc={popularTargetObj['thumnail-link']} setWriteFlag={setWriteFlag} writeFlag={writeFlag} />
             <ReviewList gameName={popularTargetObj.Name} no={no} setWriteFlag={setWriteFlag} writeFlag={writeFlag} />
         </motion.div>

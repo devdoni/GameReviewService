@@ -1,30 +1,30 @@
 const TableData = {
    korPopular :[
         {name: 'PUBG: BATTLEGROUNDS', genre: '오픈월드/FPS', src: '/imgs/smailthums/battlegrounds.jpg', info: '넓은 오픈월드에서 친구들과 함께 팀을 만들어 전장에서 최후의 생존자가 되어보세요!', href: 'detail/1' },
-        {name: 'Phasmophobia', genre: '공포/호러', src: '/imgs/smailthums/pahasmophobia.jpg', info: '4인용 협동 공포 게임입니다. 처분 가능한 모든 유령 사냥 장비를 사용하여 가능한 한 많은 증거를 수집해야 합니다.', href: 'detail/1'},
+        {name: 'Phasmophobia', genre: '공포/호러', src: '/imgs/smailthums/pahasmophobia.jpg', info: '4인용 협동 공포 게임입니다. 처분 가능한 모든 유령 사냥 장비를 사용하여 가능한 한 많은 증거를 수집해야 합니다.', href: 'detail/107'},
         {name: 'Sekiro™: Shadows Die Twice', genre: '액션', src: '/imgs/smailthums/sekiro.jpg', info: '복수를 향한 자신만의 길을 개척해보십시오. 복수하십시오. 명예를 회복하십시오. 무사답게 싸우십시오.', href: 'detail/28'},
-        {name: 'Half-Life Alyx', genre: '공포/FPS', src: '/imgs/smailthums/alyx.jpg', info: 'Half-Life: Alyx는 Valve가 선보이는 Half-Life 시리즈의 새로운 VR 게임입니다.', href: 'detail/1'},
+        {name: 'Half-Life Alyx', genre: '공포/FPS', src: '/imgs/smailthums/alyx.jpg', info: 'Half-Life: Alyx는 Valve가 선보이는 Half-Life 시리즈의 새로운 VR 게임입니다.', href: 'detail/102'},
         {link: 'popular'}
    ],
    korFree :[
-        {name: 'Apex 레전드™',genre: '배틀로얄/슈팅',src: '/imgs/smailthums/apex_legends.jpg',info: 'Titanfall 시리즈의 세계를 배경으로 한 빠른 속도의 배틀로얄 게임입니다. 각기 다른 능력을 가진 Legend들을 선택하여 팀을 이루어 싸우세요.'},
-        {name: 'Warframe',genre: '액션/RPG',src: '/imgs/smailthums/warframe.jpg',info: '우주를 배경으로 한 빠른 속도의 3인칭 슈팅 게임으로, 다양한 캐릭터와 무기를 사용하여 미션을 수행하고 적을 물리치세요.'},
-        {name: 'Destiny 2',genre: 'MMO/슈팅',src: '/imgs/smailthums/destiny2.jpg',info: '다양한 클래스와 무기를 선택하여 인류의 마지막 도시를 방어하는 게임입니다. 혼자서 또는 친구들과 함께 우주를 탐험하고 적을 물리치세요.'},
-        {name: 'Brawlhalla',genre: '플랫폼/격투',src: '/imgs/smailthums/brawlhalla.jpg',info: '최대 8명의 플레이어가 동시에 싸울 수 있는 플랫폼 격투 게임입니다. 다양한 모드와 캐릭터를 선택하여 친구들과 경쟁하세요.'},
+        {name: 'Apex 레전드™',genre: '배틀로얄/슈팅',src: '/imgs/smailthums/apex_legends.jpg',info: 'Titanfall 시리즈의 세계를 배경으로 한 빠른 속도의 배틀로얄 게임입니다. 각기 다른 능력을 가진 Legend들을 선택하여 팀을 이루어 싸우세요.', href: 'detail/101'},
+        {name: 'Warframe',genre: '액션/RPG',src: '/imgs/smailthums/warframe.jpg',info: '우주를 배경으로 한 빠른 속도의 3인칭 슈팅 게임으로, 다양한 캐릭터와 무기를 사용하여 미션을 수행하고 적을 물리치세요.', href: 'detail/45'},
+        {name: 'Destiny 2',genre: 'MMO/슈팅',src: '/imgs/smailthums/destiny2.jpg',info: '다양한 클래스와 무기를 선택하여 인류의 마지막 도시를 방어하는 게임입니다. 혼자서 또는 친구들과 함께 우주를 탐험하고 적을 물리치세요.', href: 'detail/18'},
+        {name: 'Brawlhalla',genre: '플랫폼/격투',src: '/imgs/smailthums/brawlhalla.jpg',info: '최대 8명의 플레이어가 동시에 싸울 수 있는 플랫폼 격투 게임입니다. 다양한 모드와 캐릭터를 선택하여 친구들과 경쟁하세요.', href: 'detail/103'},
         {link: 'free'},
 ],
     korHorror :[
-        {name: 'Escape the Backrooms', genre: '공포/호러', src: '/imgs/smailthums/backrooms.jpg', info: '이스케이프 더 백룸은 1~4인 협동 공포 탐험 게임입니다. 으스스한 밀실 레벨을 가로지르며 유령과 기타 위험을 피하고 탈출을 시도하세요'},
-        {name: 'Lethal Company', genre: '공포/호러', src: '/imgs/smailthums/letalcompony.jpg', info: '버려진 달에서 폐기물을 모아 회사에 판매하는 협동 공포 게임입니다.' },
-        {name: 'Dead by Daylight', genre: '공포/호러', src: '/imgs/smailthums/DeadbyDaylight.jpg', info: '한 명의 플레이어가 살인마의 역할을 담당하고, 나머지 네 명의 플레이어는 살인마로부터 도망치려는 생존자로 플레이하는 (4vs1) 공포게임 입니다.'},
+        {name: 'Escape the Backrooms', genre: '공포/호러', src: '/imgs/smailthums/backrooms.jpg', info: '이스케이프 더 백룸은 1~4인 협동 공포 탐험 게임입니다. 으스스한 밀실 레벨을 가로지르며 유령과 기타 위험을 피하고 탈출을 시도하세요', href: 'detail/103'},
+        {name: 'Lethal Company', genre: '공포/호러', src: '/imgs/smailthums/letalcompony.jpg', info: '버려진 달에서 폐기물을 모아 회사에 판매하는 협동 공포 게임입니다.', href: 'detail/35' },
+        {name: 'Dead by Daylight', genre: '공포/호러', src: '/imgs/smailthums/DeadbyDaylight.jpg', info: '한 명의 플레이어가 살인마의 역할을 담당하고, 나머지 네 명의 플레이어는 살인마로부터 도망치려는 생존자로 플레이하는 (4vs1) 공포게임 입니다.', href: 'detail/72'},
         {name: 'Project Zomboid', genre: '공포/생존', src: '/imgs/smailthums/projectzomboid.jpg', info: 'Project Zomboid는 좀비로 가득 찬 개방형 샌드박스 게임입니다. 한 가지 간단한 질문을 던집니다 – 당신은 어떻게 죽을 것인가?', href: 'detail/21'},
         {link: 'popular'}
 ],
     korSimulation : [
-        {name: 'Euro Truck Simulator 2', genre: '운송/시뮬레이션', src: '/imgs/smailthums/EuroTruck.jpg', info: '유럽 전역을 여행하며 다양한 화물을 운송할 수 있는 트럭 시뮬레이션 게임입니다. 현실적인 운전 경험과 다양한 경로를 탐험해보세요.'},    
-        {name: 'Railway Empire 2', genre: '경영/시뮬레이션', src: '/imgs/smailthums/RailwayEmpire2.jpg',info: '19세기 미국의 철도 회사를 경영하며 철도망을 확장하고 회사를 성장시키는 시뮬레이션 게임입니다.'},
-        {name: 'Farming Simulator 22', genre: '농업/시뮬레이션', src: '/imgs/smailthums/FarmingSimulator22.jpg', info: '농작물 재배, 가축 사육 등 실제 농장 경영을 체험할 수 있는 시뮬레이션 게임입니다.'},
-        {name: 'Cities Skylines', genre: '도시 건설/시뮬레이션', src: '/imgs/smailthums/CitiesSkylines.jpg', info: '현대 도시를 설계하고 관리하며 다양한 도전 과제를 해결하는 도시 건설 시뮬레이션 게임입니다.'},
+        {name: 'Euro Truck Simulator 2', genre: '운송/시뮬레이션', src: '/imgs/smailthums/EuroTruck.jpg', info: '유럽 전역을 여행하며 다양한 화물을 운송할 수 있는 트럭 시뮬레이션 게임입니다. 현실적인 운전 경험과 다양한 경로를 탐험해보세요.', href: 'detail/34'},    
+        {name: 'Railway Empire 2', genre: '경영/시뮬레이션', src: '/imgs/smailthums/RailwayEmpire2.jpg',info: '19세기 미국의 철도 회사를 경영하며 철도망을 확장하고 회사를 성장시키는 시뮬레이션 게임입니다.', href: 'detail/104'},
+        {name: 'Farming Simulator 22', genre: '농업/시뮬레이션', src: '/imgs/smailthums/FarmingSimulator22.jpg', info: '농작물 재배, 가축 사육 등 실제 농장 경영을 체험할 수 있는 시뮬레이션 게임입니다.', href: 'detail/105'},
+        {name: 'Cities Skylines', genre: '도시 건설/시뮬레이션', src: '/imgs/smailthums/CitiesSkylines.jpg', info: '현대 도시를 설계하고 관리하며 다양한 도전 과제를 해결하는 도시 건설 시뮬레이션 게임입니다.', href: 'detail/106'},
         {link: 'popular'}
 ],
 
