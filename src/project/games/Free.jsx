@@ -31,9 +31,11 @@ const settings = {
     autoplaySpeed: 4000,
     speed: 700,
     slidesToShow: 1,
+    slidesToShowClass: 'slidesToShowClass',
     slidesToScroll: 1,
     nextArrow: <CustomArrow icon="./imgs/rightarrow.png" className={"slick-next"}/>,
     prevArrow: <CustomArrow icon="./imgs/leftarrow.png" className={"slick-prev"}/>
+    
 
   };
 
@@ -60,6 +62,7 @@ return(
     <div id="hompage">
 
         <div id="freethum_slide">
+            <h1>무료 플레이 게임</h1>
             <Slider {...settings} className="free_slider">
                 {games.map((game) => (
                 <div id="free_content">
@@ -79,9 +82,9 @@ return(
             </Slider>
         </div>
 
-        <div id="popular_wrap">
-            <div className="popular-header">
-                최고 인기 게임
+        <div id="free_wrap">
+            <div className="free-header">
+                무료 게임
             </div>
         <div className="sub-header">
             {/* <div className="sub-header-item sub-rank">순위</div> */}
@@ -101,8 +104,8 @@ return(
                             </Link>
                         </div>
                         <div className="title">{popular['Name']}</div>
-                        <button>찜하기</button>
-                        <button>무료 플레이</button>
+                        <button className="pick-button">찜하기</button>
+                        <button className="free-play">무료 플레이</button>
                         {/* <div className="price">{popular['Price']}원</div>
                         <div className="discount">{popular['Discount']}</div> */}
                     </div>

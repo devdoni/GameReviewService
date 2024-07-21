@@ -212,8 +212,7 @@ div > div.categorybox > a.sptimg > div.imgcarousel > span {
 /* 메인 썸네일 슬라이드 CSS START*/
 
 
-#mainthum_slide,
-#freethum_slide {
+#mainthum_slide {
     width: 1250px;
     margin: 20px auto;
     padding: 0px;
@@ -227,7 +226,7 @@ div > div.categorybox > a.sptimg > div.imgcarousel > span {
 
 .custom-arrow{
     position: absolute;
-    top: 350px;
+    top: 420px;
     transform: translateY(-50%);
     width: 50px;
     z-index: 1;
@@ -243,7 +242,7 @@ div > div.categorybox > a.sptimg > div.imgcarousel > span {
 
 .slick-dots.custom-dots {
     position: relative;
-    bottom: -10px; /* 슬라이더 아래 위치 조정 */
+    bottom: 50px; /* 슬라이더 아래 위치 조정 */
     right: -20px;
     width: 100%;
     display: flex;
@@ -251,8 +250,6 @@ div > div.categorybox > a.sptimg > div.imgcarousel > span {
     padding: 0;
     margin: 0;
     list-style: none;
-    
-    
 }
 
 .slick-dots.custom-dots li {
@@ -286,6 +283,10 @@ div > div.categorybox > a.sptimg > div.imgcarousel > span {
     background-color: #fff; /* 호버 시 점의 색상 */
 }
 
+.slidesToShowClass {
+    width: 1200px;
+}
+
 .main_content,
 .free_content {
     display: flex;
@@ -298,7 +299,8 @@ div > div.categorybox > a.sptimg > div.imgcarousel > span {
 .main_thum {
     position: relative;
     width: 374px;
-    height: 448px;
+    /* height: 448px; */
+    height: 600px;
     margin: 0 10px;
     border-radius: 5px;
     overflow: hidden;
@@ -306,6 +308,7 @@ div > div.categorybox > a.sptimg > div.imgcarousel > span {
     display: flex;
     align-items: center;
     justify-content: center;
+    top: -10px;
 }
 
 .mimgs {
@@ -322,11 +325,17 @@ div > div.categorybox > a.sptimg > div.imgcarousel > span {
     
 }
 
+#freethum_slide > h1 {
+    color: #fff;
+    margin-top: 10px;
+    font-size: 50px;
+}
+
 .free_thum {
     position: relative;
-    width: 374px;
+    width: 1200px;
     height: 448px;
-    margin: 0 10px;
+    margin: 0 330px;
     border-radius: 5px;
     overflow: hidden;
     transition: filter 0.3s ease;
@@ -338,15 +347,13 @@ div > div.categorybox > a.sptimg > div.imgcarousel > span {
 .image-info-container {
     display: flex;
     align-items: cneter;
-    width: 100%;
 }
 
 .fimgs {
-    /* width: 200px; */
     flex-shrink: 0;
     width: auto;
-    height: 100px; 
-    margin-right: 20px;
+    height: 340px; 
+    margin-right: 0px;
     border-radius: 5px;
     
 }
@@ -355,19 +362,26 @@ div > div.categorybox > a.sptimg > div.imgcarousel > span {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    height: 300px;
 }
 
-.game_info > .h3,
+.game_info >h3 {
+    font-size: 2em;
+}
+
+.game_info > h3,
 .game_info > p {
     color: #fff;
+    text-align: left;
 }
 
 .overlay {
     position: absolute;
-    top: 0;
+    top: 73px;
     left: 0;
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
+    height: 450px;
     display: flex;
     flex-direction: column;
     justify-content: center;

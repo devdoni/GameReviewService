@@ -1,4 +1,8 @@
 /* FreeGame CSS START */
+#hompage > #freethum_slide >.free_content {
+  width: 500px;
+}
+
 #carousel {
     position: relative;
     width: 600px;
@@ -54,11 +58,39 @@
     width: 100%;
     height: 100%;
 }
+
+.pick-button {
+  color: #fff;
+  background: rgba(0, 0, 0, .1);
+  margin: 2px;
+  margin-right: 5px;
+  padding: 5px 10px;
+  border-radius: 7px;
+}
+
+.free-play {
+  color: #fff;
+  background-color: #85a805;
+  margin: 2px;
+  margin-left: 0;
+  padding: 5px 10px;
+  border-radius: 7px;
+}
+
+#free_wrap .sub-item {
+  padding-left: 255px;
+}
+
+.pick-button:hover,
+.free-play:hover {
+cursor: pointer;
+}
 /* FreeGame CSS END */
 
 /* Popular CSS START */
 
-#popular_wrap {
+#popular_wrap,
+#free_wrap {
     padding: 20px;
     background-color: #1c1c1c;
     border-radius: 10px;
@@ -67,14 +99,16 @@
     margin: 0 auto;
   }
   
-  #popular_wrap .popular-header {
+  #popular_wrap .popular-header,
+  #free_wrap .free-header {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
     text-align: center;
   }
   
-  #popular_wrap .sub-header {
+  #popular_wrap .sub-header,
+  #free_wrap .sub-header {
     display: flex;
     position: relative;
     justify-content: space-between;
@@ -83,13 +117,15 @@
     padding: 0 15px;
   }
   
-  #popular_wrap .sub-item {
+  #popular_wrap .sub-item{
     padding-left: 150px;
   }
-  #popular_wrap .sub-price {
+  #popular_wrap .sub-price,
+  #free_wrap .sub-price {
     margin-left: 610px;
   }
-  #popular_wrap .sub-header-item {
+  #popular_wrap .sub-header-item,
+  #free_wrap .sub-header-item {
     text-align: center;
   }
   
@@ -97,31 +133,37 @@
     flex: 0 0 50px; 
   }
   
-  #popular_wrap .sub-header-item:nth-child(2) {
+  #popular_wrap .sub-header-item:nth-child(2),
+  #free_wrap .sub-header-item:nth-child(2){
     flex: 0 0 185px; 
   }
   
-  #popular_wrap .sub-header-item:nth-child(3) {
+  #popular_wrap .sub-header-item:nth-child(3),
+  #free_wrap .sub-header-item:nth-child(3) {
     flex: 1;
     text-align: left;
     padding-left: 10px; 
   }
   
-  #popular_wrap .sub-header-item:nth-child(4) {
+  #popular_wrap .sub-header-item:nth-child(4),
+  #free_wrap .sub-header-item:nth-child(4) {
     flex: 0 0 100px; 
   }
   
-  #popular_wrap .sub-header-item:nth-child(5) {
+  #popular_wrap .sub-header-item:nth-child(5),
+  #free_wrap .sub-header-item:nth-child(5) {
     flex: 0 0 100px; 
   }
   
-  #popular_wrap .items {
+  #popular_wrap .items,
+  #free_wrap .items {
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
   
-  #popular_wrap .item {
+  #popular_wrap .item,
+  #free_wrap .item {
     display: flex;
     align-items: center;
     background-color: #2a2a2a;
@@ -131,12 +173,14 @@
     transition: transform 0.2s, box-shadow 0.2s;
   }
   
-  #popular_wrap .item:hover {
+  #popular_wrap .item:hover,
+  #free_wrap .item:hover{
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
   }
   
-  #popular_wrap .rank {
+  #popular_wrap .rank,
+  #free_wrap .rank{
     font-size: 20px;
     font-weight: bold;
     flex: 0 0 50px; 
@@ -146,12 +190,14 @@
     border-radius: 5px;
   }
   
-  #popular_wrap .thumbnail {
+  #popular_wrap .thumbnail,
+  #free_wrap .thumbnail {
     flex: 0 0 185px;
     text-align: center;
   }
   
-  #popular_wrap .thumbnail img {
+  #popular_wrap .thumbnail img,
+  #free_wrap .thumbnail img{
     padding-left: 10px;
     width: 185px;
     height: 70px;
@@ -159,7 +205,8 @@
     border-radius: 5px;
   }
   
-  #popular_wrap .title {
+  #popular_wrap .title,
+  #free_wrap .title {
     flex: 1; 
     font-size: 18px;
     font-weight: bold;
@@ -170,14 +217,16 @@
     padding-left: 10px; 
   }
   
-  #popular_wrap .price {
+  #popular_wrap .price,
+  #free_wrap .price {
     flex: 0 0 100px;
     font-size: 18px;
     color: #ffd700;
     text-align: center;
   }
   
-  #popular_wrap .discount {
+  #popular_wrap .discount,
+  #free_wrap .discount {
     flex: 0 0 100px; 
     font-size: 18px;
     color: #ff4500;
