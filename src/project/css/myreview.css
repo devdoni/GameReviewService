@@ -1,0 +1,87 @@
+#myreview_wrap {
+    width: 1200px;
+    margin: 0 auto;
+    background-color: #202531;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    border-radius: 8px;
+    /* overflow-y: auto;  스크롤 제거 */
+}
+
+#myreview_wrap .myreview_title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #3a3f54;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+#myreview_wrap .review_content {
+    display: flex;
+    flex-direction: column;
+    background-color: #2e3243;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#myreview_wrap .review_content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#myreview_wrap .game_image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#myreview_wrap .game_image img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+}
+
+#myreview_wrap .game_name {
+    font-size: 24px;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#myreview_wrap .review_details {
+    font-size: 16px;
+    color: #f8f8f2;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#myreview_wrap .review_details p {
+    margin: 5px 0;
+}
+
+#myreview_wrap .detail_page {
+    display: flex;
+    justify-content: center;
+}
+
+#myreview_wrap .detail_page a {
+    background-color: #4e5a76;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+#myreview_wrap .detail_page a:hover {
+    background-color: #5e6a89;
+}

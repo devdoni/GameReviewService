@@ -10,7 +10,7 @@ import ReviewList from "../review/ReviewList";
 import Slider from "react-slick";
 import { motion } from 'framer-motion'
 import CustomArrow from "../etc/CustomArrow";
-import WishSelect from "./WishSelect";
+import WishSelect from "../member/WishSelect";
 
 
 const Detail = ({langFileName}) => {
@@ -95,8 +95,8 @@ const Detail = ({langFileName}) => {
                     </div>
                 </div>
             </div>       
-            <ReviewWrite gameName={popularTargetObj.Name} setWriteFlag={setWriteFlag} writeFlag={writeFlag} />
-            <ReviewList gameName={popularTargetObj.Name} setWriteFlag={setWriteFlag} writeFlag={writeFlag} />
+            <ReviewWrite gameName={popularTargetObj.Name} no={no} gameSrc={popularTargetObj['thumnail-link']} setWriteFlag={setWriteFlag} writeFlag={writeFlag} />
+            <ReviewList gameName={popularTargetObj.Name} no={no} setWriteFlag={setWriteFlag} writeFlag={writeFlag} />
 
         </motion.div>
         </>

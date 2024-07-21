@@ -251,7 +251,7 @@ p a:hover {
 
 .star-rating {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row; /* row-reverse를 row로 변경 */
     justify-content: center;
     margin-bottom: 10px;
 }

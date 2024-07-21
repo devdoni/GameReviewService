@@ -15,7 +15,7 @@ import Category from "./games/Category";
 import { AnimatePresence } from "framer-motion";
 import Genre from "./games/Genre";
 import Myinfo from "./member/Myinfo";
-import WishList from "./games/WishList";
+import WishList from "./member/WishList";
 import MyReviewList from "./review/MyReviewList";
 import TermsOfService from "./etc/TermsOfService";
 import PrivacyPolicy from "./etc/PrivacyPolicy";

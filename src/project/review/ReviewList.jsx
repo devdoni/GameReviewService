@@ -5,7 +5,7 @@ import { getLoginedSessionId } from '../utils/session';
 import StarRating from './StarRating';
 
 
-const ReviewList = ({ gameName, writeFlag}) => {
+const ReviewList = ({ gameName, writeFlag, no}) => {
     const [reviews, setReviews] = useState([]);
     const [modifying, setModifying] = useState(false);
     const [loggedInUserId, setLoggedInUserId] = useState(null);
@@ -36,8 +36,8 @@ const ReviewList = ({ gameName, writeFlag}) => {
             if (userReviewDB.hasOwnProperty(user)) {
                 const userData = userReviewDB[user];
 
-                if (userData.hasOwnProperty(gameName)) {
-                    const reviewData = userData[gameName];
+                if (userData.hasOwnProperty(no)) {
+                    const reviewData = userData[no];
                     allReviews.push({
                         user: user,
                         gameName: gameName,
@@ -71,8 +71,8 @@ const ReviewList = ({ gameName, writeFlag}) => {
         if (!editingReview) return;
 
         const updateReviewDB = getMyReviewDB(loggedInUserId);
-        updateReviewDB[gameName] = {
-            ...updateReviewDB[gameName],
+        updateReviewDB[no] = {
+            ...updateReviewDB[no],
             review: editingReview.review,
             star: editingReview.star, 
             regDate: getDateTime() 
@@ -96,7 +96,7 @@ const ReviewList = ({ gameName, writeFlag}) => {
             if (!getProdFlag()) console.log("참입니다");
             let deleteMyReviewDB = getMyReviewDB(getLoginedSessionId());
 
-            delete deleteMyReviewDB[`${gameName}`];
+            delete deleteMyReviewDB[`${no}`];
 
             setMyReviewDB(getLoginedSessionId(), deleteMyReviewDB);
 

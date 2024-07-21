@@ -9,7 +9,6 @@ import '../css/wishlist.css';
 const WishList = ({isLogined}) => {
 
 
-
     const navigate = useNavigate();
     const [ currentNick, setCurrentNick ] = useState('');
     const [ myWishList, setMyWishList ] = useState({});
