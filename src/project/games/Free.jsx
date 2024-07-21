@@ -31,7 +31,6 @@ const settings = {
     autoplaySpeed: 4000,
     speed: 700,
     slidesToShow: 1,
-    slidesToShowClass: 'slidesToShowClass',
     slidesToScroll: 1,
     nextArrow: <CustomArrow icon="./imgs/rightarrow.png" className={"slick-next"}/>,
     prevArrow: <CustomArrow icon="./imgs/leftarrow.png" className={"slick-prev"}/>
@@ -52,6 +51,8 @@ const settings = {
     const linkClickHandler = () => {
         window.scroll({top: 0, left: 0, behavior: 'smooth'});
     }
+
+    
 
 return(
     <motion.div
@@ -104,7 +105,7 @@ return(
                             </Link>
                         </div>
                         <div className="title">{popular['Name']}</div>
-                        <button className="pick-button">찜하기</button>
+                        <button className="wish-button">찜하기</button>
                         <button className="free-play">무료 플레이</button>
                         {/* <div className="price">{popular['Price']}원</div>
                         <div className="discount">{popular['Discount']}</div> */}

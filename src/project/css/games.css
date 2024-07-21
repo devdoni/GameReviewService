@@ -1,6 +1,7 @@
 /* FreeGame CSS START */
 #hompage > #freethum_slide >.free_content {
-  width: 500px;
+  /* width: 500px; */
+  position: fixed;
 }
 
 #carousel {
@@ -59,7 +60,7 @@
     height: 100%;
 }
 
-.pick-button {
+.wish-button {
   color: #fff;
   background: rgba(0, 0, 0, .1);
   margin: 2px;
@@ -81,7 +82,7 @@
   padding-left: 255px;
 }
 
-.pick-button:hover,
+.wish-button:hover,
 .free-play:hover {
 cursor: pointer;
 }

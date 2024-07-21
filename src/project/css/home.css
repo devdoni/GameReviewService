@@ -212,7 +212,7 @@ div > div.categorybox > a.sptimg > div.imgcarousel > span {
 /* 메인 썸네일 슬라이드 CSS START*/
 
 
-#mainthum_slide {
+#mainthum_slide{
     width: 1250px;
     margin: 20px auto;
     padding: 0px;
@@ -282,17 +282,12 @@ div > div.categorybox > a.sptimg > div.imgcarousel > span {
     background-color: #fff; 
 }
 
-.slidesToShowClass {
-    width: 1200px;
-}
-
-.main_content,
-.free_content {
+#main_content,
+#free_content {
     display: flex;
     justify-content: center;
-    width: 1500px;
-    background-color: rgba(255, 255, 255, 0.1);
-    width: 1250px;
+    /* width: 1500px;
+    width: 1250px; */
 }
 
 .main_thum {
@@ -316,12 +311,19 @@ div > div.categorybox > a.sptimg > div.imgcarousel > span {
     border-radius: 5px;
 }
 
-.free_content {
+/* .free_content {
     display: flex;
     justify-content: center;
     width: 1500px;
     background-color: rgba(255, 255, 255, 0.1);
     
+} */
+
+#freethum_slide{
+    width: 1250px;
+    margin: 20px auto;
+    padding: 0px;
+    overflow: hidden;
 }
 
 #freethum_slide > h1 {
@@ -332,9 +334,9 @@ div > div.categorybox > a.sptimg > div.imgcarousel > span {
 
 .free_thum {
     position: relative;
-    width: 1200px;
+    width: 1000px;
     height: 448px;
-    margin: 0 330px;
+    margin: 0 200px;
     border-radius: 5px;
     overflow: hidden;
     transition: filter 0.3s ease;

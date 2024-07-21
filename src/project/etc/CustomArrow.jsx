@@ -10,9 +10,9 @@ const CustomArrow = ({ className, style, onClick, icon }) => {
                 // objectFit: "contain",
                 // width: "50px",
                 // height: "100%",  Adjust the height as needed
-                // display: "flex",
-                // justifyContent: "center",
-                // alignItems: "center",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
                  cursor: "pointer",
                 
             }} 
@@ -24,7 +24,8 @@ const CustomArrow = ({ className, style, onClick, icon }) => {
                     maxWidth: "100%",
                     maxHeight: "100%",
                     width: "auto",
-                    height: "auto",}} />
+                    height: "auto",
+                    display: "flex"}} />
         </div>
     )
 }
