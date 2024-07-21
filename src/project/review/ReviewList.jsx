@@ -3,6 +3,7 @@ import '../css/review.css'
 import { getProdFlag, getUserReviewDB, getMyReviewDB, setMyReviewDB, getDateTime } from '../utils/utils';
 import { getLoginedSessionId } from '../utils/session';
 import StarRating from './StarRating';
+import { FaStar } from 'react-icons/fa';
 
 
 const ReviewList = ({ gameName, writeFlag, no}) => {
@@ -77,7 +78,7 @@ const ReviewList = ({ gameName, writeFlag, no}) => {
             star: editingReview.star, 
             regDate: getDateTime() 
         };
-
+        alert('리뷰 수정이 완료되었습니다');
         setMyReviewDB(loggedInUserId, updateReviewDB);
         setEditingReview(null); 
         setModalIsOpen(false); 
@@ -85,6 +86,7 @@ const ReviewList = ({ gameName, writeFlag, no}) => {
     };
 
     const cancelEditHandler = () => {
+        alert('수정 요청이 취소되었습니다');
         setEditingReview(null); 
         setModalIsOpen(false); 
     };
@@ -98,12 +100,15 @@ const ReviewList = ({ gameName, writeFlag, no}) => {
 
             delete deleteMyReviewDB[`${no}`];
 
+            alert('리뷰 삭제가 완료되었습니다');
             setMyReviewDB(getLoginedSessionId(), deleteMyReviewDB);
 
             setModifying((prev) => !prev);
+            
 
         } else {
             if (!getProdFlag()) console.log("거짓입니다");
+            alert('삭제 요청이 취소되었습니다');
         }
     };
 
@@ -116,7 +121,15 @@ const ReviewList = ({ gameName, writeFlag, no}) => {
                     <div key={idx} className="review_item">
                         <div className="review_header">
                             <div className="nickname">{review.nick}</div>
-                            <div className="rating">별점: {review.star}</div>
+                            <div className="rating">
+                                {Array.from({ length: review.star }, (_, i) => (
+                                    <FaStar
+                                        key={i}
+                                        size={20}
+                                        color="#ffc107"
+                                    />
+                                ))}
+                            </div>
                         </div>
                         <div className='review_text'>
                             <p>{review.review}</p>
@@ -125,7 +138,7 @@ const ReviewList = ({ gameName, writeFlag, no}) => {
                         {loggedInUserId === review.user && (
                             <div className="review_actions">
                                 <button className="edit-button" onClick={() => editBtnClickHandler(review)}>수정</button>
-                                <button className="delete-button" onClick={deleteBtnClickHandler}>삭제</button>
+                                <button className="delete-button" onClick={() => deleteBtnClickHandler(review)}>삭제</button>
                             </div>
                         )}
                     </div>
@@ -133,12 +146,12 @@ const ReviewList = ({ gameName, writeFlag, no}) => {
             )}
 
             {modalIsOpen && (
-                <div className="modal" style={{ display: 'block' }}>
+                <div className="modal">
                     <div className="modal-content">
                         <span className="close" onClick={cancelEditHandler}>&times;</span>
                         <h2>리뷰 수정</h2>
                         <textarea
-                            className='editbox'
+                            className="editbox"
                             value={editingReview.review}
                             onChange={(e) =>
                                 setEditingReview({
@@ -153,9 +166,12 @@ const ReviewList = ({ gameName, writeFlag, no}) => {
                                 ...editingReview,
                                 star: rating
                             })}
+                            size={20} // 별 크기를 줄임
                         />
-                        <button className='save-button' onClick={saveEditHandler}>저장</button>
-                        <button className='cancel-button' onClick={cancelEditHandler}>취소</button>
+                        <div className="button-group">
+                            <button className="save-button" onClick={saveEditHandler}>저장</button>
+                            <button className="cancel-button" onClick={cancelEditHandler}>취소</button>
+                        </div>
                     </div>
                 </div>
             )}

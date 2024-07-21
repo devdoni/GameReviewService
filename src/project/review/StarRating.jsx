@@ -1,17 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import '../css/review.css';
 
 const StarRating = ({ rating, setRating }) => {
-    
-    const handleRatingClick = (ratingValue) => {
-        setRating(rating === ratingValue ? 0 : ratingValue);
-    };
+    const [hover, setHover] = useState(null);
 
     return (
-        <div className="star-rating">
+        <div className="custom-star-rating">
             {[...Array(5)].map((_, index) => {
-                const ratingValue = index + 1; 
+                const ratingValue = index + 1;
 
                 return (
                     <label key={index}>
@@ -20,13 +17,16 @@ const StarRating = ({ rating, setRating }) => {
                             name="rating"
                             value={ratingValue}
                             checked={rating === ratingValue}
-                            onChange={() => handleRatingClick(ratingValue)}
-                            style={{ display: 'none' }} // 숨김
+                            onChange={() => setRating(ratingValue)}
+                            style={{ display: 'none' }}
                         />
                         <FaStar
+                            className="star"
                             size={50}
-                            color={ratingValue <= rating ? "#ffc107" : "#e4e5e9"}
-                            onClick={() => handleRatingClick(ratingValue)}
+                            color={ratingValue <= (hover || rating) ? "#ffc107" : "#e4e5e9"}
+                            onMouseEnter={() => setHover(ratingValue)}
+                            onMouseLeave={() => setHover(null)}
+                            onClick={() => setRating(ratingValue)}
                             style={{ cursor: 'pointer' }}
                         />
                     </label>

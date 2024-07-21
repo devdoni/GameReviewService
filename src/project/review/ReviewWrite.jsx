@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import '../css/review.css';
-import { FaStar } from 'react-icons/fa';
 import { getDateTime, getMyInfo, getMyReviewDB, getProdFlag, setMyReviewDB } from "../utils/utils";
 import { getLoginedSessionId } from "../utils/session";
 import StarRating from "./StarRating";
 
 
-const ReviewWrite = ({ gameName, setWriteFlag, no, gameSrc }) => {
+const ReviewWrite = ({ gameName, setWriteFlag, no, gameSrc, gameHref }) => {
     const [score, setScore] = useState(0);
     const [reviewComment, setReviewComment] = useState('');
     const [currentNick, setCurrentNick] = useState('');
@@ -46,6 +45,7 @@ const ReviewWrite = ({ gameName, setWriteFlag, no, gameSrc }) => {
 
         reviewDB[no] = {
             gameName: gameName,
+            game_href: gameHref,
             img_src: gameSrc,
             nick: currentNick,
             star: score,
@@ -62,8 +62,8 @@ const ReviewWrite = ({ gameName, setWriteFlag, no, gameSrc }) => {
     };
 
     return (
-        <div id="detail_wrap">
-            <div className="container">
+        <div className="review-write-container">
+            <div className="review-write">
                 <h2>해당 게임에 대한 리뷰 작성</h2>
                 <form id="ratingForm">
                     <div className="form-content">

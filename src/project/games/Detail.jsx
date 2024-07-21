@@ -48,24 +48,22 @@ const Detail = ({langFileName}) => {
     const settings = {
         dots: true,
         dotsClass: "custom-dots",
-        infinite: true,
+        infinite: false,
         autoplay: true,
         autoplaySpeed: 4000,
         speed: 700,
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        nextArrow: <CustomArrow icon="./imgs/rightarrow.png" className={"slick-next"}/>,
-        prevArrow: <CustomArrow icon="./imgs/leftarrow.png" className={"slick-prev"}/>
+        slidesToShow: 1,
+        slidesToScroll: 1,
     };
 
 
     return (
-        <>
         <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="detail"
+        >
             <div id="gamesinfo_wrap">
                 <div className="detail_header">
                     <h1>{popularTargetObj.Name}</h1>
@@ -83,11 +81,11 @@ const Detail = ({langFileName}) => {
                     </div>
 
                     <div className="game_info">
-                        <div><img src={popularTargetObj['thumnail-link']} /></div>
-                        <div><strong>{popularTargetObj.game_name}:</strong> {popularTargetObj.Name}</div>
-                        <div><strong>{popularTargetObj.game_release_date}:</strong> {popularTargetObj.date}</div>
-                        <div><strong>{popularTargetObj.game_introduction}:</strong> {popularTargetObj.description}</div>
-                        <div><strong>{popularTargetObj.game_genre}:</strong> {popularTargetObj.genre}</div>
+                        <div><img src={popularTargetObj['thumnail-link']} alt="thumbnail" /></div>
+                        <div className="game_name"><strong>게임 이름<br/></strong> {popularTargetObj.Name}</div>
+                        <div className="game_release_date"><strong>출시 날짜<br/></strong> {popularTargetObj.date}</div>
+                        <div className="game_introduction"><strong>게임 소개<br/></strong> {popularTargetObj.description}</div>
+                        <div className="game_genre"><strong>게임 장르:</strong> {popularTargetObj.genre}</div>
                         <div className="buttons_wrapper">
                             <Link to={popularTargetObj.href}><button className="action_button">구매 사이트 이동</button></Link>
                             <WishSelect no={no} gameName={popularTargetObj.Name} gameHref={popularTargetObj.href} gameSrc={popularTargetObj['thumnail-link']} setWriteFlag={setWriteFlag}/>
@@ -97,10 +95,9 @@ const Detail = ({langFileName}) => {
             </div>       
             <ReviewWrite gameName={popularTargetObj.Name} no={no} gameSrc={popularTargetObj['thumnail-link']} setWriteFlag={setWriteFlag} writeFlag={writeFlag} />
             <ReviewList gameName={popularTargetObj.Name} no={no} setWriteFlag={setWriteFlag} writeFlag={writeFlag} />
-
         </motion.div>
-        </>
     );
 };
+
 
 export default Detail;

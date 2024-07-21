@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import '../css/common.css';
 import '../css/detail.css';
-import { getDateTime, getMyWishList, getProdFlag, getUserWishListDB, setMyWishList, setUserWishListDB,} from "../utils/utils";
+import { getDateTime, getMyWishList, getProdFlag, getUserWishListDB, setUserWishListDB,} from "../utils/utils";
 import { getLoginedSessionId } from "../utils/session";
-import { CiHeart } from "react-icons/ci";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 const WishSelect = ({ no, gameName, setWriteFlag, writeFlag, gameHref, gameSrc }) => {    
     const [isWish, setIsWish] = useState(false);
@@ -25,6 +25,10 @@ const WishSelect = ({ no, gameName, setWriteFlag, writeFlag, gameHref, gameSrc }
             }
         }
     }, [writeFlag, no]);
+
+    const handleClick = () => {
+        wishListBtnClickHandler();
+    };
 
     const wishListBtnClickHandler = () => {
         if (!getProdFlag()) console.log('[Wish] wishListBtnClickHandler()');
@@ -71,10 +75,13 @@ const WishSelect = ({ no, gameName, setWriteFlag, writeFlag, gameHref, gameSrc }
     };
 
     return (
-        <>
-            <CiHeart size={50} color={isWish ? "#ff0000" : "#000"} onClick={wishListBtnClickHandler} />
-        </>
+        <button className="wish-button" onClick={handleClick}>
+            <AiFillHeart
+                size={24}
+                className={`heart-icon ${isWish ? 'active' : ''}`}
+            />
+            찜하기
+        </button>
     );
 }
-
 export default WishSelect;

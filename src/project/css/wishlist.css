@@ -88,3 +88,6 @@
 #wishlist_wrap .buy_play_button:hover {
     background-color: #5e6a89;
 }
+#wishlist_wrap .no_wishlist {
+    font-size: 1.5em;
+}

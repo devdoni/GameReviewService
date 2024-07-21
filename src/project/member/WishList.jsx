@@ -34,28 +34,33 @@ const WishList = ({isLogined}) => {
     }
     return (
         <>
-        <div id="wishlist_wrap">
-            <div className="wish_title">
-                <span>{currentNick}&nbsp;님의 찜 목록</span>
-            </div>
-            <div className="wish_dropdown">
-            </div>
-            {Object.keys(myWishList).map((key, index) => (
-            <div className="wish_contentbox" key={index}>
-                <div className="game_image">
-                    <img src={`${myWishList[key].src}`} alt="game" /> 
+            <div id="wishlist_wrap">
+                <div className="wish_title">
+                    <span>{currentNick}&nbsp;님의 찜 목록</span>
                 </div>
-                <div className="game_name">
-                    {myWishList[key].game}
+                <div className="wish_dropdown">
                 </div>
-                <div className="game_buttons">
-                    <Link to={`/detail/${myWishList[key].no}`}><button className="detail_button">상세 페이지</button></Link>
-                    <Link to={myWishList[key].href}><button className="buy_play_button">게임 구매/플레이</button></Link>
-                </div>
-            
+                {Object.keys(myWishList).length === 0 ? (
+                    <div className="no_wishlist">
+                        찜 한 게임이 존재하지 않습니다.
+                    </div>
+                ) : (
+                    Object.keys(myWishList).map((key, index) => (
+                        <div className="wish_contentbox" key={index}>
+                            <div className="game_image">
+                                <img src={`${myWishList[key].src}`} alt="game" />
+                            </div>
+                            <div className="game_name">
+                                {myWishList[key].game}
+                            </div>
+                            <div className="game_buttons">
+                                <Link to={`/detail/${myWishList[key].no}`}><button className="detail_button">상세 페이지</button></Link>
+                                <Link to={myWishList[key].href}><button className="buy_play_button">게임 구매/플레이</button></Link>
+                            </div>
+                        </div>
+                    ))
+                )}
             </div>
-            ))}
-        </div> 
         </>
     );
 };
