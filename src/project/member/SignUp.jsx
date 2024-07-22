@@ -37,7 +37,7 @@ const SignUp = ({isLogined}) => {
             navgigate('/');
         }
 
-    }, [isLogined]) 
+    }, [isLogined, navgigate]) 
 
     // hook End
 
@@ -49,10 +49,15 @@ const SignUp = ({isLogined}) => {
     // Handler start
     const uIdChangeHandler = (e) => {
         if(!getProdFlag()) console.log('[SIGNUP] uIdChangeHandler()');
+        const userId = e.target.value
 
-        setUId(e.target.value);
+        setUId(userId);
         setIsIdTouched(true);
-        let regIdCheck = userIdCheck(e.target.value);
+
+        if (userId === '') {
+            setIsIdTouched(false);
+        }
+        let regIdCheck = userIdCheck(userId);
         if (regIdCheck) {
             setIsIdCheck(true);        
         } else {
@@ -64,9 +69,15 @@ const SignUp = ({isLogined}) => {
     const uPwChangeHandler = (e) => {
         if(!getProdFlag()) console.log('[SignUp] uPwChaneHandler()');
 
-        setUPw(e.target.value);
+        const userPw = e.target.value
+
+        setUPw(userPw);
         setIsPwTouched(true);
-        let regPwCheck = userPwCheck(e.target.value);
+
+        if (userPw === '') {
+            setIsPwTouched(false);
+        }
+        let regPwCheck = userPwCheck(userPw);
         if (regPwCheck) {
             setIsPwCheck(true);        
         } else {
@@ -77,9 +88,16 @@ const SignUp = ({isLogined}) => {
     const uNickChangeHandler = (e) => {
         if(!getProdFlag()) console.log('[SignUp] uNickChangeHandler()');
 
-        setUNick(e.target.value);
+        const userNick = e.target.value
+
+        setUNick(userNick);
         setIsNickTouched(true);
-        let regNickNameCheck = userNickNameCheck(e.target.value);
+
+        if (userNick === '') {
+            setIsNickTouched(false);
+        }
+        let regNickNameCheck = userNickNameCheck(userNick);
+
         if (regNickNameCheck) {
             setIsNickNameCheck(true);
         } else {
@@ -98,11 +116,12 @@ const SignUp = ({isLogined}) => {
 
     const uPhoneChangeHandler = (e) => {
         if(!getProdFlag()) console.log('[SignUp] uPhoneChangeHandler()');
+        
+        const userPhone = e.target.value
 
         setUPhone(e.target.value);
-        setIsPhoneTouched(true);
-        let regPhoneCheck = userPhoneCheck(e.target.value);
-        if (e.target.value === '') {
+        let regPhoneCheck = userPhoneCheck(userPhone);
+        if (userPhone === '') {
             setIsPhoneTouched(false);
         }
         if (regPhoneCheck) {
@@ -115,12 +134,13 @@ const SignUp = ({isLogined}) => {
     const uMailChangeHandler = (e) => {
         if(!getProdFlag()) console.log('[SignUp] uMailChangeHandler()');
 
-        setUMail(e.target.value);
+        const userMail = e.target.value
+        setUMail(userMail);
         setIsMailTouched(true);
-        if (e.target.value === '') {
+        if (userMail === '') {
             setIsMailTouched(false);
         }
-        let regEmailCheck = usermailCheck(e.target.value);
+        let regEmailCheck = usermailCheck(userMail);
 
         if (regEmailCheck) {
             setIsMailCheck(true);
@@ -244,10 +264,12 @@ const SignUp = ({isLogined}) => {
                 let result = window.confirm('가입 가능한 아이디입니다, 사용하시겠습니까?');
                 if (result)
                 {
+                    alert('중복확인이 완료되었습니다.');
                     setIsIdDuplicateCheck(true);
                     document.getElementById('input_id').readOnly = true; 
                    
                 } else {
+                    alert('요청이 취소되었습니다.');
                     setIsIdDuplicateCheck(false);
                 }
 

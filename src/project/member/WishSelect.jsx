@@ -3,7 +3,7 @@ import '../css/common.css';
 import '../css/detail.css';
 import { getDateTime, getMyWishList, getProdFlag, getUserWishListDB, setUserWishListDB,} from "../utils/utils";
 import { getLoginedSessionId } from "../utils/session";
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import { AiFillHeart } from "react-icons/ai";
 
 const WishSelect = ({ no, gameName, setWriteFlag, writeFlag, gameHref, gameSrc }) => {    
     const [isWish, setIsWish] = useState(false);

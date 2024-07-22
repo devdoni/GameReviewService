@@ -5,7 +5,7 @@ import { getLoginedSessionId, setLoginedSessionId } from "../utils/session";
 import '../css/index.css';
 import { motion } from 'framer-motion'
 
-const Modify = ({setIsLogined, isLogined }) => {
+const Modify = ({ isLogined }) => {
 
     //hook
     const [uId, setUId] = useState('');
