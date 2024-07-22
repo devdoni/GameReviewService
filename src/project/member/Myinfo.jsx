@@ -7,6 +7,7 @@ import { getLoginedSessionId, setLoginedSessionId } from "../utils/session";
 import txt_kor from '../db/txt_kor.json';
 import txt_eng from '../db/txt_eng.json';
 import txt_chi from '../db/txt_chi.json';
+import { motion } from 'framer-motion'
 
 
 const Myinfo = ({setIsLogined, isLogined,langFileName}) => {
@@ -75,6 +76,11 @@ const Myinfo = ({setIsLogined, isLogined,langFileName}) => {
 
     // COMPONENT START
     return (
+        <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
         <div id="myinfo_wrap" className="myinfo-container">
             <Link to={'/modify'}>
                 <div className="myinfo-button">
@@ -101,7 +107,9 @@ const Myinfo = ({setIsLogined, isLogined,langFileName}) => {
             </Link>
 
         </div>
+        </motion.div>
     );
+
     // COMPONENT END
 }
 

@@ -5,10 +5,11 @@ import '../css/genre.css';
 import txt_kor from '../db/txt_kor.json';
 import txt_eng from '../db/txt_eng.json';
 import txt_chi from '../db/txt_chi.json';
-
+import { motion } from 'framer-motion';
 
 
 const Genre = ({langFileName}) => {
+
     const { genre } = useParams();
     const [ currentGameList, setCurrentGameList] = useState([]);
     const [lang, setLang] = useState(txt_kor);
@@ -94,6 +95,10 @@ const Genre = ({langFileName}) => {
     
 
     return (
+        <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}>
         <div className="genre_wrap">
             <h1>{genreKeyMap[genre]} {lang.genreGameList}</h1>
             <ul className="game_list">
@@ -110,6 +115,7 @@ const Genre = ({langFileName}) => {
                 ))}
             </ul>
         </div>
+        </motion.div>
     );
 };
 

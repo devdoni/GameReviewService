@@ -1,97 +1,6 @@
-/* FreeGame CSS START */
-#hompage > #freethum_slide >.free_content {
-  /* width: 500px; */
-  position: fixed;
-}
-
-#carousel {
-    position: relative;
-    width: 600px;
-    max-width: 100%;
-    overflow: hidden;
-}
-
-#carousel .title {
-    width: 100%;
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #fff;
-    text-align: center;
-
-}
-
-#carousel .carousel-inner {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-  
-#carousel .carousel-item {
-    min-width: 100%;
-    box-sizing: border-box;
-}
-  
-#carousel .carousel-item img {
-    width: 100%;
-    display: block;
-}
-  
-#carousel .carousel-control {
-    position: absolute;
-    top: 50%;
-    width: 50px;
-    height: 50px;
-    transform: translateY(-50%);
-    cursor: pointer;
-    background: none;
-    border: none;
-    outline: none;
-}
-  
-#carousel .prev {
-    left: 10px;
-}
-  
-#carousel.next {
-    right: 10px;
-}
-  
-#carousel .carousel-control img {
-    width: 100%;
-    height: 100%;
-}
-
-.wish-button {
-  color: #fff;
-  background: rgba(0, 0, 0, .1);
-  margin: 2px;
-  margin-right: 5px;
-  padding: 5px 10px;
-  border-radius: 7px;
-}
-
-.free-play {
-  color: #fff;
-  background-color: #85a805;
-  margin: 2px;
-  margin-left: 0;
-  padding: 5px 10px;
-  border-radius: 7px;
-}
-
-#free_wrap .sub-item {
-  padding-left: 255px;
-}
-
-.wish-button:hover,
-.free-play:hover {
-cursor: pointer;
-}
-/* FreeGame CSS END */
-
 /* Popular CSS START */
 
-#popular_wrap,
-#free_wrap {
+#popular_wrap {
     padding: 20px;
     background-color: #1c1c1c;
     border-radius: 10px;
@@ -100,16 +9,14 @@ cursor: pointer;
     margin: 0 auto;
   }
   
-  #popular_wrap .popular-header,
-  #free_wrap .free-header {
+  #popular_wrap .popular-header {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
     text-align: center;
   }
   
-  #popular_wrap .sub-header,
-  #free_wrap .sub-header {
+  #popular_wrap .sub-header {
     display: flex;
     position: relative;
     justify-content: space-between;
@@ -121,12 +28,10 @@ cursor: pointer;
   #popular_wrap .sub-item{
     padding-left: 150px;
   }
-  #popular_wrap .sub-price,
-  #free_wrap .sub-price {
+  #popular_wrap .sub-price {
     margin-left: 610px;
   }
-  #popular_wrap .sub-header-item,
-  #free_wrap .sub-header-item {
+  #popular_wrap .sub-header-item {
     text-align: center;
   }
   
@@ -134,37 +39,31 @@ cursor: pointer;
     flex: 0 0 50px; 
   }
   
-  #popular_wrap .sub-header-item:nth-child(2),
-  #free_wrap .sub-header-item:nth-child(2){
+  #popular_wrap .sub-header-item:nth-child(2) {
     flex: 0 0 185px; 
   }
   
-  #popular_wrap .sub-header-item:nth-child(3),
-  #free_wrap .sub-header-item:nth-child(3) {
+  #popular_wrap .sub-header-item:nth-child(3) {
     flex: 1;
     text-align: left;
     padding-left: 10px; 
   }
   
-  #popular_wrap .sub-header-item:nth-child(4),
-  #free_wrap .sub-header-item:nth-child(4) {
+  #popular_wrap .sub-header-item:nth-child(4) {
     flex: 0 0 100px; 
   }
   
-  #popular_wrap .sub-header-item:nth-child(5),
-  #free_wrap .sub-header-item:nth-child(5) {
+  #popular_wrap .sub-header-item:nth-child(5) {
     flex: 0 0 100px; 
   }
   
-  #popular_wrap .items,
-  #free_wrap .items {
+  #popular_wrap .items {
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
   
-  #popular_wrap .item,
-  #free_wrap .item {
+  #popular_wrap .item {
     display: flex;
     align-items: center;
     background-color: #2a2a2a;
@@ -174,14 +73,12 @@ cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
   }
   
-  #popular_wrap .item:hover,
-  #free_wrap .item:hover{
+  #popular_wrap .item:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
   }
   
-  #popular_wrap .rank,
-  #free_wrap .rank{
+  #popular_wrap .rank {
     font-size: 20px;
     font-weight: bold;
     flex: 0 0 50px; 
@@ -191,14 +88,12 @@ cursor: pointer;
     border-radius: 5px;
   }
   
-  #popular_wrap .thumbnail,
-  #free_wrap .thumbnail {
+  #popular_wrap .thumbnail {
     flex: 0 0 185px;
     text-align: center;
   }
   
-  #popular_wrap .thumbnail img,
-  #free_wrap .thumbnail img{
+  #popular_wrap .thumbnail img {
     padding-left: 10px;
     width: 185px;
     height: 70px;
@@ -206,8 +101,7 @@ cursor: pointer;
     border-radius: 5px;
   }
   
-  #popular_wrap .title,
-  #free_wrap .title {
+  #popular_wrap .title {
     flex: 1; 
     font-size: 18px;
     font-weight: bold;
@@ -218,16 +112,14 @@ cursor: pointer;
     padding-left: 10px; 
   }
   
-  #popular_wrap .price,
-  #free_wrap .price {
+  #popular_wrap .price {
     flex: 0 0 100px;
     font-size: 18px;
     color: #ffd700;
     text-align: center;
   }
   
-  #popular_wrap .discount,
-  #free_wrap .discount {
+  #popular_wrap .discount {
     flex: 0 0 100px; 
     font-size: 18px;
     color: #ff4500;

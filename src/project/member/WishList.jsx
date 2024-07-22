@@ -8,6 +8,7 @@ import txt_kor from '../db/txt_kor.json';
 import txt_eng from '../db/txt_eng.json';
 import txt_chi from '../db/txt_chi.json';
 
+import { motion } from 'framer-motion'
 
 const WishList = ({isLogined,langFileName}) => {
 
@@ -60,6 +61,10 @@ const WishList = ({isLogined,langFileName}) => {
     }
     return (
         <>
+            <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}>
             <div id="wishlist_wrap">
                 <div className="wish_title">
                     <span>{currentNick}&nbsp;{lang.whoseWishlist}</span>
@@ -87,6 +92,7 @@ const WishList = ({isLogined,langFileName}) => {
                     ))
                 )}
             </div>
+            </motion.div>
         </>
     );
 };

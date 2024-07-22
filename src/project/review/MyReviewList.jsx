@@ -8,6 +8,7 @@ import StarRating from "./StarRating";
 import txt_kor from '../db/txt_kor.json';
 import txt_eng from '../db/txt_eng.json';
 import txt_chi from '../db/txt_chi.json';
+import { motion } from 'framer-motion';
 
 const  MyReviewList = (langFileName) => {
 
@@ -150,6 +151,10 @@ const  MyReviewList = (langFileName) => {
     };
 
     return (
+        <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}>
         <div className={styles.myreview_wrap}>
             <div className={styles.myreview_title}>
                 <span>{currentNick}&nbsp;{lang.whoseReview}</span>
@@ -238,6 +243,7 @@ const  MyReviewList = (langFileName) => {
                 </div>
             )}
         </div>
+        </motion.div>
     );
 }
 export default MyReviewList;

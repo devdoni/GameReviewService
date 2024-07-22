@@ -6,10 +6,12 @@ import '../css/index.css';
 import txt_kor from '../db/txt_kor.json';
 import txt_eng from '../db/txt_eng.json';
 import txt_chi from '../db/txt_chi.json';
+import { motion } from 'framer-motion';
 
 
+const Modify = ({ isLogined,langFileName }) => {
 
-const Modify = ({setIsLogined, isLogined,langFileName }) => {
+
 
     //hook
     const [uId, setUId] = useState('');
@@ -183,6 +185,11 @@ const Modify = ({setIsLogined, isLogined,langFileName }) => {
 
 
     return (
+        <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
         <div id="modify_wrap">
             <div className="modify">
                 <label htmlFor="input_id">{lang.id}&nbsp;({lang.cannotChange})</label>
@@ -214,6 +221,7 @@ const Modify = ({setIsLogined, isLogined,langFileName }) => {
                 <input className="basic_btn" type="button" onClick={modifyBtnHandler} value={lang.infoModifiy} />
             </div>
         </div>
+        </motion.div>
     );
 }
 

@@ -3,7 +3,7 @@ import '../css/common.css';
 import '../css/detail.css';
 import { getDateTime, getMyWishList, getProdFlag, getUserWishListDB, setUserWishListDB,} from "../utils/utils";
 import { getLoginedSessionId } from "../utils/session";
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import { AiFillHeart } from "react-icons/ai";
 import txt_kor from '../db/txt_kor.json';
 import txt_eng from '../db/txt_eng.json';
 import txt_chi from '../db/txt_chi.json';

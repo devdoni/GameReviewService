@@ -7,7 +7,6 @@ import txt_kor from '../db/txt_kor.json';
 import txt_eng from '../db/txt_eng.json';
 import txt_chi from '../db/txt_chi.json';
 
-
 const ReviewWrite = ({ gameName, setWriteFlag, no, gameSrc, gameHref,langFileName }) => {
     const [score, setScore] = useState(0);
     const [reviewComment, setReviewComment] = useState('');

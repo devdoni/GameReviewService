@@ -48,11 +48,132 @@ div > button.morebtn_right:hover {
 
 /*페이지 상단의 메인게임 CSS START*/
 
-/*페이지 상단의 메인게임 CSS END*/
+.home-container #mainthum_slide {
+    width: 1250px;
+    margin: 20px auto;
+    padding: 0;
+    overflow: visible; 
+    position: relative;
+}
+
+.home-container .main_slider {
+    overflow: hidden;
+}
+
+.home-container .main_slider .slick-slide {
+    display: inline-block;
+    text-align: center;
+}
+
+.home-container .custom-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.home-container .slick-next.custom-arrow {
+    right: -60px; 
+}
+
+.home-container .slick-prev.custom-arrow {
+    left: -60px; 
+}
+
+.home-container .slick-dots.custom-dots {
+    position: relative;
+    bottom: px; 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    gap: 5px; 
+}
+
+.home-container .slick-dots.custom-dots li {
+    margin: 0;
+    padding: 0 2px; 
+}
+
+.home-container .slick-dots.custom-dots li button {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    color: #202531;
+}
+
+.home-container .slick-dots.custom-dots li button::before {
+    content: '';
+    width: 25px; 
+    height: 12px; 
+    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.home-container .slick-dots.custom-dots li.slick-active button::before {
+    background-color: #fff;
+}
+
+.home-container .slick-dots.custom-dots li button:hover::before {
+    background-color: #fff;
+}
+
+.home-container #main_content {
+    display: flex;
+    justify-content: center;
+}
+
+.home-container .main_thum {
+    position: relative;
+    width: 350px;
+    height: 600px;
+    margin: 0 30px;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: filter 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.home-container .main_overlay {
+    position: absolute;
+    top: 73px;
+    left: 0;
+    width: 100%;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.home-container .main_thum:hover .main_overlay {
+    opacity: 1;
+}
+
+.home-container .main_overlay h3 {
+    margin-bottom: 10px;
+}
+/* 메인 썸네일 슬라이드 CSS END*/
 
 
 /*페이지 중단 작은 썸네일 테이블 CSS START*/
-
 .table-component {
     background-color: #202531;
     color: #fff;
@@ -85,12 +206,19 @@ div > button.morebtn_right:hover {
 .table-component .img_container {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 0;
+    padding-bottom: 56.25%; 
+    overflow: hidden; 
+    border-radius: 10px;
 }
 
 .table-component .table1imgs {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     border-radius: 10px;
     transition: transform 0.3s ease, filter 0.3s ease;
 }
@@ -100,7 +228,7 @@ div > button.morebtn_right:hover {
     filter: blur(2px);
 }
 
-.table-component .overlay {
+.table-component .table-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -116,15 +244,18 @@ div > button.morebtn_right:hover {
     border-radius: 10px;
     opacity: 0;
     transition: opacity 0.3s ease;
+    box-sizing: border-box; 
 }
 
-.table-component .img_container:hover .overlay {
+.table-component .img_container:hover .table-overlay {
     opacity: 1;
 }
 
-.table-component .overlay p {
+.table-component .table-overlay p {
     font-size: .9em;
     margin: 0;
+    word-wrap: break-word; 
+    overflow: hidden; 
 }
 
 .table-component .grid-container {
@@ -209,212 +340,12 @@ div > div.categorybox > a.sptimg > div.imgcarousel > span {
     color: #ffffff;
 }
 /* 페이지 하단 게임 카테고리 CSS END*/
-/* 메인 썸네일 슬라이드 CSS START*/
-
-
-#mainthum_slide{
-    width: 1250px;
-    margin: 20px auto;
-    padding: 0px;
-    overflow: hidden;
-}
-
-.main_slider .slick-slide {
-    display: inline-block;
-    text-align: center;
-}
-
-.custom-arrow{
-    position: absolute;
-    top: 420px;
-    transform: translateY(-50%);
-    width: 50px;
-    z-index: 1;
-}
-
-.slick-next.custom-arrow {
-    right: 270px;
-}
-
-.slick-prev.custom-arrow {
-    left: 250px;
-}
-
-.slick-dots.custom-dots {
-    position: relative;
-    bottom: 50px;
-    right: -20px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-.slick-dots.custom-dots li {
-    margin: 0 5px; 
-}
-
-.slick-dots.custom-dots li button {
-    border: none;
-    background: none;
-    padding: 5px;
-    cursor: pointer;
-    color: #202531;
-}
-
-.slick-dots.custom-dots li button::before {
-    content: '';
-    width: 20px; 
-    height: 12px; 
-    border-radius: 2px;
-    background-color: rgba(255,255,255,20%); 
-    display: inline-block;
-    transition: background-color 0.3s ease;
-}
-
-.slick-dots.custom-dots li.slick-active button::before {
-    background-color: #fff; 
-}
-
-.slick-dots.custom-dots li button:hover::before {
-    background-color: #fff; 
-}
-
-#main_content,
-#free_content {
-    display: flex;
-    justify-content: center;
-    /* width: 1500px;
-    width: 1250px; */
-}
-
-.main_thum {
-    position: relative;
-    width: 374px;
-    /* height: 448px; */
-    height: 600px;
-    margin: 0 10px;
-    border-radius: 5px;
-    overflow: hidden;
-    transition: filter 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: -10px;
-}
-
-.mimgs {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-}
-
-/* .free_content {
-    display: flex;
-    justify-content: center;
-    width: 1500px;
-    background-color: rgba(255, 255, 255, 0.1);
-    
-} */
-
-#freethum_slide{
-    width: 1250px;
-    margin: 20px auto;
-    padding: 0px;
-    overflow: hidden;
-}
-
-#freethum_slide > h1 {
-    color: #fff;
-    margin-top: 10px;
-    font-size: 50px;
-}
-
-.free_thum {
-    position: relative;
-    width: 1000px;
-    height: 448px;
-    margin: 0 200px;
-    border-radius: 5px;
-    overflow: hidden;
-    transition: filter 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.image-info-container {
-    display: flex;
-    align-items: cneter;
-}
-
-.fimgs {
-    flex-shrink: 0;
-    width: auto;
-    height: 340px; 
-    margin-right: 0px;
-    border-radius: 5px;
-    
-}
-
-.game_info{
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    height: 300px;
-}
-
-.game_info >h3 {
-    font-size: 2em;
-}
-
-.game_info > h3,
-.game_info > p {
-    color: #fff;
-    text-align: left;
-}
-
-.overlay {
-    position: absolute;
-    top: 73px;
-    left: 0;
-    width: 100%;
-    /* height: 100%; */
-    height: 450px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 5px;
-    color: white;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    padding: 20px;
-    text-align: center;
-    box-sizing: border-box; 
-}
-
-.main_thum:hover .overlay {
-    opacity: 1;
-}
-
-.overlay h3 {
-    margin-bottom: 10px; 
-}
-
-.slick-next {
-    padding: 10px;
-    
-    
-}
-
-
-/* 메인 썸네일 슬라이드 CSS END*/
 
 /* CategorySlide CSS START */
+
+div.categorybox {
+    margin-bottom: 50px;
+}
 
 div.train {
     display: flex;
@@ -431,10 +362,7 @@ div.train > button.next-button > img.arw {
     margin-top: 70px;
 }
 
-div.train > button.prev-button > img.arw:hover {
-    cursor: pointer;
-}
-
+div.train > button.prev-button > img.arw:hover,
 div.train > button.next-button > img.arw:hover {
     cursor: pointer;
 }
@@ -455,56 +383,80 @@ div.train > button.next-button{
 }
 
 div.train > div.show > div.compartment {
-    width: 1000px;
-    height: 350px;
+    width: 1100px;
+    height: 450px;
     flex-shrink: 0;
-    margin: 0 50px; 
-    
-    
-}
-div.train > div.show > div.compartment:nth-child(1) {
-    background-image:
-    url("../../../public/imgs/category/yu-gi-oh_master_duel_strategy_photo.png"),
-    url("../../../public/imgs/category/bladur`s_gate3_rpg_photo.png"),
-    url("../../../public/imgs/category/football_manager2024_allsports_photo.png");
-    background-size: 490px 300px, 490px 300px, 490px 300px;
-    background-position: 10px 0, 355px 0, 700px 0;
-    background-repeat: no-repeat;
-    background-size: contain;
-    
+    margin: 0;
+    position: relative;
 }
 
-div.train > div.show > div.compartment:nth-child(2) {
-    background-image:
-    url("../../../public/imgs/category/project_zomboid_survival_photo.png"),
-    url("../../../public/imgs/category/elden_ring_horror_photo.png"),
-    url("../../../public/imgs/category/palworld_animation_photo.png");
-    background-size: 490px 300px, 490px 300px, 490px 300px;
-    background-position: 10px 0, 355px 0, 700px 0;
-    background-repeat: no-repeat;
-    background-size: contain;
+div.train > div.show > div.compartment a.img-link {
+    position: absolute;
+    width: 350px;
+    height: 420px;
+    display: block;
 }
 
-div.train > div.show > div.compartment:nth-child(3) {
-    background-image: url("../../../public/imgs/category/battlegrounds_fps_photo.png"),
-    url("../../../public/imgs/category/forza_horizon4_racing_photo.png"),
-    url("../../../public/imgs/category/stardew_valley_simulation_photo.png");
-    background-size: 490px 300px, 490px 300px, 490px 300px;
-    background-position: 10px 0, 355px 0, 700px 0;
-    background-repeat: no-repeat;
-    background-size: contain;
+div.train > div.show > div.compartment a.img-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+div.train > div.show > div.compartment:nth-child(1) .img-link:nth-child(1) {
+    top: 0;
+    left: 0;
+}
+
+div.train > div.show > div.compartment:nth-child(1) .img-link:nth-child(2) {
+    top: 0;
+    left: 370px;
+}
+
+div.train > div.show > div.compartment:nth-child(1) .img-link:nth-child(3) {
+    top: 0;
+    left: 740px;
+}
+
+div.train > div.show > div.compartment:nth-child(2) .img-link:nth-child(1) {
+    top: 0;
+    left: 0;
+}
+
+div.train > div.show > div.compartment:nth-child(2) .img-link:nth-child(2) {
+    top: 0;
+    left: 370px;
+}
+
+div.train > div.show > div.compartment:nth-child(2) .img-link:nth-child(3) {
+    top: 0;
+    left: 740px;
+}
+
+div.train > div.show > div.compartment:nth-child(3) .img-link:nth-child(1) {
+    top: 0;
+    left: 0;
+}
+
+div.train > div.show > div.compartment:nth-child(3) .img-link:nth-child(2) {
+    top: 0;
+    left: 370px;
+}
+
+div.train > div.show > div.compartment:nth-child(3) .img-link:nth-child(3) {
+    top: 0;
+    left: 740px;
 }
 
 div.train > ol.slide-index {
-    
     position: absolute;
     display: flex;
     gap: 8px;
-    margin-top: 365px;
+    margin-top: 440px;
     cursor: pointer;
 }
 
-div.train > ol.slide-index > li.index-item{
+div.train > ol.slide-index > li.index-item {
     display: inline-block;
     margin: 12px 2px;
     width: 20px;
@@ -514,9 +466,11 @@ div.train > ol.slide-index > li.index-item{
     background-color: hsla(202, 60%, 100%, 0.2);
     cursor: pointer;
 }
+
 div.train > ol.slide-index > li.index-item:hover {
     background-color: #dadada;
 }
+
 div.train > ol.slide-index > li.index-item.active {
     background-color: #fff;
 }

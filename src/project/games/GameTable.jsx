@@ -60,10 +60,12 @@ const GameTable = ({langFileName}) => {
                             <div className="grid-container">
                                 {category.games && category.games.length >= 4 && category.games.slice(0, 4).map((game, index) => (
                                     <div key={index} className="img_container">
-                                        <img src={game.src} className="table1imgs" alt={game.name}/>
-                                        <Link to={`/${game.href}`} onClick={linkClickHandler}><div className="overlay">
-                                            <p>{game.info}</p>
-                                        </div></Link>
+                                        <img src={game.src} className="table1imgs" alt={game.name} />
+                                        <Link to={`/${game.href}`} onClick={linkClickHandler}>
+                                            <div className="table-overlay">
+                                                <p>{game.info}</p>
+                                            </div>
+                                        </Link>
                                     </div>
                                 ))}
                             </div>
