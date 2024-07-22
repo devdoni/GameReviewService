@@ -1,12 +1,13 @@
 import React from "react"
 import '../css/games.css';
 import CategorySelect from "./CategorySelect";
-const Category = () => {
+
+const Category = ({langFileName}) => {
     return(
         <>
         <div id="category_wrap">
             <div className="item_content">
-                <CategorySelect />
+                <CategorySelect langFileName={langFileName}/>
             </div>
         </div>
         </>

@@ -4,12 +4,39 @@ import '../css/detail.css';
 import { getDateTime, getMyWishList, getProdFlag, getUserWishListDB, setUserWishListDB,} from "../utils/utils";
 import { getLoginedSessionId } from "../utils/session";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import txt_kor from '../db/txt_kor.json';
+import txt_eng from '../db/txt_eng.json';
+import txt_chi from '../db/txt_chi.json';
 
-const WishSelect = ({ no, gameName, setWriteFlag, writeFlag, gameHref, gameSrc }) => {    
+const WishSelect = ({ no, gameName, setWriteFlag, writeFlag, gameHref, gameSrc,langFileName }) => {   
+     
     const [isWish, setIsWish] = useState(false);
     const [sessionID, setSessionID] = useState('');
 
+    const [lang, setLang] = useState(txt_kor);
+
+    const languageData = {
+        kor: txt_kor,
+        eng: txt_eng,
+        chi: txt_chi,
+    }
+
     useEffect(() => {
+
+        if (langFileName === 'kor') {
+            setLang(languageData.kor);
+
+        } else if (langFileName === 'eng') {
+            setLang(languageData.eng);
+
+        } else if (langFileName === 'chi') {
+            setLang(languageData.chi);
+
+        } else {    
+            setLang(languageData.kor);
+
+        }
+
         if (!getProdFlag()) console.log('[Wish] useEffect()');
         console.log('gamename ==>', gameName);
         const sessionId = getLoginedSessionId();
@@ -24,7 +51,7 @@ const WishSelect = ({ no, gameName, setWriteFlag, writeFlag, gameHref, gameSrc }
                 setIsWish(false);
             }
         }
-    }, [writeFlag, no]);
+    }, [writeFlag, no,langFileName]);
 
     const handleClick = () => {
         wishListBtnClickHandler();
@@ -34,7 +61,7 @@ const WishSelect = ({ no, gameName, setWriteFlag, writeFlag, gameHref, gameSrc }
         if (!getProdFlag()) console.log('[Wish] wishListBtnClickHandler()');
 
         if (sessionID === '') {
-            alert('로그인이 필요한 서비스입니다.');
+            alert(lang.thisServiceRequiresLogin);
             return;
         }
 
@@ -50,11 +77,11 @@ const WishSelect = ({ no, gameName, setWriteFlag, writeFlag, gameHref, gameSrc }
             if (myWishList.hasOwnProperty(gameKey)) {
                 delete myWishList[gameKey];
                 setUserWishListDB(userWishInfos);
-                alert(`${gameName} 게임이 찜 리스트에서 제거되었습니다.`);
+                alert({gameName}, lang.removedFromWishlist);
                 setIsWish(false);
             }
         } else {
-            if (window.confirm(`${gameName} 게임을 찜 하시겠습니까?`)) {
+            if (window.confirm(`${gameName}${lang.wantAdd}`)) {
                 myWishList[gameKey] = {
                     game: gameName,
                     no: no,
@@ -64,10 +91,10 @@ const WishSelect = ({ no, gameName, setWriteFlag, writeFlag, gameHref, gameSrc }
 
                 };
                 setUserWishListDB(userWishInfos);
-                alert(`${gameName} 게임이 찜 리스트에 추가되었습니다.`);
+                alert(`${gameName}${lang.added}`);
                 setIsWish(true);
             } else {
-                alert("요청이 취소되었습니다");
+                alert(lang.cancelRequest);
             }
         }
 
@@ -80,7 +107,7 @@ const WishSelect = ({ no, gameName, setWriteFlag, writeFlag, gameHref, gameSrc }
                 size={24}
                 className={`heart-icon ${isWish ? 'active' : ''}`}
             />
-            찜하기
+            {lang.addTo}
         </button>
     );
 }

@@ -7,13 +7,23 @@ import CustomArrow from "../etc/CustomArrow";
 import Slider from "react-slick";
 import MainGames from '../db/MainGames.json';
 import popularDB from '../db/popularDB.json';
+import txt_kor from '../db/txt_kor.json';
+import txt_eng from '../db/txt_eng.json';
+import txt_chi from '../db/txt_chi.json';
 
 
-
-const Free = () => {
+const Free = ({langFileName}) => {
 
     const [games, setGames] = useState([]);
     const [popGames, setPopGames] = useState([]);
+    const [lang, setLang] = useState(txt_kor);
+
+    const languageData = {
+        kor: txt_kor,
+        eng: txt_eng,
+        chi: txt_chi,
+    }
+
     useEffect(() => {
         const getData = () => {
             setGames(MainGames);
@@ -21,7 +31,17 @@ const Free = () => {
             console.log('data ==>',MainGames,popularDB);
         };
         getData();
-    }, []);
+
+        if (langFileName === 'kor') {
+            setLang(languageData.kor);
+        } else if (langFileName === 'eng') {
+            setLang(languageData.eng);
+        } else if (langFileName === 'chi') {
+            setLang(languageData.chi);
+        } else {    
+            setLang(languageData.kor);
+        }
+    }, [langFileName]);
 
 const settings = {
     dots: true,
@@ -63,7 +83,7 @@ return(
     <div id="hompage">
 
         <div id="freethum_slide">
-            <h1>무료 플레이 게임</h1>
+            <h1>{lang.freePlayGames}</h1>
             <Slider {...settings} className="free_slider">
                 {games.map((game) => (
                 <div id="free_content">
@@ -85,11 +105,11 @@ return(
 
         <div id="free_wrap">
             <div className="free-header">
-                무료 게임
+                {lang.freeGames}
             </div>
         <div className="sub-header">
             {/* <div className="sub-header-item sub-rank">순위</div> */}
-            <div className="sub-header-item sub-item">게임 이름</div>
+            <div className="sub-header-item sub-item">{lang.gameName}</div>
             {/* <div className="sub-header-item sub-price">가격</div>
             <div className="sub-header-item sub-dicount">할인 정보</div> */}
         </div>
@@ -105,8 +125,8 @@ return(
                             </Link>
                         </div>
                         <div className="title">{popular['Name']}</div>
-                        <button className="wish-button">찜하기</button>
-                        <button className="free-play">무료 플레이</button>
+                        <button className="wish-button">{lang.addToWishlist}</button>
+                        <button className="free-play">{lang.freePlay}</button>
                         {/* <div className="price">{popular['Price']}원</div>
                         <div className="discount">{popular['Discount']}</div> */}
                     </div>

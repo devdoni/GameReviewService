@@ -1,22 +1,52 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import '../css/myinfo.css';
 import { FaEdit, FaGamepad, FaListAlt, FaSignOutAlt } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { deleteUserDB, getProdFlag } from "../utils/utils";
 import { getLoginedSessionId, setLoginedSessionId } from "../utils/session";
+import txt_kor from '../db/txt_kor.json';
+import txt_eng from '../db/txt_eng.json';
+import txt_chi from '../db/txt_chi.json';
 
-const Myinfo = ({setIsLogined, isLogined}) => {
+
+const Myinfo = ({setIsLogined, isLogined,langFileName}) => {
+
+
+    const [lang, setLang] = useState(txt_kor);
+
+    const languageData = {
+        kor: txt_kor,
+        eng: txt_eng,
+        chi: txt_chi,
+    }
 
     //Hook
     const navigate = useNavigate();
     
     useEffect(() => {
+
+        if (langFileName === 'kor') {
+            setLang(languageData.kor);
+
+        } else if (langFileName === 'eng') {
+            setLang(languageData.eng);
+
+        } else if (langFileName === 'chi') {
+            setLang(languageData.chi);
+
+        } else {    
+            setLang(languageData.kor);
+
+        }
+
         if(!getProdFlag())console.log('[Myinfo] useEffect()'); 
         if(getLoginedSessionId() === '') {
-            alert('로그인이 필요한 서비스입니다.');
+            alert(lang.thisServiceRequiresLogin);
             navigate('/signin');
         }
-    }, [])
+    }, [langFileName])
+
+    
     // 로그인이 되어있지 않았을 경우 렌더링 하지 않음
     if (!isLogined) {
         return null;
@@ -26,18 +56,18 @@ const Myinfo = ({setIsLogined, isLogined}) => {
     const deleteBtnHandler = () => {
         if(!getProdFlag()) console.log('[MyInfo] deleteBtnHandler()');
 
-        if (window.confirm('정말로 회원탈퇴를 하시겠습니까?')) {
+        if (window.confirm('')) {
             
             deleteUserDB(getLoginedSessionId());
 
-            alert('회원탈퇴가 완료되었습니다.');
+            alert(lang.reallySiginOut);
 
             setLoginedSessionId();
             setIsLogined(false);
             navigate('/');
 
             } else { 
-                alert("회원 탈퇴 요청이 취소되었습니다.");
+                alert(lang.cancelSiginOut);
                 return;
             }
         } 
@@ -49,24 +79,24 @@ const Myinfo = ({setIsLogined, isLogined}) => {
             <Link to={'/modify'}>
                 <div className="myinfo-button">
                     <FaEdit size={50} />
-                    <span>내 정보 수정</span>
+                    <span>{lang.modifyMyInfo}</span>
                 </div>
             </Link>
             <div className="myinfo-button" onClick={deleteBtnHandler}>
                 <FaSignOutAlt size={50} />
-                <span>회원 탈퇴</span>
+                <span>{lang.singOut}</span>
             </div>
 
             <Link to={'/wishlist'}>
                 <div className="myinfo-button">
                     <FaGamepad size={50} />
-                    <span>내가 찜한 게임 보기</span>
+                    <span>{lang.seeMyWishlist}</span>
                 </div>
             </Link>
             <Link to={'/myreviewlist'}>
                 <div className="myinfo-button">
                     <FaListAlt size={50} />
-                    <span>내가 작성한 리뷰 보기</span>
+                    <span>{lang.seeMyReview}</span>
                 </div>
             </Link>
 

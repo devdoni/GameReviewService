@@ -5,8 +5,19 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import styles from '../css/myreview.module.css';
 import StarRating from "./StarRating";
+import txt_kor from '../db/txt_kor.json';
+import txt_eng from '../db/txt_eng.json';
+import txt_chi from '../db/txt_chi.json';
 
-const  MyReviewList = () => {
+const  MyReviewList = (langFileName) => {
+
+    const [lang, setLang] = useState(txt_kor);
+
+    const languageData = {
+        kor: txt_kor,
+        eng: txt_eng,
+        chi: txt_chi,
+    }
     // Hook
     const navigate = useNavigate();
     const [fixFlag, setFixFlag] = useState(false);
@@ -17,11 +28,26 @@ const  MyReviewList = () => {
     const [sortOrder, setSortOrder] = useState('dateDesc'); // 기본 정렬은 최신 작성순
 
     useEffect(() => {
+
+        if (langFileName === 'kor') {
+            setLang(languageData.kor);
+
+        } else if (langFileName === 'eng') {
+            setLang(languageData.eng);
+
+        } else if (langFileName === 'chi') {
+            setLang(languageData.chi);
+
+        } else {    
+            setLang(languageData.kor);
+
+        }
+
         if (!getProdFlag()) {
             console.log('[Myinfo] useEffect()');
         }
         if (getLoginedSessionId() === '') {
-            alert('로그인이 필요한 서비스입니다.');
+            alert(lang.thisServiceRequiresLogin);
             navigate('/signin');
             return;
         } else {
@@ -29,7 +55,7 @@ const  MyReviewList = () => {
             let myInfo = getMyInfo(getLoginedSessionId());
             setCurrentNick(myInfo.uNick);
         }
-    }, [fixFlag]);
+    }, [fixFlag,langFileName]);
 
     const setData = () => {
         const sessionId = getLoginedSessionId();
@@ -57,21 +83,21 @@ const  MyReviewList = () => {
     // Handler 
     const deleteBtnClickHandler = (no) => {
         console.log('[MyReviewList] deleteBtnClickHandler()');
-        const reviewDelete = window.confirm("삭제하시겠습니까?");
+        const reviewDelete = window.confirm(lang.wantDelete);
         if (reviewDelete) {
             if (!getProdFlag()) console.log("참입니다");
             let deleteMyReviewDB = getMyReviewDB(getLoginedSessionId());
 
             delete deleteMyReviewDB[`${no}`];
 
-            alert('리뷰 삭제가 완료되었습니다');
+            alert(lang.wantDelete);
             setMyReviewDB(getLoginedSessionId(), deleteMyReviewDB);
 
             setFixFlag((prev) => !prev);
 
         } else {
             if (!getProdFlag()) console.log("거짓입니다");
-            alert('삭제 요청이 취소되었습니다');
+            alert(lang.cancelDelete);
         }
     };
 
@@ -91,7 +117,7 @@ const  MyReviewList = () => {
             regDate: getDateTime() 
         };
 
-        alert('리뷰 수정이 완료되었습니다');
+        alert(lang.reviewModified);
         setMyReviewDB(loggedInUserId, updateReviewDB);
         setEditingReview(null); 
         setModalIsOpen(false); 
@@ -99,7 +125,7 @@ const  MyReviewList = () => {
     };
 
     const cancelEditHandler = () => {
-        alert('수정 요청이 취소되었습니다');
+        alert(lang.cancelModify);
         setEditingReview(null); 
         setModalIsOpen(false); 
         
@@ -126,19 +152,19 @@ const  MyReviewList = () => {
     return (
         <div className={styles.myreview_wrap}>
             <div className={styles.myreview_title}>
-                <span>{currentNick}&nbsp;님의 리뷰 목록</span>
+                <span>{currentNick}&nbsp;{lang.whoseReview}</span>
             </div>
             <div className={styles.sort_buttons}>
                 <select onChange={handleSort} value={sortOrder}>
-                    <option value="dateDesc">최근 작성 기준 정렬</option>
-                    <option value="dateAsc">과거 작성 기준 정렬</option>
-                    <option value="ratingDesc">별점 높은순 정렬</option>
-                    <option value="ratingAsc">별점 낮은순 정렬</option>
+                    <option value="dateDesc">{lang.sortByMostRecent}</option>
+                    <option value="dateAsc">{lang.sortByPastWriting}</option>
+                    <option value="ratingDesc">{lang.sortByHighestRating}</option>
+                    <option value="ratingAsc">{lang.sortByLowestRating}</option>
                 </select>
             </div>
             {myReview.length === 0 ? (
                 <div className={styles.no_reviews}>
-                    작성한 리뷰가 존재하지 않습니다.
+                    {lang.noReview}
                 </div>
             ) : (
                 myReview.map((review, index) => (
@@ -152,30 +178,30 @@ const  MyReviewList = () => {
                             </div>
                             <div className={styles.game_buttons}>
                                 <Link to={`/detail/${review.no}`}>
-                                    <button className={styles.detail_button}>상세 페이지</button>
+                                    <button className={styles.detail_button}>{lang.detailPage}</button>
                                 </Link>
                                 <Link to={review.game_href}>
-                                    <button className={styles.play_button}>게임 구매/플레이</button>
+                                    <button className={styles.play_button}>{lang.buyOrPlay}</button>
                                 </Link>
                             </div>
                         </div>
                         <div className={styles.review_info}>
                             <div className={styles.review_details}>
                                 <div className={styles.review_text}>
-                                    <p><strong>작성한 리뷰:</strong> {review.review}</p>
+                                    <p><strong>{lang.writtenReview}</strong> {review.review}</p>
                                 </div>
                                 <div className={styles.review_rating}>
-                                    <p><strong>별점:</strong> {[...Array(review.star)].map((_, i) => (
+                                    <p><strong>{lang.score}</strong> {[...Array(review.star)].map((_, i) => (
                                         <FaStar key={i} color="#ffc107" />
                                     ))}</p>
                                 </div>
                                 <div className={styles.review_date}>
-                                    <p><strong>작성한 시간:</strong> {review.regDate}</p>
+                                    <p><strong>{lang.writtenDate}</strong> {review.regDate}</p>
                                 </div>
                             </div>
                             <div className={styles.review_actions}>
-                                <button onClick={() => editBtnClickHandler(review)}>수정</button>
-                                <button onClick={() => deleteBtnClickHandler(review.no)}>삭제</button>
+                                <button onClick={() => editBtnClickHandler(review)}>{lang.modify}</button>
+                                <button onClick={() => deleteBtnClickHandler(review.no)}>{lang.delete}</button>
                             </div>
                         </div>
                     </div>
@@ -185,7 +211,7 @@ const  MyReviewList = () => {
                 <div className="modal">
                     <div className="modal-content">
                         <span className="close" onClick={cancelEditHandler}>&times;</span>
-                        <h2>리뷰 수정</h2>
+                        <h2>{lang.modifyReview}</h2>
                         <textarea
                             className="editbox"
                             value={editingReview.review}
@@ -205,8 +231,8 @@ const  MyReviewList = () => {
                             size={20} // 별 크기를 줄임
                         />
                         <div className="button-group">
-                            <button className="save-button" onClick={() => saveEditHandler(editingReview.no)}>저장</button>
-                            <button className="cancel-button" onClick={cancelEditHandler}>취소</button>
+                            <button className="save-button" onClick={() => saveEditHandler(editingReview.no)}>{lang.save}</button>
+                            <button className="cancel-button" onClick={cancelEditHandler}>{lang.cancel}</button>
                         </div>
                     </div>
                 </div>

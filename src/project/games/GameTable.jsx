@@ -1,20 +1,55 @@
-import React from "react";
+import React, { useEffect } from "react";
 import TableData from '../db/TableData.js'
 import '../css/home.css';
 import { Link } from "react-router-dom";
+import txt_kor from '../db/txt_kor.json';
+import txt_eng from '../db/txt_eng.json';
+import txt_chi from '../db/txt_chi.json';
+import { useState } from "react";
 
-const categories = [
-    { title: '인기게임', games: TableData.korPopular, link: 'popular' },
-    { title: '무료게임', games: TableData.korFree, link: 'free' },
-    { title: '공포게임', games: TableData.korHorror, link: 'genre/horror' },
-    { title: '시뮬레이션', games: TableData.korSimulation, link: 'genre/simulation' }
-];
 
-const linkClickHandler = () => {
-    window.scroll({top: 0, left: 0, behavior: 'smooth'});
-}
+      
+const GameTable = ({langFileName}) => {
 
-const GameTable = () => {
+          //hooks
+    const [lang, setLang] = useState(txt_kor);
+
+    const languageData = {
+        kor: txt_kor,
+        eng: txt_eng,
+        chi: txt_chi,
+    }
+
+    useEffect(() => {
+        if (langFileName === 'kor') {
+            setLang(languageData.kor);
+
+        } else if (langFileName === 'eng') {
+            setLang(languageData.eng);
+
+        } else if (langFileName === 'chi') {
+            setLang(languageData.chi);
+
+        } else {    
+            setLang(languageData.kor);
+        }
+
+        //console.log(langFileName);
+
+    }, [langFileName]);
+
+
+    const categories = [
+            { title: lang.popularGames, games: TableData.korPopular, link: 'popular' },
+            { title: lang.freeGames, games: TableData.korFree, link: 'free' },
+            { title: lang.horrorGames, games: TableData.korHorror, link: 'genre/horror' },
+            { title: lang.simulation, games: TableData.korSimulation, link: 'genre/simulation' }
+        ]
+
+    const linkClickHandler = () => {
+        window.scroll({top: 0, left: 0, behavior: 'smooth'});
+    }
+
     return (
         <div className="table-component">
             <div className="page-container">
@@ -36,7 +71,7 @@ const GameTable = () => {
                         <div className="more-button-container">
                             <Link to={`/${category.link}`}>
                                 <button className="more-button">
-                                    더보기
+                                    {lang.more}
                                 </button>
                             </Link>
                         </div>
@@ -45,6 +80,8 @@ const GameTable = () => {
             </div>
         </div>
     );
+
+
 }
 
 export default GameTable;

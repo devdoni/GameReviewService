@@ -2,26 +2,49 @@ import React, { useEffect, useState } from "react";
 import "../css/games.css";
 import { motion } from 'framer-motion'
 import popularDB from '../db/popularDB.json'
-
 import { Link } from "react-router-dom";
+import txt_kor from '../db/txt_kor.json';
+import txt_eng from '../db/txt_eng.json';
+import txt_chi from '../db/txt_chi.json';
 
-
-const Popular = () => {
+const Popular = ({langFileName}) => {
 
     // hook
 
     const [popularArr, setPopularArr] = useState([]);
+    const [lang, setLang] = useState(txt_kor);
+
+    const languageData = {
+        kor: txt_kor,
+        eng: txt_eng,
+        chi: txt_chi
+    }
 
     useEffect(() => {
         console.log('useEffect()');
         // console.log('popularDB: ', popularDB);
         setPopularArr(popularDB);
 
-    }, []);
+        if (langFileName === 'kor') {
+            setLang(languageData.kor);
+
+        } else if (langFileName === 'eng') {
+            setLang(languageData.eng);
+
+        } else if (langFileName === 'chi') {
+            setLang(languageData.chi);
+
+        } else {    
+            setLang(languageData.kor);
+
+        }
+    }, [langFileName]);
 
     const linkClickHandler = () => {
         window.scroll({top: 0, left: 0, behavior: 'smooth'});
     }
+
+    
     
 
     return(
@@ -32,13 +55,13 @@ const Popular = () => {
       >
         <div id="popular_wrap">
             <div className="popular-header">
-                최고 인기 게임
+                {lang.topPopularGames}
             </div>
         <div className="sub-header">
-            <div className="sub-header-item sub-rank">순위</div>
-            <div className="sub-header-item sub-item">게임 이름</div>
-            <div className="sub-header-item sub-price">가격</div>
-            <div className="sub-header-item sub-dicount">할인 정보</div>
+            <div className="sub-header-item sub-rank">{lang.rank}</div>
+            <div className="sub-header-item sub-item">{lang.gameName}</div>
+            <div className="sub-header-item sub-price">{lang.price}</div>
+            <div className="sub-header-item sub-dicount">{lang.discountInformation}</div>
         </div>
         <div className="items">
         {

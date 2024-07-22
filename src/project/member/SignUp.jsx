@@ -3,7 +3,11 @@ import '../css/index.css';
 import { motion } from 'framer-motion'
 import { useNavigate } from "react-router-dom";
 import { getDateTime, getProdFlag, getUserDB, getUserReviewDB, getUserWishListDB, IdDuplicateCheck, nickNameDuplicateCheck, setUserDB, setUserReviewDB, setUserWishListDB, userIdCheck, usermailCheck, userNickNameCheck, userPhoneCheck, userPwCheck } from "../utils/utils";
-const SignUp = ({isLogined}) => {
+import txt_kor from '../db/txt_kor.json';
+import txt_eng from '../db/txt_eng.json';
+import txt_chi from '../db/txt_chi.json';
+
+const SignUp = ({isLogined,langFileName}) => {
 
     //hook Start
     const [uId, setUId] = useState('');
@@ -25,19 +29,38 @@ const SignUp = ({isLogined}) => {
     const [isMailCheck, setIsMailCheck] = useState(false);                      // 이메일 검증을 체크하는 State
     const [isIdDuplicateCheck, setIsIdDuplicateCheck] = useState(false);        // 아이디 중복체크 State
     const [isNickDuplicateCheck, setIsNickDuplicateCheck] = useState(false);    // 닉네임 중복체크 State    
+   
+    const [lang, setLang] = useState(txt_kor);
 
-
+    const languageData = {
+        kor: txt_kor,
+        eng: txt_eng,
+        chi: txt_chi,
+    }
 
     const navgigate = useNavigate();
 
     useEffect(() => {
-        if(!getProdFlag()) console.log('[SIGNUP] useEffect()');
-        if(isLogined) {
-            alert('로그아웃 후 이용해 주세요');
-            navgigate('/');
+        if (langFileName === 'kor') {
+            setLang(languageData.kor);
+
+        } else if (langFileName === 'eng') {
+            setLang(languageData.eng);
+
+        } else if (langFileName === 'chi') {
+            setLang(languageData.chi);
+
+        } else {    
+            setLang(languageData.kor);
+
         }
 
-    }, [isLogined]) 
+        if(!getProdFlag()) console.log('[SIGNUP] useEffect()');
+        if(isLogined) {
+            alert(lang.afterLogout);
+            navgigate('/');
+        }
+    }, [isLogined,langFileName]) 
 
     // hook End
 
@@ -134,23 +157,23 @@ const SignUp = ({isLogined}) => {
         if(!getProdFlag()) console.log('[Signup] SignUpBtnHandler()');
         
         if (!isIdDuplicateCheck) {
-            alert('아이디 중복체크를 해주세요.');
+            alert(lang.pleaseProceedWithIdDuplicationCheck);
             return;
         }
 
         if (uPw === '' || uNick === '') {
-            alert('필수 정보를 입력해주세요.');
+            alert(lang.required);
             return;
         }
 
         if (!isIdCheck || !isPwCheck || !isNickNameCheck || isNickDuplicateCheck) {
-            alert('입력 정보를 확인해주세요.');
+            alert(lang.plsCheckInfo);
             return;
         }
 
         if (uPhone !== '' || uMail !== '') {
             if(!isMailCheck || !isPhoneCheck) {
-                alert('휴대폰 번호 또는 이메일을 확인해주세요');
+                alert(lang.plsCheckPhoneMail);
                 return;
             }
         }
@@ -216,7 +239,7 @@ const SignUp = ({isLogined}) => {
             setUserWishListDB(userWishListDB);
         }
 
-          alert('회원가입에 성공했습니다.');
+          alert(lang.signUpSuccessful);
 
           navgigate('/signin');
 
@@ -227,21 +250,21 @@ const SignUp = ({isLogined}) => {
             let idCheck = IdDuplicateCheck(uId);
 
             if(isIdDuplicateCheck) {
-                alert('이미 중복체크가 완료되었습니다.');
+                alert(lang.alreadyCompleted)
                 return;
             }
 
             if(!isIdCheck) {
-                alert('아이디는 5~20자의 영어 소문자와 숫자 조합만 사용 가능합니다. ')
+                alert(lang.pleaseUse5To20)
                 return;
             }
 
             if(idCheck) {
                 setIsIdDuplicateCheck(false);
-                alert('중복된 아이디입니다.');
+                alert(lang.duplicateId);
 
             } else {
-                let result = window.confirm('가입 가능한 아이디입니다, 사용하시겠습니까?');
+                let result = window.confirm(lang.theIdIsAvailable);
                 if (result)
                 {
                     setIsIdDuplicateCheck(true);
@@ -267,42 +290,42 @@ const SignUp = ({isLogined}) => {
                 <div id="signup_wrap">
                     <div className="signup">
                         <div className="section">
-                            <div className="section_header">필수 입력 정보</div>
-                                <input id="input_id" name="UserId" type="text" onChange={uIdChangeHandler} placeholder="[필수] 아이디" />
+                            <div className="section_header">{lang.required} </div>
+                                <input id="input_id" name="UserId" type="text" onChange={uIdChangeHandler} placeholder={lang.mustId} />
                                 {
-                                   isIdTouched && !isIdCheck && <p>아이디: 5~20자의 영어 소문자와 숫자 조합만 사용가능합니다.</p>
+                                   isIdTouched && !isIdCheck && <p>{lang.pleaseUse5To20}</p>
                                 }
                                 {
-                                   isIdTouched && !isIdDuplicateCheck && <p>아이디 중복체크를 진행해 주세요.</p>
+                                   isIdTouched && !isIdDuplicateCheck && <p>{lang.pleaseProceedWithIdDuplicationCheck}</p>
                                 }
-                                <input className="basic_btn" type="button" onClick={idDuplicateCheckBtn} value="중복체크" />
+                                <input className="basic_btn" type="button" onClick={idDuplicateCheckBtn} value={lang.checkDuplication} />
 
-                                <input className="basic_input" name="UserPw" type="password" onChange={uPwChangeHandler} placeholder="[필수] 비밀번호" />
+                                <input className="basic_input" name="UserPw" type="password" onChange={uPwChangeHandler} placeholder={lang.mustPassword} />
                                 {
-                                   isPwTouched && !isPwCheck && <p>비밀번호: 8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.</p>
+                                   isPwTouched && !isPwCheck && <p>{lang.pleaseUse8To16}</p>
                                 }
-                                <input id="input_nick" name="UserNickname" type="text" onChange={uNickChangeHandler} placeholder="[필수] 닉네임" />
+                                <input id="input_nick" name="UserNickname" type="text" onChange={uNickChangeHandler} placeholder={lang.mustNickname} />
                                 {
-                                    isNickTouched && !isNickNameCheck && <p>닉네임을 입력해주세요. (한글, 영어, 숫자 조합 3~16자)</p>
+                                    isNickTouched && !isNickNameCheck && <p>{lang.pleaseEnterNickname}</p>
                                 }
                                 {
-                                    isNickDuplicateCheck ? <p>이미 사용중인 닉네임입니다.</p> : null
+                                    isNickDuplicateCheck ? <p>{lang.usedNickname}</p> : null
                                 }
                         </div>
                         <div className="section">
-                            <div className="section_header">선택 입력 정보</div>
+                            <div className="section_header">{lang.choice}</div>
                             <div className="input_group">
-                            <input className="basic_input" id="phone_input" name="UserPhone" type="text" onChange={uPhoneChangeHandler} placeholder="[선택] 휴대전화 번호 010-0000-0000" />
-                            <input className="basic_input" id="email_input" type="email" name="UserEmail" onChange={uMailChangeHandler} placeholder="[선택] 이메일 주소" />
+                            <input className="basic_input" id="phone_input" name="UserPhone" type="text" onChange={uPhoneChangeHandler} placeholder={lang.phoneNumber} />
+                            <input className="basic_input" id="email_input" type="email" name="UserEmail" onChange={uMailChangeHandler} placeholder={lang.emailAddress} />
                                 {
-                                    isPhoneTouched && !isPhoneCheck && <p>전화번호 형식을 확인해주세요 <br/>ex) 010-0000-0000</p>
+                                    isPhoneTouched && !isPhoneCheck && <p> {lang.commirPhonenumber}<br/>ex) 010-0000-0000</p>
                                 }
                                 {
-                                    isMailTouched && !isMailCheck && <p>이메일 형식을 확인해주세요.</p>
+                                    isMailTouched && !isMailCheck && <p>{lang.commirEmail}</p>
                                 }
                             </div>
                         </div>
-                        <input className="basic_btn" type="button" onClick={SignUpBtnHandler} value="회원가입" />
+                        <input className="basic_btn" type="button" onClick={SignUpBtnHandler} value={lang.signUp} />
                     </div>
                 </div>
             </motion.div>

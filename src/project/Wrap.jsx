@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './css/index.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SignUp from "./member/SignUp";
@@ -28,32 +28,38 @@ const Wrap = () => {
     const [isLogined, setIsLogined] = useState(false);
     const [langFileName, setLangFileName] = useState('kor');
 
+    useEffect(() => {
+      console.log('[Wrap] useEffect()');
+      console.log('[Wrap] langFileName: ', langFileName);
+
+    }, [langFileName]);
+
     return (
         <div className="background">
           <BrowserRouter>
             <div id="wrap">
-              <Menubar isLogined={isLogined} setIsLogined={setIsLogined} setLangFileName={setLangFileName}/>
+              <Menubar isLogined={isLogined} setIsLogined={setIsLogined} setLangFileName={setLangFileName} langFileName={langFileName}/>
               <AnimatePresence>
                   <Routes>
-                    <Route path='/' element={<Home isLogined={isLogined} setIsLogined={setIsLogined}/>} />
-                    <Route path='/signup' element={<SignUp isLogined={isLogined}/>} />
-                    <Route path='/signin' element={<SignIn isLogined={isLogined} setIsLogined={setIsLogined}/>} />
-                    <Route path='/myinfo' element={<Myinfo isLogined={isLogined} setIsLogined={setIsLogined}/>} />
-                    <Route path='/modify' element={<Modify isLogined={isLogined} setIsLogined={setIsLogined}/>} />
-                    <Route path='/popular' element={<Popular />} />
-                    <Route path='/wishlist' element={<WishList isLogined={isLogined} />} />
-                    <Route path='/myreviewlist' element={<MyReviewList />} />
-                    <Route path='/category' element={<Category />} />
-                    <Route path='/genre/:genre' element={<Genre />}/>
-                    <Route path='/free' element={<Free />} />
+                    <Route path='/' element={<Home isLogined={isLogined} setIsLogined={setIsLogined} langFileName={langFileName}/>} />
+                    <Route path='/signup' element={<SignUp isLogined={isLogined} langFileName={langFileName}/>} />
+                    <Route path='/signin' element={<SignIn isLogined={isLogined} setIsLogined={setIsLogined} langFileName={langFileName}/>} />
+                    <Route path='/myinfo' element={<Myinfo isLogined={isLogined} setIsLogined={setIsLogined} langFileName={langFileName}/>} />
+                    <Route path='/modify' element={<Modify isLogined={isLogined} setIsLogined={setIsLogined} langFileName={langFileName}/>} />
+                    <Route path='/popular' element={<Popular langFileName={langFileName} />} />
+                    <Route path='/wishlist' element={<WishList isLogined={isLogined} langFileName={langFileName} />} />
+                    <Route path='/myreviewlist' element={<MyReviewList langFileName={langFileName} />} />
+                    <Route path='/category' element={<Category langFileName={langFileName}/>} />
+                    <Route path='/genre/:genre' element={<Genre langFileName={langFileName}/>}/>
+                    <Route path='/free' element={<Free langFileName={langFileName} />} />
                     <Route path='/detail/:no' element={<Detail langFileName={langFileName} />} />
-                    <Route path="/termsofservice" element={<TermsOfService />} />
+                    <Route path="/termsofservice" element={<TermsOfService  />} />
                     <Route path="/privacypolicy" element={<PrivacyPolicy />} />
                     <Route path="/copyrightpolicy" element={<CopyrightPolicy />} />
                     <Route path='/*' element={<NG />} />
-                  </Routes>
+                  </Routes> 
                 </AnimatePresence>
-              <Footer />
+              <Footer langFileName={langFileName} />
             </div>
           </BrowserRouter>
         </div>

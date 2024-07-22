@@ -4,23 +4,48 @@ import { getProdFlag, getUserReviewDB, getMyReviewDB, setMyReviewDB, getDateTime
 import { getLoginedSessionId } from '../utils/session';
 import StarRating from './StarRating';
 import { FaStar } from 'react-icons/fa';
+import txt_kor from '../db/txt_kor.json';
+import txt_eng from '../db/txt_eng.json';
+import txt_chi from '../db/txt_chi.json';
 
 
-const ReviewList = ({ gameName, writeFlag, no}) => {
+const ReviewList = ({ gameName, writeFlag, no,langFileName}) => {
     const [reviews, setReviews] = useState([]);
     const [modifying, setModifying] = useState(false);
     const [loggedInUserId, setLoggedInUserId] = useState(null);
     const [editingReview, setEditingReview] = useState(null); 
     const [modalIsOpen, setModalIsOpen] = useState(false); 
 
+    const [lang, setLang] = useState(txt_kor);
+
+    const languageData = {
+        kor: txt_kor,
+        eng: txt_eng,
+        chi: txt_chi,
+    }
+
     useEffect(() => {
+        if (langFileName === 'kor') {
+            setLang(languageData.kor);
+
+        } else if (langFileName === 'eng') {
+            setLang(languageData.eng);
+
+        } else if (langFileName === 'chi') {
+            setLang(languageData.chi);
+
+        } else {    
+            setLang(languageData.kor);
+
+        }
+
         console.log('[ReviewList] useEffect()');
         setData();
         const sessionId = getLoginedSessionId();
         if (sessionId) {
             setLoggedInUserId(sessionId);
         }
-    }, [writeFlag, gameName, modifying]);
+    }, [writeFlag, gameName, modifying,langFileName]);
     
 
     const setData = () => {
@@ -78,7 +103,7 @@ const ReviewList = ({ gameName, writeFlag, no}) => {
             star: editingReview.star, 
             regDate: getDateTime() 
         };
-        alert('리뷰 수정이 완료되었습니다');
+        alert(lang.reviewModified);
         setMyReviewDB(loggedInUserId, updateReviewDB);
         setEditingReview(null); 
         setModalIsOpen(false); 
@@ -86,21 +111,21 @@ const ReviewList = ({ gameName, writeFlag, no}) => {
     };
 
     const cancelEditHandler = () => {
-        alert('수정 요청이 취소되었습니다');
+        alert(lang.cancelModify);
         setEditingReview(null); 
         setModalIsOpen(false); 
     };
 
     const deleteBtnClickHandler = () => {
         console.log('[ReviewList] deleteBtnClickHandler()');
-        const reviewDelete = window.confirm("삭제하시겠습니까?");
+        const reviewDelete = window.confirm(lang.wantDelete);
         if (reviewDelete) {
             if (!getProdFlag()) console.log("참입니다");
             let deleteMyReviewDB = getMyReviewDB(getLoginedSessionId());
 
             delete deleteMyReviewDB[`${no}`];
 
-            alert('리뷰 삭제가 완료되었습니다');
+            alert(lang.alreadyDeleted);
             setMyReviewDB(getLoginedSessionId(), deleteMyReviewDB);
 
             setModifying((prev) => !prev);
@@ -108,14 +133,14 @@ const ReviewList = ({ gameName, writeFlag, no}) => {
 
         } else {
             if (!getProdFlag()) console.log("거짓입니다");
-            alert('삭제 요청이 취소되었습니다');
+            alert(lang.cancelDelete);
         }
     };
 
     return (
         <div id="review_list">
             {reviews.length === 0 ? (
-                <div className="no-reviews">리뷰가 없습니다.</div>
+                <div className="no-reviews">{lang.noReviewsAvailable}</div>
             ) : (
                 reviews.map((review, idx) => (
                     <div key={idx} className="review_item">
@@ -133,12 +158,12 @@ const ReviewList = ({ gameName, writeFlag, no}) => {
                         </div>
                         <div className='review_text'>
                             <p>{review.review}</p>
-                            <p className="reg-date">작성일시: {review.regDate}</p>
+                            <p className="reg-date">{lang.writtenDay}{review.regDate}</p>
                         </div>
                         {loggedInUserId === review.user && (
                             <div className="review_actions">
-                                <button className="edit-button" onClick={() => editBtnClickHandler(review)}>수정</button>
-                                <button className="delete-button" onClick={() => deleteBtnClickHandler(review)}>삭제</button>
+                                <button className="edit-button" onClick={() => editBtnClickHandler(review)}>{lang.modify}</button>
+                                <button className="delete-button" onClick={() => deleteBtnClickHandler(review)}>{lang.delete}</button>
                             </div>
                         )}
                     </div>
@@ -149,7 +174,7 @@ const ReviewList = ({ gameName, writeFlag, no}) => {
                 <div className="modal">
                     <div className="modal-content">
                         <span className="close" onClick={cancelEditHandler}>&times;</span>
-                        <h2>리뷰 수정</h2>
+                        <h2>{lang.modifyReview}</h2>
                         <textarea
                             className="editbox"
                             value={editingReview.review}
@@ -169,8 +194,8 @@ const ReviewList = ({ gameName, writeFlag, no}) => {
                             size={20} // 별 크기를 줄임
                         />
                         <div className="button-group">
-                            <button className="save-button" onClick={saveEditHandler}>저장</button>
-                            <button className="cancel-button" onClick={cancelEditHandler}>취소</button>
+                            <button className="save-button" onClick={saveEditHandler}>{lang.save}</button>
+                            <button className="cancel-button" onClick={cancelEditHandler}>{lang.cancel}</button>
                         </div>
                     </div>
                 </div>

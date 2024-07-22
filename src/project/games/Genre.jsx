@@ -2,10 +2,25 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import popularDB from '../db/popularDB.json';
 import '../css/genre.css';
-const Genre = () => {
+import txt_kor from '../db/txt_kor.json';
+import txt_eng from '../db/txt_eng.json';
+import txt_chi from '../db/txt_chi.json';
+
+
+
+const Genre = ({langFileName}) => {
     const { genre } = useParams();
     const [ currentGameList, setCurrentGameList] = useState([]);
+    const [lang, setLang] = useState(txt_kor);
 
+    
+    const languageData = {
+        kor: txt_kor,
+        eng: txt_eng,
+        chi: txt_chi,
+    }
+
+    
     const genreMap = {
         '생존': [],
         'RPG': [],
@@ -22,19 +37,20 @@ const Genre = () => {
     };
 
     const genreKeyMap = {
-        survival: '생존',
+        survival: lang.survival,
         rpg: 'RPG',
-        openworld: '오픈월드',
-        simulation: '시뮬레이션',
-        adventure: '어드벤처',
-        puzzle: '퍼즐',
-        horror: '공포',
-        sports: '스포츠',
-        strategy: '전략',
+        openworld: lang.openWorld,
+        simulation: lang.simulation,
+        adventure: lang.adventure,
+        puzzle: lang.puzzle,
+        horror: lang.horror,
+        sports: lang.sports,
+        strategy: lang.strategy,
         fps: 'FPS',
-        racing: '레이싱',
-        action: '액션'
+        racing: lang.racing,
+        action: lang.action
     };
+
     useEffect(() => {
         console.log('[Category] useEffect()');
 
@@ -61,12 +77,25 @@ const Genre = () => {
             console.log('Invalid genre:', genre);
         }
 
-    }, [genre, popularDB]);
+        if (langFileName === 'kor') {
+            setLang(languageData.kor);
 
+        } else if (langFileName === 'eng') {
+            setLang(languageData.eng);
+
+        } else if (langFileName === 'chi') {
+            setLang(languageData.chi);
+
+        } else {    
+            setLang(languageData.kor);
+        }
+
+    }, [genre, popularDB,langFileName]);
+    
 
     return (
         <div className="genre_wrap">
-            <h1>{genreKeyMap[genre]} 장르의 게임 목록</h1>
+            <h1>{genreKeyMap[genre]} {lang.genreGameList}</h1>
             <ul className="game_list">
                 {currentGameList.map((game, index) => (
                     <li key={index} className="game_item">

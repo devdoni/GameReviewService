@@ -1,13 +1,43 @@
 import { motion } from "framer-motion";
 import React from "react";
 import '../css/games.css';
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import txt_kor from '../db/txt_kor.json';
+import txt_eng from '../db/txt_eng.json';
+import txt_chi from '../db/txt_chi.json';
 
-const CategorySelect = () => {
-    const text = "무슨 게임을 찾고 계신가요?";
+const CategorySelect = ({langFileName}) => {
+    const [lang, setLang] = useState(txt_kor);
+
+    const languageData = {
+        kor: txt_kor,
+        eng: txt_eng,
+        chi: txt_chi,
+    }
+       //hook
+    useEffect(() => {
+
+        if (langFileName === 'kor') {
+            setLang(languageData.kor);
+
+        } else if (langFileName === 'eng') {
+            setLang(languageData.eng);
+
+        } else if (langFileName === 'chi') {
+            setLang(languageData.chi);
+
+        } else {    
+            setLang(languageData.kor);
+        }
+
+    }, [langFileName])
+
+    const text = lang.findGame;
     const textArr = Array.from(text);
-    const genreArr = ["액션", "어드벤처", "퍼즐", "RPG", "시뮬레이션", "스포츠", "레이싱", "FPS", "전략", "오픈월드", "생존", "공포"];
+    const genreArr = [lang.action, lang.adventure, lang.puzzle,"RPG", lang.simulation, lang.sports, lang.racing, "FPS", lang.strategy, lang.openWorld, lang.survival, lang.horror];
     const linkArr = ["action", "adventure", "puzzle", "rpg", "simulation", "sports", "racing", "fps", "strategy", "openworld", "survival", "horror"];
+
 
     // MOTION VARIANTS START
     const container = {

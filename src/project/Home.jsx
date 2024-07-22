@@ -7,16 +7,24 @@ import MainGames from './db/MainGames.json';
 import popularDB from './db/popularDB.json';
 import CustomArrow from "./etc/CustomArrow";
 import GameTable from "./games/GameTable";
+import { motion } from 'framer-motion';
+import txt_kor from './db/txt_kor.json';
+import txt_eng from './db/txt_eng.json';
+import txt_chi from './db/txt_chi.json';
 
-import { motion } from 'framer-motion'
-
-const Home = () => {
-
-
+const Home = ({isLogined, setIsLogined, langFileName}) => {
     
     //Hook 
     const [games, setGames] = useState([]);
     const [popGames, setPopGames] = useState([]);
+    const [lang, setLang] = useState(txt_kor);
+
+    const languageData = {
+        kor: txt_kor,
+        eng: txt_eng,
+        chi: txt_chi,
+    }
+
     useEffect(() => {
         const getData = () => {
             setGames(MainGames);
@@ -24,7 +32,21 @@ const Home = () => {
             console.log('data ==>',MainGames,popularDB);
         };
         getData();
-    }, []);
+
+        if (langFileName === 'kor') {
+            setLang(languageData.kor);
+
+        } else if (langFileName === 'eng') {
+            setLang(languageData.eng);
+
+        } else if (langFileName === 'chi') {
+            setLang(languageData.chi);
+
+        } else {    
+            setLang(languageData.kor);
+
+        }
+    }, [langFileName]);
 
     const settings = {
         dots: true,
@@ -67,10 +89,10 @@ const Home = () => {
         </div>
         
             <div className="game_table">
-                <GameTable />
+                <GameTable langFileName={langFileName}/>
             </div>
             <div className="categorybox">
-                <h2>카테고리별로 살펴보기</h2>
+                <h2>{lang.browseByCategory}</h2>
                 <CategorySlideView />
             </div>
             

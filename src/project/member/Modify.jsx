@@ -3,8 +3,13 @@ import { getDateTime, getMyInfo, getProdFlag, getUserDB, getUserReviewDB, modNic
 import { Link, useNavigate } from "react-router-dom";
 import { getLoginedSessionId, setLoginedSessionId } from "../utils/session";
 import '../css/index.css';
+import txt_kor from '../db/txt_kor.json';
+import txt_eng from '../db/txt_eng.json';
+import txt_chi from '../db/txt_chi.json';
 
-const Modify = ({setIsLogined, isLogined }) => {
+
+
+const Modify = ({setIsLogined, isLogined,langFileName }) => {
 
     //hook
     const [uId, setUId] = useState('');
@@ -13,6 +18,13 @@ const Modify = ({setIsLogined, isLogined }) => {
     const [uPhone, setUPhone] = useState('');
     const [uMail, setUMail] = useState('');
     const navigate = useNavigate();
+    const [lang, setLang] = useState(txt_kor);
+
+    const languageData = {
+        kor: txt_kor,
+        eng: txt_eng,
+        chi: txt_chi,
+    }
 
     const [isPwTouched, setIsPwTouched] = useState(false);                      // 비밀번호 입력을 체크하는 State
     const [isNickTouched, setIsNickTouched] = useState(false);                  // 닉네임 입력을 체크하는 State
@@ -24,7 +36,22 @@ const Modify = ({setIsLogined, isLogined }) => {
     const [isPhoneCheck, setIsPhoneCheck] = useState(true);                    // 휴대폰 번호 검증을 체크하는 State
     const [isMailCheck, setIsMailCheck] = useState(true);                      // 이메일 검증을 체크하는 State
     const [isNickDuplicateCheck, setIsNickDuplicateCheck] = useState(true);    // 닉네임 중복체크 State    
+
     useEffect(() => {
+        if (langFileName === 'kor') {
+            setLang(languageData.kor);
+
+        } else if (langFileName === 'eng') {
+            setLang(languageData.eng);
+
+        } else if (langFileName === 'chi') {
+            setLang(languageData.chi);
+
+        } else {    
+            setLang(languageData.kor);
+
+        }
+
         // MT DB GET
         if(!getProdFlag()) console.log('[Modify] useEffect()');
 
@@ -40,7 +67,7 @@ const Modify = ({setIsLogined, isLogined }) => {
         setUNick(myInfo.uNick);
         setUPhone(myInfo.uPhone);
         setUMail(myInfo.uMail);
-    }, [])
+    }, [langFileName])
     // 로그인이 되어있지 않았을 경우 렌더링 하지 않음
     if (!isLogined) {
         return null;
@@ -120,19 +147,19 @@ const Modify = ({setIsLogined, isLogined }) => {
         if(!getProdFlag()) console.log('[Modify] modifyBtnHandler()');
 
         if (!isPwCheck || !isNickNameCheck) {
-            alert('입력 정보를 확인해주세요');
+            alert(lang.plsCheckInfo);
             return;
         }
 
         if (uPhone !== '' || uMail !== '') {
             if(!isMailCheck || !isPhoneCheck) {
-                alert('휴대폰 번호 또는 이메일을 확인해주세요');
+                alert(lang.plsCheckPhoneMail);
                 return;
             }
         }
 
         if (!isNickDuplicateCheck) {
-            alert('닉네임을 확인해주세요.');
+            alert(lang.plsAddNickname);
             return;
         } 
 
@@ -147,7 +174,7 @@ const Modify = ({setIsLogined, isLogined }) => {
         setMyInfo(getLoginedSessionId(), myInfo);
 
 
-        alert('정보 수정이 완료되었습니다.');
+        alert(lang.infoModified);
         navigate('/');
 
     }
@@ -158,33 +185,33 @@ const Modify = ({setIsLogined, isLogined }) => {
     return (
         <div id="modify_wrap">
             <div className="modify">
-                <label htmlFor="input_id">아이디&nbsp;(변경불가)</label>
+                <label htmlFor="input_id">{lang.id}&nbsp;({lang.cannotChange})</label>
                 <input id="input_id" name="UserId" type="text" value={uId} readOnly />
     
-                <label htmlFor="input_pw">비밀번호</label>
-                <input className="basic_input" id="input_pw" name="UserPw" type="password" value={uPw} onChange={uPwChangeHandler} placeholder="변경할 비밀번호를 입력해주세요" />
+                <label htmlFor="input_pw">{lang.password}</label>
+                <input className="basic_input" id="input_pw" name="UserPw" type="password" value={uPw} onChange={uPwChangeHandler} placeholder={lang.willChangePassword} />
                 {
-                    isPwTouched && !isPwCheck && <p>비밀번호: 8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.</p>
+                    isPwTouched && !isPwCheck && <p>{lang.pleaseUse8To16}</p>
                 }
-                <label htmlFor="input_nick">닉네임</label>
+                <label htmlFor="input_nick">{lang.nickname}</label>
                 <input className="basic_input" id="input_nick" name="UserNickname" type="text" value={uNick} onChange={uNickChangeHandler} />
                 {
-                    isNickTouched && !isNickNameCheck && <p>닉네임을 입력해주세요. (한글, 영어, 숫자 조합 3~16자)</p>
+                    isNickTouched && !isNickNameCheck && <p>{lang.pleaseEnterNickname}</p>
                 }
                 {
-                    !isNickDuplicateCheck && <p>이미 사용중인 닉네임입니다.</p>
+                    !isNickDuplicateCheck && <p>{lang.usedNickname}</p>
                 }
-                <label htmlFor="input_phone">휴대폰 번호</label>
-                <input className="basic_input" id="input_phone" name="UserPhone" type="text" value={uPhone} onChange={uPhoneChangeHandler} placeholder="[선택] 변경할 휴대폰번호" />
+                <label htmlFor="input_phone">{lang.phoneNumber}</label>
+                <input className="basic_input" id="input_phone" name="UserPhone" type="text" value={uPhone} onChange={uPhoneChangeHandler} placeholder={lang.willchangePhoneNumber} />
                 {
-                    isPhoneTouched && !isPhoneCheck && <p>전화번호 형식을 확인해주세요 <br/>ex) 010-0000-0000</p>
+                    isPhoneTouched && !isPhoneCheck && <p>{lang.plsCheckPhoneNumberFormat} <br/>ex) 010-0000-0000</p>
                 }
-                <label htmlFor="input_email">이메일</label>
-                <input className="basic_input" id="input_email" type="email" name="UserEmail" value={uMail} onChange={uMailChangeHandler} placeholder="[선택] 변경할 이메일 주소" />
+                <label htmlFor="input_email">{lang.emailAddress}</label>
+                <input className="basic_input" id="input_email" type="email" name="UserEmail" value={uMail} onChange={uMailChangeHandler} placeholder={lang.willchangeEmail} />
                 {
-                    isMailTouched && !isMailCheck && <p>이메일 형식을 확인해주세요.</p>
+                    isMailTouched && !isMailCheck && <p>{lang.plsCheckEmailFormat}</p>
                 }
-                <input className="basic_btn" type="button" onClick={modifyBtnHandler} value="정보수정" />
+                <input className="basic_btn" type="button" onClick={modifyBtnHandler} value={lang.infoModifiy} />
             </div>
         </div>
     );
