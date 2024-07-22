@@ -1,12 +1,43 @@
 import React, { useEffect, useState } from "react";
 import './css/home.css';
+import { Link } from "react-router-dom";
 
 
 const CategorySlideView = () => {
-    const trainCompartment = ['', '', '']; {/*이미지 = 칸*/}
+    const trainCompartment = [
+        {
+            link1: '/genre/strategy',
+            link2: '/genre/adventure',
+            link3: '/genre/sports',
+            images: [
+                './imgs/category/Str.png',
+                './imgs/category/AD.png',
+                './imgs/category/football_manager2024_allsports_photo.png'
+            ]
+        },
+        {
+            link1: '/genre/survival',
+            link2: '/genre/horror',
+            link3: '/genre/rpg',
+            images: [
+                './imgs/category/project_zomboid_survival_photo.png',
+                './imgs/category/elden_ring_horror_photo.png',
+                './imgs/category/palworld_animation_photo.png'
+            ]
+        },
+        {
+            link1: '/genre/fps',
+            link2: '/genre/racing',
+            link3: '/genre/simulation',
+            images: [
+                './imgs/category/FPS.png',
+                './imgs/category/forza_horizon4_racing_photo.png',
+                './imgs/category/stardew_valley_simulation_photo.png'
+            ]
+        }
+    ];
 
     const [curSlide, setCurSlide] = useState(0); // 이미지 슬라이드에서 표출되는 이미지 번호
-
     const [intervalId, setIntervalId] = useState(null);
 
     const autoMoveSlide = () => {
@@ -71,7 +102,15 @@ const CategorySlideView = () => {
                         style={{transform: `translateX(${-1100 * curSlide}px)`,  
                                 transition: 'all 0.4s ease-in-out',
                         }}>
-                            {item}
+                            <Link to={item.link1} className="img-link">
+                                <img src={item.images[0]} alt="Slide 1" className="slide-image"/>
+                            </Link>
+                            <Link to={item.link2} className="img-link">
+                                <img src={item.images[1]} alt="Slide 2" className="slide-image"/>
+                            </Link>
+                            <Link to={item.link3} className="img-link">
+                                <img src={item.images[2]} alt="Slide 3" className="slide-image"/>
+                            </Link>
                         </div>
                     ))
                 }

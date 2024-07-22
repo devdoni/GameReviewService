@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from 'framer-motion'
 import "../css/games.css";
 import "../css/home.css";
-import CustomArrow from "../etc/CustomArrow";
+import FreeCustomArrow from "../etc/FreeCustomArrow";
 import Slider from "react-slick";
 import MainGames from '../db/MainGames.json';
 import popularDB from '../db/popularDB.json';
@@ -32,8 +32,8 @@ const settings = {
     speed: 700,
     slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <CustomArrow icon="./imgs/rightarrow.png" className={"free-slick-next"}/>,
-    prevArrow: <CustomArrow icon="./imgs/leftarrow.png" className={"free-slick-prev"}/>
+    nextArrow: <FreeCustomArrow icon="./imgs/rightarrow.png" className={"free-slick-next"}/>,
+    prevArrow: <FreeCustomArrow icon="./imgs/leftarrow.png" className={"free-slick-prev"}/>
     
 
   };

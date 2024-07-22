@@ -4,7 +4,7 @@ import { getLoginedSessionId } from "../utils/session";
 import { Link, useNavigate } from "react-router-dom";
 import '../css/common.css';
 import '../css/wishlist.css';
-
+import { motion } from 'framer-motion'
 
 const WishList = ({isLogined}) => {
 
@@ -34,6 +34,10 @@ const WishList = ({isLogined}) => {
     }
     return (
         <>
+            <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}>
             <div id="wishlist_wrap">
                 <div className="wish_title">
                     <span>{currentNick}&nbsp;님의 찜 목록</span>
@@ -61,6 +65,7 @@ const WishList = ({isLogined}) => {
                     ))
                 )}
             </div>
+            </motion.div>
         </>
     );
 };

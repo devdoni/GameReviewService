@@ -4,6 +4,7 @@ import { FaEdit, FaGamepad, FaListAlt, FaSignOutAlt } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { deleteUserDB, getProdFlag } from "../utils/utils";
 import { getLoginedSessionId, setLoginedSessionId } from "../utils/session";
+import { motion } from 'framer-motion'
 
 const Myinfo = ({setIsLogined, isLogined}) => {
 
@@ -45,6 +46,11 @@ const Myinfo = ({setIsLogined, isLogined}) => {
 
     // COMPONENT START
     return (
+        <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
         <div id="myinfo_wrap" className="myinfo-container">
             <Link to={'/modify'}>
                 <div className="myinfo-button">
@@ -71,7 +77,9 @@ const Myinfo = ({setIsLogined, isLogined}) => {
             </Link>
 
         </div>
+        </motion.div>
     );
+
     // COMPONENT END
 }
 

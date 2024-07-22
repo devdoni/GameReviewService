@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import popularDB from '../db/popularDB.json';
 import '../css/genre.css';
+import { motion } from 'framer-motion'
 const Genre = () => {
     const { genre } = useParams();
     const [ currentGameList, setCurrentGameList] = useState([]);
@@ -65,6 +66,10 @@ const Genre = () => {
 
 
     return (
+        <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}>
         <div className="genre_wrap">
             <h1>{genreKeyMap[genre]} 장르의 게임 목록</h1>
             <ul className="game_list">
@@ -81,6 +86,7 @@ const Genre = () => {
                 ))}
             </ul>
         </div>
+        </motion.div>
     );
 };
 

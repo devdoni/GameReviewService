@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import MainGames from './db/MainGames.json';
 import popularDB from './db/popularDB.json';
-import CustomArrow from "./etc/CustomArrow";
 import GameTable from "./games/GameTable";
-
 import { motion } from 'framer-motion'
+import MainCustomArrow from "./etc/MainCustomArrow";
+
 
 const Home = () => {
 
@@ -35,13 +35,13 @@ const Home = () => {
         speed: 700,
         slidesToShow: 3,
         slidesToScroll: 3,
-        nextArrow: <CustomArrow icon="./imgs/rightarrow.png" className={"slick-next"}/>,
-        prevArrow: <CustomArrow icon="./imgs/leftarrow.png" className={"slick-prev"}/>
+        nextArrow: <MainCustomArrow icon="./imgs/rightarrow.png" className="slick-next" />,
+        prevArrow: <MainCustomArrow icon="./imgs/leftarrow.png" className="slick-prev" />
         
       };
 
     return(
-        <motion.div
+        <motion.div className="home-container"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -49,22 +49,22 @@ const Home = () => {
         <div id="hompage">
 
         <div id="mainthum_slide">
-            <Slider {...settings} className="main_slider">
-                {games.map((game) => (
-                <div id="main_content">
-                <div className="main_thum" key={game.no}>
-                    <Link to={`/${game.href}`}>
-                        <img src={`./imgs/${game.src}`} alt={`${game.name}`} className="mimgs"/>
-                        <div className="overlay">
-                            <h3>{game.name}</h3>
-                            <p>{game.info}</p>
-                        </div>
-                    </Link>
+                    <Slider {...settings} className="main_slider">
+                        {games.map((game) => (
+                            <div id="main_content" key={game.no}>
+                                <div className="main_thum">
+                                    <Link to={`/${game.href}`}>
+                                        <img src={`./imgs/${game.src}`} alt={game.name} className="mimgs" />
+                                        <div className="main_overlay">
+                                            <h3>{game.name}</h3>
+                                            <p>{game.info}</p>
+                                        </div>
+                                    </Link>
+                                </div>
+                            </div>
+                        ))}
+                    </Slider>
                 </div>
-                </div>
-            ))}
-            </Slider>
-        </div>
         
             <div className="game_table">
                 <GameTable />

@@ -296,6 +296,6 @@
     transform: scale(1.15) !important; 
 }
 
-.detail .slick-prev,.detail .slick-next {
+.detail .slick-prev, .detail .slick-next {
     display: none !important;
 }
