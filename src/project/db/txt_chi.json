@@ -1,6 +1,7 @@
 {
     "popularGames": "热门游戏",
     "freeGames": "免费游戏",
+    "freePlayGame":"免费游戏",
     "horrorGames": "恐怖游戏",
     "simulation": "模拟游戏",
     "category": "分类",
@@ -84,6 +85,7 @@
     "infoModifiy":"修改信息",
     "cannotChange":"无法更改",  
     "reallySiginOut":"您真的要取消会员资格吗？",
+    "deleteSuccess":"会员退会已完成",
     "cancelSiginOut":"您的会员注销请求已被取消。",
     "modifyMyInfo":"修改我的信息",
     "singOut":"会员注销",

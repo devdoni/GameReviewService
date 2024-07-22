@@ -29,6 +29,7 @@ const  MyReviewList = (langFileName) => {
     const [sortOrder, setSortOrder] = useState('dateDesc'); // 기본 정렬은 최신 작성순
 
     useEffect(() => {
+        if (!getProdFlag()) console.log('[Myinfo] useEffect()');
 
         if (langFileName === 'kor') {
             setLang(languageData.kor);
@@ -44,9 +45,6 @@ const  MyReviewList = (langFileName) => {
 
         }
 
-        if (!getProdFlag()) {
-            console.log('[Myinfo] useEffect()');
-        }
         if (getLoginedSessionId() === '') {
             alert(lang.thisServiceRequiresLogin);
             navigate('/signin');
@@ -62,7 +60,7 @@ const  MyReviewList = (langFileName) => {
         const sessionId = getLoginedSessionId();
         const myReviews = getMyReviewDB(sessionId);
 
-        console.log('Fetched myReviews:', myReviews); // 데이터가 제대로 들어오는지 확인
+        if (!getProdFlag()) console.log('Fetched myReviews:', myReviews); // 데이터가 제대로 들어오는지 확인
 
         if (!myReviews) {
             setMyReview([]);
@@ -83,10 +81,9 @@ const  MyReviewList = (langFileName) => {
 
     // Handler 
     const deleteBtnClickHandler = (no) => {
-        console.log('[MyReviewList] deleteBtnClickHandler()');
+        if (!getProdFlag()) console.log('[MyReviewList] deleteBtnClickHandler()');
         const reviewDelete = window.confirm(lang.wantDelete);
         if (reviewDelete) {
-            if (!getProdFlag()) console.log("참입니다");
             let deleteMyReviewDB = getMyReviewDB(getLoginedSessionId());
 
             delete deleteMyReviewDB[`${no}`];
@@ -97,13 +94,12 @@ const  MyReviewList = (langFileName) => {
             setFixFlag((prev) => !prev);
 
         } else {
-            if (!getProdFlag()) console.log("거짓입니다");
             alert(lang.cancelDelete);
         }
     };
 
     const editBtnClickHandler = (review) => {
-        console.log('[MyReviewList] editBtnClickHandler()');
+        if (!getProdFlag()) console.log('[MyReviewList] editBtnClickHandler()');
         setEditingReview({ ...review }); 
         setModalIsOpen(true); 
     };
@@ -233,7 +229,7 @@ const  MyReviewList = (langFileName) => {
                                 ...editingReview,
                                 star: rating
                             })}
-                            size={20} // 별 크기를 줄임
+                            size={20} 
                         />
                         <div className="button-group">
                             <button className="save-button" onClick={() => saveEditHandler(editingReview.no)}>{lang.save}</button>

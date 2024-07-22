@@ -22,6 +22,8 @@ const ReviewWrite = ({ gameName, setWriteFlag, no, gameSrc, gameHref,langFileNam
 
     useEffect(() => {
 
+        if (!getProdFlag()) console.log('[ReviewWrite] useEffect()'); 
+
         if (langFileName === 'kor') {
             setLang(languageData.kor);
 
@@ -39,7 +41,7 @@ const ReviewWrite = ({ gameName, setWriteFlag, no, gameSrc, gameHref,langFileNam
         if (getLoginedSessionId() === '') {
             return;
         }
-        console.log('useEffect called'); // useEffect 호출 확인
+
         const myInfo = getMyInfo(getLoginedSessionId());
         setCurrentNick(myInfo.uNick);
     }, [langFileName]);

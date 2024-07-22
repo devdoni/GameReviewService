@@ -25,7 +25,8 @@ const Myinfo = ({setIsLogined, isLogined,langFileName}) => {
     const navigate = useNavigate();
     
     useEffect(() => {
-
+        if(!getProdFlag())console.log('[Myinfo] useEffect()'); 
+        
         if (langFileName === 'kor') {
             setLang(languageData.kor);
 
@@ -40,7 +41,6 @@ const Myinfo = ({setIsLogined, isLogined,langFileName}) => {
 
         }
 
-        if(!getProdFlag())console.log('[Myinfo] useEffect()'); 
         if(getLoginedSessionId() === '') {
             alert(lang.thisServiceRequiresLogin);
             navigate('/signin');
@@ -57,11 +57,11 @@ const Myinfo = ({setIsLogined, isLogined,langFileName}) => {
     const deleteBtnHandler = () => {
         if(!getProdFlag()) console.log('[MyInfo] deleteBtnHandler()');
 
-        if (window.confirm('')) {
+        if (window.confirm(lang.reallySiginOut)) {
             
             deleteUserDB(getLoginedSessionId());
 
-            alert(lang.reallySiginOut);
+            alert(lang.deleteSuccess);
 
             setLoginedSessionId();
             setIsLogined(false);

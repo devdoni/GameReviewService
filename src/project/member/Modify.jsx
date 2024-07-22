@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { getDateTime, getMyInfo, getProdFlag, getUserDB, getUserReviewDB, modNickDuplicateCheck, nickNameDuplicateCheck, setMyInfo, setUserDB, setUserReviewDB, userIdCheck, usermailCheck, userNameCheck, userNickNameCheck, userPhoneCheck, userPwCheck } from "../utils/utils";
+import { getDateTime, getMyInfo, getProdFlag, modNickDuplicateCheck, setMyInfo, usermailCheck, userNickNameCheck, userPhoneCheck, userPwCheck } from "../utils/utils";
 import { Link, useNavigate } from "react-router-dom";
-import { getLoginedSessionId, setLoginedSessionId } from "../utils/session";
+import { getLoginedSessionId} from "../utils/session";
 import '../css/index.css';
 import txt_kor from '../db/txt_kor.json';
 import txt_eng from '../db/txt_eng.json';

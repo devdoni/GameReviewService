@@ -84,12 +84,11 @@ div > button.morebtn_right:hover {
 
 .home-container .slick-dots.custom-dots {
     position: relative;
-    bottom: px; 
     width: 100%;
     display: flex;
     justify-content: center;
     padding: 0;
-    margin: 0;
+    bottom: 40px;
     list-style: none;
     gap: 5px; 
 }

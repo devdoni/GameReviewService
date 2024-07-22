@@ -6,6 +6,7 @@ import txt_kor from '../db/txt_kor.json';
 import txt_eng from '../db/txt_eng.json';
 import txt_chi from '../db/txt_chi.json';
 import { motion } from 'framer-motion';
+import { getProdFlag } from "../utils/utils";
 
 
 const Genre = ({langFileName}) => {
@@ -53,7 +54,7 @@ const Genre = ({langFileName}) => {
     };
 
     useEffect(() => {
-        console.log('[Category] useEffect()');
+        if(!getProdFlag()) console.log('[Genre] useEffect()');
 
         for (let key in genreMap) {
             genreMap[key] = [];
@@ -73,9 +74,9 @@ const Genre = ({langFileName}) => {
         const selectedGenre = genreKeyMap[genre];
         if (selectedGenre) {
             setCurrentGameList(genreMap[selectedGenre]);
-            console.log(`${selectedGenre} games: `, genreMap[selectedGenre]);
+            if(!getProdFlag()) console.log(`${selectedGenre} games: `, genreMap[selectedGenre]);
         } else {
-            console.log('Invalid genre:', genre);
+            if(!getProdFlag()) console.log('Invalid genre:', genre);
         }
 
         if (langFileName === 'kor') {

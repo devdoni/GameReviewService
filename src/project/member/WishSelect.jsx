@@ -22,6 +22,7 @@ const WishSelect = ({ no, gameName, setWriteFlag, writeFlag, gameHref, gameSrc,l
     }
 
     useEffect(() => {
+        if (!getProdFlag()) console.log('[Wish] useEffect()');
 
         if (langFileName === 'kor') {
             setLang(languageData.kor);
@@ -37,8 +38,6 @@ const WishSelect = ({ no, gameName, setWriteFlag, writeFlag, gameHref, gameSrc,l
 
         }
 
-        if (!getProdFlag()) console.log('[Wish] useEffect()');
-        console.log('gamename ==>', gameName);
         const sessionId = getLoginedSessionId();
 
         setSessionID(sessionId);

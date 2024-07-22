@@ -53,7 +53,6 @@ const WishList = ({isLogined,langFileName}) => {
         let myWish = getMyWishList(getLoginedSessionId());
         setMyWishList(myWish);
 
-        console.log('mywishList==>',myWish );
     }, [langFileName]);
     // 로그인이 되어있지 않았을 경우 렌더링 하지 않음
     if (!isLogined) {

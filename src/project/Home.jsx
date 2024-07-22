@@ -11,6 +11,7 @@ import txt_kor from './db/txt_kor.json';
 import txt_eng from './db/txt_eng.json';
 import txt_chi from './db/txt_chi.json';
 import MainCustomArrow from "./etc/MainCustomArrow";
+import { getProdFlag } from "./utils/utils";
 
 const Home = ({ langFileName}) => {
     
@@ -26,10 +27,10 @@ const Home = ({ langFileName}) => {
     }
 
     useEffect(() => {
+      if(!getProdFlag()) console.log('[Home] useEfect()');
         const getData = () => {
             setGames(MainGames);
             setPopGames(popularDB);
-            console.log('data ==>',MainGames,popularDB);
         };
         getData();
 
@@ -62,43 +63,45 @@ const Home = ({ langFileName}) => {
         
       };
 
-    return(
+      return (
         <motion.div className="home-container"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        <div id="hompage">
-
-        <div id="mainthum_slide">
-                    <Slider {...settings} className="main_slider">
-                        {games.map((game) => (
-                            <div id="main_content" key={game.no}>
-                                <div className="main_thum">
-                                    <Link to={`/${game.href}`}>
-                                        <img src={`./imgs/${game.src}`} alt={game.name} className="mimgs" />
-                                        <div className="main_overlay">
-                                            <h3>{game.name}</h3>
-                                            <p>{game.info}</p>
-                                        </div>
-                                    </Link>
-                                </div>
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          <div id="hompage">
+            <div className="main-slider-container">
+              <div id="mainthum_slide">
+                <div className="inner-border">
+                  <Slider {...settings} className="main_slider">
+                    {games.map((game) => (
+                      <div id="main_content" key={game.no}>
+                        <div className="main_thum">
+                          <Link to={`/${game.href}`}>
+                            <img src={`./imgs/${game.src}`} alt={game.name} className="mimgs" />
+                            <div className="main_overlay">
+                              <h3>{game.name}</h3>
+                              <p>{game.info}</p>
                             </div>
-                        ))}
-                    </Slider>
+                          </Link>
+                        </div>
+                      </div>
+                    ))}
+                  </Slider>
                 </div>
-        
+              </div>
+            </div>
+    
             <div className="game_table">
-                <GameTable langFileName={langFileName}/>
+              <GameTable langFileName={langFileName} />
             </div>
             <div className="categorybox">
-                <h2>{lang.browseByCategory}</h2>
-                <CategorySlideView />
+              <h2>{lang.browseByCategory}</h2>
+              <CategorySlideView />
             </div>
-            
-        </div>
+          </div>
         </motion.div>
-    );
-}
+      );
+    }
 
 export default Home;

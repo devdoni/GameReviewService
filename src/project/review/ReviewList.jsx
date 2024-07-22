@@ -42,7 +42,7 @@ const ReviewList = ({ gameName, writeFlag, no,langFileName}) => {
 
         }
 
-        console.log('[ReviewList] useEffect()');
+        if (!getProdFlag()) console.log('[ReviewList] useEffect()');
         setData();
         const sessionId = getLoginedSessionId();
         if (sessionId) {
@@ -86,15 +86,15 @@ const ReviewList = ({ gameName, writeFlag, no,langFileName}) => {
     };
 
     useEffect(() => {
-        console.log(reviews);
+        if (!getProdFlag()) console.log('[ReviewList] reviews useEffect()');
     }, [reviews]);
 
     useEffect(() => {
-        console.log(editingReview);
+        if (!getProdFlag()) console.log('[ReviewList] editingReview useEffect()');
     }, [editingReview]);
 
     const editBtnClickHandler = (review) => {
-        console.log('[ReviewList] editBtnClickHandler()');
+        if (!getProdFlag()) console.log('[ReviewList] editBtnClickHandler()');
         setEditingReview({ ...review });
         setModalIsOpen(true);
     };
@@ -123,10 +123,11 @@ const ReviewList = ({ gameName, writeFlag, no,langFileName}) => {
     };
 
     const deleteBtnClickHandler = (reviewNo) => {
-        console.log('[ReviewList] deleteBtnClickHandler()');
+        if (!getProdFlag()) console.log('[ReviewList] deleteBtnClickHandler()');
+
         const reviewDelete = window.confirm(lang.wantDelete);
+
         if (reviewDelete) {
-            if (!getProdFlag()) console.log("참입니다");
             let deleteMyReviewDB = getMyReviewDB(getLoginedSessionId());
 
             delete deleteMyReviewDB[`${reviewNo}`];
@@ -136,7 +137,6 @@ const ReviewList = ({ gameName, writeFlag, no,langFileName}) => {
 
             setModifying((prev) => !prev);
         } else {
-            if (!getProdFlag()) console.log("거짓입니다");
             alert(lang.cancelDelete);
         }
     };

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import txt_kor from '../db/txt_kor.json';
 import txt_eng from '../db/txt_eng.json';
 import txt_chi from '../db/txt_chi.json';
+import { getProdFlag } from "../utils/utils";
 
 const CategorySelect = ({langFileName}) => {
     const [lang, setLang] = useState(txt_kor);
@@ -17,7 +18,7 @@ const CategorySelect = ({langFileName}) => {
     }
        //hook
     useEffect(() => {
-
+        if(!getProdFlag()) console.log('[CategorySelect] useEffect()')
         if (langFileName === 'kor') {
             setLang(languageData.kor);
 

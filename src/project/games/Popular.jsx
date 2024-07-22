@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import txt_kor from '../db/txt_kor.json';
 import txt_eng from '../db/txt_eng.json';
 import txt_chi from '../db/txt_chi.json';
+import { getProdFlag } from "../utils/utils";
 
 const Popular = ({langFileName}) => {
 
@@ -21,8 +22,7 @@ const Popular = ({langFileName}) => {
     }
 
     useEffect(() => {
-        console.log('useEffect()');
-        // console.log('popularDB: ', popularDB);
+        if(!getProdFlag()) console.log('[Popular] useEffect()');
         setPopularArr(popularDB);
 
         if (langFileName === 'kor') {

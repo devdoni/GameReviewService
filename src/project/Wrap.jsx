@@ -20,6 +20,7 @@ import MyReviewList from "./review/MyReviewList";
 import TermsOfService from "./etc/TermsOfService";
 import PrivacyPolicy from "./etc/PrivacyPolicy";
 import CopyrightPolicy from "./etc/CopyrightPolicy";
+import { getProdFlag } from "./utils/utils";
 
 
 const Wrap = () => {
@@ -29,8 +30,8 @@ const Wrap = () => {
     const [langFileName, setLangFileName] = useState('kor');
 
     useEffect(() => {
-      console.log('[Wrap] useEffect()');
-      console.log('[Wrap] langFileName: ', langFileName);
+      if(!getProdFlag()) console.log('[Wrap] useEffect()');
+      if(!getProdFlag()) console.log('[Wrap] langFileName: ', langFileName);
 
     }, [langFileName]);
 

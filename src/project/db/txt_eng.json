@@ -1,6 +1,7 @@
 {
     "popularGames": "Popular Games",
     "freeGames": "Free Games",
+    "freePlayGame": "Free Games",
     "horrorGames": "Horror Games",
     "simulation": "Simulation",
     "category": "Category",
@@ -84,6 +85,7 @@
     "infoModifiy":"Modify information",
     "cannotChange":"Cannot be changed",  
     "reallySiginOut":"Do you really want to cancel your membership?",
+    "deleteSuccess":"Membership withdrawal has been completed",
     "cancelSiginOut":"Your membership withdrawal request has been cancelled",
     "modifyMyInfo":"Modify My Info",
     "singOut":"Cancel membership",

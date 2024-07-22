@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import '../css/common.css';
 import '../css/detail.css';
@@ -13,6 +13,7 @@ import WishSelect from "../member/WishSelect";
 import txt_kor from '../db/txt_kor.json';
 import txt_eng from '../db/txt_eng.json';
 import txt_chi from '../db/txt_chi.json';
+import { getProdFlag } from "../utils/utils";
 
 const Detail = ({langFileName}) => {
 
@@ -29,7 +30,7 @@ const Detail = ({langFileName}) => {
 
 
     useEffect(() => {
-        console.log('[Detail] useEffect()');
+        if(!getProdFlag()) console.log('[Detail] useEffect()');
 
         if (langFileName === 'kor') {
             setPopularTargetObj(popularDB_kor.find(p => p.no === parseInt(no)));
