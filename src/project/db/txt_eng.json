@@ -120,6 +120,7 @@
     "cancel":"cancel",
     "alreadyDeleted":"Review deletion has been completed",
     "writtenDay":"Written on:",
+    "writeReview":"작성하기",
     "plsWriteReview":"Please enter your rating or review",
     "alreadyWriteReview":"You have already written a review for this game",
     "modifyOrDelete":"Please modify or delete before proceeding.",

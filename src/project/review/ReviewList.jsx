@@ -17,7 +17,17 @@ const ReviewList = ({ gameName, writeFlag, no,langFileName}) => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [sortOrder, setSortOrder] = useState('dateDesc'); // 기본 정렬은 최신 작성순
 
-    const getUserReviewDB = () => reviewData;
+    // 더미 데이터와 실제 유저 리뷰 데이터를 모두 포함하도록 수정
+    const getUserReviews = () => {
+        const dummyData = reviewData;  // 더미 데이터
+        const actualData = getUserReviewDB();  // 실제 유저 리뷰 데이터
+        
+        // 두 데이터를 병합
+        return {
+            ...dummyData,
+            ...actualData
+        };
+    };
 
     const [lang, setLang] = useState(txt_kor);
 
@@ -25,21 +35,19 @@ const ReviewList = ({ gameName, writeFlag, no,langFileName}) => {
         kor: txt_kor,
         eng: txt_eng,
         chi: txt_chi,
-    }
+    };
 
     useEffect(() => {
-        if (langFileName === 'kor') {
-            setLang(languageData.kor);
-
-        } else if (langFileName === 'eng') {
-            setLang(languageData.eng);
-
-        } else if (langFileName === 'chi') {
-            setLang(languageData.chi);
-
-        } else {    
-            setLang(languageData.kor);
-
+        switch(langFileName) {
+            case 'eng':
+                setLang(languageData.eng);
+                break;
+            case 'chi':
+                setLang(languageData.chi);
+                break;
+            default:
+                setLang(languageData.kor);
+                break;
         }
 
         if (!getProdFlag()) console.log('[ReviewList] useEffect()');
@@ -48,11 +56,10 @@ const ReviewList = ({ gameName, writeFlag, no,langFileName}) => {
         if (sessionId) {
             setLoggedInUserId(sessionId);
         }
-    }, [writeFlag, gameName, modifying,langFileName]);
-    
+    }, [writeFlag, gameName, modifying, langFileName]);
 
     const setData = () => {
-        const userReviewDB = getUserReviewDB();
+        const userReviewDB = getUserReviews();
 
         if (!userReviewDB) {
             setReviews([]);
@@ -81,6 +88,9 @@ const ReviewList = ({ gameName, writeFlag, no,langFileName}) => {
 
         // 기본 정렬 (최신 작성순)
         allReviews.sort((a, b) => new Date(b.regDate) - new Date(a.regDate));
+        
+        // Debugging log
+        console.log('All Reviews:', allReviews);
 
         setReviews(allReviews);
     };
@@ -109,6 +119,10 @@ const ReviewList = ({ gameName, writeFlag, no,langFileName}) => {
             star: editingReview.star,
             regDate: getDateTime()
         };
+
+        // Debugging log
+        console.log('Review saved:', updateReviewDB);
+
         alert(lang.reviewModified);
         setMyReviewDB(loggedInUserId, updateReviewDB);
         setEditingReview(null);

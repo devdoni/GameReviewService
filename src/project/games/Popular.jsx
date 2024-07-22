@@ -75,7 +75,7 @@ const Popular = ({langFileName}) => {
                             </Link>
                         </div>
                         <div className="title">{popular['Name']}</div>
-                        <div className="price">{popular['Price']}원</div>
+                        <div className="price">{popular.Price === '무료' ? popular.Price : `${popular.Price}원`}</div>
                         <div className="discount">{popular['Discount']}</div>
                     </div>
                 )
