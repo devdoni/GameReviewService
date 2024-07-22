@@ -3,6 +3,7 @@ import { getDateTime, getMyInfo, getProdFlag, getUserDB, getUserReviewDB, modNic
 import { Link, useNavigate } from "react-router-dom";
 import { getLoginedSessionId, setLoginedSessionId } from "../utils/session";
 import '../css/index.css';
+import { motion } from 'framer-motion'
 
 const Modify = ({setIsLogined, isLogined }) => {
 
@@ -156,6 +157,11 @@ const Modify = ({setIsLogined, isLogined }) => {
 
 
     return (
+        <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
         <div id="modify_wrap">
             <div className="modify">
                 <label htmlFor="input_id">아이디&nbsp;(변경불가)</label>
@@ -187,6 +193,7 @@ const Modify = ({setIsLogined, isLogined }) => {
                 <input className="basic_btn" type="button" onClick={modifyBtnHandler} value="정보수정" />
             </div>
         </div>
+        </motion.div>
     );
 }
 

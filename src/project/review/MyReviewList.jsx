@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import styles from '../css/myreview.module.css';
 import StarRating from "./StarRating";
+import { motion } from 'framer-motion'
 
 const  MyReviewList = () => {
     // Hook
@@ -124,6 +125,10 @@ const  MyReviewList = () => {
     };
 
     return (
+        <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}>
         <div className={styles.myreview_wrap}>
             <div className={styles.myreview_title}>
                 <span>{currentNick}&nbsp;님의 리뷰 목록</span>
@@ -212,6 +217,7 @@ const  MyReviewList = () => {
                 </div>
             )}
         </div>
+        </motion.div>
     );
 }
 export default MyReviewList;
