@@ -21,6 +21,7 @@ import TermsOfService from "./etc/TermsOfService";
 import PrivacyPolicy from "./etc/PrivacyPolicy";
 import CopyrightPolicy from "./etc/CopyrightPolicy";
 import { getProdFlag } from "./utils/utils";
+import TopButton from "./etc/TopButton";
 
 
 const Wrap = () => {
@@ -60,6 +61,7 @@ const Wrap = () => {
                     <Route path='/*' element={<NG />} />
                   </Routes> 
                 </AnimatePresence>
+                <TopButton />
               <Footer langFileName={langFileName} />
             </div>
           </BrowserRouter>

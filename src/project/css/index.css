@@ -53,7 +53,6 @@ div.background {
     position: absolute;
     top: 45px;
     width: 150px;
-    border: 1px solid #C4C4C4;
     box-sizing: border-box;
     border-radius: 6px;
     padding: 7px 7px;
@@ -62,7 +61,14 @@ div.background {
     font-weight: 400;
     font-size: 14px;
     line-height: 16px;
+    background-color: #282c34;
+    color: #ffffff; 
+    transition: background-color 0.3s ease, color 0.3s ease; 
 }
+#wrap > div.menubar > ul > li select:hover {
+    background-color: #3b3f47; 
+    color: #ffffff; 
+  }
 /* Menubar CSS END */
 
 
@@ -585,3 +591,30 @@ div.background {
     color: #d3d3d3;
 }
 /* CopyRight CSS END*/
+
+
+/* TOP BTN CSS START*/
+.top-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+  }
+  
+  .scroll-to-top {
+    background-color: #282c34;
+    color: #ffffff;
+    border: none;
+    width: 50px;
+    height: 50px;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .scroll-to-top:hover {
+    background-color: #3b3f47;
+    transform: translateY(-5px);
+  }
+  /* TOP BTN CSS END */ 
