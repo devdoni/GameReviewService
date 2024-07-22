@@ -25,15 +25,15 @@ const Free = () => {
 
 const settings = {
     dots: true,
-    dotsClass: 'slick-dots custom-dots',
-    infinite: true,
+    dotsClass: 'free-slick-dots custom-dots',
+    infinite: false,
     autoplay:true,
     autoplaySpeed: 4000,
     speed: 700,
     slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <CustomArrow icon="./imgs/rightarrow.png" className={"slick-next"}/>,
-    prevArrow: <CustomArrow icon="./imgs/leftarrow.png" className={"slick-prev"}/>
+    nextArrow: <CustomArrow icon="./imgs/rightarrow.png" className={"free-slick-next"}/>,
+    prevArrow: <CustomArrow icon="./imgs/leftarrow.png" className={"free-slick-prev"}/>
     
 
   };
@@ -69,13 +69,13 @@ return(
                 <div id="free_content">
                 <div className="free_thum" key={game.no}>
                     <Link to={`/${game.href}`}>
-                    <div className="image-info-container">
+                    <div className="free-image-info-container">
                         <img src={`./imgs/${game.src}`} alt={`${game.name}`} className="fimgs"/>
-                        <div className="game_info">
+                        <div className="free-game_info">
                             <h3>{game.name}</h3>
                             <p>{game.info}</p>
                         </div>
-                        </div>
+                    </div>
                     </Link>
                 </div>
                 </div>
@@ -87,11 +87,8 @@ return(
             <div className="free-header">
                 무료 게임
             </div>
-        <div className="sub-header">
-            {/* <div className="sub-header-item sub-rank">순위</div> */}
-            <div className="sub-header-item sub-item">게임 이름</div>
-            {/* <div className="sub-header-item sub-price">가격</div>
-            <div className="sub-header-item sub-dicount">할인 정보</div> */}
+        <div className="free-sub-header">
+            <div className="free-sub-header-item sub-item">게임 이름</div>
         </div>
         <div className="items">
         {
@@ -105,10 +102,7 @@ return(
                             </Link>
                         </div>
                         <div className="title">{popular['Name']}</div>
-                        <button className="wish-button">찜하기</button>
                         <button className="free-play">무료 플레이</button>
-                        {/* <div className="price">{popular['Price']}원</div>
-                        <div className="discount">{popular['Discount']}</div> */}
                     </div>
                 )
             })
