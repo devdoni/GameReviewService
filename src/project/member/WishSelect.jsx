@@ -76,11 +76,11 @@ const WishSelect = ({ no, gameName, setWriteFlag, writeFlag, gameHref, gameSrc,l
             if (myWishList.hasOwnProperty(gameKey)) {
                 delete myWishList[gameKey];
                 setUserWishListDB(userWishInfos);
-                alert({gameName}, lang.removedFromWishlist);
+                alert(`${gameName} ${lang.removedFromWishlist}`);
                 setIsWish(false);
             }
         } else {
-            if (window.confirm(`${gameName}${lang.wantAdd}`)) {
+            if (window.confirm(`${gameName} ${lang.wantAdd}`)) {
                 myWishList[gameKey] = {
                     game: gameName,
                     no: no,

@@ -184,6 +184,7 @@
     text-align: center;
     background-color: #3b5998; 
     padding: 20px;
+    height: 80px;
     border-radius: 8px;
     transition: transform 0.3s ease, background-color 0.3s ease;
     flex: 1;

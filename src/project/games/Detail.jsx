@@ -147,8 +147,8 @@ const Detail = ({langFileName}) => {
                 </div>
             </div>
             
-            <ReviewWrite gameName={popularTargetObj.Name} no={no} gameSrc={popularTargetObj['thumnail-link']} setWriteFlag={setWriteFlag} writeFlag={writeFlag} />
-            <ReviewList gameName={popularTargetObj.Name} no={no} setWriteFlag={setWriteFlag} writeFlag={writeFlag} />
+            <ReviewWrite gameName={popularTargetObj.Name} langFileName={langFileName} no={no} gameSrc={popularTargetObj['thumnail-link']} setWriteFlag={setWriteFlag} writeFlag={writeFlag} />
+            <ReviewList gameName={popularTargetObj.Name} langFileName={langFileName} no={no} setWriteFlag={setWriteFlag} writeFlag={writeFlag} />
         </motion.div>
     );
 };

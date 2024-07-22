@@ -203,7 +203,7 @@ const ReviewList = ({ gameName, writeFlag, no,langFileName}) => {
                         {loggedInUserId === review.user && (
                             <div className="review_actions">
                                 <button className="edit-button" onClick={() => editBtnClickHandler(review)}>{lang.modify}</button>
-                                <button className="delete-button" onClick={() => deleteBtnClickHandler(review)}>{lang.delete}</button>
+                                <button className="delete-button" onClick={() => deleteBtnClickHandler(no)}>{lang.delete}</button>
                             </div>
                         )}
                     </div>
