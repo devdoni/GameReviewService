@@ -67,17 +67,19 @@ const Popular = ({langFileName}) => {
         {
             popularArr.map((popular, idx) => {
                 return (
+                    <Link to={`/detail/${popular['no']}`} onClick={linkClickHandler} id="item_Link">
                     <div className="item" key={idx}>
                         <div className="rank">{idx + 1}</div>
                         <div className="thumbnail">
-                            <Link to={`/detail/${popular['no']}`} onClick={linkClickHandler}>
+
                                 <img src={popular['thumnail-link']} alt={popular['title']} />
-                            </Link>
+                            
                         </div>
                         <div className="title">{popular['Name']}</div>
                         <div className="price">{popular.Price === '무료' ? popular.Price : `${popular.Price}원`}</div>
                         <div className="discount">{popular['Discount']}</div>
                     </div>
+                    </Link>
                 )
             })
         }

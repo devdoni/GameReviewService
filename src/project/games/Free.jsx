@@ -16,7 +16,6 @@ import { getProdFlag } from "../utils/utils";
 const Free = ({langFileName}) => {
 
     const [games, setGames] = useState([]);
-    const [popGames, setPopGames] = useState([]);
     const [lang, setLang] = useState(txt_kor);    
     const languageData = {
         kor: txt_kor,
@@ -36,60 +35,57 @@ const Free = ({langFileName}) => {
             setLang(languageData.kor);
         }
 
-        const getData = () => {
-            setGames(MainGames);
-            setPopGames(popularDB);
-            
-        };
+
         getData();
     }, [langFileName]);
 
-const settings = {
-    dots: true,
-    infinite: false,
-    autoplay:true,
-    autoplaySpeed: 4000,
-    speed: 700,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    centerMode: true, // 중앙 정렬 모드 활성화
-    centerPadding: '0px', // 중앙 정렬 시 여백을 0으로 설정
-    nextArrow: <MainCustomArrow icon="./imgs/rightarrow.png" className="custom-arrow" />,
-    prevArrow: <MainCustomArrow icon="./imgs/leftarrow.png" className="custom-arrow" />,
-    appendDots: dots => (
-        <div style={{ display: "flex", justifyContent: "center", bottom: "10px" }}>
-          <ul style={{ margin: "0px", padding: "0", listStyle: "none", display: "flex", justifyContent: "center" }}>{dots}</ul>
-        </div>
-      ),
-      customPaging: i => (
-        <button
-          style={{
-            width: "20px",
-            height: "10px",
-            borderRadius: "3px",
-            background: "rgba(255, 255, 255, 0.5)",
-            border: "none",
-            cursor: "pointer",
-            padding: "0"
-          }}
-          onMouseEnter={e => e.currentTarget.style.background = "rgba(255, 255, 255, 1)"}
-          onMouseLeave={e => e.currentTarget.classList.contains("slick-active") ? e.currentTarget.style.background = "rgba(255, 255, 255, 1)" : e.currentTarget.style.background = "rgba(255, 255, 255, 0.5)"}
-        />
-      )
-    };
     const [popularArr, setPopularArr] = useState([]);
 
-    useEffect(() => {
-        if (!getProdFlag()) console.log('[Free] useEffect()');
+    const getData = () => {
+        setGames(MainGames);
+        setPopularArr(popularDB.filter(game => game.Price === '무료'))
+    };
 
-        console.log('popularDB: ', popularDB);
-        setPopularArr(popularDB);
-
-    }, []);
-
+    
+    
     const linkClickHandler = () => {
         window.scroll({top: 0, left: 0, behavior: 'smooth'});
     }
+
+
+    const settings = {
+        dots: true,
+        infinite: false,
+        autoplay:true,
+        autoplaySpeed: 4000,
+        speed: 700,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        centerMode: true, 
+        centerPadding: '0px',
+        nextArrow: <MainCustomArrow icon="./imgs/rightarrow.png" className="custom-arrow" />,
+        prevArrow: <MainCustomArrow icon="./imgs/leftarrow.png" className="custom-arrow" />,
+        appendDots: dots => (
+            <div style={{ display: "flex", justifyContent: "center", bottom: "10px" }}>
+              <ul style={{ margin: "0px", padding: "0", listStyle: "none", display: "flex", justifyContent: "center" }}>{dots}</ul>
+            </div>
+          ),
+          customPaging: i => (
+            <button
+              style={{
+                width: "20px",
+                height: "10px",
+                borderRadius: "3px",
+                background: "rgba(255, 255, 255, 0.5)",
+                border: "none",
+                cursor: "pointer",
+                padding: "0"
+              }}
+              onMouseEnter={e => e.currentTarget.style.background = "rgba(255, 255, 255, 1)"}
+              onMouseLeave={e => e.currentTarget.classList.contains("slick-active") ? e.currentTarget.style.background = "rgba(255, 255, 255, 1)" : e.currentTarget.style.background = "rgba(255, 255, 255, 0.5)"}
+            />
+          )
+        };
 
     
 

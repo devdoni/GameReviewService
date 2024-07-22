@@ -177,10 +177,10 @@ const ReviewList = ({ gameName, writeFlag, no,langFileName}) => {
         <div id="review_list">
             <div className="sort_buttons">
                 <select onChange={handleSort} value={sortOrder}>
-                    <option value="dateDesc">최근 작성 기준 정렬</option>
-                    <option value="dateAsc">과거 작성 기준 정렬</option>
-                    <option value="ratingDesc">별점 높은순 정렬</option>
-                    <option value="ratingAsc">별점 낮은순 정렬</option>
+                    <option value="dateDesc">{lang.sortByMostRecent}</option>
+                    <option value="dateAsc">{lang.sortByPastWriting}</option>
+                    <option value="ratingDesc">{lang.sortByHighestRating}</option>
+                    <option value="ratingAsc">{lang.sortByLowestRating}</option>
                 </select>
             </div>
             {reviews.length === 0 ? (

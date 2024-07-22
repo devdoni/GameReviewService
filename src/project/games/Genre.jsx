@@ -110,7 +110,7 @@ const Genre = ({langFileName}) => {
                         </Link>
                         <div className="game_details">
                             <h2 className="game_name">{game.Name}</h2>
-                            <p className="game_price">{game.Price ? `${game.Price}원` : '가격 정보 없음'}</p>
+                            <p className="game_price">{game.Price === '무료' ? game.Price : `${game.Price}원`}</p>
                         </div>
                     </li>
                 ))}

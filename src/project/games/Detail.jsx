@@ -15,6 +15,7 @@ import txt_eng from '../db/txt_eng.json';
 import txt_chi from '../db/txt_chi.json';
 import { getProdFlag } from "../utils/utils";
 
+
 const Detail = ({langFileName}) => {
 
     const { no } = useParams(); 
@@ -106,8 +107,8 @@ const Detail = ({langFileName}) => {
                         <div className="game_introduction"><strong>{lang.gameIntroduction} <br/></strong> {popularTargetObj.description}</div>
                         <div className="game_genre"><strong>{lang.gameGenre}</strong> {popularTargetObj.genre}</div>
                         <div className="buttons_wrapper">
-                            <Link to={popularTargetObj.href}><button className="action_button">구매 사이트 이동</button></Link>
-                            <WishSelect no={no} gameName={popularTargetObj.Name} gameHref={popularTargetObj.href} gameSrc={popularTargetObj['thumnail-link']} setWriteFlag={setWriteFlag}/>
+                            <Link to={popularTargetObj.href}><button className="action_button">{lang.goToPurchaseSite}</button></Link>
+                            <WishSelect no={no} gameName={popularTargetObj.Name} gameHref={popularTargetObj.href} gameSrc={popularTargetObj['thumnail-link']} setWriteFlag={setWriteFlag} langFileName={langFileName} />
                         </div>
                     </div>
    
@@ -115,32 +116,32 @@ const Detail = ({langFileName}) => {
             </div>       
             <div className="game_detail_info">
                 <div className="section">
-                    <p>{popularTargetObj.Name}의 상세한 정보</p>
+                    <p>{popularTargetObj.Name}{lang.gameDetail}</p>
                     {popularTargetObj.detail_info}
                 </div>
                 <div className="highlight-container">
                     <div className="highlight">
                         <div>
-                            <span>평균 별점</span>
+                            <span>{lang.averageRating}</span>
                             <span className="star-rating">⭐ {popularTargetObj.score}</span>
                         </div>
                         <div>
-                            <span>할인</span>
+                            <span>{lang.discountInformation}</span>
                             <span>{popularTargetObj.Discount}</span>
                         </div>
                         <div>
-                            <span>가격</span>
+                            <span>{lang.price}</span>
                             <span>{popularTargetObj.Price}</span>
                         </div>
                     </div>
                     <div className="game_recom">
-                        <p>게임 권장사양</p>
+                        <p>{lang.recommendedSystem}</p>
                         <div>
-                            운영체제: {popularTargetObj.operation_system}<br/>
-                            프로세서: {popularTargetObj.processor}<br/>
-                            메모리: {popularTargetObj.memory}<br/>
-                            그래픽: {popularTargetObj.graphics}<br/>
-                            저장공간: {popularTargetObj.storage}
+                            {lang.OS}: {popularTargetObj.operation_system}<br/>
+                            {lang.processor}: {popularTargetObj.processor}<br/>
+                            {lang.memory}: {popularTargetObj.memory}<br/>
+                            {lang.graphics}: {popularTargetObj.graphics}<br/>
+                            {lang.storage}: {popularTargetObj.storage}
                         </div>
                     </div>
                 </div>

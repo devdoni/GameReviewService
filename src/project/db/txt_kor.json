@@ -125,6 +125,15 @@
     "alreadyWriteReview":"해당 게임에 이미 리뷰를 작성하셨습니다",
     "modifyOrDelete":"수정 하거나 삭제 후 진행해주세요.",
     "writtenDone":"작성이 완료되었습니다.",
-    "writeReviewForThisGame":"해당 게임에 대한 리뷰 작성"
+    "writeReviewForThisGame":"해당 게임에 대한 리뷰 작성",
+    "gameDetail":"의 상세한 정보",
+    "averageRating":"평균 평점",
+    "recommendedSystem":"게임 권장사양",
+    "OS":"운영체제",
+    "processor":"프로세서",
+    "memory":"메모리",
+    "graphics":"그래픽카드",
+    "storage":"저장공간"
+
 
 }

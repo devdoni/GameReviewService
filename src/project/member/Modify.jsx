@@ -185,7 +185,7 @@ const Modify = ({ isLogined,langFileName }) => {
 
 
     return (
-        <motion.div
+        <motion.div style={{height:"75vh"}}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}

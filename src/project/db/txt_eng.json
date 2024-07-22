@@ -120,12 +120,19 @@
     "cancel":"cancel",
     "alreadyDeleted":"Review deletion has been completed",
     "writtenDay":"Written on:",
-    "writeReview":"작성하기",
+    "writeReview":"Write",
     "plsWriteReview":"Please enter your rating or review",
     "alreadyWriteReview":"You have already written a review for this game",
     "modifyOrDelete":"Please modify or delete before proceeding.",
     "writtenDone":"The writing has been completed.",
-    "writeReviewForThisGame":"Write a review for this game"
-
+    "writeReviewForThisGame":"Write a review for this game",
+    "gameDetail":"information",
+    "averageRating":"Average rating",
+    "recommendedSystem":"Recommended system",
+    "OS":"OS",
+    "processor":"Processor",
+    "memory":"Memory",
+    "graphics":"Graphics",
+    "storage":"Storage"
 }
 
