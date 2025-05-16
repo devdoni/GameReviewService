@@ -18,6 +18,8 @@
 
 ![메인 페이지](./images/main-page.png)
 
+시연 동영상 https://youtu.be/kiBWWQpHalM?si=kcBIfFdNPCE0oi2i
+
 ## 🧰 기술 스택
 
 ### 🔹 Frontend
@@ -38,7 +40,6 @@
 - 이름: 신동희
 - GitHub: [@devdoni](https://github.com/devdoni)  
 - 이메일: devdoni1005@gmail.com
-
 ---
 
 ## 📌 실행 방법
